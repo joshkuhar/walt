@@ -11,7 +11,7 @@ var IndexRoute = router.IndexRoute;
 
 var Hello = require('./components/hello');
 var App = require('./components/app');
-var MainPage = require('./components/main/blog-post-list');
+var MainPage = require('./components/main/main-page');
 
 var Provider = require('react-redux').Provider;
 var store = require('./store');

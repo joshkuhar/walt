@@ -18,8 +18,19 @@ h1 {
     text-align: center;
     border-radius: 4px;
 }	
+
 .blog-post{}
 .blog-post-title{}
 .blog-post-category{}
 .blog-post-date{}
 .blog-post-body{}
+
+.sidebar{}
+.sidebar-header{}
+.sidebar-items{}
+.sidebar-item{
+	width: 20em;
+}
+.sidebar-item-title{}
+.sidebar-item-date{}
+.sidebar-item-content{}

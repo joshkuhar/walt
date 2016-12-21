@@ -1,3 +1,20 @@
 .essay-field {
 
+}
+h1 {
+	width: 20em;
+	margin: auto;
+	text-align: center;
+}
+.nav-bar{
+	margin-top: 2em;
+}
+.nav-bar-item-container{
+	display: inline-block;
+    width: 20%;
+}
+.nav-bar-item {
+    border: .02em solid red;
+    text-align: center;
+    border-radius: 4px;
 }	

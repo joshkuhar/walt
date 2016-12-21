@@ -10,13 +10,14 @@ var hashHistory = router.hashHistory;
 var IndexRoute = router.IndexRoute;
 
 var Hello = require('./components/hello');
+var App = require('./components/app');
 
 var Provider = require('react-redux').Provider;
 var store = require('./store');
 
 var Routes = (
 	<Provider store={store} >
-		<Hello />
+		<App/>
 	</Provider>
 	);
 

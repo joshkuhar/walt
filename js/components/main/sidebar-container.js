@@ -1,11 +1,9 @@
 var React = require('react');
 var SidebarItems = require('./sidebar-item-list');
-var Data = require('../../mock-data');
 
 var SidebarList = function(props){
-	console.log(Data.items);
 	return(
-			<SidebarItems sidebarHeader="Hermia" sidebarItems={Data.items} />
+			<SidebarItems sidebarHeader={props.sidebarHeader} sidebarItems={props.sidebarItems} />
 		)
 };
 

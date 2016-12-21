@@ -7,11 +7,12 @@ h1 {
 	text-align: center;
 }
 .nav-bar{
-	margin-top: 2em;
+	margin: 2em;
 }
 .nav-bar-item-container{
+	width: 25%;
 	display: inline-block;
-    width: 20%;
+	margin: auto;
 }
 .nav-bar-item {
     border: .02em solid red;
@@ -32,3 +33,30 @@ h1 {
 .sidebar-item-title{}
 .sidebar-item-date{}
 .sidebar-item-content{}
+
+.login{
+	text-align: center;
+}
+.dashboard-nav-bar{
+	margin: 2em auto;
+	width: 20em;
+}
+.dashboard-nav-bar-item{
+	display: inline-block;
+	margin: .5em 1em 1em;
+	border: .02em solid red;
+	border-radius: 4px;
+}
+.blog-entry-form {
+	text-align: center;
+}
+.blog-entry-title {
+	width: 30em;
+	margin: 0 auto;
+}
+.blog-entry-body{
+	width: 30em;
+	margin: 0 auto;
+	height: 20em;
+	display: block;
+}

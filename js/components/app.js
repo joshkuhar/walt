@@ -15,8 +15,8 @@ var App = React.createClass({
 				<div>
 					<h1>Blogger's App</h1>
 					<div className="nav-bar">
-						<div className="nav-bar-item-container"><div className="nav-bar-item">First Item</div></div>
-						<div className="nav-bar-item-container"><div className="nav-bar-item">Second Item</div></div>
+						<div className="nav-bar-item-container"><div className="nav-bar-item">About</div></div>
+						<div className="nav-bar-item-container"><Link to={"/"}><div className="nav-bar-item">Home</div></Link></div>
 						<div className="nav-bar-item-container"><div className="nav-bar-item">Third Item</div></div>
 						<div className="nav-bar-item-container"><div className="nav-bar-item">Fourth Item</div></div>
 					</div>

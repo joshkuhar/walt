@@ -1,14 +1,13 @@
 var React = require('react');
-
-var Posts = require('./blog-post-list');
+var Data = require('../../mock-data');
+var Blogs = require('./blog-list-container');
 var Sidebar = require('./sidebar-container');
-
 
 var Main = function(props){
 	return (
 		<div>
-			<Posts />
-			<Sidebar />
+			<Blogs blogs={Data.items}/>
+			<Sidebar sidebarHeader="Hermia's List" sidebarItems={Data.items}/>
 		</div>
 		)
 };

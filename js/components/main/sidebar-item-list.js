@@ -5,7 +5,7 @@ var SidebarItem = require('./sidebar-item');
 
 
 var SidebarList = function(props){
-	var items = props.sidebarItems;
+	var items = props.sidebarItems; //<-- array
 	var sidebarList = [];
 	for (var item in items) {
 		sidebarList.push(
@@ -16,7 +16,6 @@ var SidebarList = function(props){
 			</div>
 		)
 	}
-	
 	return (
 		<div className="sidebar">
 			<h3 className="sidebar-header">{props.sidebarHeader}</h3>
@@ -24,7 +23,7 @@ var SidebarList = function(props){
 		</div>
 
 		)
-}
+};
 
 module.exports = SidebarList;
 
@@ -33,13 +32,8 @@ module.exports = SidebarList;
 
 
 /*
-for sidebar-item
+props for sidebar-item
 {props.sidebarItemTitle}
 {props.sidebarItemDate}
 {props.sidebarItemContent}
-
-for sidebar-list
-{props.sidebarHeader}
-{props.sidebarItems} <-- array
-
 */

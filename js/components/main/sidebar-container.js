@@ -13,13 +13,12 @@ module.exports = SidebarList;
 
 
 /*
-for sidebar-item
+props for sidebar-item
 {props.sidebarItemTitle}
 {props.sidebarItemDate}
 {props.sidebarItemContent}
 
-for sidebar-list
+props for sidebar-list
 {props.sidebarHeader}
 {props.sidebarItems} <-- array
-
 */

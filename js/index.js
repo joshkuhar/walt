@@ -21,6 +21,7 @@ var Routes = (
 		<Router history={hashHistory}>
 			<Route path="/" component={App}>
 				<IndexRoute component={MainPage} />
+				<Route path="test" component={Hello} />
 			</Route>
 		</Router>
 	</Provider>

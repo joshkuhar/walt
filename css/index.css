@@ -28,9 +28,7 @@ h1 {
 .sidebar{}
 .sidebar-header{}
 .sidebar-items{}
-.sidebar-item{
-	width: 20em;
-}
+.sidebar-item{}
 .sidebar-item-title{}
 .sidebar-item-date{}
 .sidebar-item-content{}

@@ -5,7 +5,7 @@ var actions = require('../actions/index');
 var store = require('../store');
 
 var EssayForm = React.createClass({
-	handleSubmit: function(event) {
+    handleSubmit: function(event) {
   		event.preventDefault();
   		var text = this.refs.textEntry.value;
   		console.log("I am the first", text);
@@ -40,4 +40,4 @@ var Container = connect(mapStateToProps)(EssayForm);
 module.exports = Container;
 /*
 
-    */
+*/

@@ -11,13 +11,18 @@ var IndexRoute = router.IndexRoute;
 
 var Hello = require('./components/hello');
 var App = require('./components/app');
+var MainPage = require('./components/main/blog-post-list');
 
 var Provider = require('react-redux').Provider;
 var store = require('./store');
 
 var Routes = (
 	<Provider store={store} >
-		<App/>
+		<Router history={hashHistory}>
+			<Route path="/" component={App}>
+				<IndexRoute component={MainPage} />
+			</Route>
+		</Router>
 	</Provider>
 	);
 

@@ -1,6 +1,16 @@
 var React = require('react');
-var store = require('../store');
-var connect = require('react-redux').connect;
 var router = require('react-router');
 var Link = router.Link;
-var actions = require('../actions/index');
+
+var SidebarItem = function(props) {
+	var trimmedString = props.sidebarItemContent.substring(0, 100) + "...";
+	return (
+			<div className="sidebar-item">
+				<div className="sidebar-item-title">{props.sidebarItemTitle}</div>
+				<div className="sidebar-item-date">{props.sidebarItemDate}</div>
+				<div className="sidebar-item-content">{trimmedString}</div>
+			</div>
+		)
+};
+
+module.exports = SidebarItem;

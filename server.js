@@ -6,7 +6,10 @@ var app = express();
 app.use(jsonParser); 
 var Data = require('./js/mock-data');
 
-var dataBase = [];
+var dataBase = [{color: "red"}];
+var swap = function(color){
+	dataBase[0].color = color;
+};
 
 
 
@@ -20,8 +23,18 @@ app.get('/r', function(req, res) {
 });
 app.post('/r', function(req, res){
 	dataBase.push(req.body.text)
-	res.send("I worked");
+	res.json({bang: "I worked"});
+});
+app.put('/r', function(req, res){
+	swap(req.body.color);
+	res.json(dataBase[0]);
 })
+app.delete('/r', function(req, res){
+	if(req.body.color == dataBase[0].color){
+		dataBase.splice(0,1);
+	}
+	res.json({yes: "yes"});
+});
 app.get("*", function(req, res) {
 	console.log('test');		
 	res.sendFile(path.join(__dirname, './build/index.html'));

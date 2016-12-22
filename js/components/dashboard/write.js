@@ -3,17 +3,20 @@ var ReactDOM = require('react-dom');
 var connect = require('react-redux').connect;
 var actions = require('../../actions/index');
 var store = require('../../store');
+var router = require('react-router');
+var Link = router.Link;
 
 var BlogEntry = React.createClass({
     handleSubmit: function(event) {
   		event.preventDefault();
-      var category = "Tatiana";
+      var category = "comedy";
   		var text = this.refs.textEntry.value;
       var title = this.refs.titleEntry.value;
   		console.log("I am the first", text, title);
-    	//this.props.dispatch(actions.saveText(text));
+    	this.props.dispatch(actions.postBlog(title, text));
     },
   	render: function() {
+      console.log("Bang");
     	return (
     	<div className="blog-entry-form">
         <form >

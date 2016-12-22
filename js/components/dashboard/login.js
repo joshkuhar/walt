@@ -10,10 +10,13 @@ var Login = React.createClass({
 	},
 	render: function(){
 		return(
-			<div className="login">
-				<input type="text" placeholder="username" />
-				<input type="text" placeholder="password" />
-				<button onClick={this.onClick}>submit</button>
+			<div className="login-container">
+				<h2>Login</h2>
+				<div className="login">
+					<input type="text" placeholder="username" />
+					<input type="text" placeholder="password" />
+					<button onClick={this.onClick}>submit</button>
+				</div>
 			</div>
 			)
 	}

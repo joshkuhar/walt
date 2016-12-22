@@ -6,7 +6,7 @@ var SidebarItem = function(props) {
 	var trimmedString = props.sidebarItemContent.substring(0, 100) + "...";
 	return (
 			<div className="sidebar-item">
-				<Link to={"/test"}><div className="sidebar-item-title">{props.sidebarItemTitle}</div></Link>
+				<div className="sidebar-item-title">{props.sidebarItemTitle}</div>
 				<div className="sidebar-item-date">{props.sidebarItemDate}</div>
 				<div className="sidebar-item-content">{trimmedString}</div>
 			</div>

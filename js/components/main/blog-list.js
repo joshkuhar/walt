@@ -15,7 +15,7 @@ var BlogList = function(props){
 			)
 		}
 	return (
-		<div>
+		<div className="blog-list">
 			{blogsDisplayed}
 		</div>
 		)

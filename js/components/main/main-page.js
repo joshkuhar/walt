@@ -5,9 +5,13 @@ var Sidebar = require('./sidebar-container');
 
 var Main = function(props){
 	return (
-		<div>
-			<Blogs blogs={Data.items}/>
-			<Sidebar sidebarHeader="Hermia's List" sidebarItems={Data.items}/>
+		<div className="main-parent-container">
+			<div className="child-sidebar">
+				<Sidebar sidebarHeader="Hermia's List" sidebarItems={Data.items}/>
+			</div>
+			<div className="child-blog">
+				<Blogs blogs={Data.items}/>
+			</div>
 		</div>
 		)
 };

@@ -7,9 +7,14 @@ var initialState = {
 var blogReducer = function(state, action) {
 	state = state || initialState;
 	if (action.type === actions.SAVE_TEXT) {
-		console.log(action.text);
 		return {
 			text: action.text
+		}
+	}
+	if (action.type === actions.LINE) {
+		return {
+			text: state.text,
+			line: action.line
 		}
 	}
 

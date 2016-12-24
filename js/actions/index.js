@@ -10,6 +10,16 @@ var saveText = function(text){
 exports.SAVE_TEXT = SAVE_TEXT;
 exports.saveText = saveText;
 
+var LINE = 'LINE'
+var line = function(line){
+    return {
+        type: LINE,
+        line: line
+    }
+}
+exports.LINE = LINE;
+exports.line = line;
+
 var postSuccess = function(data){
 	console.log(data);
 };

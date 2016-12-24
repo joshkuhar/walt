@@ -15,12 +15,15 @@ var DashboardNavigator = require('./components/dashboard-navigator');
 var EditList = require('./components/dashboard/edit-list-container');
 var WriteBlog = require('./components/dashboard/write-container');
 
+var Draft = require('./components/dashboard/writexxxx');
+
 var Provider = require('react-redux').Provider;
 var store = require('./store');
 
 var Routes = (
 	<Provider store={store} >
 		<Router history={hashHistory}>
+			<Route path="/draft" component={Draft} />
 			<Route path="/" component={App}>
 				<IndexRoute component={MainPage} />
 			</Route>

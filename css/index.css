@@ -1,10 +1,11 @@
-.essay-field {
 
-}
 h1 {
 	width: 20em;
 	margin: auto;
 	text-align: center;
+}
+.output{
+	white-space: pre-line;
 }
 .nav-bar{
 	margin: 2em;
@@ -18,21 +19,44 @@ h1 {
     border: .02em solid red;
     text-align: center;
     border-radius: 4px;
-}	
+}
+.main-parent-container{}
+.child-sidebar{
+	float: right;
+    width: 20em;
+    padding: 1em;
+}
+.child-blog{    
+	margin-right: 20em;
+    padding: 1em;
+}
 
-.blog-post{}
+.blog-list{}
+.blog-post{
+	width: 35em;
+    margin: 0 auto;
+}
 .blog-post-title{}
 .blog-post-category{}
 .blog-post-date{}
-.blog-post-body{}
+.blog-post-body{
+	text-align: justify;
+}
 
-.sidebar{}
+.sidebar{
+	width: 12em;
+    margin: 0 auto;
+}
 .sidebar-header{}
-.sidebar-items{}
-.sidebar-item{}
+.sidebar-item-list{}
+.sidebar-item{
+	margin-bottom: 1em;
+}
 .sidebar-item-title{}
 .sidebar-item-date{}
-.sidebar-item-content{}
+.sidebar-item-content{
+	font-size: .9em;
+}
 
 .login{
 	text-align: center;
@@ -40,25 +64,58 @@ h1 {
 .dashboard-nav-bar{
 	margin: 2em auto;
 	width: 20em;
+	margin: 0 auto;
+    width: 20em;
 }
 .dashboard-nav-bar-item{
-	display: inline-block;
-	margin: .5em 1em 1em;
-	border: .02em solid red;
-	border-radius: 4px;
+    display: inline-block;
+    margin: .5em 1em 1em;
+    border: .02em solid red;
+    border-radius: 4px;
+    width: 7.5em;
+    text-align: center;
 }
 .blog-entry-form {
-	text-align: center;
+	margin-top: 3em;
+    text-align: center;
 }
-.blog-entry-title {
+.blog-entry-large-container{
+	width: 40em;
+	margin: 0 auto;
+}
+.blog-entry-form-title{}
+.blog-entry-title-input {
 	width: 30em;
 	margin: 0 auto;
+	font-size: 1em;
+}
+.title-input-container{
+	width: auto;
+    display: inline-block;
+}
+.submit-button-container{
+	display: inline-block;
+    width: auto;
+    margin-left: 4em;
+    margin-right: -7.5em;
+    font-size: 1em;
+}
+.blog-body-header{
+	margin-top: 1em;
+	margin-bottom: .5em;
 }
 .blog-entry-body{
+	width: 37em;
+    margin: 0 auto;
+    height: 40em;
+    display: block;
+    font-size: 1em;
+}
+.textareax {
 	width: 30em;
-	margin: 0 auto;
-	height: 20em;
-	display: block;
+    margin: 0 auto;
+    height: 15em;
+    font-size: 1em;
 }
 .login-container {
 	width: 20em;
@@ -68,8 +125,77 @@ h1 {
 .blog-to-edit-list-container{}
 .blog-to-edit-list{}
 .blog-to-edit {}
-.dashboard-header{}
+.dashboard-header{
+	text-align: center;
+    margin: 0 auto;
+}
 
 .sign-out{
 	display: inline-block;
+	margin-left: 90%;
 }
+
+.RichEditor-root {
+  background: #fff;
+  border: 1px solid #ddd;
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  padding: 15px;
+}
+
+.RichEditor-editor {
+  border-top: 1px solid #ddd;
+  cursor: text;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.RichEditor-editor .public-DraftEditorPlaceholder-root,
+.RichEditor-editor .public-DraftEditor-content {
+  margin: 0 -15px -15px;
+  padding: 15px;
+}
+
+.RichEditor-editor .public-DraftEditor-content {
+  min-height: 100px;
+}
+
+.RichEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {
+  display: none;
+}
+
+.RichEditor-editor .RichEditor-blockquote {
+  border-left: 5px solid #eee;
+  color: #666;
+  font-family: 'Hoefler Text', 'Georgia', serif;
+  font-style: italic;
+  margin: 16px 0;
+  padding: 10px 20px;
+}
+
+.RichEditor-editor .public-DraftStyleDefault-pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.RichEditor-controls {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  margin-bottom: 5px;
+  user-select: none;
+}
+
+.RichEditor-styleButton {
+  color: #999;
+  cursor: pointer;
+  margin-right: 16px;
+  padding: 2px 0;
+  display: inline-block;
+}
+
+.RichEditor-activeButton {
+  color: #5890ff;
+}
+

@@ -3,7 +3,7 @@ var BlogList = require('./blog-list');
 
 var Blogs = function(props){
 	return (
-		<BlogList blogs={props.blogs} />
+			<BlogList blogs={props.blogs} />
 		)
 };
 

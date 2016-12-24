@@ -19,7 +19,7 @@ var SidebarList = function(props){
 	return (
 		<div className="sidebar">
 			<h3 className="sidebar-header">{props.sidebarHeader}</h3>
-			<div className="sidebar-items">{sidebarList}</div>
+			<div className="sidebar-item-list">{sidebarList}</div>
 		</div>
 
 		)

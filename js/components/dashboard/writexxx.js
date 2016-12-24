@@ -9,11 +9,16 @@ var Link = router.Link;
 var BlogEntry = React.createClass({
     handleSubmit: function(event) {
   		event.preventDefault();
-      var category = "comedy";
-  		var text = this.refs.textEntry.value;
-      var title = this.refs.titleEntry.value;
-  		console.log("I am the first", text, title);
-    	this.props.dispatch(actions.postBlog(title, text));
+  		var text = this.refs.textEntry.value 
+      console.log(this.refs);
+      var x = <div>foo<br/>bar</div>
+      var newText = text.split("/r").map(function(item){return (  <span>  {item} <br/>  </span> )});
+      //var title = this.refs.titleEntry.value; 
+      this.props.dispatch(actions.saveText(x));
+  		console.log(this.props);
+    //   console.log(this.refs, this.refs.textEntry.value);
+     
+    	//this.props.dispatch(actions.postBlog(title, text));    
     },
   	render: function() {
       console.log("Bang");
@@ -27,13 +32,15 @@ var BlogEntry = React.createClass({
               <input className="blog-entry-title-input" placeholder="title" type="text" ref="titleEntry" />
             </div>
             <div className="submit-button-container">
-              <input type="submit" value="Submit" onClick={this.handleSubmit}/>
+              <button type="submit" value="Submit" onClick={this.handleSubmit} >submit</button>
             </div>
           </div>
           <div className="blog-body-header">Blog</div>
-          <textarea className="blog-entry-body" placeholder="just start typing away..." ref="textEntry" />
+          <textarea id="t1" className="textareax" placeholder="just start typing away..." ref="textEntry" ></textarea>
         </div>
       	</form>
+        <div>Place Holder</div>
+        <div>{this.props.text}</div>
      	</div>
     	);
   	}
@@ -48,3 +55,15 @@ var mapStateToProps = function(state, props) {
 var Container = connect(mapStateToProps)(BlogEntry);
 
 module.exports = Container;
+/*
+
+{this.props.text.split(“\n”).map(function(item) {
+  return (
+    <span>
+      {item}
+      <br/>
+    </span>
+  )
+})}
+{this.props.text.split("/n").map(function(item){return (  <span>  {item} <br/>  </span> )})}
+*/

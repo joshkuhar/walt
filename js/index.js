@@ -15,7 +15,8 @@ var DashboardNavigator = require('./components/dashboard-navigator');
 var EditList = require('./components/dashboard/edit-list-container');
 var WriteBlog = require('./components/dashboard/write-container');
 
-var Draft = require('./components/dashboard/writexxxx');
+var Test = require('./test');
+
 
 var Provider = require('react-redux').Provider;
 var store = require('./store');
@@ -23,7 +24,7 @@ var store = require('./store');
 var Routes = (
 	<Provider store={store} >
 		<Router history={hashHistory}>
-			<Route path="/draft" component={Draft} />
+			<Route path="/test" component={Test} />
 			<Route path="/" component={App}>
 				<IndexRoute component={MainPage} />
 			</Route>

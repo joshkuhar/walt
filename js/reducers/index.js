@@ -1,20 +1,38 @@
 var actions = require('../actions/index');
 
 var initialState = {
-	text: ""
+	title: "",
+	blog: "",
+	content: ""
 };
 
 var blogReducer = function(state, action) {
 	state = state || initialState;
-	if (action.type === actions.SAVE_TEXT) {
+	if (action.type === actions.UPDATE_BLOG) {
 		return {
-			text: action.text
+			title: state.title,
+			blog: action.blog
 		}
 	}
-	if (action.type === actions.LINE) {
+	else if (action.type === actions.UPDATE_TITLE) {
 		return {
-			text: state.text,
-			line: action.line
+			title: action.title,
+			blog: state.blog
+		}
+	}
+	else if (action.type === actions.SAVE_BLOG) {
+		return {
+			title: state.title,
+			blog: state.blog,
+			savedBlog: {title: action.title, blog: action.blog}
+			// title: state.title,
+			// line: action.line
+		}
+	}
+	else if (action.type === actions.GET_SUCCESS) {
+		return {
+			title: action.title,
+			content: action.content
 		}
 	}
 

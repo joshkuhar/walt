@@ -1,44 +1,82 @@
 require('isomorphic-fetch');
 
-var SAVE_TEXT = 'SAVE_TEXT';
-var saveText = function(text){
+var UPDATE_BLOG = 'UPDATE_BLOG';
+var updateBlog = function(blog){
 	return {
-		type: SAVE_TEXT,
-		text: text
+		type: UPDATE_BLOG,
+		blog: blog
 		}
 };
-exports.SAVE_TEXT = SAVE_TEXT;
-exports.saveText = saveText;
+exports.UPDATE_BLOG = UPDATE_BLOG;
+exports.updateBlog = updateBlog;
 
-var LINE = 'LINE'
-var line = function(line){
+var UPDATE_TITLE = 'UPDATE_TITLE';
+var updateTitle = function(title) {
     return {
-        type: LINE,
-        line: line
+        type: UPDATE_TITLE,
+        title: title
+    }
+};
+exports.UPDATE_TITLE = UPDATE_TITLE;
+exports.updateTitle = updateTitle;
+
+var SAVE_BLOG = 'SAVE_BLOG'
+var saveBlog = function(title, blog){
+    return {
+        type: SAVE_BLOG,
+        title: title,
+        blog: blog
     }
 }
-exports.LINE = LINE;
-exports.line = line;
+exports.SAVE_BLOG = SAVE_BLOG;
+exports.saveBlog = saveBlog;
 
-var postSuccess = function(data){
-	console.log(data);
+var GET_SUCCESS = 'GET_SUCCESS';
+var getSuccess = function(blog){
+    return {
+        type: GET_SUCCESS,
+        title: blog.title,
+        content: blog.content
+    }
+}
+exports.GET_SUCCESS = GET_SUCCESS;
+exports.getSuccess = getSuccess;
+
+var getBlog = function() {
+    return function(dispatch) {
+        var url = 'http://localhost:8080/r';
+        return fetch(url).then(function(res) {
+        return res.json()
+    }).then(function(data) {
+        return dispatch(
+            getSuccess(data)
+            )
+    }).catch(function(error) {
+        console.log(error);
+        // return dispatch(
+        //     fetchError(error)
+        //     );
+        });
+    }
 };
+exports.getBlog = getBlog;
 
 var postBlog = function(title, blog) {
     return function(dispatch) {
         var url = 'http://localhost:8080/r';
         return fetch(url, {
         method: "POST",
-        body: JSON.stringify({text: {title : title, content: blog}}),
+        body: JSON.stringify({title : title, content: blog}),
         headers: {
             "Content-Type": "application/json"
         }
     }).then(function(res) {
         return res.json()
     }).then(function(data) {
-        return dispatch(
-            postSuccess(data)
-            )
+        console.log(data);
+        // return dispatch(
+        //     postSuccess(data)
+        //     )
     }).catch(function(error) {
     	console.log(error);
         // return dispatch(
@@ -49,27 +87,27 @@ var postBlog = function(title, blog) {
 };
 exports.postBlog = postBlog;
 
-var updateBlog = function(title, blog) {
-    return function(dispatch) {
-        var url = 'http://localhost:8080/r';
-        return fetch(url, {
-        method: "PUT",
-        body: JSON.stringify({text: {title : title, content: blog}}),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(function(res) {
-        return res.json()
-    }).then(function(data) {
-        return dispatch(
-            postSuccess(data)
-            )
-    }).catch(function(error) {
-    	console.log(error);
-        // return dispatch(
-        //     fetchError(error)
-        //     );
-        });
-    }
-};
-exports.updateBlog = updateBlog;
+// var saveBlog = function(title, blog) {
+//     return function(dispatch) {
+//         var url = 'http://localhost:8080/r';
+//         return fetch(url, {
+//         method: "PUT",
+//         body: JSON.stringify({title : title, content: blog}),
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     }).then(function(res) {
+//         return res.json()
+//     }).then(function(data) {
+//         return dispatch(
+//             postSuccess(data)
+//             )
+//     }).catch(function(error) {
+//     	console.log(error);
+//         // return dispatch(
+//         //     fetchError(error)
+//         //     );
+//         });
+//     }
+// };
+// exports.updateBlog = updateBlog;

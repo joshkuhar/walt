@@ -10,6 +10,7 @@ var dataBase = [{color: "red"}];
 var swap = function(color){
 	dataBase[0].color = color;
 };
+var blogDataBase = [];
 
 
 
@@ -19,10 +20,11 @@ app.use(express.static(path.join(__dirname, './build')));
 // test GET endpoint
 app.get('/r', function(req, res) {
 	console.log("hit");
-    res.json({data: dataBase});
+    res.json(blogDataBase[0]);
 });
 app.post('/r', function(req, res){
-	dataBase.push(req.body.text)
+	console.log(req.body)
+	blogDataBase.push(req.body);
 	res.json({bang: "I worked"});
 });
 app.put('/r', function(req, res){

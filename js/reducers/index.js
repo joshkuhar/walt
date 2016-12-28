@@ -1,9 +1,12 @@
 var actions = require('../actions/index');
+var Data = require('../mock-data');
 
 var initialState = {
 	title: "",
 	blog: "",
-	content: ""
+	content: "",
+	category: "economy",
+	categories: Data.categories
 };
 
 var blogReducer = function(state, action) {
@@ -11,12 +14,24 @@ var blogReducer = function(state, action) {
 	if (action.type === actions.UPDATE_BLOG) {
 		return {
 			title: state.title,
+			category: state.category,
+			categories: state.categories,
 			blog: action.blog
 		}
 	}
 	else if (action.type === actions.UPDATE_TITLE) {
 		return {
 			title: action.title,
+			blog: state.blog,
+			category: state.category,
+			categories: state.categories
+		}
+	}
+	else if (action.type === actions.SELECT_CATEGORY) {
+		return {
+			category: action.category,
+			categories: state.categories,
+			title: state.title,
 			blog: state.blog
 		}
 	}
@@ -32,9 +47,13 @@ var blogReducer = function(state, action) {
 	else if (action.type === actions.GET_SUCCESS) {
 		return {
 			title: action.title,
+			category: action.category,
 			content: action.content
 		}
 	}
+
+
+
 
 	return state;
 };

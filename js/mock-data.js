@@ -22,7 +22,11 @@ var Data = {
 			date: "Fri Dec 17 2016 20:20:35 GMT-0500 (EST)",
 			content: "I pray thee, give it me. I know a bank where the wild thyme blows, Where oxlips and the nodding violet grows, Quite over-canopied with luscious woodbine, With sweet musk-roses and with eglantine: There sleeps Titania sometime of the night, Lull'd in these flowers with dances and delight; And there the snake throws her enamell'd skin, Weed wide enough to wrap a fairy in: And with the juice of this I'll streak her eyes, And make her full of hateful fantasies. Take thou some of it, and seek through this grove: A sweet Athenian lady is in love With a disdainful youth: anoint his eyes; But do it when the next thing he espies May be the lady: thou shalt know the man By the Athenian garments he hath on. Effect it with some care, that he may prove More fond on her than she upon her love: And look thou meet me ere the first cock crow."
 		}
+	],
+	categories: [
+		"economy", "tribe life", "furry companions", "nature", "sports", "political misgivings", "travel", "purple hats", "munchies", "life", "sweet sounds", "spending", "digital thingys"
 	]
+
 };
 
 module.exports = Data;

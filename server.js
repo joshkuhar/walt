@@ -23,9 +23,9 @@ app.get('/r', function(req, res) {
     res.json(blogDataBase[0]);
 });
 app.post('/r', function(req, res){
-	console.log(req.body)
+	console.log(req.body);
 	blogDataBase.push(req.body);
-	res.json({bang: "I worked"});
+	res.json(blogDataBase[0]);
 });
 app.put('/r', function(req, res){
 	swap(req.body.color);

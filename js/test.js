@@ -6,21 +6,27 @@ var store = require('./store');
 var router = require('react-router');
 var Link = router.Link;
 
+
 var Test = React.createClass({
 	componentDidMount: function(){
 		this.props.dispatch(actions.getBlog());
 	},
+	onClick: function(){
+		console.log(store.getState());
+	},
 	render: function(){
 		return(
 			<div>
+				<button onClick={this.onClick}>store</button>
 				<Link to="/dashboard/create">dashboardcreate</Link>
 				<div>I'm the test component</div>
 				<div>{this.props.title}</div>
 				<div className="output">{this.props.content}</div>
+
 			</div>
 			)
 	}
-});
+});	
 
 var mapStateToProps = function(state, props) {
     return {

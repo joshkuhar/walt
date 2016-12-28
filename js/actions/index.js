@@ -1,5 +1,17 @@
 require('isomorphic-fetch');
 
+var GET_SUCCESS = 'GET_SUCCESS';
+var getSuccess = function(blog){
+    return {
+        type: GET_SUCCESS,
+        title: blog.title,
+        category: blog.category,
+        content: blog.content
+    }
+}
+exports.GET_SUCCESS = GET_SUCCESS;
+exports.getSuccess = getSuccess;
+
 var UPDATE_BLOG = 'UPDATE_BLOG';
 var updateBlog = function(blog){
 	return {
@@ -20,27 +32,26 @@ var updateTitle = function(title) {
 exports.UPDATE_TITLE = UPDATE_TITLE;
 exports.updateTitle = updateTitle;
 
-var SAVE_BLOG = 'SAVE_BLOG'
-var saveBlog = function(title, blog){
+var SELECT_CATEGORY = 'SELECT_CATEGORY';
+var selectCategory = function(category) {
     return {
-        type: SAVE_BLOG,
-        title: title,
-        blog: blog
-    }
-}
-exports.SAVE_BLOG = SAVE_BLOG;
-exports.saveBlog = saveBlog;
+        type: SELECT_CATEGORY,
+        category: category
+        }
+};
+exports.SELECT_CATEGORY = SELECT_CATEGORY;
+exports.selectCategory = selectCategory;
 
-var GET_SUCCESS = 'GET_SUCCESS';
-var getSuccess = function(blog){
+var ADD_CATEGORY = 'ADD_CATEGORY';
+var addCategory = function(category){
     return {
-        type: GET_SUCCESS,
-        title: blog.title,
-        content: blog.content
+        type: ADD_CATEGORY,
+        category: category
     }
 }
-exports.GET_SUCCESS = GET_SUCCESS;
-exports.getSuccess = getSuccess;
+exports.ADD_CATEGORY = ADD_CATEGORY;
+exports.addCategory = addCategory;
+
 
 var getBlog = function() {
     return function(dispatch) {
@@ -61,12 +72,13 @@ var getBlog = function() {
 };
 exports.getBlog = getBlog;
 
-var postBlog = function(title, blog) {
+var postBlog = function(title, category, blog) {
+    console.log(title, category, blog);
     return function(dispatch) {
         var url = 'http://localhost:8080/r';
         return fetch(url, {
         method: "POST",
-        body: JSON.stringify({title : title, content: blog}),
+        body: JSON.stringify({title : title, category: category, content: blog}),
         headers: {
             "Content-Type": "application/json"
         }

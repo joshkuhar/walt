@@ -48,9 +48,19 @@ var addCategory = function(category){
         type: ADD_CATEGORY,
         category: category
     }
-}
+};
 exports.ADD_CATEGORY = ADD_CATEGORY;
 exports.addCategory = addCategory;
+
+var GET_BLOG_TO_EDIT = 'GET_BLOG_TO_EDIT';
+var getBlogToEdit = function(){
+    console.log("woot");
+    return {
+        type: GET_BLOG_TO_EDIT
+    }
+};
+exports.GET_BLOG_TO_EDIT = GET_BLOG_TO_EDIT;
+exports.getBlogToEdit = getBlogToEdit;
 
 
 var getBlog = function() {

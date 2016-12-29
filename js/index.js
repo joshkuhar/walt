@@ -16,6 +16,7 @@ var EditList = require('./components/dashboard/edit-list-container');
 var WriteBlog = require('./components/dashboard/write-container');
 
 var Test = require('./test');
+var EditBlog = require('./components/dashboard/edit-blog');
 
 
 var Provider = require('react-redux').Provider;
@@ -25,6 +26,7 @@ var Routes = (
 	<Provider store={store} >
 		<Router history={hashHistory}>
 			<Route path="/test" component={Test} />
+			<Route path="/dashboard/edit/:blog" component={EditBlog}/>
 			<Route path="/" component={App}>
 				<IndexRoute component={MainPage} />
 			</Route>

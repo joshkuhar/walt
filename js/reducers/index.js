@@ -44,6 +44,13 @@ var blogReducer = function(state, action) {
 			// line: action.line
 		}
 	}
+	else if(action.type === actions.GET_BLOG_TO_EDIT) {
+		return {
+			title: "Foo",
+			categories: state.categories,
+			blog: Data.items[2].content
+		}
+	}
 	else if (action.type === actions.GET_SUCCESS) {
 		return {
 			title: action.title,

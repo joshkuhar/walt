@@ -33,7 +33,7 @@ var BlogToEdit = React.createClass ({
 		var categoryList = this.props.categories;
 		for (var index in categoryList) {
 			categories.push(
-				<option key={index} value={categoryList[index]}>{categoryList[index]}</option>	
+				<option key={index} value={categoryList[index]._id}>{categoryList[index].category}</option>	
 				)
 		}
 	    return (

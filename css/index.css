@@ -134,7 +134,10 @@ h1 {
 	text-align: center;
     margin: 0 auto;
 }
-
+.category-manager{}
+.category-manager-instructions{}
+.add-categories-button{}
+.category-manager-container{}
 .sign-out{
 	display: inline-block;
 	margin-left: 90%;

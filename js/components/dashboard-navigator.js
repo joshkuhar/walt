@@ -1,10 +1,12 @@
 var React = require('react');
 var router = require('react-router');
 var Link = router.Link;
+var Button = require('../store-button');
 
 var DashboardNavBar  = function(props){
 	return (
 		<div>
+			<Button />
 			<Link to="/login" ><div className="sign-out">Sign Out</div></Link>
 			<h2 className="dashboard-header">Dashboard</h2>
 			<div className="dashboard-nav-bar">

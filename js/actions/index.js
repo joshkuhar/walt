@@ -12,6 +12,16 @@ var getSuccess = function(blog){
 exports.GET_SUCCESS = GET_SUCCESS;
 exports.getSuccess = getSuccess;
 
+var LOAD_CATEGORIES = 'LOAD_CATEGORIES';
+var loadCategories = function(categories){
+    return {
+        type: LOAD_CATEGORIES,
+        categories: categories
+    }
+}
+exports.LOAD_CATEGORIES = LOAD_CATEGORIES;
+exports.loadCategories = loadCategories;
+
 var UPDATE_BLOG = 'UPDATE_BLOG';
 var updateBlog = function(blog){
 	return {

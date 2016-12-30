@@ -19,6 +19,11 @@ var blogReducer = function(state, action) {
 			blog: action.blog
 		}
 	}
+	else if (action.type === actions.LOAD_CATEGORIES) {
+		return {
+			categories: state.categories
+		}
+	}
 	else if (action.type === actions.UPDATE_TITLE) {
 		return {
 			title: action.title,

@@ -24,7 +24,48 @@ var Data = {
 		}
 	],
 	categories: [
-		"economy", "tribe life", "furry companions", "nature", "sports", "political misgivings", "travel", "purple hats", "munchies", "life", "sweet sounds", "spending", "digital thingys"
+		{
+			category: "economy",
+			_id: "11"
+		},
+		{
+			category: "tribe life",
+			_id: "22"
+		},
+		{
+			category: "furry companions",
+			_id: "33"
+		}
+		// {
+		// 	category: "nature"
+		// },
+		// {
+		// 	category: "sports"
+		// },
+		// {
+		// 	category: "political misgivings"
+		// },
+		// {
+		// 	category: "travel"
+		// },
+		// {
+		// 	category: "purple hats and such"
+		// },
+		// {
+		// 	category: "munchies"
+		// },
+		// {
+		// 	category: "life"
+		// },
+		// {
+		// 	category: "sweet sounds"
+		// },
+		// {
+		// 	category: "spending"
+		// },
+		// {
+		// 	category: "digital paraphernalia"
+		// }	
 	],
 	aboutMe: "I must confess that I have heard so much, And with Demetrius thought to have spoke thereof; But, being over-full of self-affairs, My mind did lose it. But, Demetrius, come; And come, Egeus; you shall go with me, I have some private schooling for you both. For you, fair Hermia, look you arm yourself To fit your fancies to your father's will; Or else the law of Athens yields you up-- Which by no means we may extenuate-- To death, or to a vow of single life. \n\nCome, my Hippolyta: what cheer, my love? Demetrius and Egeus, go along: I must employ you in some business Against our nuptial and confer with you Of something nearly that concerns yourselves."
 

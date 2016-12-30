@@ -14,6 +14,7 @@ var MainPage = require('./components/main/main-page');
 var DashboardNavigator = require('./components/dashboard-navigator');
 var EditList = require('./components/dashboard/edit-list-container');
 var WriteBlog = require('./components/dashboard/write-container');
+var Category = require('./components/dashboard/category-manager-container');
 
 var Test = require('./test');
 var EditBlog = require('./components/dashboard/edit-blog');
@@ -34,6 +35,7 @@ var Routes = (
 			<Route path="/dashboard" component={DashboardNavigator}>
 				<Route path="edit" component={EditList} />
 				<Route path="create" component={WriteBlog} />
+				<Route path="category" component={Category} />
 			</Route>
 		</Router>
 	</Provider>

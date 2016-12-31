@@ -10,7 +10,7 @@ var CategorySchema = mongoose.Schema({
 	},
 	blogPosts: [{
 		type: Schema.Types.ObjectId,
-		ref: 'blogPost'
+		ref: 'Blog'
 	}]
 });
 

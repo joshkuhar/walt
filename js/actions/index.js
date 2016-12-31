@@ -92,13 +92,19 @@ var getBlog = function() {
 };
 exports.getBlog = getBlog;
 
-var postBlog = function(title, category, blog) {
-    console.log(title, category, blog);
+var postBlog = function(title, category, blog, month, date, year) {
     return function(dispatch) {
         var url = 'http://localhost:8080/r';
         return fetch(url, {
         method: "POST",
-        body: JSON.stringify({title : title, category: category, content: blog}),
+        body: JSON.stringify({
+            title : title, 
+            category: category, 
+            content: blog, 
+            month: month, 
+            date: date, 
+            year: year
+        }),
         headers: {
             "Content-Type": "application/json"
         }

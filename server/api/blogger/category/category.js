@@ -1,8 +1,8 @@
-var categoryRouter = require('express').Router();
+var CategoryRouter = require('express').Router();
 var Category = require('./categoryModel');
 
 
-categoryRouter.post('/dashboard/category', function(req, res) {
+CategoryRouter.post('/dashboard/category', function(req, res) {
 	Category.create(req.body.categories, function(err, categories) {
 		if (err) {
 			console.log(err);
@@ -14,7 +14,7 @@ categoryRouter.post('/dashboard/category', function(req, res) {
 		});   
     });
 
-categoryRouter.get('/dashboard/category', function(req, res){
+CategoryRouter.get('/dashboard/category', function(req, res){
 	Category.find(function(err, categories) {
 		console.log(categories);
 		if (err) {
@@ -47,6 +47,6 @@ categoryRouter.get('/dashboard/category', function(req, res){
 // 		});
 // });
 
-module.exports = categoryRouter;
+module.exports = CategoryRouter;
 
 	

@@ -6,6 +6,10 @@ var store = require('../../store');
 var router = require('react-router');
 var Link = router.Link;
 
+// Object containing current month, date, time
+var DateStamp = require('./write-date-stamp');
+var date = DateStamp();
+
 var BlogEntry = React.createClass ({
 	handleTitleChange: function(event) {
 		this.props.dispatch(actions.updateTitle(event.target.value));
@@ -18,8 +22,9 @@ var BlogEntry = React.createClass ({
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
-    	console.log(this.props.category);
-    	this.props.dispatch(actions.postBlog(this.props.title, this.props.category, this.props.blog));
+    	this.props.dispatch(actions.postBlog(this.props.title, this.props.category, this.props.blog, 
+    										date.month, date.date, date.year
+    										));
 	},
   	onClick: function(){
   		console.log(store.getState());

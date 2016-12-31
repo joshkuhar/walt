@@ -3,11 +3,23 @@ var Schema = mongoose.Schema;
 
 var BlogPostSchema = mongoose.Schema({
 	blogPost: {
+		title: {
+			type: String,
+			required: true
+		},
 		content: {
 			type: String,
 			required: true
 		},
-		title: {
+		month: {
+			type: String,
+			required: true
+		},
+		date: {
+			type: String,
+			required: true
+		},
+		year: {
 			type: String,
 			required: true
 		},

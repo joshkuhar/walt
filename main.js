@@ -9,7 +9,7 @@ var app = express();
 app.use(jsonParser); 
 app.use(bodyParser.urlencoded({extended: false}));
 
-var Test = require('./server/api/blogger/db-test');
+var BlogPost = require('./server/api/blogger/blogPost/blogPost');
 var Category = require('./server/api/blogger/category/category');
 
 var runServer = function(callback) {
@@ -39,8 +39,9 @@ exports.runServer = runServer;
 
 // Serves static file from /.build
 app.use(express.static(path.join(__dirname, './build')));
+app.use('/', BlogPost);
 app.use('/', Category);
-//app.use('/', Test);
+
 
 // test GET endpoint
 // app.get('/r', function(req, res) {

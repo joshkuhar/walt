@@ -39,6 +39,8 @@ exports.runServer = runServer;
 
 // Serves static file from /.build
 app.use(express.static(path.join(__dirname, './build')));
+
+// Endpoints
 app.use('/', BlogPost);
 app.use('/', Category);
 

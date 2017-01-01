@@ -26,11 +26,8 @@ var BlogEntry = React.createClass ({
     										date.month, date.date, date.year
     										));
 	},
-  	onClick: function(){
-  		console.log(store.getState());
-	},
 	render: function() {
-		var categories = [];
+		var categories = ["-----"];
 		var categoryList = this.props.categories;
 		for (var index in categoryList) {
 			categories.push(
@@ -39,8 +36,6 @@ var BlogEntry = React.createClass ({
 		}
 	    return (
 		    <div className="blog-entry-form">
-		    <Link to="/test">test</Link>
-		     <button onClick={this.onClick}>store</button>
 		      <form onSubmit={this.handleSubmit}>
 		        <div className="blog-entry-large-container">
 			        <div className="blog-entry-form-title">Title</div>

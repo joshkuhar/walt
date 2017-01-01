@@ -9,13 +9,15 @@ var CategoryManager = require('./category-manager');
 
 var Category = React.createClass({
 	
-	onClick: function(){
-		console.log("I was clicked");
+	addClick: function(){
 		this.props.dispatch(actions.loadCategories(this.props.categories));
+	},
+	reloadClick: function(){
+		this.props.dispatch(actions.getCategories());
 	},
 	render: function(){
 		return (
-			<CategoryManager onClick={this.onClick} />
+			<CategoryManager addClick={this.addClick} reloadClick={this.reloadClick}/>
 			)
 	}
 });

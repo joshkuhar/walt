@@ -10,7 +10,7 @@ var dateStamp = function(){
   var blogMonth = month.getMonth();
   var months = ["January", "February", "March", "April", "May", "June",
                "July", "August", "September", "October", "November", "December"];
-
+	//return {"month": "August", "date": "3", "year": "2016"}
   return {"month": months[blogMonth], "date": blogDate, "year": blogYear}
 };
 

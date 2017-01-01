@@ -12,15 +12,25 @@ var getSuccess = function(blog){
 exports.GET_SUCCESS = GET_SUCCESS;
 exports.getSuccess = getSuccess;
 
-var LOAD_CATEGORIES = 'LOAD_CATEGORIES';
-var loadCategories = function(categories){
+var LOAD_SUCCESS = 'LOAD_SUCCESS';
+var loadSuccess = function(categories){
     return {
-        type: LOAD_CATEGORIES,
+        type: LOAD_SUCCESS,
         categories: categories
     }
 }
-exports.LOAD_CATEGORIES = LOAD_CATEGORIES;
-exports.loadCategories = loadCategories;
+exports.LOAD_SUCCESS = LOAD_SUCCESS;
+exports.loadSuccess = loadSuccess;
+
+var GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS';
+var getCategoriesSuccess = function(categories){
+    return {
+        type: GET_CATEGORIES_SUCCESS,
+        categories: categories
+    }
+}
+exports.GET_CATEGORIES_SUCCESS = GET_CATEGORIES_SUCCESS;
+exports.getCategoriesSuccess = getCategoriesSuccess;
 
 var UPDATE_BLOG = 'UPDATE_BLOG';
 var updateBlog = function(blog){
@@ -62,9 +72,18 @@ var addCategory = function(category){
 exports.ADD_CATEGORY = ADD_CATEGORY;
 exports.addCategory = addCategory;
 
+var POST_BLOG_SUCCESS = 'POST_BLOG_SUCCESS'
+var postBlogSuccess = function(data) {
+    return {
+        type: POST_BLOG_SUCCESS,
+        data: data
+    }
+}
+exports.POST_BLOG_SUCCESS = POST_BLOG_SUCCESS;
+exports.postBlogSuccess = postBlogSuccess;
+
 var GET_BLOG_TO_EDIT = 'GET_BLOG_TO_EDIT';
 var getBlogToEdit = function(){
-    console.log("woot");
     return {
         type: GET_BLOG_TO_EDIT
     }
@@ -72,6 +91,41 @@ var getBlogToEdit = function(){
 exports.GET_BLOG_TO_EDIT = GET_BLOG_TO_EDIT;
 exports.getBlogToEdit = getBlogToEdit;
 
+var loadCategories = function(categories){
+    return function(dispatch) {
+        var url = 'http://localhost:8080/dashboard/category';
+        return fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+            categories : categories, 
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function(res) {
+        return res.json()
+    }).then(function(data) {
+        return dispatch(loadSuccess(data))
+    }).catch(function(error) {
+        console.log(error);
+        });
+    }
+};
+exports.loadCategories = loadCategories;
+
+var getCategories = function() {
+    return function(dispatch) {
+        var url = 'http://localhost:8080/dashboard/category';
+        return fetch(url).then(function(res) {
+        return res.json()
+    }).then(function(data) {
+        return dispatch(getCategoriesSuccess(data))
+    }).catch(function(error) {
+        console.log(error);
+        });
+    }
+};
+exports.getCategories = getCategories;
 
 var getBlog = function() {
     return function(dispatch) {
@@ -84,9 +138,6 @@ var getBlog = function() {
             )
     }).catch(function(error) {
         console.log(error);
-        // return dispatch(
-        //     fetchError(error)
-        //     );
         });
     }
 };
@@ -94,12 +145,11 @@ exports.getBlog = getBlog;
 
 var postBlog = function(title, category, blog, month, date, year) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/r';
+        var url = 'http://localhost:8080/dashboard/create/' + category;
         return fetch(url, {
         method: "POST",
         body: JSON.stringify({
             title : title, 
-            category: category, 
             content: blog, 
             month: month, 
             date: date, 
@@ -111,41 +161,12 @@ var postBlog = function(title, category, blog, month, date, year) {
     }).then(function(res) {
         return res.json()
     }).then(function(data) {
-        console.log(data);
-        // return dispatch(
-        //     postSuccess(data)
-        //     )
+        return dispatch(postBlogSuccess(data))
     }).catch(function(error) {
     	console.log(error);
-        // return dispatch(
-        //     fetchError(error)
-        //     );
         });
     }
 };
 exports.postBlog = postBlog;
 
-// var saveBlog = function(title, blog) {
-//     return function(dispatch) {
-//         var url = 'http://localhost:8080/r';
-//         return fetch(url, {
-//         method: "PUT",
-//         body: JSON.stringify({title : title, content: blog}),
-//         headers: {
-//             "Content-Type": "application/json"
-//         }
-//     }).then(function(res) {
-//         return res.json()
-//     }).then(function(data) {
-//         return dispatch(
-//             postSuccess(data)
-//             )
-//     }).catch(function(error) {
-//     	console.log(error);
-//         // return dispatch(
-//         //     fetchError(error)
-//         //     );
-//         });
-//     }
-// };
-// exports.updateBlog = updateBlog;
+

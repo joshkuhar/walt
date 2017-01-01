@@ -1,68 +1,26 @@
-class EssayForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: 'Please write an essay about your favorite DOM element.'
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert('An essay was submitted: ' + this.state.value);
-    event.preventDefault();
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <textarea value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    );
-  }
-}
-
-
-var EssayForm = React.createClass ({
-  getInitalState: function(){
-  return {
-   
-      value: 'Please write an essay about your favorite DOM element.'
-    
-  }
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+[
+  {
+    "__v": 0,
+    "category": "foo",
+    "_id": "5867685c905e054487ea0032",
+    "blogPosts": []
   },
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  {
+    "__v": 0,
+    "category": "bar",
+    "_id": "5867685c905e054487ea0033",
+    "blogPosts": []
   },
-
-  handleSubmit(event) {
-    alert('An essay was submitted: ' + this.state.value);
-    event.preventDefault();
+  {
+    "__v": 0,
+    "category": "political",
+    "_id": "5867685c905e054487ea0034",
+    "blogPosts": []
   },
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <textarea value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    );
+  {
+    "__v": 0,
+    "category": "funny",
+    "_id": "5867685c905e054487ea0035",
+    "blogPosts": []
   }
-});
-
-module.exports = EssayForm;
+]

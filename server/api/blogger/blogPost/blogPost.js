@@ -3,8 +3,11 @@ var BlogPost = require('./blogPostModel');
 var Category = require('../category/categoryModel');
 
 BlogPostRouter.post('/dashboard/create/:categoryId', function(req, res){
-	BlogPost.create({blogPost: {content: req.body.content, 
-								title: req.body.title, 
+	BlogPost.create({blogPost: {title: req.body.title, 
+								content: req.body.content, 
+								month: req.body.month,
+								date: req.body.date,
+								year: req.body.year,
 								category: req.params.categoryId} }, 
 		function(err, blog) {
 			if (err) {
@@ -16,12 +19,11 @@ BlogPostRouter.post('/dashboard/create/:categoryId', function(req, res){
 				Category.findOneAndUpdate(	{_id: req.params.categoryId}, 
 											{$addToSet: {blogPosts: blog._id} },
 					function(err2, category){
-						console.log("I'm an error");
 						if(err2) {
 							console.log(err);
 							return res.status(500).json({message: 'Internal Server Error'});
 						}
-						res.json(category);
+						res.status(200).json(blog);
 					}
 				);
 			}
@@ -29,4 +31,3 @@ BlogPostRouter.post('/dashboard/create/:categoryId', function(req, res){
     });
 
 module.exports = BlogPostRouter;
-

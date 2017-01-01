@@ -5,7 +5,7 @@ var initialState = {
 	title: "",
 	blog: "",
 	content: "",
-	category: "economy",
+	category: "-----",
 	categories: Data.categories
 };
 
@@ -19,9 +19,18 @@ var blogReducer = function(state, action) {
 			blog: action.blog
 		}
 	}
-	else if (action.type === actions.LOAD_CATEGORIES) {
+	else if (action.type === actions.LOAD_SUCCESS) {
 		return {
-			categories: state.categories
+			category: state.category,
+			categories: action.categories
+		}
+	}
+	else if (action.type === actions.GET_CATEGORIES_SUCCESS){
+		return {
+			title: state.title,
+			blog: state.blog,
+			category: state.category,
+			categories: action.categories
 		}
 	}
 	else if (action.type === actions.UPDATE_TITLE) {
@@ -40,13 +49,9 @@ var blogReducer = function(state, action) {
 			blog: state.blog
 		}
 	}
-	else if (action.type === actions.SAVE_BLOG) {
+	else if (action.type === actions.POST_BLOG_SUCCESS) {
 		return {
-			title: state.title,
-			blog: state.blog,
-			savedBlog: {title: action.title, blog: action.blog}
-			// title: state.title,
-			// line: action.line
+			blog: action.data
 		}
 	}
 	else if(action.type === actions.GET_BLOG_TO_EDIT) {
@@ -63,9 +68,6 @@ var blogReducer = function(state, action) {
 			content: action.content
 		}
 	}
-
-
-
 
 	return state;
 };

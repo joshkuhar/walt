@@ -64,3 +64,15 @@ BlogPostRouter.post('/dashboard/load', function(req, res){
     });
 
 module.exports = BlogPostRouter;
+
+BlogPostRouter.get('/blogs', function(req, res){
+	BlogPost.find(function(err, blogs) {
+			if (err) {
+				console.log(err);
+				return res.status(500).json({
+					message: 'Internal Server Error'
+				});
+			}
+			res.status(200).json(blogs);
+		});   
+});

@@ -44,12 +44,10 @@ app.use(express.static(path.join(__dirname, './build')));
 app.use('/', BlogPost);
 app.use('/', Category);
 
-
-// test GET endpoint
-// app.get('/r', function(req, res) {
-// 	console.log("hit");
-//     res.json(blogDataBase[0]);
-// });
+app.get('/r', function(req, res) {
+	console.log("hit");
+    res.json({content: "I was hit"});
+});
 // app.post('/r', function(req, res){
 // 	console.log(req.body);
 // 	blogDataBase.push(req.body);
@@ -65,11 +63,7 @@ app.use('/', Category);
 // 	}
 // 	res.json({yes: "yes"});
 // });
-app.get("*", function(req, res) {
-	console.log('test');		
+app.get("*", function(req, res) {	
 	res.sendFile(path.join(__dirname, './build/index.html'));
 });
 
-// app.listen(8080, function(){
-// 	console.log("server listening on port 8080")
-// });

@@ -6,13 +6,12 @@ var SidebarItem = require('./sidebar-item');
 
 var SidebarList = function(props){
 	var items = props.sidebarItems; //<-- array
+	var numberOfItemsToDisplay = items.length<10 ? items.length : 10;
 	var sidebarList = [];
-	for (var item in items) {
+	for (var item = 0; item < numberOfItemsToDisplay; item++) {
 		sidebarList.push(
 			<div key={item}>
-				<SidebarItem sidebarItemTitle={items[item].title}
-					sidebarItemDate={items[item].date}
-					sidebarItemContent={items[item].content} />
+				<SidebarItem sidebarItemTitle={items[item].blogPost.title} sidebarItemDate={items[item].blogPost.month + " " + items[item].blogPost.date} blogId={items[item]._id}/>
 			</div>
 		)
 	}
@@ -32,6 +31,11 @@ module.exports = SidebarList;
 
 
 /*
+
+					 sidebarItemContent={items[item].content}
+					
+
+
 props for sidebar-item
 {props.sidebarItemTitle}
 {props.sidebarItemDate}

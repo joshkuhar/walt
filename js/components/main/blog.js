@@ -4,7 +4,6 @@ var BlogPost = function(props){
 	return (
 		<div className="blog-post">
 			<div className="blog-post-title">Title: {props.blogTitle}</div>
-			<div className="blog-post-category">Category: {props.blogCategory}</div>
 			<div className="blog-post-date">Date: {props.blogDate}</div>
 			<div className="blog-post-body">{props.blogContent}</div>
 		</div>
@@ -12,3 +11,13 @@ var BlogPost = function(props){
 };
 
 module.exports = BlogPost;
+
+/*
+
+
+<div className="blog-post-category">Category: {props.blogCategory}</div>
+
+
+
+
+*/

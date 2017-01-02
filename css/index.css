@@ -20,11 +20,14 @@ h1 {
     text-align: center;
     border-radius: 4px;
 }
-.about{}
-.about-container{
+.about{
     width: 30em;
     margin: 0 auto;
-    text-align: center;
+    text-align: justify;
+    white-space: pre-line;
+}
+.about-container{
+    text-align: center; 
 }
 .main-parent-container{}
 .child-sidebar{

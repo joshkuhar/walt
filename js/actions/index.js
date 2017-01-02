@@ -99,6 +99,26 @@ var getBlogsSuccess = function(blogs) {
 exports.GET_BLOGS_SUCCESS = GET_BLOGS_SUCCESS;
 exports.getBlogsSuccess = getBlogsSuccess;
 
+var GET_ABOUT_SUCCESS = 'GET_ABOUT_SUCCESS';
+var getAboutSuccess = function(about) {
+    return {
+        type: GET_ABOUT_SUCCESS,
+        about: about.about
+    }
+};
+exports.GET_ABOUT_SUCCESS = GET_ABOUT_SUCCESS;
+exports.getAboutSuccess = getAboutSuccess;
+
+var CHANGE_ABOUT = 'CHANGE_ABOUT';
+var changeAbout = function(about) {
+    return {
+        type: CHANGE_ABOUT,
+        about: about
+    }
+};
+exports.CHANGE_ABOUT = CHANGE_ABOUT;
+exports.changeAbout = changeAbout;
+
 var getBlogs = function() {
     return function(dispatch) {
         var url = 'http://localhost:8080/blogs';
@@ -115,7 +135,7 @@ exports.getBlogs = getBlogs;
 
 var postBlog = function(title, category, blog, month, date, year) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/blogs/' + category;
+        var url = 'http://localhost:8080/blogs/'+category;
         return fetch(url, {
         method: "POST",
         body: JSON.stringify({
@@ -197,6 +217,38 @@ var getCategories = function() {
 };
 exports.getCategories = getCategories;
 
+var getAbout = function(aboutId) {
+    return function(dispatch) {
+        var url = 'http://localhost:8080/about/'+aboutId;
+        return fetch(url).then(function(res) {
+        return res.json()
+    }).then(function(data) {
+        return dispatch(getAboutSuccess(data))
+    }).catch(function(error) {
+        console.log(error);
+        });
+    }
+};
+exports.getAbout = getAbout;
 
-
-
+var updateAbout = function(aboutId, about){
+    return function(dispatch) {
+        var url = 'http://localhost:8080/about/'+aboutId;
+        return fetch(url, {
+        method: "PUT",
+        body: JSON.stringify({
+            about : about, 
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function(res) {
+        return res.json()
+    }).then(function(data) {
+        return dispatch(updateAboutSuccess(data))
+    }).catch(function(error) {
+        console.log(error);
+        });
+    }
+};
+exports.updateAbout = updateAbout;

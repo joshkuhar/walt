@@ -8,16 +8,18 @@ var Link = router.Link;
 
 var AboutEdit = React.createClass ({
 	componentDidMount: function(){
-		console.log(this.props.params);
-		this.props.dispatch(actions.getBlogToEdit());
+		// This is the id for the about page. To prevent multiple abouts, 
+		// only GET, PUT, and DELETE are utilized through this component.
+		var id = "586a95d7f0792e5f629ae7df";
+		this.props.dispatch(actions.getAbout(id));
 	},
 	handleBlogChange: function(event) {
-    	this.props.dispatch(actions.updateBlog(event.target.value));
+    	this.props.dispatch(actions.changeAbout(event.target.value));
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
-    	console.log(this.props.category);
-    	this.props.dispatch(actions.postBlog(this.props.title, this.props.category, this.props.blog));
+		var id = "586a95d7f0792e5f629ae7df";
+    	this.props.dispatch(actions.updateAbout(id));
 	},
   	onClick: function(){
   		console.log(store.getState());
@@ -33,8 +35,7 @@ var AboutEdit = React.createClass ({
 								<input className="about-button"type="submit" value="Submit" />
 							</div>
 			        	</div>
-
-					<textarea className="about-textarea" value={this.props.blog} placeholder="tell the world about yourself..." onChange={this.handleBlogChange} />
+					<textarea className="about-textarea" value={this.props.about} placeholder="tell the world about yourself..." onChange={this.handleBlogChange} />
 				    </div>
 		      </form>
 		     </div>
@@ -44,7 +45,7 @@ var AboutEdit = React.createClass ({
 
 var mapStateToProps = function(state, props) {
     return {
-    	about: state.title,
+    	about: state.about,
 
     };
 };

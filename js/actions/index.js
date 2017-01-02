@@ -22,6 +22,16 @@ var loadSuccess = function(categories){
 exports.LOAD_SUCCESS = LOAD_SUCCESS;
 exports.loadSuccess = loadSuccess;
 
+var BLOG_LOAD_SUCCESS = 'BLOG_LOAD_SUCCESS';
+var blogLoadSuccess = function(blogs){
+    return {
+        type: BLOG_LOAD_SUCCESS,
+        blogs: blogs
+    }
+}
+exports.BLOG_LOAD_SUCCESS = BLOG_LOAD_SUCCESS;
+exports.blogLoadSuccess = blogLoadSuccess;
+
 var GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS';
 var getCategoriesSuccess = function(categories){
     return {
@@ -112,6 +122,28 @@ var loadCategories = function(categories){
     }
 };
 exports.loadCategories = loadCategories;
+
+var loadBlogs = function(blogs){
+    return function(dispatch) {
+        var url = 'http://localhost:8080/dashboard/load';
+        return fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+            blogs : blogs, 
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function(res) {
+        return res.json()
+    }).then(function(data) {
+        return dispatch(blogLoadSuccess(data))
+    }).catch(function(error) {
+        console.log(error);
+        });
+    }
+};
+exports.loadBlogs = loadBlogs;
 
 var getCategories = function() {
     return function(dispatch) {

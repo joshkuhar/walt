@@ -23,7 +23,7 @@ var BlogPostSchema = mongoose.Schema({
 			type: String,
 			required: true
 		},
-		category: {
+		categoryId: {
 			required: true,
 			type: Schema.Types.ObjectId,
 			// type: Schema.Types.ObjectId,

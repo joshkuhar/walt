@@ -2,7 +2,7 @@ var CategoryRouter = require('express').Router();
 var Category = require('./categoryModel');
 
 
-CategoryRouter.post('/dashboard/category', function(req, res) {
+CategoryRouter.post('/categories', function(req, res) {
 	Category.create(req.body.categories, function(err, categories) {
 		if (err) {
 			console.log(err);
@@ -14,7 +14,7 @@ CategoryRouter.post('/dashboard/category', function(req, res) {
 		});   
     });
 
-CategoryRouter.get('/dashboard/category', function(req, res){
+CategoryRouter.get('/categories', function(req, res){
 	Category.find(function(err, categories) {
 		console.log(categories);
 		if (err) {

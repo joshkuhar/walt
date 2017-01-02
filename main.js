@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 var BlogPost = require('./server/api/blogger/blogPost/blogPost');
 var Category = require('./server/api/blogger/category/category');
+var About = require('./server/api/blogger/about/about');
 
 var runServer = function(callback) {
 	mongoose.connect(config.DATABASE_URL, function(err) {
@@ -43,6 +44,7 @@ app.use(express.static(path.join(__dirname, './build')));
 // Endpoints
 app.use('/', BlogPost);
 app.use('/', Category);
+app.use('/', About);
 
 app.get('/r', function(req, res) {
 	console.log("hit");

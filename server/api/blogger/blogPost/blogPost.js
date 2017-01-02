@@ -2,7 +2,7 @@ var BlogPostRouter = require('express').Router();
 var BlogPost = require('./blogPostModel');
 var Category = require('../category/categoryModel');
 
-BlogPostRouter.post('/dashboard/create/:categoryId', function(req, res){
+BlogPostRouter.post('/blogs/:categoryId', function(req, res){
 	BlogPost.create({blogPost: {title: req.body.title, 
 								content: req.body.content, 
 								month: req.body.month,
@@ -31,7 +31,7 @@ BlogPostRouter.post('/dashboard/create/:categoryId', function(req, res){
     });
 
 // loads test data into mongo
-BlogPostRouter.post('/dashboard/load', function(req, res){
+BlogPostRouter.post('/dashboard/blogs', function(req, res){
 	for (var index in req.body.blogs){
 		BlogPost.create({blogPost: {title: req.body.blogs[index].title, 
 									content: req.body.blogs[index].content, 

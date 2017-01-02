@@ -20,6 +20,12 @@ h1 {
     text-align: center;
     border-radius: 4px;
 }
+.about{}
+.about-container{
+    width: 30em;
+    margin: 0 auto;
+    text-align: center;
+}
 .main-parent-container{}
 .child-sidebar{
 	float: right;
@@ -66,7 +72,8 @@ h1 {
 }
 .dashboard-nav-bar{
 	margin: 0 auto;
-  width: 30em;
+  width: 45em;
+  text-align: center;
 }
 .dashboard-nav-bar-item{
     display: inline-block;
@@ -77,7 +84,6 @@ h1 {
     text-align: center;
 }
 .blog-entry-form {
-	margin-top: 3em;
     text-align: center;
 }
 .blog-entry-large-container{
@@ -128,6 +134,31 @@ h1 {
 	margin: 0 auto;
 	text-align: center;
 }
+
+.about-form-outside-container{
+    width: 45em;
+    margin: 3em auto;
+    text-align: center;
+}
+.about-form-container{
+  text-align: center;
+}
+.about-header-container{
+    margin: 0 auto 1em;
+    width: 30em;
+}
+.about-title{}
+.about-button-wrapper{
+  text-align: right;
+}
+.about-button{}
+.about-textarea{
+    width: 30em;
+    height: 20em;
+    font-size: 1em;
+    resize: none
+}
+
 .blog-to-edit-list-container{}
 .blog-to-edit-list{}
 .blog-to-edit {}

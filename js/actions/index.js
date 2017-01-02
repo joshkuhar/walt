@@ -1,17 +1,5 @@
 require('isomorphic-fetch');
 
-var GET_SUCCESS = 'GET_SUCCESS';
-var getSuccess = function(blog){
-    return {
-        type: GET_SUCCESS,
-        title: blog.title,
-        category: blog.category,
-        content: blog.content
-    }
-}
-exports.GET_SUCCESS = GET_SUCCESS;
-exports.getSuccess = getSuccess;
-
 var LOAD_SUCCESS = 'LOAD_SUCCESS';
 var loadSuccess = function(categories){
     return {
@@ -101,6 +89,16 @@ var getBlogToEdit = function(){
 exports.GET_BLOG_TO_EDIT = GET_BLOG_TO_EDIT;
 exports.getBlogToEdit = getBlogToEdit;
 
+var GET_BLOGS_SUCCESS = 'GET_BLOGS_SUCCESS'
+var getBlogsSuccess = function(blogs) {
+    return {
+        type: GET_BLOGS_SUCCESS,
+        blogs: blogs
+    }
+}
+exports.GET_BLOGS_SUCCESS = GET_BLOGS_SUCCESS;
+exports.getBlogsSuccess = getBlogsSuccess;
+
 var loadCategories = function(categories){
     return function(dispatch) {
         var url = 'http://localhost:8080/dashboard/category';
@@ -159,21 +157,19 @@ var getCategories = function() {
 };
 exports.getCategories = getCategories;
 
-var getBlog = function() {
+var getBlogs = function() {
     return function(dispatch) {
-        var url = 'http://localhost:8080/r';
+        var url = 'http://localhost:8080/blogs';
         return fetch(url).then(function(res) {
         return res.json()
     }).then(function(data) {
-        return dispatch(
-            getSuccess(data)
-            )
+        return dispatch(getBlogsSuccess(data))
     }).catch(function(error) {
         console.log(error);
         });
     }
 };
-exports.getBlog = getBlog;
+exports.getBlogs = getBlogs;
 
 var postBlog = function(title, category, blog, month, date, year) {
     return function(dispatch) {

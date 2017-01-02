@@ -3,12 +3,17 @@ var Data = require('../mock-data');
 var DummyBlogs = require('../mock-data-loader');
 
 var initialState = {
+	test: "I'm the test and I worked",
 	title: "",
 	blog: "",
 	content: "",
 	category: "-----",
 	categories: Data.categories,
-	dummyBlogs: DummyBlogs
+	dummyBlogs: DummyBlogs,
+	blogs: [{blogPost: {title: "foofoo"}},{blogPost: {title: "barbar"}}]
+		//blog: state.blogs[0].blogPost.title
+		
+	
 };
 
 var blogReducer = function(state, action) {
@@ -68,11 +73,10 @@ var blogReducer = function(state, action) {
 			blog: Data.items[2].content
 		}
 	}
-	else if (action.type === actions.GET_SUCCESS) {
+	else if(action.type === actions.GET_BLOGS_SUCCESS) {
 		return {
-			title: action.title,
-			category: action.category,
-			content: action.content
+			test: state.test,
+			blogs: action.blogs
 		}
 	}
 

@@ -24,18 +24,18 @@ var AboutEdit = React.createClass ({
 	},
 	render: function() {
 	    return (
-		    <div className="about-entry-form">
-		    <Link to="/test">test</Link>
-		     <button onClick={this.onClick}>store</button>
+		    <div className="about-form-outside-container">
 		      <form onSubmit={this.handleSubmit}>
-		        <div className="blog-entry-large-container">
-			        <div className="blog-entry-container">
-			        	<div className="submit-button-container">
-							<input type="submit" value="Submit" />
+			        <div className="about-form-container">
+			        	<div className="about-header-container">
+			        		<h3 className="about-title">Edit About</h3>
+			        		<div className="about-button-wrapper">
+								<input className="about-button"type="submit" value="Submit" />
+							</div>
 			        	</div>
+
+					<textarea className="about-textarea" value={this.props.blog} placeholder="tell the world about yourself..." onChange={this.handleBlogChange} />
 				    </div>
-			        <textarea className="blog-entry-body" value={this.props.blog} placeholder="type away..." onChange={this.handleBlogChange} />
-		        </div>
 		      </form>
 		     </div>
     );

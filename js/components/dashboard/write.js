@@ -38,6 +38,7 @@ var BlogEntry = React.createClass ({
 		    <div className="blog-entry-form">
 		      <form onSubmit={this.handleSubmit}>
 		        <div className="blog-entry-large-container">
+		        	<h3>Write New Blog</h3>
 			        <div className="blog-entry-form-title">Title</div>
 			        <div className="blog-entry-container">
 			        	<div className="title-input-container">

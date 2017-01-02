@@ -12,6 +12,7 @@ var DashboardNavBar  = function(props){
 			<div className="dashboard-nav-bar">
 				<Link to="/dashboard/edit"><div className="dashboard-nav-bar-item">Blog List</div></Link>
 				<Link to="/dashboard/create"><div className="dashboard-nav-bar-item">Write New Blog</div></Link>
+				<Link to="/dashboard/about"><div className="dashboard-nav-bar-item">Edit About</div></Link>
 				<Link to="/dashboard/category"><div className="dashboard-nav-bar-item">Categories</div></Link>
 			</div>
 			{props.children}

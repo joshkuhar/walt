@@ -3,7 +3,7 @@ var Data = require('../mock-data');
 var DummyBlogs = require('../mock-data-loader');
 
 var initialState = {
-	about: "I'm the about placeholder",
+	about: "",
 	test: "I'm the test and I worked",
 	title: "",
 	blog: "",
@@ -79,6 +79,18 @@ var blogReducer = function(state, action) {
 			about: state.about,
 			test: state.test,
 			blogs: action.blogs
+		}
+	}
+	else if(action.type === actions.GET_ABOUT_SUCCESS) {
+		return {
+			about: action.about,
+			blogs: state.blogs
+		}
+	}
+	else if(action.type === actions.CHANGE_ABOUT) {
+		return {
+			about: action.about,
+			bogs: state.blogs
 		}
 	}
 

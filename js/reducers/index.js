@@ -1,12 +1,14 @@
 var actions = require('../actions/index');
 var Data = require('../mock-data');
+var DummyBlogs = require('../mock-data-loader');
 
 var initialState = {
 	title: "",
 	blog: "",
 	content: "",
 	category: "-----",
-	categories: Data.categories
+	categories: Data.categories,
+	dummyBlogs: DummyBlogs
 };
 
 var blogReducer = function(state, action) {
@@ -23,6 +25,11 @@ var blogReducer = function(state, action) {
 		return {
 			category: state.category,
 			categories: action.categories
+		}
+	}
+	else if (action.type === actions.BLOG_LOAD_SUCESS) {
+		return {
+			blogs: action.blogs
 		}
 	}
 	else if (action.type === actions.GET_CATEGORIES_SUCCESS){

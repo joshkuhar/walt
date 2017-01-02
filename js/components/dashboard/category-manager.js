@@ -6,13 +6,15 @@ var store = require('../../store');
 var router = require('react-router');
 var Link = router.Link;
 
+
 var CategoryManager = function(props){
 	return (
 		<div className="category-manager">
 			<h3>Add Categories</h3>
-			<div className="category-manager-instructions">If you dropped(deleted) the database you have to ADD CATEGORIES before writing blog.</div>
+			<div className="category-manager-instructions">If you dropped(deleted) the database you have to LOAD CATEGORIES before writing blog.</div>
 			<div className="category-manager-instructions">If you refreshed the browser you have to RELOAD CATEGORIES from the database</div>
-			<button className="add-categories-button" onClick={props.addClick}>Add Categories</button>
+			<button className="add-categories-button" onClick={props.addClick}>Load Categories</button>
+			<button className="add-categories-button" onClick={props.loadBlogs}>Load Blogs</button>
 			<button className="reload-categories-button" onClick={props.reloadClick}>Reload Categories</button>
 		</div>
 		)

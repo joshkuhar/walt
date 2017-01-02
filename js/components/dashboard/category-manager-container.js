@@ -15,16 +15,20 @@ var Category = React.createClass({
 	reloadClick: function(){
 		this.props.dispatch(actions.getCategories());
 	},
+	loadBlogs: function(){
+		this.props.dispatch(actions.loadBlogs(this.props.blogs));
+	},
 	render: function(){
 		return (
-			<CategoryManager addClick={this.addClick} reloadClick={this.reloadClick}/>
+			<CategoryManager addClick={this.addClick} reloadClick={this.reloadClick} loadBlogs={this.loadBlogs}/>
 			)
 	}
 });
 
 var mapStateToProps = function(state, props) {
     return {
-    	categories: state.categories
+    	categories: state.categories,
+    	blogs: state.dummyBlogs
 
     };
 };

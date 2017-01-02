@@ -41,6 +41,7 @@ h1 {
 .blog-post-date{}
 .blog-post-body{
 	text-align: justify;
+  white-space: pre-line;
 }
 
 .sidebar{
@@ -53,7 +54,9 @@ h1 {
 	margin-bottom: 1em;
 }
 .sidebar-item-title{}
-.sidebar-item-date{}
+.sidebar-item-date{
+  font-size: .8em;
+}
 .sidebar-item-content{
 	font-size: .9em;
 }

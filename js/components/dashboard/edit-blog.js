@@ -8,38 +8,31 @@ var Link = router.Link;
 
 var BlogToEdit = React.createClass ({
 	componentDidMount: function(){
-		console.log(this.props.params);
-		this.props.dispatch(actions.getBlogToEdit());
+		var blog = {};
+		for (var index in this.props.blogs){
+			if(this.props.params.blogId == this.props.blogs[index]._id){
+				blog = this.props.blogs[index]
+			}
+		}
+		this.props.dispatch(actions.getBlogToEdit(blog));
 	},
 	handleTitleChange: function(event) {
 		this.props.dispatch(actions.updateTitle(event.target.value));
-	},
-	handleCategoryChange: function(event) {
-		this.props.dispatch(actions.selectCategory(event.target.value));
 	},
 	handleBlogChange: function(event) {
     	this.props.dispatch(actions.updateBlog(event.target.value));
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
-    	console.log(this.props.category);
-    	this.props.dispatch(actions.postBlog(this.props.title, this.props.category, this.props.blog));
-	},
-  	onClick: function(){
-  		console.log(store.getState());
+    	if(!this.props.success) {
+			this.props.dispatch(actions.putBlog(this.props.title, this.props.blog, this.props.params.blogId));
+    	} else {
+    		alert("You already submitted the post. If you want to change it, you have to edit it from the edit boxy thingy");
+    	}
 	},
 	render: function() {
-		var categories = [];
-		var categoryList = this.props.categories;
-		for (var index in categoryList) {
-			categories.push(
-				<option key={index} value={categoryList[index]._id}>{categoryList[index].category}</option>	
-				)
-		}
-	    return (
+		return (
 		    <div className="blog-entry-form">
-		    <Link to="/test">test</Link>
-		     <button onClick={this.onClick}>store</button>
 		      <form onSubmit={this.handleSubmit}>
 		        <div className="blog-entry-large-container">
 			        <div className="blog-entry-form-title">Title</div>
@@ -51,19 +44,14 @@ var BlogToEdit = React.createClass ({
 							<input type="submit" value="Submit" />
 			        	</div>
 			        </div>
-			        <div className="selector-container"> Categories
-				        <div className="category-selector">
-				        	<select value={this.props.category} onChange={this.handleCategoryChange}>
-									{categories}
-					      	</select>
-					    </div>
-				    </div>
+			       	<span>{this.props.success}</span>
 			        <div className="blog-body-header">Blog</div>
 			        <textarea className="blog-entry-body" value={this.props.blog} placeholder="type away..." onChange={this.handleBlogChange} />
 		        </div>
 		      </form>
 		     </div>
     );
+
   }
 });
 
@@ -72,10 +60,19 @@ var mapStateToProps = function(state, props) {
     	title: state.title,
         blog: state.blog,
         category: state.category,
-        categories: state.categories
+        categories: state.categories,
+        blogs: state.blogs,
+        success: state.success,
+
     };
 };
 
 var Container = connect(mapStateToProps)(BlogToEdit);
 
 module.exports = Container;
+
+/*
+
+
+
+*/

@@ -15,7 +15,7 @@ var AboutContainer = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="about-container">
+			<div className="about-container">	
 				<h3>About Me</h3>
 				<About about={this.props.about} />
 			</div>
@@ -25,7 +25,8 @@ var AboutContainer = React.createClass({
 
 var mapStateToProps = function(state, props) {
     return {
-    	about: state.about
+    	about: state.about,
+    	success: state.sucess
     };
 };
 

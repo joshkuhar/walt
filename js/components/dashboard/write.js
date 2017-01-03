@@ -11,6 +11,9 @@ var DateStamp = require('./write-date-stamp');
 var date = DateStamp();
 
 var BlogEntry = React.createClass ({
+	componentDidMount: function() {
+		this.props.dispatch(actions.setBlogEntryForm());
+	},
 	handleTitleChange: function(event) {
 		this.props.dispatch(actions.updateTitle(event.target.value));
 	},

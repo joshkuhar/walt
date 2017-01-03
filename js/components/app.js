@@ -11,7 +11,7 @@ var App = React.createClass({
 	render: function(){
 		return(
 			<div>
-				<button onClick={this.onClick}>store</button>
+				<button onClick={this.onClick}>store</button><Link to="/dashboard">Dashboard</Link>
 				<div>
 					<h1>Blogger's App</h1>
 					<div className="nav-bar">

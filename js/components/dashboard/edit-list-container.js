@@ -1,24 +1,34 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var BlogToEditList = require('./edit-list');
-var Data = require('../../mock-data');
 var router = require('react-router');
 var Link = router.Link;
+var connect = require('react-redux').connect;
+var actions = require('../../actions/index');
+var store = require('../../store');
+var BlogToEditList = require('./edit-list');
 
-var EditList = function(props){
-	var amountToDisplay = 0;
-	if (Data.items.length > 10) {
-		amountToDisplay = 10;
-	} else {
-		amountToDisplay = Data.items.length;
-	}
+
+var EditList = React.createClass({
+	componentDidMount: function(){
+		this.props.dispatch(actions.getBlogs());
+	},
+	render: function(){
+	var amountToDisplay = this.props.blogs.length>10 ? 10 : this.props.blogs.length;
 	return (
 		<div className="blog-to-edit-list-container">
-			<Link to={"/dashboard/edit/" + "blog"}>edit blog</Link>
-			<BlogToEditList blogsToEdit={Data.items} numberOfBlogsToDisplay={amountToDisplay}/>
+			<BlogToEditList blogsToEdit={this.props.blogs} numberOfBlogsToDisplay={amountToDisplay}/>
 		</div>							
 		
 		)
+	}
+});
+
+var mapStateToProps = function(state, props){
+	return {
+		blogs: state.blogs
+	}
 };
 
-module.exports = EditList;	
+var Container = connect(mapStateToProps)(EditList);
+
+module.exports = Container;

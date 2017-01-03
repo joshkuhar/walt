@@ -10,16 +10,16 @@ var AboutEdit = React.createClass ({
 	componentDidMount: function(){
 		// This is the id for the about page. To prevent multiple abouts, 
 		// only GET, PUT, and DELETE are utilized through this component.
-		var id = "586a95d7f0792e5f629ae7df";
+		var id = "586a95d7f0792e5f629ae7df"; 
 		this.props.dispatch(actions.getAbout(id));
 	},
-	handleBlogChange: function(event) {
+	handleAboutChange: function(event) {
     	this.props.dispatch(actions.changeAbout(event.target.value));
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
 		var id = "586a95d7f0792e5f629ae7df";
-    	this.props.dispatch(actions.updateAbout(id));
+    	this.props.dispatch(actions.updateAbout(id, this.props.about));
 	},
   	onClick: function(){
   		console.log(store.getState());
@@ -31,11 +31,12 @@ var AboutEdit = React.createClass ({
 			        <div className="about-form-container">
 			        	<div className="about-header-container">
 			        		<h3 className="about-title">Edit About</h3>
+			        		<div>{this.props.success}</div>
 			        		<div className="about-button-wrapper">
 								<input className="about-button"type="submit" value="Submit" />
 							</div>
 			        	</div>
-					<textarea className="about-textarea" value={this.props.about} placeholder="tell the world about yourself..." onChange={this.handleBlogChange} />
+					<textarea className="about-textarea" value={this.props.about} placeholder="tell the world about yourself..." onChange={this.handleAboutChange} />
 				    </div>
 		      </form>
 		     </div>
@@ -46,7 +47,7 @@ var AboutEdit = React.createClass ({
 var mapStateToProps = function(state, props) {
     return {
     	about: state.about,
-
+    	success: state.success
     };
 };
 

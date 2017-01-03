@@ -8,20 +8,17 @@ var BlogList = function(props){
 	var numberOfBlogsToDisplay = props.numberOfBlogsToDisplay;
 	for (var index = 0; index < numberOfBlogsToDisplay; index++) {
 		var blog = blogsToEdit[index];
+		var date = blog.blogPost.month+" "+blog.blogPost.date+", "+blog.blogPost.year;
 		blogList.push(
-			<div key={index}>
-				<BlogToEdit blogToEditTitle={blog.title}
-							blogToEditCategory={blog.category}
-							blogToEditDate={blog.date}
-							blogToEditContent={blog.content}
-							/>
-			</div>
+			<li key={index}>
+				<BlogToEdit blogId={blog._id}blogToEditTitle={blog.blogPost.title} blogDate={date}/>
+			</li>
 			)
 	}
 	return (
-		<div className="blog-to-edit-list">
+		<ul className="blog-to-edit-list">
 			{blogList}
-		</div>
+		</ul>
 		)
 };
 module.exports = BlogList;

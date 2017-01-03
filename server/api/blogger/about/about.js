@@ -15,8 +15,8 @@ AboutRouter.post('/about', function(req, res) {
 		});   
     });
 
-AboutRouter.get('/about', function(req, res){
-	About.find(function(err, about) {
+AboutRouter.get('/about/:id', function(req, res){
+	About.findById(req.params.id, function(err, about) {
 		if (err) {
 			console.log(err);
 			return res.status(500).json({
@@ -26,6 +26,19 @@ AboutRouter.get('/about', function(req, res){
 			res.status(200).json(about);
 		});
 	});
+AboutRouter.put('/about/:id', function(req, res){
+	About.findByIdAndUpdate(req.params.id, 
+							{$set: {about: req.body.about}}, 
+		function(err, about){
+			if(err){
+				console.log(err);
+				return res.status(500).json({
+					message: 'Internal Server Error'
+				});
+			}
+			res.status(201).end();
+		});
+});
 
 AboutRouter.delete('/about/:id', function(req, res){
 	About.findByIdAndRemove(

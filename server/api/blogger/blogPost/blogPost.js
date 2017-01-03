@@ -3,12 +3,14 @@ var BlogPost = require('./blogPostModel');
 var Category = require('../category/categoryModel');
 
 BlogPostRouter.post('/blogs/:categoryId', function(req, res){
+	console.log(req.body, req.params.categoryId);
+
 	BlogPost.create({blogPost: {title: req.body.title, 
 								content: req.body.content, 
 								month: req.body.month,
 								date: req.body.date,
 								year: req.body.year,
-								category: req.params.categoryId} }, 
+								categoryId: req.params.categoryId} }, 
 		function(err, blog) {
 			if (err) {
 				console.log(err);

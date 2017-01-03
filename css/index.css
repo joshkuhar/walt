@@ -161,10 +161,33 @@ h1 {
     font-size: 1em;
     resize: none
 }
-
-.blog-to-edit-list-container{}
-.blog-to-edit-list{}
-.blog-to-edit {}
+.blog-to-edit-navigator{
+  text-align: center;
+}
+.blog-to-edit-instruction{
+    text-align: center;
+    margin-bottom: 1em;
+}
+.blog-to-edit-list-container > h3{
+  text-align: center;
+}
+.blog-to-edit-list{
+  list-style: none;
+  width: 20em;
+  margin: 0 auto;
+}
+.blog-to-edit{
+    width: 20em;
+    margin: 0 auto .8em;
+}
+.blog-to-edit-title{
+    margin-left: 20%;
+}
+.blog-to-edit-date{
+    margin-left: 20%;
+    font-size: .7em;
+    font-family: sans-serif;
+}
 .dashboard-header{
     text-align: center;
     margin: 0 auto;

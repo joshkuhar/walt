@@ -70,6 +70,17 @@ var addCategory = function(category){
 exports.ADD_CATEGORY = ADD_CATEGORY;
 exports.addCategory = addCategory;
 
+var SET_BLOG_ENTRY_FORM = 'SET_BLOG_ENTRY_FORM';
+var setBlogEntryForm = function(){
+    return {
+        type: SET_BLOG_ENTRY_FORM,
+        title: "",
+        blog: ""
+    }
+}
+exports.SET_BLOG_ENTRY_FORM = 'SET_BLOG_ENTRY_FORM';
+exports.setBlogEntryForm = setBlogEntryForm;
+
 var POST_BLOG_SUCCESS = 'POST_BLOG_SUCCESS'
 var postBlogSuccess = function(data) {
     return {
@@ -81,13 +92,23 @@ exports.POST_BLOG_SUCCESS = POST_BLOG_SUCCESS;
 exports.postBlogSuccess = postBlogSuccess;
 
 var GET_BLOG_TO_EDIT = 'GET_BLOG_TO_EDIT';
-var getBlogToEdit = function(){
+var getBlogToEdit = function(blog){
     return {
-        type: GET_BLOG_TO_EDIT
+        type: GET_BLOG_TO_EDIT,
+        blog: blog
     }
 };
 exports.GET_BLOG_TO_EDIT = GET_BLOG_TO_EDIT;
 exports.getBlogToEdit = getBlogToEdit;
+
+var PUT_BLOG_SUCCESS = 'PUT_BLOG_SUCCESS'
+var putBlogSuccess = function() {
+    return {
+        type: PUT_BLOG_SUCCESS
+    }
+}
+exports.PUT_BLOG_SUCCESS = PUT_BLOG_SUCCESS;
+exports.putBlogSuccess = putBlogSuccess;
 
 var GET_BLOGS_SUCCESS = 'GET_BLOGS_SUCCESS'
 var getBlogsSuccess = function(blogs) {
@@ -108,6 +129,15 @@ var getAboutSuccess = function(about) {
 };
 exports.GET_ABOUT_SUCCESS = GET_ABOUT_SUCCESS;
 exports.getAboutSuccess = getAboutSuccess;
+
+var UPDATE_ABOUT_SUCCESS = 'UPDATE_ABOUT_SUCCESS';
+var updateAboutSuccess = function(){
+    return {
+        type: UPDATE_ABOUT_SUCCESS
+    }
+}
+exports.UPDATE_ABOUT_SUCCESS = UPDATE_ABOUT_SUCCESS;
+exports.updateAboutSuccess = updateAboutSuccess;
 
 var CHANGE_ABOUT = 'CHANGE_ABOUT';
 var changeAbout = function(about) {
@@ -158,6 +188,30 @@ var postBlog = function(title, category, blog, month, date, year) {
     }
 };
 exports.postBlog = postBlog;
+
+var putBlog = function(title, blog, blogId) {
+    return function(dispatch) {
+        var url = 'http://localhost:8080/blogs/'+blogId;
+        return fetch(url, {
+        method: "PUT",
+        body: JSON.stringify({
+            title : title, 
+            content: blog
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function(res) {
+        return res.status
+    }).then(function(data) {
+        console.log(data);
+        return dispatch(putBlogSuccess())
+    }).catch(function(error) {
+        console.log(error);
+        });
+    }
+};
+exports.putBlog = putBlog;
 
 var loadCategories = function(categories){
     return function(dispatch) {
@@ -243,9 +297,9 @@ var updateAbout = function(aboutId, about){
             "Content-Type": "application/json"
         }
     }).then(function(res) {
-        return res.json()
-    }).then(function(data) {
-        return dispatch(updateAboutSuccess(data))
+        return res.status
+    }).then(function() {
+        return dispatch(updateAboutSuccess())
     }).catch(function(error) {
         console.log(error);
         });

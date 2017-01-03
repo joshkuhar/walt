@@ -40,7 +40,7 @@ BlogPostRouter.post('/blogs/:categoryId', function(req, res) {
                     }
                 );
             }
-        });
+        });  
 });
 
 // loads test data into mongo
@@ -89,8 +89,6 @@ BlogPostRouter.post('/dashboard/blogs', function(req, res) {
     });
 });
 
-
-
 BlogPostRouter.get('/blogs', function(req, res) {
     BlogPost.find(function(err, blogs) {
         if (err) {
@@ -102,6 +100,24 @@ BlogPostRouter.get('/blogs', function(req, res) {
         res.status(200).json(blogs);
     });
 });
+
+
+BlogPostRouter.get('/blogs/date', function(req, res) {
+    console.log("bang");
+    BlogPost.find({}).limit(4).sort({ "blogPost.created_at": -1 }).exec( function(err, blogs) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(blogs);    
+    });
+});
+
+//Room.find({}).sort({date: -1}).exec(function
+// { $orderby: { "blogPost.created_at": -1 } }, 
+
 
 BlogPostRouter.put('/blogs/:blogId', function(req, res) {
     BlogPost.findByIdAndUpdate(req.params.blogId, {

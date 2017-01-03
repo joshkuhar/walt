@@ -23,6 +23,10 @@ var BlogPostSchema = mongoose.Schema({
 			type: String,
 			required: true
 		},
+		created_at: {
+			type: Date,
+			default: Date.now
+		},
 		categoryId: {
 			required: true,
 			type: Schema.Types.ObjectId,

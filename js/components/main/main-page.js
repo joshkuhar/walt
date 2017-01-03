@@ -12,13 +12,14 @@ var Main = React.createClass({
 		this.props.dispatch(actions.getBlogs());
 	},
 	render: function(){
+		var blogs = this.props.blogs.reverse();
 		return (
 			<div className="main-parent-container">
 				<div className="child-sidebar">
-					<Sidebar sidebarHeader="Category List" sidebarItems={this.props.blogs}/>
+					<Sidebar sidebarHeader="Category List" sidebarItems={blogs}/>
 				</div>
 				<div className="child-blog">
-					<Blogs blogs={this.props.blogs} selectedBlog={this.props.params.blogId}/>
+					<Blogs blogs={blogs} selectedBlog={this.props.params.blogId}/>
 				</div>
 			</div>
 			)

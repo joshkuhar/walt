@@ -8,8 +8,8 @@ var initialState = {
 	title: "",
 	blog: "",
 	content: "",
-	category: "-----",
-	categories: Data.categories,
+	category: "",
+	categories: Data,
 	dummyBlogs: DummyBlogs,
 	blogs: [{blogPost: {title: "foofoo"}},{blogPost: {title: "barbar"}}]
 		//blog: state.blogs[0].blogPost.title
@@ -64,7 +64,12 @@ var blogReducer = function(state, action) {
 	}
 	else if (action.type === actions.POST_BLOG_SUCCESS) {
 		return {
-			blog: action.data
+			category: state.category,
+			categories: state.categories,
+			title: state.title,
+			blog: action.data.blogPost.content,
+			success: "post success!",
+			about: state.about
 		}
 	}
 	else if(action.type === actions.GET_BLOG_TO_EDIT) {
@@ -84,13 +89,16 @@ var blogReducer = function(state, action) {
 	else if(action.type === actions.GET_ABOUT_SUCCESS) {
 		return {
 			about: action.about,
+			category: state.category,
+			title: state.title,
+			blog: state.blog,
 			blogs: state.blogs
 		}
 	}
 	else if(action.type === actions.CHANGE_ABOUT) {
 		return {
 			about: action.about,
-			bogs: state.blogs
+			blogs: state.blogs
 		}
 	}
 

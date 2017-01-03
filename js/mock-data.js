@@ -1,17 +1,22 @@
-var Data = {
+var Data = [
+{
+	"_id": "111111",
+	"category": "----------"
+},
+{
+	"_id": "5869b745b85bc0532e4c92f8",
+	"category": "Long Talks"
+},
+{
+	"_id": "5869b745b85bc0532e4c92f6",
+	"category": "Sofas"
+},
+{
+	"_id": "5869b745b85bc0532e4c92f7",
+	"category": "Trees"
+}
+];
 
-	categories: [
-		{
-			category: "Sofas"
-		},
-		{
-			category: "Trees"
-		},
-		{
-			category: "Long Talks"
-		}
-	],
-};
 
 module.exports = Data;
 
@@ -107,4 +112,9 @@ var blogPosts = [
 		category: ids[5]._id
 	}
 ]
+data to pre load. admin
+{
+	about: "I am that merry wanderer of the night. \n\nI jest to Oberon and make him smile When I a fat and bean-fed horse beguile, Neighing in likeness of a filly foal: And sometime lurk I in a gossip’s bowl, In very likeness of a roasted crab, And when she drinks, against her lips I bob And on her wither’d dewlap pour the ale. \n\nThe wisest aunt, telling the saddest tale, Sometime for three-foot stool mistaketh me; Then slip I from her bum, down topples she, And ‘tailor’ cries, and falls into a cough; And then the whole quire hold their hips and laugh, And waxen in their mirth and neeze and swear A merrier hour was never wasted there."
+}
+
 */

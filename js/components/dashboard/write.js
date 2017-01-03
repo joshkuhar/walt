@@ -22,12 +22,16 @@ var BlogEntry = React.createClass ({
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
-    	this.props.dispatch(actions.postBlog(this.props.title, this.props.category, this.props.blog, 
-    										date.month, date.date, date.year
-    										));
+    	if(!this.props.success) {
+	    	this.props.dispatch(actions.postBlog(this.props.title, this.props.category, this.props.blog, 
+	    										date.month, date.date, date.year
+	    										));
+    	} else {
+    		alert("You already submitted the post. If you want to change it, you have to edit it from the edit boxy thingy");
+    	}
 	},
 	render: function() {
-		var categories = ["-----"];
+		var categories = [];
 		var categoryList = this.props.categories;
 		for (var index in categoryList) {
 			categories.push(
@@ -55,7 +59,7 @@ var BlogEntry = React.createClass ({
 					      	</select>
 					    </div>
 				    </div>
-			        <div className="blog-body-header">Blog</div>
+			        <div className="blog-body-header">Blog <span>{this.props.success}</span></div>
 			        <textarea className="blog-entry-body" value={this.props.blog} placeholder="type away..." onChange={this.handleBlogChange} />
 		        </div>
 		      </form>
@@ -69,7 +73,8 @@ var mapStateToProps = function(state, props) {
     	title: state.title,
         blog: state.blog,
         category: state.category,
-        categories: state.categories
+        categories: state.categories,
+        success: state.success
     };
 };
 

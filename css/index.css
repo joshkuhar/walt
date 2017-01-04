@@ -192,11 +192,14 @@ h1 {
     text-align: center;
     margin: 0 auto;
 }
-.category-manager{
+.category-manager > h3 {
+  text-align: center;
+}
+.category-manager {
     width: 30em;
     margin: 0 auto;
-    text-align: center;
 }
+.category-manager-instructions-container{}
 .category-manager-instructions{}
 .add-categories-button{}
 .category-manager-container{}

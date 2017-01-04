@@ -12,22 +12,19 @@ var Category = React.createClass({
 	addClick: function(){
 		this.props.dispatch(actions.loadCategories(this.props.categories));
 	},
-	reloadClick: function(){
-		this.props.dispatch(actions.getCategories());
-	},
 	loadBlogs: function(){
 		this.props.dispatch(actions.loadBlogs(this.props.blogs));
 	},
 	render: function(){
 		return (
-			<CategoryManager addClick={this.addClick} reloadClick={this.reloadClick} loadBlogs={this.loadBlogs}/>
+			<CategoryManager addClick={this.addClick} loadBlogs={this.loadBlogs}/>
 			)
 	}
 });
 
 var mapStateToProps = function(state, props) {
     return {
-    	categories: state.categories,
+    	categories: state.categoriesForLoading,
     	blogs: state.dummyBlogs
 
     };

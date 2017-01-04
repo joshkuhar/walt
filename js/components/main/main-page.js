@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Data = require('../../mock-data');
+var Data = require('../../mock-categories');
 var Blogs = require('./blog-list-container');
 var Sidebar = require('./sidebar-container');
 var connect = require('react-redux').connect;
@@ -12,7 +12,7 @@ var Main = React.createClass({
 		this.props.dispatch(actions.getBlogs());
 	},
 	render: function(){
-		var blogs = this.props.blogs.reverse();
+		var blogs = this.props.blogs;
 		return (
 			<div className="main-parent-container">
 				<div className="child-sidebar">

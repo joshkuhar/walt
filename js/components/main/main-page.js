@@ -19,7 +19,7 @@ var Main = React.createClass({
 					<Sidebar sidebarHeader="Category List" sidebarItems={blogs}/>
 				</div>
 				<div className="child-blog">
-					<Blogs blogs={blogs} selectedBlog={this.props.params.blogId}/>
+					<Blogs blogs={blogs} selectedBlog={this.props.params.blogId} categories={this.props.categories}/>
 				</div>
 			</div>
 			)
@@ -28,7 +28,8 @@ var Main = React.createClass({
 
 var mapStateToProps = function(state, props) {
     return {
-		blogs: state.blogs
+		blogs: state.blogs,
+		categories: state.categories
     };
 };
 

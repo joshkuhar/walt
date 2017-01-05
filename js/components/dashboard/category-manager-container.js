@@ -9,7 +9,8 @@ var CategoryManager = require('./category-manager');
 
 var Category = React.createClass({
 	
-	addClick: function(){
+	loadCategories: function(){
+		('I was clicked');
 		this.props.dispatch(actions.loadCategories(this.props.categories));
 	},
 	loadBlogs: function(){
@@ -17,7 +18,7 @@ var Category = React.createClass({
 	},
 	render: function(){
 		return (
-			<CategoryManager addClick={this.addClick} loadBlogs={this.loadBlogs}/>
+			<CategoryManager loadCategories={this.loadCategories} loadBlogs={this.loadBlogs}/>
 			)
 	}
 });

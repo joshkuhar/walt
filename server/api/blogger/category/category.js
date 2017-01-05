@@ -3,6 +3,7 @@ var Category = require('./categoryModel');
 
 
 CategoryRouter.post('/categories', function(req, res) {
+	console.log('categories endpoint hit');
 	Category.create(req.body.categories, function(err, categories) {
 		if (err) {
 			console.log(err);

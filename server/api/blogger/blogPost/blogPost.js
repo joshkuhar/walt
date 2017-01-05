@@ -76,7 +76,6 @@ BlogPostRouter.post('/dashboard/blogs', function(req, res) {
                                     message: 'Internal Server Error'
                                 });
                             }
-
                         }
                     );
                 }
@@ -88,21 +87,7 @@ BlogPostRouter.post('/dashboard/blogs', function(req, res) {
 });
 
 BlogPostRouter.get('/blogs', function(req, res) {
-    BlogPost.find(function(err, blogs) {
-        if (err) {
-            console.log(err);
-            return res.status(500).json({
-                message: 'Internal Server Error'
-            });
-        }
-        res.status(200).json(blogs);
-    });
-});
-
-
-BlogPostRouter.get('/blogs/date', function(req, res) {
-    console.log("bang");
-    BlogPost.find({}).limit(4).sort({ "blogPost.created_at": -1 }).exec( function(err, blogs) {
+    BlogPost.find({}).limit(30).sort({ _id: -1 }).exec( function(err, blogs) {
         if (err) {
             console.log(err);
             return res.status(500).json({
@@ -112,7 +97,7 @@ BlogPostRouter.get('/blogs/date', function(req, res) {
         res.status(200).json(blogs);    
     });
 });
-
+// For production, make sure you sort by blogPost.create_at!!!!
 //Room.find({}).sort({date: -1}).exec(function
 // { $orderby: { "blogPost.created_at": -1 } }, 
 

@@ -57,6 +57,12 @@ h1 {
 	width: 12em;
     margin: 0 auto;
 }
+.sidebar-selector-container{
+    width: 12em;
+    margin: 0 auto;
+}
+.sidebar-button{}
+.search-selector-header{}
 .sidebar-header{}
 .sidebar-item-list{}
 .sidebar-item{
@@ -64,6 +70,9 @@ h1 {
 }
 .sidebar-item-title{}
 .sidebar-item-date{
+  font-size: .8em;
+}
+.sidebar-item-category{
   font-size: .8em;
 }
 .sidebar-item-content{
@@ -103,12 +112,23 @@ h1 {
 	width: auto;
     display: inline-block;
 }
+.blog-entry-header{
+    width: 37em;
+    text-align: right;
+    margin: 0 auto;
+    margin-top: .5em;
+}
+.cancel-button-blog-entry{
+  display: inline;
+}
 .submit-button-container{
-	display: inline-block;
+	 display: inline;
     width: auto;
-    margin-left: 4em;
-    margin-right: -7.5em;
     font-size: 1em;
+}
+.delete-button-blog{
+  display:inline;
+  margin-right: 25em;
 }
 .blog-body-header{
 	margin-top: 1em;

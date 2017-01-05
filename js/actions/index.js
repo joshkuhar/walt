@@ -110,6 +110,15 @@ var putBlogSuccess = function() {
 exports.PUT_BLOG_SUCCESS = PUT_BLOG_SUCCESS;
 exports.putBlogSuccess = putBlogSuccess;
 
+var DELETE_BLOG_SUCCESS = 'DELETE_BLOG_SUCCESS';
+var deleteBlogSuccess = function() {
+    return {
+        type: DELETE_BLOG_SUCCESS
+    }
+}
+exports.DELETE_BLOG_SUCCESS = DELETE_BLOG_SUCCESS;
+exports.deleteBlogSuccess = deleteBlogSuccess;
+
 var GET_BLOGS_SUCCESS = 'GET_BLOGS_SUCCESS'
 var getBlogsSuccess = function(blogs) {
     return {
@@ -129,6 +138,16 @@ var getAboutSuccess = function(about) {
 };
 exports.GET_ABOUT_SUCCESS = GET_ABOUT_SUCCESS;
 exports.getAboutSuccess = getAboutSuccess;
+
+var SEARCH_CATEGORIES_SUCCESS = 'SEARCH_CATEGORIES_SUCCESS';
+var searchCategoriesSuccess = function(category) {
+    return {
+        type: SEARCH_CATEGORIES_SUCCESS,
+        category: category
+    }
+};
+exports.SEARCH_CATEGORIES_SUCCESS = SEARCH_CATEGORIES_SUCCESS;
+exports.searchCategoriesSuccess = searchCategoriesSuccess;
 
 var UPDATE_ABOUT_SUCCESS = 'UPDATE_ABOUT_SUCCESS';
 var updateAboutSuccess = function(){
@@ -213,6 +232,22 @@ var putBlog = function(title, blog, blogId) {
 };
 exports.putBlog = putBlog;
 
+var deleteBlog = function(blogId) {
+    return function(dispatch) {
+        var url = 'http://localhost:8080/blogs/'+blogId;
+        return fetch(url, {
+            method: "DELETE"
+        }).then(function(res) {
+            return res
+        }).then(function() {
+            return dispatch(deleteBlogSuccess())
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+};
+exports.deleteBlog = deleteBlog;
+
 var loadCategories = function(categories){
     console.log("loadCategories was called");
     return function(dispatch) {
@@ -271,6 +306,21 @@ var getCategories = function() {
     }
 };
 exports.getCategories = getCategories;
+
+var searchCategories = function(category) {
+    console.log(category, "I'm fetch");
+    return function(dispatch) {
+        var url = 'http://localhost:8080/categories/'+category;
+        return fetch(url).then(function(res) {
+            return res.json()
+        }).then(function(data) {
+            return dispatch(searchCategoriesSuccess(data))
+        }).catch(function(err) {
+            console.log(err);
+        });
+    }
+};
+exports.searchCategories = searchCategories;
 
 var getAbout = function(aboutId) {
     return function(dispatch) {

@@ -118,6 +118,19 @@ BlogPostRouter.put('/blogs/:blogId', function(req, res) {
             }
             res.status(201).end();
         });
-})
+});
+
+BlogPostRouter.delete('/blogs/:blogId', function(req, res){
+    BlogPost.findByIdAndRemove(
+        req.params.blogId, function(err){
+            if(err){
+                console.log(err);
+            }
+            res.status(202).end();
+        });
+});
+
+
+
 
 module.exports = BlogPostRouter;

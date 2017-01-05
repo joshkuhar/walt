@@ -27,6 +27,22 @@ CategoryRouter.get('/categories', function(req, res){
 			res.status(200).json(categories);
 		});
 	});
+
+CategoryRouter.get('/categories/:categoryId', function(req, res){
+	Category.findOne({
+		_id: req.params.categoryId
+	})
+	.populate('blogPosts')
+	.exec(function(err, category){
+		if (err) {
+			console.log(err);
+			return res.status(500).json({
+				message: 'Internal Server Error'
+			});
+		}
+		res.status(200).json(category);
+	});
+});
 // categoryRouter.put('/category/:id', function(req, res){
 // 	Category.update({_id: req.params.id}, {$set: {name: req.body.name}}, 
 // 		function(err){

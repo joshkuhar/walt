@@ -1,33 +1,25 @@
 var categories = [
-{
-	"_id": "111111",
-	"category": "----------"
-},
-{
-	"_id": "5869b745b85bc0532e4c92f8",
-	"category": "Long Talks"
-},
-{
-	"_id": "5869b745b85bc0532e4c92f6",
-	"category": "Sofas"
-},
-{
-	"_id": "5869b745b85bc0532e4c92f7",
-	"category": "Trees"
-}
+	{"_id": "111111", "category": "----------"},
+	{ "_id" : "586d923f16afd00796d2cd91", "category" : "fooz"},
+	{ "_id" : "586d923f16afd00796d2cd92", "category" : "bark"},
+	{ "_id" : "586d923f16afd00796d2cd93", "category" : "zats"},
+	{ "_id" : "586d923f16afd00796d2cd94", "category" : "affy"}
 ];
 
 exports.categories = categories;
 
 var categoriesForLoading = [
 	{
-		category: "foo"
+		category: "fooz"
 	},
 	{
-		category: "bar"
+		category: "bark"
 	},
 	{
-		category: "cat"
+		category: "zats"
+	},
+	{
+		category: "affy"
 	}
 ];
 

@@ -3,7 +3,7 @@ var SidebarItems = require('./sidebar-item-list');
 
 var SidebarList = function(props){
 	return(
-			<SidebarItems sidebarHeader={props.sidebarHeader} sidebarItems={props.sidebarItems} />
+			<SidebarItems sidebarHeader={props.sidebarHeader} sidebarItems={props.sidebarItems} categories={props.categories} />
 		)
 };
 

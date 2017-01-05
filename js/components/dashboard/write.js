@@ -23,15 +23,16 @@ var BlogEntry = React.createClass ({
 	handleBlogChange: function(event) {
     	this.props.dispatch(actions.updateBlog(event.target.value));
 	},
+	// handleCancel: function(event) {
+	// 	event.preventDefault();
+	// 	console.log("I was clicked");
+	// },
   	handleSubmit: function(event) {
     	event.preventDefault();
-    	if(!this.props.success) {
-	    	this.props.dispatch(actions.postBlog(this.props.title, this.props.category, this.props.blog, 
+	    this.props.dispatch(actions.postBlog(this.props.title, this.props.category, this.props.blog, 
 	    										date.month, date.date, date.year
 	    										));
-    	} else {
-    		alert("You already submitted the post. If you want to change it, you have to edit it from the edit boxy thingy");
-    	}
+
 	},
 	render: function() {
 		var categories = [];
@@ -46,13 +47,11 @@ var BlogEntry = React.createClass ({
 		      <form onSubmit={this.handleSubmit}>
 		        <div className="blog-entry-large-container">
 		        	<h3>Write New Blog</h3>
+
 			        <div className="blog-entry-form-title">Title</div>
 			        <div className="blog-entry-container">
 			        	<div className="title-input-container">
 							<input className="blog-entry-title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
-			        	</div>
-			        	<div className="submit-button-container">
-							<input type="submit" value="Submit" />
 			        	</div>
 			        </div>
 			        <div className="selector-container"> Categories
@@ -62,7 +61,14 @@ var BlogEntry = React.createClass ({
 					      	</select>
 					    </div>
 				    </div>
-			        <div className="blog-body-header">Blog <span>{this.props.success}</span></div>
+			        <div className="blog-entry-header">
+			        	<div className="cancel-button-blog-entry">
+			        		<Link to="/dashboard"><button>Cancel</button></Link>
+			        	</div>
+			        	<div className="submit-button-container">
+							<input type="submit" value="Submit" />
+			        	</div>
+			        </div>
 			        <textarea className="blog-entry-body" value={this.props.blog} placeholder="type away..." onChange={this.handleBlogChange} />
 		        </div>
 		      </form>

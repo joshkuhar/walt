@@ -24,12 +24,13 @@ var BlogToEdit = React.createClass ({
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
-    	if(!this.props.success) {
-			this.props.dispatch(actions.putBlog(this.props.title, this.props.blog, this.props.params.blogId));
-    	} else {
-    		alert("You already submitted the post. If you want to change it, you have to edit it from the edit boxy thingy");
-    	}
-	},
+    	console.log("handleSubmit was called");
+		this.props.dispatch(actions.putBlog(this.props.title, this.props.blog, this.props.params.blogId));
+    },
+    handleDelete: function(event) {
+		event.preventDefault();
+		this.props.dispatch(actions.deleteBlog(this.props.params.blogId));
+    },
 	render: function() {
 		return (
 		    <div className="blog-entry-form">
@@ -40,12 +41,18 @@ var BlogToEdit = React.createClass ({
 			        	<div className="title-input-container">
 							<input className="blog-entry-title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
 			        	</div>
+			        </div>
+			        <div className="blog-entry-header">
+			        	<div className="delete-button-blog">
+			        		<button onClick={this.handleDelete}>Delete Blog</button>
+			        	</div>
+			       		<div className="cancel-button-blog-entry">
+			        		<Link to="/dashboard/edit"><button>Cancel</button></Link>
+			        	</div>
 			        	<div className="submit-button-container">
 							<input type="submit" value="Submit" />
 			        	</div>
 			        </div>
-			       	<span>{this.props.success}</span>
-			        <div className="blog-body-header">Blog</div>
 			        <textarea className="blog-entry-body" value={this.props.blog} placeholder="type away..." onChange={this.handleBlogChange} />
 		        </div>
 		      </form>
@@ -61,9 +68,7 @@ var mapStateToProps = function(state, props) {
         blog: state.blog,
         category: state.category,
         categories: state.categories,
-        blogs: state.blogs,
-        success: state.success,
-
+        blogs: state.blogs
     };
 };
 
@@ -74,5 +79,5 @@ module.exports = Container;
 /*
 
 
-
+<Link to="/dashboard/edit"></Link>
 */

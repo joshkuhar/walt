@@ -8,6 +8,7 @@ var SidebarItem = function(props) {
 			<div className="sidebar-item">
 				<Link to={"/abode/yarn/" + props.blogId}><div className="sidebar-item-title">{props.sidebarItemTitle}</div></Link>
 				<div className="sidebar-item-date">{props.sidebarItemDate}</div>
+				<div className="sidebar-item-category">{props.sidebarItemCategory}</div>
 			</div>
 		)
 };

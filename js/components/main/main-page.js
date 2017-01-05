@@ -11,12 +11,35 @@ var Main = React.createClass({
 	componentDidMount: function(){
 		this.props.dispatch(actions.getBlogs());
 	},
+	handleCategoryChange: function(event){
+		event.preventDefault();
+		console.log(event.target.value);
+		this.props.dispatch(actions.selectCategory(event.target.value));
+	},
+	handleSubmit: function(event){
+		event.preventDefault();
+		console.log(this.props.category, "I was handled");
+		this.props.dispatch(actions.searchCategories(this.props.category));
+	},
 	render: function(){
 		var blogs = this.props.blogs;
+		var categories = [];
+		var categoryList = this.props.categories;
+		for (var index in categoryList) {
+			categories.push(
+				<option key={index} value={categoryList[index]._id}>{categoryList[index].category}</option>	
+				)
+		}
 		return (
 			<div className="main-parent-container">
 				<div className="child-sidebar">
-					<Sidebar sidebarHeader="Category List" sidebarItems={blogs}/>
+					<div className="sidebar-selector-container"><div className="search-selector-header">Categories</div>
+					<form >
+						<select value={this.props.category} onChange={this.handleCategoryChange}>{categories}</select>
+						<button className="sidebar-button" onClick={this.handleSubmit}>submit</button>
+					</form>
+					</div>
+					<Sidebar sidebarHeader="Recent Posts" sidebarItems={blogs} categories={this.props.categories}/>
 				</div>
 				<div className="child-blog">
 					<Blogs blogs={blogs} selectedBlog={this.props.params.blogId} categories={this.props.categories}/>
@@ -29,6 +52,7 @@ var Main = React.createClass({
 var mapStateToProps = function(state, props) {
     return {
 		blogs: state.blogs,
+		category: state.category,
 		categories: state.categories
     };
 };

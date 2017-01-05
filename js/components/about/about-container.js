@@ -10,7 +10,7 @@ var About = require('./about');
 
 var AboutContainer = React.createClass({
 	componentDidMount: function() {
-		var id = "586d9fadf16586081c921ea8";
+		var id = "586e319000fc4212847818ab";
 		this.props.dispatch(actions.getAbout(id));
 	},
 	render: function() {

@@ -3,15 +3,26 @@ var router = require('react-router');
 var Link = router.Link;
 var SidebarItem = require('./sidebar-item');
 
-
 var SidebarList = function(props){
 	var items = props.sidebarItems; //<-- array
+	var categories = props.categories; //<-- array
 	var numberOfItemsToDisplay = items.length<10 ? items.length : 10;
 	var sidebarList = [];
 	for (var item = 0; item < numberOfItemsToDisplay; item++) {
+		var sidebarItemCategory = item;
+		for(var category in categories){
+			if(items[item].blogPost.categoryId === categories[category]._id) {
+				sidebarItemCategory = categories[category].category;
+			}
+		}
 		sidebarList.push(
 			<div key={item}>
-				<SidebarItem sidebarItemTitle={items[item].blogPost.title} sidebarItemDate={items[item].blogPost.month + " " + items[item].blogPost.date} blogId={items[item]._id}/>
+				<SidebarItem 
+					sidebarItemTitle={items[item].blogPost.title} 
+					sidebarItemDate={items[item].blogPost.month + " " + items[item].blogPost.date} 
+					blogId={items[item]._id} 
+					sidebarItemCategory={sidebarItemCategory}
+				/>
 			</div>
 		)
 	}
@@ -27,15 +38,7 @@ var SidebarList = function(props){
 module.exports = SidebarList;
 
 
-
-
-
 /*
-
-					 sidebarItemContent={items[item].content}
-					
-
-
 props for sidebar-item
 {props.sidebarItemTitle}
 {props.sidebarItemDate}

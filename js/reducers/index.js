@@ -7,7 +7,7 @@ var initialState = {
 	title: "",
 	blog: "",
 	content: "",
-	category: "",
+	category: "586e2f71d07df81265cb1fd0",
 	categoriesForLoading: Categories.categoriesForLoading,
 	categories: Categories.categories,
 	dummyBlogs: DummyBlogs,
@@ -34,6 +34,13 @@ var blogReducer = function(state, action) {
 	else if (action.type === actions.GET_CATEGORIES_SUCCESS){
 		return Object.assign({}, state, {
 			categories: action.categories
+		})
+	}
+	else if (action.type === actions.SEARCH_CATEGORIES_SUCCESS) {
+		console.log(action.category);
+		// return state
+		return Object.assign({}, state, {
+			blogs: action.category.blogPosts
 		})
 	}
 	else if (action.type === actions.UPDATE_TITLE) {
@@ -64,6 +71,10 @@ var blogReducer = function(state, action) {
 		})
 	}
 	else if(action.type === actions.PUT_BLOG_SUCCESS) {
+		return state
+	}
+	else if(action.type === actions.DELETE_BLOG_SUCCESS) {
+		console.log("Delete Success");
 		return state
 	}
 	else if(action.type === actions.GET_BLOGS_SUCCESS) {

@@ -1,9 +1,12 @@
 var categories = [
-	{"_id": "111111", "category": "----------"},
-	{ "_id" : "586d923f16afd00796d2cd91", "category" : "fooz"},
-	{ "_id" : "586d923f16afd00796d2cd92", "category" : "bark"},
-	{ "_id" : "586d923f16afd00796d2cd93", "category" : "zats"},
-	{ "_id" : "586d923f16afd00796d2cd94", "category" : "affy"}
+	// {"_id": "111111", "category": "----------"},
+	{ "_id" : "586e2f71d07df81265cb1fd0", "category" : "fooz"},
+	{ "_id" : "586e2f71d07df81265cb1fd1", "category" : "bark"},
+	{ "_id" : "586e2f71d07df81265cb1fd2", "category" : "zats"},
+	{ "_id" : "586e2f71d07df81265cb1fd3", "category" : "affy"},
+	{ "_id" : "586e2f71d07df81265cb1fd4", "category" : "narkles"},
+	{ "_id" : "586e2f71d07df81265cb1fd5", "category" : "wirts"},
+	{ "_id" : "586e2f71d07df81265cb1fd6", "category" : "gep"},
 ];
 
 exports.categories = categories;
@@ -20,8 +23,22 @@ var categoriesForLoading = [
 	},
 	{
 		category: "affy"
+	},
+	{
+		category: "narkles"
+	},
+	{
+		category: "wirts"
+	},
+	{
+		category: "gep"
 	}
 ];
+
+
+
+
+
 
 exports.categoriesForLoading = categoriesForLoading;
 

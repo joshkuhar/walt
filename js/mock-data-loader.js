@@ -1,9 +1,12 @@
 
 var categories = [
-	{ "_id" : "586d923f16afd00796d2cd91"},
-	{ "_id" : "586d923f16afd00796d2cd92"},
-	{ "_id" : "586d923f16afd00796d2cd94"},
-	{ "_id" : "586d923f16afd00796d2cd93"}
+	{ "_id" : "586e2f71d07df81265cb1fd0"},
+	{ "_id" : "586e2f71d07df81265cb1fd1"},
+	{ "_id" : "586e2f71d07df81265cb1fd2"},
+	{ "_id" : "586e2f71d07df81265cb1fd3"},
+	{ "_id" : "586e2f71d07df81265cb1fd4"},
+	{ "_id" : "586e2f71d07df81265cb1fd5"},
+	{ "_id" : "586e2f71d07df81265cb1fd6"}
 ];
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

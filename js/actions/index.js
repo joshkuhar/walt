@@ -214,6 +214,7 @@ var putBlog = function(title, blog, blogId) {
 exports.putBlog = putBlog;
 
 var loadCategories = function(categories){
+    console.log("loadCategories was called");
     return function(dispatch) {
         var url = 'http://localhost:8080/categories';
         return fetch(url, {

@@ -11,7 +11,7 @@ var initialState = {
 	categoriesForLoading: Categories.categoriesForLoading,
 	categories: Categories.categories,
 	dummyBlogs: DummyBlogs,
-	blogs: [{_id: "111", blogPost: {title: "foo", month: "Jan", date: "1", year: "2016"}}]
+	blogs: [{_id: "111", blogPost: {title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"}}]
 };
 
 var blogReducer = function(state, action) {
@@ -22,7 +22,7 @@ var blogReducer = function(state, action) {
 		})
 	}
 	else if (action.type === actions.LOAD_SUCCESS) {
-		return Object.assign({}, state, {
+		return Object.assign({}, state, {	
 			categories: action.categories
 		})
 	}

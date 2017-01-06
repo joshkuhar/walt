@@ -1,4 +1,4 @@
-var BlogPostRouter = require('express').Router();
+    var BlogPostRouter = require('express').Router();
 var BlogPost = require('./blogPostModel');
 var Category = require('../category/categoryModel');
 

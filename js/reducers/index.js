@@ -7,6 +7,7 @@ var initialState = {
 	title: "",
 	blog: "",
 	content: "",
+	startingIndex: 0,
 	category: "586e2f71d07df81265cb1fd0",
 	categoriesForLoading: Categories.categoriesForLoading,
 	categories: Categories.categories,
@@ -37,8 +38,6 @@ var blogReducer = function(state, action) {
 		})
 	}
 	else if (action.type === actions.SEARCH_CATEGORIES_SUCCESS) {
-		console.log(action.category);
-		// return state
 		return Object.assign({}, state, {
 			blogs: action.category.blogPosts
 		})
@@ -51,6 +50,16 @@ var blogReducer = function(state, action) {
 	else if (action.type === actions.SELECT_CATEGORY) {
 		return Object.assign({}, state, {
 			category: action.category
+		})
+	}
+	else if (action.type === actions.INDEX_DOWN) {
+		return Object.assign({}, state, {
+			startingIndex: action.index + 1
+		})
+	}
+	else if (action.type === actions.INDEX_UP) {
+		return Object.assign({}, state, {
+			startingIndex: action.index - 1
 		})
 	}
 	else if (action.type === actions.SET_BLOG_ENTRY_FORM) {

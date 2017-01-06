@@ -32,6 +32,7 @@ var Routes = (
 			<Route path="/abode" component={App}>
 				<IndexRoute component={MainPage} />
 				<Route path="yarn/:blogId" component={MainPage} />
+				<Route path="next/:page" component={MainPage} />
 				<Route path="about" component={About} />
 			</Route>
 			<Route path="/login" component={Login} />

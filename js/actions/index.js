@@ -60,6 +60,26 @@ var selectCategory = function(category) {
 exports.SELECT_CATEGORY = SELECT_CATEGORY;
 exports.selectCategory = selectCategory;
 
+var INDEX_DOWN = 'INDEX_DOWN';
+var indexDown = function(index) {
+    return {
+        type: INDEX_DOWN,
+        index: index
+    }
+}
+exports.INDEX_DOWN = 'INDEX_DOWN';
+exports.indexDown = indexDown;
+
+var INDEX_UP = 'INDEX_UP';
+var indexUp = function(index) {
+    return {
+        type: INDEX_UP,
+        index: index
+    }
+}
+exports.INDEX_UP = INDEX_UP;
+exports.indexUp = indexUp;
+
 var ADD_CATEGORY = 'ADD_CATEGORY';
 var addCategory = function(category){
     return {
@@ -308,7 +328,6 @@ var getCategories = function() {
 exports.getCategories = getCategories;
 
 var searchCategories = function(category) {
-    console.log(category, "I'm fetch");
     return function(dispatch) {
         var url = 'http://localhost:8080/categories/'+category;
         return fetch(url).then(function(res) {

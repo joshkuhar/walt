@@ -32,7 +32,8 @@ var AboutEdit = React.createClass ({
 			        	<div className="about-header-container">
 			        		<h3 className="about-title">Edit About</h3>
 			        		<div>{this.props.success}</div>
-			        		<div className="about-button-wrapper">
+			        		<div className="about-button-wrapper"> 
+			        			<Link to="/dashboard"><button>Cancel</button></Link>
 								<input className="about-button"type="submit" value="Submit" />
 							</div>
 			        	</div>

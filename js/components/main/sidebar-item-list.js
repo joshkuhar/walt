@@ -5,16 +5,21 @@ var SidebarItem = require('./sidebar-item');
 
 var SidebarList = function(props){
 	var items = props.sidebarItems; //<-- array
+	console.log(items);
 	var categories = props.categories; //<-- array
-	var numberOfItemsToDisplay = items.length<10 ? items.length : 10;
+	var numberOfItemsToDisplay = items.length<5 ? items.length : 5;
 	var sidebarList = [];
-	for (var item = 0; item < numberOfItemsToDisplay; item++) {
+	var startingIndex = props.startingIndex;
+	console.log(startingIndex, numberOfItemsToDisplay);
+	for (var item = startingIndex; item < numberOfItemsToDisplay+startingIndex; item++) {
+	
 		var sidebarItemCategory = item;
 		for(var category in categories){
+
 			if(items[item].blogPost.categoryId === categories[category]._id) {
 				sidebarItemCategory = categories[category].category;
 			}
-		}
+		}	
 		sidebarList.push(
 			<div key={item}>
 				<SidebarItem 

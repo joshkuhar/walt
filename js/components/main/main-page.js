@@ -6,6 +6,8 @@ var Sidebar = require('./sidebar-container');
 var connect = require('react-redux').connect;
 var actions = require('../../actions/index');
 var store = require('../../store');
+var router = require('react-router');
+var Link = router.Link;
 
 var Main = React.createClass({
 	componentDidMount: function(){
@@ -18,8 +20,15 @@ var Main = React.createClass({
 	},
 	handleSubmit: function(event){
 		event.preventDefault();
-		console.log(this.props.category, "I was handled");
 		this.props.dispatch(actions.searchCategories(this.props.category));
+	},
+	previousClick: function(event) {
+		event.preventDefault();
+		this.props.dispatch(actions.indexUp(this.props.startingIndex));	
+	},
+	nextClick: function(event) {	
+		event.preventDefault();
+		this.props.dispatch(actions.indexDown(this.props.startingIndex));
 	},
 	render: function(){
 		var blogs = this.props.blogs;
@@ -39,7 +48,12 @@ var Main = React.createClass({
 						<button className="sidebar-button" onClick={this.handleSubmit}>submit</button>
 					</form>
 					</div>
-					<Sidebar sidebarHeader="Recent Posts" sidebarItems={blogs} categories={this.props.categories}/>
+					<Sidebar sidebarHeader="Recent Posts" startingIndex={this.props.startingIndex}sidebarItems={blogs} categories={this.props.categories}/>
+					<div className="sidebar-page-navigator-container">
+					<Link to={"/abode"}><div className="sidebar-page-navigator" onClick={this.previousClick}>previous</div></Link>
+					<Link to={"/abode"}><div className="sidebar-page-navigator" onClick={this.nextClick}>next</div></Link>
+					
+					</div>
 				</div>
 				<div className="child-blog">
 					<Blogs blogs={blogs} selectedBlog={this.props.params.blogId} categories={this.props.categories}/>
@@ -53,7 +67,8 @@ var mapStateToProps = function(state, props) {
     return {
 		blogs: state.blogs,
 		category: state.category,
-		categories: state.categories
+		categories: state.categories,
+		startingIndex: state.startingIndex
     };
 };
 

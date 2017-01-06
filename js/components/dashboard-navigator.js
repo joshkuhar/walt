@@ -13,10 +13,10 @@ var DashboardNavBar  = React.createClass({
 				<Link to="/login" ><div className="sign-out">Sign Out</div></Link>
 				<h2 className="dashboard-header">Dashboard</h2>
 				<div className="dashboard-nav-bar">
-					<Link to="/dashboard/edit"><div className="dashboard-nav-bar-item">Blog List</div></Link>
-					<Link to="/dashboard/create"><div className="dashboard-nav-bar-item">Write New Blog</div></Link>
-					<Link to="/dashboard/about"><div className="dashboard-nav-bar-item">Edit About</div></Link>
-					<Link to="/dashboard/category"><div className="dashboard-nav-bar-item">Categories</div></Link>
+					<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/edit"><div className="dashboard-nav-bar-item">Blog List</div></Link></div>
+					<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/create"><div className="dashboard-nav-bar-item">Write New Blog</div></Link></div>
+					<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/about"><div className="dashboard-nav-bar-item">Edit About</div></Link></div>
+					<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/category"><div className="dashboard-nav-bar-item">Categories</div></Link></div>
 				</div>
 				{this.props.children}
 			</div>
@@ -27,3 +27,4 @@ var DashboardNavBar  = React.createClass({
 var Container = connect()(DashboardNavBar);
 
 module.exports= Container;
+

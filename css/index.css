@@ -7,18 +7,21 @@ h1 {
 .output{
 	white-space: pre-line;
 }
-.nav-bar{
-	margin: 2em;
+.home-nav-bar{
+	 margin: 0 auto;
+    width: 45em;
+    text-align: center;
 }
 .nav-bar-item-container{
-	width: 25%;
-	display: inline-block;
-	margin: auto;
+    display: inline-block;
+    width: 7.5em;
 }
 .nav-bar-item {
+    display: inline-block;
     border: .02em solid red;
-    text-align: center;
     border-radius: 4px;
+    width: 7.5em;
+    text-align: center;
 }
 .about{
     width: 30em;
@@ -78,7 +81,14 @@ h1 {
 .sidebar-item-content{
 	font-size: .9em;
 }
-
+.sidebar-page-navigator-container{
+    width: 10em;
+    margin: 0 auto;
+}
+.sidebar-page-navigator{
+    display: inline-block;
+    margin: .2em;
+}
 .login{
 	text-align: center;
 }
@@ -87,9 +97,12 @@ h1 {
   width: 45em;
   text-align: center;
 }
+.dashboard-nav-bar-item-wrapper{
+    display: inline-block;
+    width: 7.5em;
+}
 .dashboard-nav-bar-item{
     display: inline-block;
-    margin: .5em 1em 1em;
     border: .02em solid red;
     border-radius: 4px;
     width: 7.5em;

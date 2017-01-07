@@ -2,15 +2,8 @@ var React = require('react');
 var PostList = require('./post-list');
 var router = require('react-router');
 var Link = router.Link;
+var getCategory = require('../helpers').getCategory;
 
-
-var getCategory = function(list, post){
-  for (var index in list){
-    if(list[index]._id === post.category){
-      return list[index].category;
-    }
-  }
-};
 
 var PostListContainer = function(props){
 	var categories = props.categories;
@@ -23,7 +16,7 @@ var PostListContainer = function(props){
 			);
 	}
 	return (
-		<PostList posts={postList}/>
+		<PostList link={props.link} posts={postList}/>
 		)
 }
 

@@ -12,7 +12,7 @@ var Link = router.Link;
 var getCategory = require('../helpers').getCategory;
 var LandingContainer= React.createClass({
 	componentDidMount: function(){
-		this.props.dispatch(actions.getBlogs());
+		this.props.dispatch(actions.getPosts());
 	},
 	render: function(){
 		var post = this.props.posts[0];
@@ -34,7 +34,7 @@ var LandingContainer= React.createClass({
 
 var mapStateToProps = function(state, props) {
     return {
-		posts: state.blogs,
+		posts: state.posts,
 		categories: state.categories
     };
 };

@@ -6,11 +6,12 @@ var Link = router.Link;
 var Landing = function(props){
 	return(
 		<div className="landing-page">
-			<Post title={props.title}
-				  date={props.date}
-				  category={props.category}
-				  content={props.content}
-			/>
+			<div className="landing-post">
+				<div className="landing-title">{props.title}</div>
+				<div className="landing-date">{props.date}</div>
+				<div className="landing-category">{props.category}</div>
+				<div className="landing-body">{props.content}</div>
+			</div>
 		</div>
 		)
 }

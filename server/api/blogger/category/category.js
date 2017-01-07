@@ -32,7 +32,7 @@ CategoryRouter.get('/categories/:categoryId', function(req, res){
 	Category.findOne({
 		_id: req.params.categoryId
 	})
-	.populate('blogPosts')
+	.populate('posts')
 	.exec(function(err, category){
 		if (err) {
 			console.log(err);

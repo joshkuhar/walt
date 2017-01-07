@@ -1,17 +1,15 @@
-    var BlogPostRouter = require('express').Router();
-var BlogPost = require('./blogPostModel');
+var PostRouter = require('express').Router();
+var Post = require('./blogPostModel');
 var Category = require('../category/categoryModel');
 
-BlogPostRouter.post('/blogs/:categoryId', function(req, res) {
-    BlogPost.create({
-            blogPost: {
+PostRouter.post('/posts/:categoryId', function(req, res) {
+    Post.create({
                 title: req.body.title,
                 content: req.body.content,
                 month: req.body.month,
                 date: req.body.date,
                 year: req.body.year,
                 categoryId: req.params.categoryId
-            }
         },
         function(err, blog) {
             if (err) {
@@ -24,7 +22,7 @@ BlogPostRouter.post('/blogs/:categoryId', function(req, res) {
                         _id: req.params.categoryId
                     }, {
                         $addToSet: {
-                            blogPosts: blog._id
+                            posts: post._id
                         }
                     },
                     function(err2, category) {
@@ -42,31 +40,28 @@ BlogPostRouter.post('/blogs/:categoryId', function(req, res) {
 });
 
 // loads test data into mongo
-BlogPostRouter.post('/dashboard/blogs', function(req, res) {
-    for (var index in req.body.blogs) {
-        BlogPost.create({
-                blogPost: {
-                    title: req.body.blogs[index].title,
-                    content: req.body.blogs[index].content,
-                    month: req.body.blogs[index].month,
-                    date: req.body.blogs[index].date,
-                    year: req.body.blogs[index].year,
-                    categoryId: req.body.blogs[index].categoryId
-                }
+PostRouter.post('/dashboard/posts', function(req, res) {
+    for (var index in req.body.posts) {
+        Post.create({
+                    title: req.body.posts[index].title,
+                    content: req.body.posts[index].content,
+                    month: req.body.posts[index].month,
+                    date: req.body.posts[index].date,
+                    year: req.body.posts[index].year,
+                    categoryId: req.body.posts[index].categoryId
             },
-            function(err, blog) {
+            function(err, post) {
                 if (err) {
                     console.log(err);
                     return res.status(500).json({
                         message: 'Internal Server Error'
                     });
                 } else {
-                    console.log(blog.blogPost.categoryId);
                     Category.findOneAndUpdate({
-                            _id: blog.blogPost.categoryId
+                            _id: post.categoryId
                         }, {
                             $addToSet: {
-                                blogPosts: blog._id
+                                posts: post._id
                             }
                         },
                         function(err2, category) {
@@ -86,15 +81,15 @@ BlogPostRouter.post('/dashboard/blogs', function(req, res) {
     });
 });
 
-BlogPostRouter.get('/blogs', function(req, res) {
-    BlogPost.find({}).limit(30).sort({ _id: -1 }).exec( function(err, blogs) {
+PostRouter.get('/posts', function(req, res) {
+    Post.find({}).limit(30).sort({ _id: -1 }).exec( function(err, posts) {
         if (err) {
             console.log(err);
             return res.status(500).json({
                 message: 'Internal Server Error'
             });
         }
-        res.status(200).json(blogs);    
+        res.status(200).json(posts);    
     });
 });
 // For production, make sure you sort by blogPost.create_at!!!!
@@ -102,11 +97,11 @@ BlogPostRouter.get('/blogs', function(req, res) {
 // { $orderby: { "blogPost.created_at": -1 } }, 
 
 
-BlogPostRouter.put('/blogs/:blogId', function(req, res) {
-    BlogPost.findByIdAndUpdate(req.params.blogId, {
+PostRouter.put('/post/:postId', function(req, res) {
+    Post.findByIdAndUpdate(req.params.postId, {
             $set: {
-                "blogPost.title": req.body.title,
-                "blogPost.content": req.body.content
+                "title": req.body.title,
+                "content": req.body.content
             }
         },
         function(err) {
@@ -120,9 +115,9 @@ BlogPostRouter.put('/blogs/:blogId', function(req, res) {
         });
 });
 
-BlogPostRouter.delete('/blogs/:blogId', function(req, res){
-    BlogPost.findByIdAndRemove(
-        req.params.blogId, function(err){
+PostRouter.delete('/post/:postId', function(req, res){
+    Post.findByIdAndRemove(
+        req.params.postId, function(err){
             if(err){
                 console.log(err);
             }
@@ -133,4 +128,4 @@ BlogPostRouter.delete('/blogs/:blogId', function(req, res){
 
 
 
-module.exports = BlogPostRouter;
+module.exports = PostRouter;

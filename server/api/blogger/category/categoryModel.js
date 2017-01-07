@@ -4,13 +4,13 @@ var Schema = mongoose.Schema;
 
 var CategorySchema = mongoose.Schema({
 	category: {
-		type: Object,
+		type: String,
 		unique: true,
 		required: true
 	},
-	blogPosts: [{
+	posts: [{
 		type: Schema.Types.ObjectId,
-		ref: 'Blog'
+		ref: 'Post'
 	}]
 });
 

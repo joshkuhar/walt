@@ -11,6 +11,7 @@ var hashHistory = router.hashHistory;
 
 var App = require('./components/app');
 var MainPage = require('./components/main/main-page');
+var AnnalsList = require('./components/annals/annals-list-container');
 var Landing = require('./components/landing/landing-container');
 var About = require('./components/about/about-container');
 
@@ -31,7 +32,9 @@ var Routes = (
 		<Router history={hashHistory}>
 			<Route path="/" component={App}>
 				<IndexRoute component={Landing} />
-				<Route path="yarns" component={MainPage} />
+				<Route path="posh" component={AnnalsList} />
+				
+				<Route path="posts" component={MainPage} />
 				<Route path="yarns/:blogId" component={MainPage} />
 				<Route path="next/:page" component={MainPage} />
 				<Route path="about" component={About} />
@@ -54,3 +57,4 @@ document.addEventListener('DOMContentLoaded', function() {
     ReactDOM.render(Routes, document.getElementById('app'));
 });
 
+/*<Route path="posh/:postId" component={AnnalsList} />*/

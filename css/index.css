@@ -23,9 +23,7 @@ h1 {
     width: 7.5em;
     text-align: center;
 }
-.landing-page-container{}
-.landing-page {
-}
+
 .about{
     width: 30em;
     margin: 0 auto;
@@ -41,16 +39,25 @@ h1 {
     width: 20em;
     padding: 1em;
 }
-.landing-post{    
-	margin-right: 20em;
-    padding: 1em;
+.landing-page-container{}
+.landing-page {
+  width: 35em;
+  margin: 0 auto;
 }
+.landing-post{    
+  text-align: justify;
+  white-space: pre-line;
+}
+.landing-title{}
+.landing-date{}
+.landing-category{}
+.landing-body{}
 
 .post-list{}
 
 .post{
 	width: 35em;
-    margin: 0 auto;
+  margin: 0 auto;
 }
 .post-title{
 }
@@ -60,7 +67,8 @@ h1 {
 	text-align: justify;
   white-space: pre-line;
 }
-
+.annals-container{}
+.annals{}
 .sidebar{
 	width: 12em;
   margin: 0 auto;

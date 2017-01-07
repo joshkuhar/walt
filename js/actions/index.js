@@ -139,15 +139,15 @@ var deleteBlogSuccess = function() {
 exports.DELETE_BLOG_SUCCESS = DELETE_BLOG_SUCCESS;
 exports.deleteBlogSuccess = deleteBlogSuccess;
 
-var GET_BLOGS_SUCCESS = 'GET_BLOGS_SUCCESS'
-var getBlogsSuccess = function(blogs) {
+var GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS'
+var getPostsSuccess = function(posts) {
     return {
-        type: GET_BLOGS_SUCCESS,
-        blogs: blogs
+        type: GET_POSTS_SUCCESS,
+        posts: posts
     }
 }
-exports.GET_BLOGS_SUCCESS = GET_BLOGS_SUCCESS;
-exports.getBlogsSuccess = getBlogsSuccess;
+exports.GET_POSTS_SUCCESS = GET_POSTS_SUCCESS;
+exports.getPostsSuccess = getPostsSuccess;
 
 var GET_ABOUT_SUCCESS = 'GET_ABOUT_SUCCESS';
 var getAboutSuccess = function(about) {
@@ -188,19 +188,19 @@ var changeAbout = function(about) {
 exports.CHANGE_ABOUT = CHANGE_ABOUT;
 exports.changeAbout = changeAbout;
 
-var getBlogs = function() {
+var getPosts = function() {
     return function(dispatch) {
         var url = 'http://localhost:8080/posts';
         return fetch(url).then(function(res) {
         return res.json()
     }).then(function(data) {
-        return dispatch(getBlogsSuccess(data))
+        return dispatch(getPostsSuccess(data))
     }).catch(function(error) {
         console.log(error);
         });
     }
 };
-exports.getBlogs = getBlogs;
+exports.getPosts = getPosts;
 
 var postBlog = function(title, category, blog, month, date, year) {
     return function(dispatch) {

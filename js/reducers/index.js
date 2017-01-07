@@ -5,14 +5,14 @@ var DummyBlogs = require('../mock-data-loader');
 var initialState = {
 	about: "",
 	title: "",
-	blog: "",
+	post: "",
 	content: "",
 	startingIndex: 0,
 	category: "586e2f71d07df81265cb1fd0",
 	categoriesForLoading: Categories.categoriesForLoading,
 	categories: Categories.categories,
 	dummyBlogs: DummyBlogs,
-	blogs: [{_id: "111", blogPost: {title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"}}]
+	posts: [{_id: "111", blogPost: {title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"}}]
 };
 
 var blogReducer = function(state, action) {
@@ -86,9 +86,9 @@ var blogReducer = function(state, action) {
 		console.log("Delete Success");
 		return state
 	}
-	else if(action.type === actions.GET_BLOGS_SUCCESS) {
+	else if(action.type === actions.GET_POSTS_SUCCESS) {
 		return Object.assign({}, state, {
-			blogs: action.blogs
+			posts: action.posts
 		})
 	}
 	else if(action.type === actions.GET_ABOUT_SUCCESS) {

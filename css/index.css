@@ -23,6 +23,9 @@ h1 {
     width: 7.5em;
     text-align: center;
 }
+.landing-page-container{}
+.landing-page {
+}
 .about{
     width: 30em;
     margin: 0 auto;
@@ -38,27 +41,29 @@ h1 {
     width: 20em;
     padding: 1em;
 }
-.child-blog{    
+.landing-post{    
 	margin-right: 20em;
     padding: 1em;
 }
 
-.blog-list{}
-.blog-post{
+.post-list{}
+
+.post{
 	width: 35em;
     margin: 0 auto;
 }
-.blog-post-title{}
-.blog-post-category{}
-.blog-post-date{}
-.blog-post-body{
+.post-title{
+}
+.post-category{}
+.post-date{}
+.post-body{
 	text-align: justify;
   white-space: pre-line;
 }
 
 .sidebar{
 	width: 12em;
-    margin: 0 auto;
+  margin: 0 auto;
 }
 .sidebar-selector-container{
     width: 12em;

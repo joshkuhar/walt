@@ -190,7 +190,7 @@ exports.changeAbout = changeAbout;
 
 var getBlogs = function() {
     return function(dispatch) {
-        var url = 'http://localhost:8080/blogs';
+        var url = 'http://localhost:8080/posts';
         return fetch(url).then(function(res) {
         return res.json()
     }).then(function(data) {
@@ -204,7 +204,7 @@ exports.getBlogs = getBlogs;
 
 var postBlog = function(title, category, blog, month, date, year) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/blogs/'+category;
+        var url = 'http://localhost:8080/posts/'+category;
         return fetch(url, {
         method: "POST",
         body: JSON.stringify({
@@ -228,14 +228,14 @@ var postBlog = function(title, category, blog, month, date, year) {
 };
 exports.postBlog = postBlog;
 
-var putBlog = function(title, blog, blogId) {
+var putBlog = function(title, post, postId) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/blogs/'+blogId;
+        var url = 'http://localhost:8080/posts/'+postId;
         return fetch(url, {
         method: "PUT",
         body: JSON.stringify({
             title : title, 
-            content: blog
+            content: post
         }),
         headers: {
             "Content-Type": "application/json"
@@ -252,9 +252,9 @@ var putBlog = function(title, blog, blogId) {
 };
 exports.putBlog = putBlog;
 
-var deleteBlog = function(blogId) {
+var deleteBlog = function(postId) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/blogs/'+blogId;
+        var url = 'http://localhost:8080/posts/'+postId;
         return fetch(url, {
             method: "DELETE"
         }).then(function(res) {
@@ -291,13 +291,13 @@ var loadCategories = function(categories){
 };
 exports.loadCategories = loadCategories;
 
-var loadBlogs = function(blogs){
+var loadBlogs = function(posts){
     return function(dispatch) {
-        var url = 'http://localhost:8080/dashboard/blogs';
+        var url = 'http://localhost:8080/dashboard/posts';
         return fetch(url, {
         method: "POST",
         body: JSON.stringify({
-            blogs : blogs, 
+            posts : posts, 
         }),
         headers: {
             "Content-Type": "application/json"

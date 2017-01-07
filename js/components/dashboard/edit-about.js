@@ -10,7 +10,7 @@ var AboutEdit = React.createClass ({
 	componentDidMount: function(){
 		// This is the id for the about page. To prevent multiple abouts, 
 		// only GET, PUT, and DELETE are utilized through this component.
-		var id = "586e319000fc4212847818ab"; 
+		var id = "58711570ac7bfb11c9da3659"; 
 		this.props.dispatch(actions.getAbout(id));
 	},
 	handleAboutChange: function(event) {
@@ -18,7 +18,7 @@ var AboutEdit = React.createClass ({
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
-		var id = "586e319000fc4212847818ab";
+		var id = "58711570ac7bfb11c9da3659";
     	this.props.dispatch(actions.updateAbout(id, this.props.about));
 	},
   	onClick: function(){

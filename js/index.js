@@ -6,11 +6,12 @@ var router = require('react-router');
 var Router = router.Router;
 var Route = router.Route;
 var IndexRoute = router.IndexRoute;
-var browserHistory = router.browserHistory;
+var hashHistory = router.hashHistory;
 
 
 var App = require('./components/app');
 var MainPage = require('./components/main/main-page');
+var Landing = require('./components/landing/landing-container');
 var About = require('./components/about/about-container');
 
 var Login = require('./components/dashboard/login');
@@ -22,16 +23,16 @@ var EditBlogNav = require('./components/edit-blog-navigator');
 var EditList = require('./components/dashboard/edit-list-container');
 var EditBlog = require('./components/dashboard/edit-blog');
 
-
 var Provider = require('react-redux').Provider;
 var store = require('./store');
 
 var Routes = (
 	<Provider store={store} >
-		<Router history={browserHistory}>
-			<Route path="/abode" component={App}>
-				<IndexRoute component={MainPage} />
-				<Route path="yarn/:blogId" component={MainPage} />
+		<Router history={hashHistory}>
+			<Route path="/" component={App}>
+				<IndexRoute component={Landing} />
+				<Route path="yarns" component={MainPage} />
+				<Route path="yarns/:blogId" component={MainPage} />
 				<Route path="next/:page" component={MainPage} />
 				<Route path="about" component={About} />
 			</Route>

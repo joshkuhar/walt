@@ -82,7 +82,7 @@ PostRouter.post('/dashboard/posts', function(req, res) {
 });
 
 PostRouter.get('/posts', function(req, res) {
-    Post.find({}).limit(30).sort({ _id: -1 }).exec( function(err, posts) {
+    Post.find({}).limit(5).sort({ _id: -1 }).exec( function(err, posts) {
         if (err) {
             console.log(err);
             return res.status(500).json({
@@ -124,8 +124,31 @@ PostRouter.delete('/post/:postId', function(req, res){
             res.status(202).end();
         });
 });
+// count array 
+PostRouter.get('/posts/count', function(req, res) {
+    Post.count(function(err, posts) {
+        if(err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(posts);
+    });
+});
 
-
+// pagination
+PostRouter.get('/posts/page', function(req, res) {
+    Post.find({}).skip(5).limit(3).sort({_id: -1}).exec( function(err, posts){
+        if(err){               
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(posts)
+    });
+});
 
 
 module.exports = PostRouter;

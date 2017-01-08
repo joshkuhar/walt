@@ -67,7 +67,10 @@ h1 {
 	text-align: justify;
   white-space: pre-line;
 }
-.annals-container{}
+.annals-container{
+ width: 35em;
+ margin: 0 auto;
+}
 .annals{}
 .sidebar{
 	width: 12em;

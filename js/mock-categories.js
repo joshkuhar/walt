@@ -1,5 +1,5 @@
 var categories = [
-	// {"_id": "111111", "category": "----------"},
+{"_id": "111", "category": "all"},
 { "_id" : "5871120d181e9c119ecdd2f8", "category" : "fooz"},
 { "_id" : "5871120d181e9c119ecdd2f9", "category" : "bark"},
 { "_id" : "5871120d181e9c119ecdd2fa", "category" : "zats"},

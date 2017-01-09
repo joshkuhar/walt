@@ -71,7 +71,29 @@ h1 {
  width: 35em;
  margin: 0 auto;
 }
+.annals-form{
+  width: 8em;
+  margin: 0 auto;
+}
+.annals-selector{}
+.annals-selector-button{}
 .annals{}
+.annals-next-navigator{
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 3em;
+}
+.annals-next-navigator:hover{
+  cursor: pointer;
+}
+.annals-list-container{}
+.annals-list{}
+.annals-post{}
+.annals-post-title{}
+.annals-post-date{}
+.annals-post-category{}
+.annals-post-body{}
+
 .sidebar{
 	width: 12em;
   margin: 0 auto;

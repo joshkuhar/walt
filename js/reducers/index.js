@@ -8,10 +8,12 @@ var initialState = {
 	post: "",
 	content: "",
 	startingIndex: 0,
-	category: "586e2f71d07df81265cb1fd0",
+	sectionNumber: 3,
+	category: "111",
 	categoriesForLoading: Categories.categoriesForLoading,
 	categories: Categories.categories,
 	dummyBlogs: DummyBlogs,
+	landingPost: {_id: "111", blogPost: {title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"}},
 	posts: [{_id: "111", blogPost: {title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"}}]
 };
 
@@ -39,7 +41,7 @@ var blogReducer = function(state, action) {
 	}
 	else if (action.type === actions.SEARCH_CATEGORIES_SUCCESS) {
 		return Object.assign({}, state, {
-			blogs: action.category.blogPosts
+			posts: action.posts.posts
 		})
 	}
 	else if (action.type === actions.UPDATE_TITLE) {
@@ -88,7 +90,14 @@ var blogReducer = function(state, action) {
 	}
 	else if(action.type === actions.GET_POSTS_SUCCESS) {
 		return Object.assign({}, state, {
+			landingPost: action.posts[0],
 			posts: action.posts
+		})
+	}
+	else if(action.type === actions.GET_SECTION_SUCCESS) {
+		state.posts.push(action.section[0]);
+		return Object.assign({}, state, {
+			sectionNumber: action.sectionNumber + 1
 		})
 	}
 	else if(action.type === actions.GET_ABOUT_SUCCESS) {

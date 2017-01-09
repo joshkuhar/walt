@@ -6,7 +6,6 @@ var getCategory = require('../helpers').getCategory;
 
 var AnnalsList = function(props){
 	var posts = props.postList; //<-- array
-	console.log(posts);
 	var categories = props.categories;
 	var postList = [];
 	for (var index = 0; index < posts.length; index++) {
@@ -21,8 +20,8 @@ var AnnalsList = function(props){
 		)
 	}
 	return (
-		<div className="post-list-container">
-			<div className="post-list">{postList}</div>
+		<div className="annals-list-container">
+			<div className="annals-list">{postList}</div>
 		</div>
 
 		)

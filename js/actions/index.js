@@ -159,15 +159,7 @@ var getAboutSuccess = function(about) {
 exports.GET_ABOUT_SUCCESS = GET_ABOUT_SUCCESS;
 exports.getAboutSuccess = getAboutSuccess;
 
-var SEARCH_CATEGORIES_SUCCESS = 'SEARCH_CATEGORIES_SUCCESS';
-var searchCategoriesSuccess = function(category) {
-    return {
-        type: SEARCH_CATEGORIES_SUCCESS,
-        category: category
-    }
-};
-exports.SEARCH_CATEGORIES_SUCCESS = SEARCH_CATEGORIES_SUCCESS;
-exports.searchCategoriesSuccess = searchCategoriesSuccess;
+
 
 var UPDATE_ABOUT_SUCCESS = 'UPDATE_ABOUT_SUCCESS';
 var updateAboutSuccess = function(){
@@ -201,6 +193,32 @@ var getPosts = function() {
     }
 };
 exports.getPosts = getPosts;
+
+var GET_SECTION_SUCCESS = 'GET_SECTION_SUCCESS';
+var getSectionSuccess = function(section, sectionNumber) {
+    console.log("hit");
+    return {
+        type: GET_SECTION_SUCCESS,
+        section: section,
+        sectionNumber: sectionNumber
+    }
+}
+exports.GET_SECTION_SUCCESS = GET_SECTION_SUCCESS;
+exports.getSectionSuccess = getSectionSuccess;
+
+var getSection = function(sectionNumber) {
+    return function(dispatch) {
+        var url = 'http://localhost:8080/posts/section/'+sectionNumber;
+        return fetch(url).then(function(res){
+            return res.json()
+        }).then(function(data) {
+            return dispatch(getSectionSuccess(data, sectionNumber))
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+};
+exports.getSection = getSection;
 
 var postBlog = function(title, category, blog, month, date, year) {
     return function(dispatch) {
@@ -327,6 +345,16 @@ var getCategories = function() {
 };
 exports.getCategories = getCategories;
 
+var SEARCH_CATEGORIES_SUCCESS = 'SEARCH_CATEGORIES_SUCCESS';
+var searchCategoriesSuccess = function(posts) {
+    return {
+        type: SEARCH_CATEGORIES_SUCCESS,
+        posts: posts
+    }
+};
+exports.SEARCH_CATEGORIES_SUCCESS = SEARCH_CATEGORIES_SUCCESS;
+exports.searchCategoriesSuccess = searchCategoriesSuccess;
+
 var searchCategories = function(category) {
     return function(dispatch) {
         var url = 'http://localhost:8080/categories/'+category;
@@ -340,6 +368,8 @@ var searchCategories = function(category) {
     }
 };
 exports.searchCategories = searchCategories;
+
+
 
 var getAbout = function(aboutId) {
     return function(dispatch) {

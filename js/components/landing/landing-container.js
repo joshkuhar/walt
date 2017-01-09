@@ -12,10 +12,12 @@ var Link = router.Link;
 var getCategory = require('../helpers').getCategory;
 var LandingContainer= React.createClass({
 	componentDidMount: function(){
-		this.props.dispatch(actions.getPosts());
+		if(this.props.posts[0]._id == "111"){
+			this.props.dispatch(actions.getPosts())
+		}
 	},
 	render: function(){
-		var post = this.props.posts[0];
+		var post = this.props.landingPost;
 		var category = getCategory(this.props.categories, post)
 		return (
 			<div className="main-parent-container">
@@ -34,6 +36,7 @@ var LandingContainer= React.createClass({
 
 var mapStateToProps = function(state, props) {
     return {
+    	landingPost: state.landingPost,
 		posts: state.posts,
 		categories: state.categories
     };

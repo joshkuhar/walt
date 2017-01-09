@@ -32,7 +32,41 @@ CategoryRouter.get('/categories/:categoryId', function(req, res){
 	Category.findOne({
 		_id: req.params.categoryId
 	})
-	.populate('posts')
+	.populate({
+		path: 'posts',
+		options: {
+			limit: 3,
+			sort: {
+				_id: -1
+			}
+		},
+	})
+	.exec(function(err, posts){
+		if (err) {
+			console.log(err);
+			return res.status(500).json({
+				message: 'Internal Server Error'
+			});
+		}
+		res.status(200).json(posts);
+	});
+});
+
+CategoryRouter.get('/categories/:categoryId/:number', function(req, res){
+	var number = parseInt(req.params.number)
+	Category.findOne({
+		_id: req.params.categoryId
+	})
+	.populate({
+		path: 'posts',
+		options: {
+			limit: 1,
+			skip: number,
+			sort: {
+				_id: -1
+			}
+		},
+	})
 	.exec(function(err, category){
 		if (err) {
 			console.log(err);

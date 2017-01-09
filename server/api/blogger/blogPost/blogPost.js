@@ -82,7 +82,7 @@ PostRouter.post('/dashboard/posts', function(req, res) {
 });
 
 PostRouter.get('/posts', function(req, res) {
-    Post.find({}).limit(5).sort({ _id: -1 }).exec( function(err, posts) {
+    Post.find({}).limit(3).sort({ _id: -1 }).exec( function(err, posts) {
         if (err) {
             console.log(err);
             return res.status(500).json({
@@ -92,9 +92,9 @@ PostRouter.get('/posts', function(req, res) {
         res.status(200).json(posts);    
     });
 });
-// For production, make sure you sort by blogPost.create_at!!!!
-//Room.find({}).sort({date: -1}).exec(function
-// { $orderby: { "blogPost.created_at": -1 } }, 
+// For production, make sure you sort by created_at!!!!
+//Post.find({}).sort({date: -1}).exec(function
+// { $orderby: { "created_at": -1 } }, 
 
 
 PostRouter.put('/post/:postId', function(req, res) {
@@ -138,15 +138,20 @@ PostRouter.get('/posts/count', function(req, res) {
 });
 
 // pagination
-PostRouter.get('/posts/page', function(req, res) {
-    Post.find({}).skip(5).limit(3).sort({_id: -1}).exec( function(err, posts){
+PostRouter.get('/posts/section/:number', function(req, res) {
+    Post.find({})
+    .skip(parseInt(req.params.number))
+    .limit(1)
+    .sort({_id: -1})
+    .exec( function(err, posts){
         if(err){               
             console.log(err);
             return res.status(500).json({
                 message: 'Internal Server Error'
             });
         }
-        res.status(200).json(posts)
+        console.log(posts);
+        res.status(200).json(posts);
     });
 });
 

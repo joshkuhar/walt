@@ -9,7 +9,7 @@ var DashboardNavBar  = React.createClass({
 	render: function(){
 		return (
 			<div>
-				<Button /><Link to="/abode">Home Page</Link>
+				<Button /><Link to="/">Home Page</Link>
 				<Link to="/login" ><div className="sign-out">Sign Out</div></Link>
 				<h2 className="dashboard-header">Dashboard</h2>
 				<div className="dashboard-nav-bar">

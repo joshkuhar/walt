@@ -1,21 +1,24 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-
-var AnnalsList = require('./annals-list');
-
 var connect = require('react-redux').connect;
 var actions = require('../../actions/index');
 var store = require('../../store');
 var router = require('react-router');
 var Link = router.Link;
 
+var AnnalsList = require('./annals-list');
+
 var AnnalsListContainer = React.createClass({
 	componentDidUpdate: function(){
-		scroll(0, 810);
+		//scroll(0, 810);
 	},
 	onClick: function(event) {
 		event.preventDefault();
-		this.props.dispatch(actions.getSection(this.props.posts.length));
+		if (this.props.category === "111"){
+			this.props.dispatch(actions.getSection(this.props.posts.length));
+			return
+		}
+		this.props.dispatch(actions.getCategorySection(this.props.category, this.props.posts.length));
 	},
 	render: function(){
 		return (

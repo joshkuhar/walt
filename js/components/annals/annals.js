@@ -5,7 +5,7 @@ var Link = router.Link;
 var Annal = function(props){
 	return (
 		<div className="annals-post">
-			<Link to={"/posh/" + props.postId}><div className="annals-post-title">{props.title}</div></Link>
+			<Link to={"/annals/" + props.postId}><div className="annals-post-title">{props.title}</div></Link>
 			<div className="annals-post-date">{props.date}</div>
 			<div className="annals-post-category">{props.category}</div>
 			<div className="annals-post-body">{props.content}...</div>

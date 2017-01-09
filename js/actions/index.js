@@ -60,26 +60,6 @@ var selectCategory = function(category) {
 exports.SELECT_CATEGORY = SELECT_CATEGORY;
 exports.selectCategory = selectCategory;
 
-var INDEX_DOWN = 'INDEX_DOWN';
-var indexDown = function(index) {
-    return {
-        type: INDEX_DOWN,
-        index: index
-    }
-}
-exports.INDEX_DOWN = 'INDEX_DOWN';
-exports.indexDown = indexDown;
-
-var INDEX_UP = 'INDEX_UP';
-var indexUp = function(index) {
-    return {
-        type: INDEX_UP,
-        index: index
-    }
-}
-exports.INDEX_UP = INDEX_UP;
-exports.indexUp = indexUp;
-
 var ADD_CATEGORY = 'ADD_CATEGORY';
 var addCategory = function(category){
     return {
@@ -139,15 +119,7 @@ var deleteBlogSuccess = function() {
 exports.DELETE_BLOG_SUCCESS = DELETE_BLOG_SUCCESS;
 exports.deleteBlogSuccess = deleteBlogSuccess;
 
-var GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS'
-var getPostsSuccess = function(posts) {
-    return {
-        type: GET_POSTS_SUCCESS,
-        posts: posts
-    }
-}
-exports.GET_POSTS_SUCCESS = GET_POSTS_SUCCESS;
-exports.getPostsSuccess = getPostsSuccess;
+
 
 var GET_ABOUT_SUCCESS = 'GET_ABOUT_SUCCESS';
 var getAboutSuccess = function(about) {
@@ -180,6 +152,16 @@ var changeAbout = function(about) {
 exports.CHANGE_ABOUT = CHANGE_ABOUT;
 exports.changeAbout = changeAbout;
 
+var GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS'
+var getPostsSuccess = function(posts) {
+    return {
+        type: GET_POSTS_SUCCESS,
+        posts: posts
+    }
+}
+exports.GET_POSTS_SUCCESS = GET_POSTS_SUCCESS;
+exports.getPostsSuccess = getPostsSuccess;
+
 var getPosts = function() {
     return function(dispatch) {
         var url = 'http://localhost:8080/posts';
@@ -196,7 +178,6 @@ exports.getPosts = getPosts;
 
 var GET_SECTION_SUCCESS = 'GET_SECTION_SUCCESS';
 var getSectionSuccess = function(section, sectionNumber) {
-    console.log("hit");
     return {
         type: GET_SECTION_SUCCESS,
         section: section,
@@ -369,6 +350,43 @@ var searchCategories = function(category) {
 };
 exports.searchCategories = searchCategories;
 
+var GET_CATEGORY_SECTION_SUCCESS = 'GET_CATEGORY_SECTION_SUCCESS';
+var categorySectionSuccess = function(section, sectionNumber){
+    return {
+        type: GET_CATEGORY_SECTION_SUCCESS,
+        section: section,
+        sectionNumber: sectionNumber
+    }
+}
+exports.GET_CATEGORY_SECTION_SUCCESS = GET_CATEGORY_SECTION_SUCCESS;
+exports.categorySectionSuccess = categorySectionSuccess;
+
+var CATEGORY_SECTION_END = 'CATEGORY_SECTION_END';
+var categorySectionEnd = function() {
+    return {
+        type: CATEGORY_SECTION_END
+    }
+}
+exports.CATEGORY_SECTION_END = CATEGORY_SECTION_END;
+exports.categorySectionEnd = categorySectionEnd;
+
+var getCategorySection = function(category, section) {
+    return function(dispatch) {
+        var url = 'http://localhost:8080/categories/'+category+'/'+section;
+        return fetch(url).then(function(res) {
+            return res.json()
+        }).then(function(data){
+            if (data.posts.length < 1) {
+                console.log("category empty");
+                return dispatch(categorySectionEnd())
+            }
+            return dispatch(categorySectionSuccess(data,section))
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+};
+exports.getCategorySection = getCategorySection;
 
 
 var getAbout = function(aboutId) {

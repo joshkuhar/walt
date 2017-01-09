@@ -1,13 +1,12 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-
-var AnnalsList = require('./annals-list-container');
-
 var connect = require('react-redux').connect;
 var actions = require('../../actions/index');
 var store = require('../../store');
 var router = require('react-router');
 var Link = router.Link;
+
+var AnnalsList = require('./annals-list-container');
 
 var AnnalsSelect = React.createClass({
 	handleCategoryChange: function(event){
@@ -16,6 +15,10 @@ var AnnalsSelect = React.createClass({
 	},
 	handleSubmit: function(event){
 		event.preventDefault();
+		if (this.props.category === "111") {
+			this.props.dispatch(actions.getPosts())
+			return
+		}
 		this.props.dispatch(actions.searchCategories(this.props.category));
 	},
 	render: function(){
@@ -30,7 +33,7 @@ var AnnalsSelect = React.createClass({
 			<div className="annals-container">
 					<form className="annals-form">
 						<select className="annals-selector" value={this.props.category} onChange={this.handleCategoryChange}>{categories}</select>
-						<button className="annals-selector-button" onClick={this.handleSubmit}>submit</button>
+						<button className="annals-selector-button" onClick={this.handleSubmit}>search</button>
 					</form>
 					<AnnalsList />
 			</div>

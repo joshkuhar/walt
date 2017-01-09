@@ -10,9 +10,9 @@ var hashHistory = router.hashHistory;
 
 
 var App = require('./components/app');
-var MainPage = require('./components/main/main-page');
 var AnnalsSelect = require('./components/annals/annals-category-select');
 var AnnalsList = require('./components/annals/annals-list-container');
+var PostContainer = require('./components/post/post-container');
 var Landing = require('./components/landing/landing-container');
 var About = require('./components/about/about-container');
 
@@ -36,13 +36,7 @@ var Routes = (
 				<Route path="annals" component={AnnalsSelect} >
 					<IndexRoute component={AnnalsList} />
 				</Route>
-
-
-
-				<Route path="posts" component={MainPage} />
-
-				<Route path="yarns/:blogId" component={MainPage} />
-				<Route path="next/:page" component={MainPage} />
+				<Route path="annals/:postId" component={PostContainer} />
 				<Route path="about" component={About} />
 			</Route>
 			<Route path="/login" component={Login} />

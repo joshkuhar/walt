@@ -18,7 +18,6 @@ var App = React.createClass({
 						<div className="nav-bar-item-container"><Link to={"/"}><div className="nav-bar-item">Home</div></Link></div>
 						<div className="nav-bar-item-container"><Link to={"/annals"}><div className="nav-bar-item">Annals</div></Link></div>
 						<div className="nav-bar-item-container"><Link to={"/about"}><div className="nav-bar-item">About</div></Link></div>
-						<div className="nav-bar-item-container"><div className="nav-bar-item">Projects</div></div>
 						<div className="nav-bar-item-container"><div className="nav-bar-item">Contact Me</div></div>
 					</div>
 				</div>

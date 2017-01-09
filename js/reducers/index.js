@@ -7,7 +7,6 @@ var initialState = {
 	title: "",
 	post: "",
 	content: "",
-	startingIndex: 0,
 	sectionNumber: 3,
 	category: "111",
 	categoriesForLoading: Categories.categoriesForLoading,
@@ -54,15 +53,21 @@ var blogReducer = function(state, action) {
 			category: action.category
 		})
 	}
-	else if (action.type === actions.INDEX_DOWN) {
+	else if (action.type === actions.GET_CATEGORY_SECTION_SUCCESS){
+		var categoryAdded = [];
+		for (var post in state.posts){
+			categoryAdded.push(state.posts[post])
+		}
+		for (var post in action.section.posts){
+			categoryAdded.push(action.section.posts[post])
+		}
 		return Object.assign({}, state, {
-			startingIndex: action.index + 1
+			sectionNumber: action.sectionNumber + 1,
+			posts: categoryAdded
 		})
 	}
-	else if (action.type === actions.INDEX_UP) {
-		return Object.assign({}, state, {
-			startingIndex: action.index - 1
-		})
+	else if (action.type === actions.CATEGORY_SECTION_END) {
+		return state
 	}
 	else if (action.type === actions.SET_BLOG_ENTRY_FORM) {
 		return Object.assign({}, state, {
@@ -95,9 +100,16 @@ var blogReducer = function(state, action) {
 		})
 	}
 	else if(action.type === actions.GET_SECTION_SUCCESS) {
-		state.posts.push(action.section[0]);
+		var categoryAdded = [];
+		for (var post in state.posts){
+			categoryAdded.push(state.posts[post])
+		}
+		for (var post in action.section){
+			categoryAdded.push(action.section[post])
+		}
 		return Object.assign({}, state, {
-			sectionNumber: action.sectionNumber + 1
+			sectionNumber: action.sectionNumber + 1,
+			posts: categoryAdded
 		})
 	}
 	else if(action.type === actions.GET_ABOUT_SUCCESS) {

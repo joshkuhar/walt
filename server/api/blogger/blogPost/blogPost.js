@@ -11,7 +11,7 @@ PostRouter.post('/posts/:categoryId', function(req, res) {
                 year: req.body.year,
                 categoryId: req.params.categoryId
         },
-        function(err, blog) {
+        function(err, post) {
             if (err) {
                 console.log(err);
                 return res.status(500).json({
@@ -32,7 +32,7 @@ PostRouter.post('/posts/:categoryId', function(req, res) {
                                 message: 'Internal Server Error'
                             });
                         }
-                        res.status(200).json(blog);
+                        res.status(200).json(post);
                     }
                 );
             }
@@ -92,12 +92,40 @@ PostRouter.get('/posts', function(req, res) {
         res.status(200).json(posts);    
     });
 });
+
+PostRouter.get('/dashboard/posts', function(req, res) {
+    Post.find({}, 'title date year month')
+    .limit(20)
+    .sort({ _id: -1 })
+    .exec( function(err, posts) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(posts);    
+    });
+});
 // For production, make sure you sort by created_at!!!!
 //Post.find({}).sort({date: -1}).exec(function
 // { $orderby: { "created_at": -1 } }, 
 
+PostRouter.get('/dashboard/post/:postId', function(req, res) {
+    Post.findById(req.params.postId)
+    .exec( function(err, post) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(post);    
+    });
+});
 
-PostRouter.put('/post/:postId', function(req, res) {
+
+PostRouter.put('/dashboard/post/:postId', function(req, res) {
     Post.findByIdAndUpdate(req.params.postId, {
             $set: {
                 "title": req.body.title,
@@ -115,7 +143,7 @@ PostRouter.put('/post/:postId', function(req, res) {
         });
 });
 
-PostRouter.delete('/post/:postId', function(req, res){
+PostRouter.delete('/dashboard/post/:postId', function(req, res){
     Post.findByIdAndRemove(
         req.params.postId, function(err){
             if(err){

@@ -30,25 +30,25 @@ var getCategoriesSuccess = function(categories){
 exports.GET_CATEGORIES_SUCCESS = GET_CATEGORIES_SUCCESS;
 exports.getCategoriesSuccess = getCategoriesSuccess;
 
-var UPDATE_BLOG = 'UPDATE_BLOG';
-var updateBlog = function(blog){
+var CHANGE_CONTENT = 'CHANGE_CONTENT';
+var changeContent = function(content){
 	return {
-		type: UPDATE_BLOG,
-		blog: blog
+		type: CHANGE_CONTENT,
+		content: content
 		}
 };
-exports.UPDATE_BLOG = UPDATE_BLOG;
-exports.updateBlog = updateBlog;
+exports.CHANGE_CONTENT = CHANGE_CONTENT;
+exports.changeContent = changeContent;
 
-var UPDATE_TITLE = 'UPDATE_TITLE';
-var updateTitle = function(title) {
+var CHANGE_TITLE = 'CHANGE_TITLE';
+var changeTitle = function(title) {
     return {
-        type: UPDATE_TITLE,
+        type: CHANGE_TITLE,
         title: title
     }
 };
-exports.UPDATE_TITLE = UPDATE_TITLE;
-exports.updateTitle = updateTitle;
+exports.CHANGE_TITLE = CHANGE_TITLE;
+exports.changeTitle = changeTitle;
 
 var SELECT_CATEGORY = 'SELECT_CATEGORY';
 var selectCategory = function(category) {
@@ -70,26 +70,18 @@ var addCategory = function(category){
 exports.ADD_CATEGORY = ADD_CATEGORY;
 exports.addCategory = addCategory;
 
-var SET_BLOG_ENTRY_FORM = 'SET_BLOG_ENTRY_FORM';
-var setBlogEntryForm = function(){
+var SET_POST_FORM = 'SET_POST_FORM';
+var setPostForm = function(){
     return {
-        type: SET_BLOG_ENTRY_FORM,
+        type: SET_POST_FORM,
         title: "",
-        blog: ""
+        content: ""
     }
 }
-exports.SET_BLOG_ENTRY_FORM = 'SET_BLOG_ENTRY_FORM';
-exports.setBlogEntryForm = setBlogEntryForm;
+exports.SET_POST_FORM = 'SET_POST_FORM';
+exports.setPostForm = setPostForm;
 
-var POST_BLOG_SUCCESS = 'POST_BLOG_SUCCESS'
-var postBlogSuccess = function(data) {
-    return {
-        type: POST_BLOG_SUCCESS,
-        data: data
-    }
-}
-exports.POST_BLOG_SUCCESS = POST_BLOG_SUCCESS;
-exports.postBlogSuccess = postBlogSuccess;
+
 
 var GET_BLOG_TO_EDIT = 'GET_BLOG_TO_EDIT';
 var getBlogToEdit = function(blog){
@@ -101,26 +93,6 @@ var getBlogToEdit = function(blog){
 exports.GET_BLOG_TO_EDIT = GET_BLOG_TO_EDIT;
 exports.getBlogToEdit = getBlogToEdit;
 
-var PUT_BLOG_SUCCESS = 'PUT_BLOG_SUCCESS'
-var putBlogSuccess = function() {
-    return {
-        type: PUT_BLOG_SUCCESS
-    }
-}
-exports.PUT_BLOG_SUCCESS = PUT_BLOG_SUCCESS;
-exports.putBlogSuccess = putBlogSuccess;
-
-var DELETE_BLOG_SUCCESS = 'DELETE_BLOG_SUCCESS';
-var deleteBlogSuccess = function() {
-    return {
-        type: DELETE_BLOG_SUCCESS
-    }
-}
-exports.DELETE_BLOG_SUCCESS = DELETE_BLOG_SUCCESS;
-exports.deleteBlogSuccess = deleteBlogSuccess;
-
-
-
 var GET_ABOUT_SUCCESS = 'GET_ABOUT_SUCCESS';
 var getAboutSuccess = function(about) {
     return {
@@ -130,7 +102,6 @@ var getAboutSuccess = function(about) {
 };
 exports.GET_ABOUT_SUCCESS = GET_ABOUT_SUCCESS;
 exports.getAboutSuccess = getAboutSuccess;
-
 
 
 var UPDATE_ABOUT_SUCCESS = 'UPDATE_ABOUT_SUCCESS';
@@ -201,35 +172,103 @@ var getSection = function(sectionNumber) {
 };
 exports.getSection = getSection;
 
-var postBlog = function(title, category, blog, month, date, year) {
+
+var GET_DASHBOARD_POSTS_SUCCESS = 'GET_DASHBOARD_POSTS_SUCCESS'
+var getDashboardPostsSuccess = function(posts) {
+    return {
+        type: GET_DASHBOARD_POSTS_SUCCESS,
+        posts: posts
+    }
+}
+exports.GET_DASHBOARD_POSTS_SUCCESS = GET_DASHBOARD_POSTS_SUCCESS;
+exports.getDashboardPostsSuccess = getDashboardPostsSuccess;
+
+var getDashboardPosts = function() {
     return function(dispatch) {
-        var url = 'http://localhost:8080/posts/'+category;
-        return fetch(url, {
-        method: "POST",
-        body: JSON.stringify({
-            title : title, 
-            content: blog, 
-            month: month, 
-            date: date, 
-            year: year
-        }),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(function(res) {
+        var url = 'http://localhost:8080/dashboard/posts';
+        return fetch(url).then(function(res) {
         return res.json()
     }).then(function(data) {
-        return dispatch(postBlogSuccess(data))
+        return dispatch(getDashboardPostsSuccess(data))
     }).catch(function(error) {
         console.log(error);
         });
     }
 };
-exports.postBlog = postBlog;
+exports.getDashboardPosts = getDashboardPosts;
 
-var putBlog = function(title, post, postId) {
+var GET_DASHBOARD_post_SUCCESS = 'GET_DASHBOARD_post_SUCCESS'
+var getDashboardPostSuccess = function(post) {
+    return {
+        type: GET_DASHBOARD_post_SUCCESS,
+        post: post
+    }
+}
+exports.GET_DASHBOARD_post_SUCCESS = GET_DASHBOARD_post_SUCCESS;
+exports.getDashboardPostSuccess = getDashboardPostSuccess;
+
+var getDashboardPost = function(postId) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/posts/'+postId;
+        var url = 'http://localhost:8080/dashboard/post/'+postId;
+        return fetch(url).then(function(res) {
+        return res.json()
+    }).then(function(data) {
+        return dispatch(getDashboardPostSuccess(data))
+    }).catch(function(error) {
+        console.log(error);
+        });
+    }
+};
+exports.getDashboardPost = getDashboardPost;
+
+var POST_CONTENT_SUCCESS = 'POST_CONTENT_SUCCESS'
+var postContentSuccess = function(post) {
+    return {
+        type: POST_CONTENT_SUCCESS,
+        post: post
+    }
+}
+exports.POST_CONTENT_SUCCESS = POST_CONTENT_SUCCESS;
+exports.postContentSuccess = postContentSuccess;
+
+var postContent = function(title, categoryId, content, month, date, year) {
+    return function(dispatch) {
+        var url = 'http://localhost:8080/posts/'+categoryId;
+        return fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+            title : title, 
+            content: content, 
+            month: month, 
+            date: date, 
+            year: year
+        }),
+        headers: {  
+            "Content-Type": "application/json"
+        }
+    }).then(function(res) {
+        return res.json()
+    }).then(function(data) {
+        return dispatch(postContentSuccess(data))
+    }).catch(function(error) {
+        console.log(error);
+        });
+    }
+};
+exports.postContent = postContent;
+
+var UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS'
+var updatePostSuccess = function() {
+    return {
+        type: UPDATE_POST_SUCCESS
+    }
+}
+exports.UPDATE_POST_SUCCESS = UPDATE_POST_SUCCESS;
+exports.updatePostSuccess = updatePostSuccess;
+
+var updatePost = function(title, post, postId) {
+    return function(dispatch) {
+        var url = 'http://localhost:8080/dashboard/post/'+postId;
         return fetch(url, {
         method: "PUT",
         body: JSON.stringify({
@@ -243,29 +282,39 @@ var putBlog = function(title, post, postId) {
         return res.status
     }).then(function(data) {
         console.log(data);
-        return dispatch(putBlogSuccess())
+        return dispatch(updatePostSuccess())
     }).catch(function(error) {
         console.log(error);
         });
     }
 };
-exports.putBlog = putBlog;
+exports.updatePost = updatePost;
 
-var deleteBlog = function(postId) {
+var DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
+var deletePostSuccess = function() {
+    return {
+        type: DELETE_POST_SUCCESS
+    }
+}
+exports.DELETE_POST_SUCCESS = DELETE_POST_SUCCESS;
+exports.deletePostSuccess = deletePostSuccess;
+
+var deletePost = function(postId) {
+    console.log(postId, "Hit");
     return function(dispatch) {
-        var url = 'http://localhost:8080/posts/'+postId;
+        var url = 'http://localhost:8080/dashboard/post/'+postId;
         return fetch(url, {
             method: "DELETE"
         }).then(function(res) {
             return res
         }).then(function() {
-            return dispatch(deleteBlogSuccess())
+            return dispatch(deletePostSuccess())
         }).catch(function(error) {
             console.log(error);
         });
     }
 };
-exports.deleteBlog = deleteBlog;
+exports.deletePost = deletePost;
 
 var loadCategories = function(categories){
     console.log("loadCategories was called");

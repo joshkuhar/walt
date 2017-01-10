@@ -5,27 +5,26 @@ var Link = router.Link;
 var connect = require('react-redux').connect;
 var actions = require('../../actions/index');
 var store = require('../../store');
-var BlogToEditList = require('./edit-list');
+var PostToEditList = require('./edit-list');
 
 
 var EditList = React.createClass({
 	componentDidMount: function(){
-		this.props.dispatch(actions.getBlogs());
+		this.props.dispatch(actions.getDashboardPosts());
 	},
 	render: function(){
-	var amountToDisplay = this.props.blogs.length>10 ? 10 : this.props.blogs.length;
+	var amountToDisplay = this.props.posts.length>10 ? 20 : this.props.posts.length;
 	return (
-		<div className="blog-to-edit-list-container">
-			<BlogToEditList blogsToEdit={this.props.blogs} numberOfBlogsToDisplay={amountToDisplay}/>
+		<div className="post-edit-list-container">
+			<PostToEditList postsToEdit={this.props.posts} numberOfPostsToDisplay={amountToDisplay}/>
 		</div>							
-		
 		)
 	}
 });
 
 var mapStateToProps = function(state, props){
 	return {
-		blogs: state.blogs
+		posts: state.dashboardPosts
 	}
 };
 

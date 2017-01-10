@@ -6,55 +6,55 @@ var store = require('../../store');
 var router = require('react-router');
 var Link = router.Link;
 
-var BlogToEdit = React.createClass ({
+var PostToEdit = React.createClass ({
 	componentDidMount: function(){
-		var blog = {};
-		for (var index in this.props.blogs){
-			if(this.props.params.blogId == this.props.blogs[index]._id){
-				blog = this.props.blogs[index]
-			}
-		}
-		this.props.dispatch(actions.getBlogToEdit(blog));
+		this.props.dispatch(actions.getDashboardPost(this.props.params.postId));
 	},
 	handleTitleChange: function(event) {
-		this.props.dispatch(actions.updateTitle(event.target.value));
+		event.preventDefault();
+		this.props.dispatch(actions.changeTitle(event.target.value));
 	},
-	handleBlogChange: function(event) {
-    	this.props.dispatch(actions.updateBlog(event.target.value));
+	handlePostChange: function(event) {
+		event.preventDefault();
+    	this.props.dispatch(actions.changeContent(event.target.value));
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
-    	console.log("handleSubmit was called");
-		this.props.dispatch(actions.putBlog(this.props.title, this.props.blog, this.props.params.blogId));
+		this.props.dispatch(actions.updatePost(this.props.title, this.props.content, this.props.params.postId));
     },
-    handleDelete: function(event) {
-		event.preventDefault();
-		this.props.dispatch(actions.deleteBlog(this.props.params.blogId));
+    handleDeleteClick: function(event) {
+    	event.preventDefault();
+		console.log("delete clicked");
     },
 	render: function() {
 		return (
-		    <div className="blog-entry-form">
-		      <form onSubmit={this.handleSubmit}>
-		        <div className="blog-entry-large-container">
-			        <div className="blog-entry-form-title">Title</div>
-			        <div className="blog-entry-container">
-			        	<div className="title-input-container">
-							<input className="blog-entry-title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
+		    <div className="post-edit-container">
+		      <form className="post-edit-form" onSubmit={this.handleSubmit}>
+		        <div className="post-edit-inner-container">
+			        <div className="post-edit-title-header">Title</div>
+			        <div className="post-edit-title-container">
+			        	<div className="post-edit-title-input-container">
+							<input className="post-edit-title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
 			        	</div>
 			        </div>
-			        <div className="blog-entry-header">
-			        	<div className="delete-button-blog">
-			        		<button onClick={this.handleDelete}>Delete Blog</button>
-			        	</div>
-			       		<div className="cancel-button-blog-entry">
-			        		<Link to="/dashboard/edit"><button>Cancel</button></Link>
-			        	</div>
-			        	<div className="submit-button-container">
-							<input type="submit" value="Submit" />
-			        	</div>
+
+			        <div className="post-edit-textarea-container">
+			        	<textarea className="post-edit-textarea" value={this.props.content} placeholder="type away..." onChange={this.handlePostChange} />
 			        </div>
-			        <textarea className="blog-entry-body" value={this.props.blog} placeholder="type away..." onChange={this.handleBlogChange} />
 		        </div>
+		        	<div className="post-edit-buttons-container">
+			       		<div className="post-edit-cancel-button-container">
+			        		<Link to="/dashboard/edit"><button className="post-edit-cancel-button">Cancel</button></Link>
+			        	</div>
+			        	<div className="post-edit-submit-button-container">
+							<button className="post-edit-submit-button" type="submit" value="Submit">Submit</button>
+			        	</div>
+			        	<div className="post-edit-delete-button-container">
+							<Link to={"/dashboard/remove/post/"+this.props.params.postId}>
+							  <button className="post-edit-delete-button">Delete</button>
+							</Link>
+			        	</div>
+			        </div>
 		      </form>
 		     </div>
     );
@@ -64,15 +64,16 @@ var BlogToEdit = React.createClass ({
 
 var mapStateToProps = function(state, props) {
     return {
+    	content: state.content,
     	title: state.title,
-        blog: state.blog,
+        post: state.post,
         category: state.category,
         categories: state.categories,
-        blogs: state.blogs
+        posts: state.blogs
     };
 };
 
-var Container = connect(mapStateToProps)(BlogToEdit);
+var Container = connect(mapStateToProps)(PostToEdit);
 
 module.exports = Container;
 

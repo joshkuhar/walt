@@ -3,23 +3,16 @@ var ReactDOM = require('react-dom');
 var router = require('react-router');
 var Link = router.Link;
 
-var BlogToEdit = function(props){
+var PostToEdit = function(props){
 	return (
-		<div className="blog-to-edit">
+		<div className="post-edit">
 
-			<Link to={"/dashboard/edit/"+props.blogId}>
-				<div className="blog-to-edit-title">{props.blogToEditTitle}</div>
+			<Link to={"/dashboard/edit/"+props.postId}>
+				<div className="post-edit-title">{props.postToEditTitle}</div>
 			</Link>
-			<div className="blog-to-edit-date">{props.blogDate}</div>
+			<div className="post-edit-date">{props.postDate}</div>
 		</div>
 		)
 };
-module.exports = BlogToEdit;
+module.exports = PostToEdit;
 
-/*
-props 
-blogToEditTitle
-blogToEditCategory
-blogToEditDate
-blogToEditContent
-*/

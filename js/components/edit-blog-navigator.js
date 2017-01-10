@@ -4,13 +4,12 @@ var Link = router.Link;
 var store = require('../store');
 var connect = require('react-redux').connect;
 
-var EditBlogNav  = React.createClass({
+var EditPostNav  = React.createClass({
 	render: function(){
 		return (
 			<div>
-				<div className="blog-to-edit-navigator">
-					<h3>Blog List To Edit</h3>
-					<div className="blog-to-edit-instruction">Click on the blog title to edit</div>
+				<div className="post-to-edit-navigator">
+					<h3>Edit</h3>
 				</div>
 				<div>
 					{this.props.children}
@@ -20,6 +19,6 @@ var EditBlogNav  = React.createClass({
 	}
 });	
 
-var Container = connect()(EditBlogNav);
+var Container = connect()(EditPostNav);
 
 module.exports= Container;

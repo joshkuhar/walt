@@ -1,24 +1,24 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var BlogToEdit = require('./edit');
+var PostToEdit = require('./edit');
 
-var BlogList = function(props){
-	var blogsToEdit = props.blogsToEdit;
-	var blogList = [];
-	var numberOfBlogsToDisplay = props.numberOfBlogsToDisplay;
-	for (var index = 0; index < numberOfBlogsToDisplay; index++) {
-		var blog = blogsToEdit[index];
-		var date = blog.blogPost.month+" "+blog.blogPost.date+", "+blog.blogPost.year;
-		blogList.push(
+var PostList = function(props){
+	var postsToEdit = props.postsToEdit;
+	var postList = [];
+	var numberOfPostsToDisplay = props.numberOfPostsToDisplay;
+	for (var index = 0; index < numberOfPostsToDisplay; index++) {
+		var post = postsToEdit[index];
+		var date = post.month+" "+post.date+", "+post.year;
+		postList.push(
 			<li key={index}>
-				<BlogToEdit blogId={blog._id}blogToEditTitle={blog.blogPost.title} blogDate={date}/>
+				<PostToEdit postId={post._id}postToEditTitle={post.title} postDate={date}/>
 			</li>
 			)
 	}
 	return (
-		<ul className="blog-to-edit-list">
-			{blogList}
+		<ul className="post-to-edit-list">
+			{postList}
 		</ul>
 		)
 };
-module.exports = BlogList;
+module.exports = PostList;

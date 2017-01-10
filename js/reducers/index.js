@@ -12,15 +12,17 @@ var initialState = {
 	categoriesForLoading: Categories.categoriesForLoading,
 	categories: Categories.categories,
 	dummyBlogs: DummyBlogs,
-	landingPost: {_id: "111", blogPost: {title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"}},
-	posts: [{_id: "111", blogPost: {title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"}}]
+	landingPost: {_id: "111", title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"},
+	dashboardPosts: [{_id: "111", title: "foo", month: "Jan", date: "1", year: "2016"}],
+	posts: [{_id: "111", title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"}],
+	photo: {}
 };
 
 var blogReducer = function(state, action) {
 	state = state || initialState;
-	if (action.type === actions.UPDATE_BLOG) {
+	if (action.type === actions.CHANGE_CONTENT) {
 		return 	Object.assign({}, state, {
-			blog: action.blog
+			content: action.content
 		})
 	}
 	else if (action.type === actions.LOAD_SUCCESS) {
@@ -43,7 +45,7 @@ var blogReducer = function(state, action) {
 			posts: action.posts.posts
 		})
 	}
-	else if (action.type === actions.UPDATE_TITLE) {
+	else if (action.type === actions.CHANGE_TITLE) {
 		return Object.assign({}, state, {
 			title: action.title
 		})
@@ -69,15 +71,27 @@ var blogReducer = function(state, action) {
 	else if (action.type === actions.CATEGORY_SECTION_END) {
 		return state
 	}
-	else if (action.type === actions.SET_BLOG_ENTRY_FORM) {
+	else if (action.type === actions.SET_POST_FORM) {
 		return Object.assign({}, state, {
 			title: action.title,
-			blog: action.blog
+			content: action.content
 		})
 	}
-	else if (action.type === actions.POST_BLOG_SUCCESS) {
+	else if (action.type === actions.POST_CONTENT_SUCCESS) {
 		return Object.assign({}, state, {
-			blog: action.data.blogPost.content
+			post: action.data
+		})
+	}
+	else if (action.type === actions.GET_DASHBOARD_POSTS_SUCCESS) {
+		return Object.assign({}, state, {
+			dashboardPosts: action.posts
+		})
+	}
+	else if (action.type === actions.GET_DASHBOARD_post_SUCCESS) {
+		return Object.assign({}, state, {
+			post: action.post,
+			content: action.post.content,
+			title: action.post.title
 		})
 	}
 	else if(action.type === actions.GET_BLOG_TO_EDIT) {
@@ -86,12 +100,17 @@ var blogReducer = function(state, action) {
 			blog: action.blog.blogPost.content
 		})
 	}
-	else if(action.type === actions.PUT_BLOG_SUCCESS) {
+	else if(action.type === actions.UPDATE_POST_SUCCESS) {
 		return state
 	}
-	else if(action.type === actions.DELETE_BLOG_SUCCESS) {
+	else if(action.type === actions.DELETE_POST_SUCCESS) {
 		console.log("Delete Success");
-		return state
+		return Object.assign({}, state, {
+			content: "",
+	    	title: "",
+	        post: "",
+	        category: ""
+		})
 	}
 	else if(action.type === actions.GET_POSTS_SUCCESS) {
 		return Object.assign({}, state, {

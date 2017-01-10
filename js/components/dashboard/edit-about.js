@@ -31,7 +31,6 @@ var AboutEdit = React.createClass ({
 			        <div className="about-form-container">
 			        	<div className="about-header-container">
 			        		<h3 className="about-title">Edit About</h3>
-			        		<div>{this.props.success}</div>
 			        		<div className="about-button-wrapper"> 
 			        			<Link to="/dashboard"><button>Cancel</button></Link>
 								<input className="about-button"type="submit" value="Submit" />
@@ -47,8 +46,7 @@ var AboutEdit = React.createClass ({
 
 var mapStateToProps = function(state, props) {
     return {
-    	about: state.about,
-    	success: state.success
+    	about: state.about
     };
 };
 

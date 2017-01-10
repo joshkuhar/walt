@@ -19,11 +19,14 @@ var About = require('./components/about/about-container');
 var Login = require('./components/dashboard/login');
 var DashboardNavigator = require('./components/dashboard-navigator');
 var WriteBlog = require('./components/dashboard/write-container');
+var WriteSuccess = require('./components/dashboard/write-success');
 var Category = require('./components/dashboard/category-manager-container');
 var EditAbout = require('./components/dashboard/edit-about');
 var EditBlogNav = require('./components/edit-blog-navigator');
 var EditList = require('./components/dashboard/edit-list-container');
 var EditBlog = require('./components/dashboard/edit-blog');
+var DeletePost = require('./components/dashboard/delete-post');
+
 
 var Provider = require('react-redux').Provider;
 var store = require('./store');
@@ -41,12 +44,14 @@ var Routes = (
 			</Route>
 			<Route path="/login" component={Login} />
 			<Route path="/dashboard" component={DashboardNavigator}>
-				<Route path="about" component={EditAbout}/>
+				<Route path="about" component={EditAbout}/>	
 				<Route path="edit" component={EditBlogNav} >
 					<IndexRoute component={EditList} />
-					<Route path=":blogId" component={EditBlog} />
+					<Route path=":postId" component={EditBlog} />
 				</Route>
+				<Route path="remove/post/:postId" component={DeletePost} />
 				<Route path="create" component={WriteBlog} />
+				<Route path="create/success" component={WriteSuccess} />
 				<Route path="category" component={Category} />
 			</Route>
 		</Router>

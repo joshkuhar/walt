@@ -5,33 +5,40 @@ var actions = require('../../actions/index');
 var store = require('../../store');
 var router = require('react-router');
 var Link = router.Link;
+var hashHistory = router.hashHistory;
+var WriteSuccess = require('./write-success');
 
 // Object containing current month, date, time
 var DateStamp = require('./write-date-stamp');
 var date = DateStamp();
 
-var BlogEntry = React.createClass ({
+var PostContent = React.createClass ({
 	componentDidMount: function() {
-		this.props.dispatch(actions.setBlogEntryForm());
+		this.props.dispatch(actions.setPostForm());
 	},
 	handleTitleChange: function(event) {
-		this.props.dispatch(actions.updateTitle(event.target.value));
+		event.preventDefault();
+		this.props.dispatch(actions.changeTitle(event.target.value));
 	},
 	handleCategoryChange: function(event) {
+		event.preventDefault();
 		this.props.dispatch(actions.selectCategory(event.target.value));
+		console.log(this.props.category);
 	},
-	handleBlogChange: function(event) {
-    	this.props.dispatch(actions.updateBlog(event.target.value));
+	handleContentChange: function(event) {
+		event.preventDefault();
+    	this.props.dispatch(actions.changeContent(event.target.value));
 	},
-	// handleCancel: function(event) {
-	// 	event.preventDefault();
-	// 	console.log("I was clicked");
-	// },
   	handleSubmit: function(event) {
-    	event.preventDefault();
-	    this.props.dispatch(actions.postBlog(this.props.title, this.props.category, this.props.blog, 
-	    										date.month, date.date, date.year
-	    										));
+  		event.preventDefault();
+  			if (this.props.category === "111"){
+  				alert("Please select a category. Currently, the selector bar is set to 'All'");
+  				return
+  			}
+  			hashHistory.push('/dashboard/create/success');
+  			
+  			
+	    // this.props.dispatch(actions.postContent(this.props.title, this.props.category, this.props.content, date.month, date.date, date.year));
 
 	},
 	render: function() {
@@ -43,36 +50,39 @@ var BlogEntry = React.createClass ({
 				)
 		}
 	    return (
-		    <div className="blog-entry-form">
-		      <form onSubmit={this.handleSubmit}>
-		        <div className="blog-entry-large-container">
-		        	<h3>Write New Blog</h3>
-
-			        <div className="blog-entry-form-title">Title</div>
-			        <div className="blog-entry-container">
-			        	<div className="title-input-container">
-							<input className="blog-entry-title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
-			        	</div>
-			        </div>
-			        <div className="selector-container"> Categories
-				        <div className="category-selector">
-				        	<select value={this.props.category} onChange={this.handleCategoryChange}>
+				<div className="post-write-container">
+					<form className="post-write-form"onSubmit={this.handleSubmit}>
+						<div className="post-write-header-container">
+						  <h4>Write New Post</h4>
+						</div>
+						<div className="post-write-inside-container">
+						  <div className="post-write-selector-container"> Category
+						    <div className="post-write-category-selector">
+							  <select value={this.props.category} onChange={this.handleCategoryChange}>
 									{categories}
-					      	</select>
-					    </div>
-				    </div>
-			        <div className="blog-entry-header">
-			        	<div className="cancel-button-blog-entry">
-			        		<Link to="/dashboard"><button>Cancel</button></Link>
-			        	</div>
-			        	<div className="submit-button-container">
-							<input type="submit" value="Submit" />
-			        	</div>
-			        </div>
-			        <textarea className="blog-entry-body" value={this.props.blog} placeholder="type away..." onChange={this.handleBlogChange} />
-		        </div>
-		      </form>
-		     </div>
+						  	  </select>
+						    </div>
+						  </div>
+						    <div className="post-write-title-header">Title</div>
+						  <div className="post-write-title-container">
+						    <div className="post-write-title-input-container">
+							  <input className="post-write-title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
+						    </div>
+						  </div>
+						  <div className="post-write-textarea-container">
+						    <textarea className="post-write-textarea" value={this.props.content} placeholder="type away..." onChange={this.handleContentChange} />
+						  </div>
+						</div>
+						<div className="post-write-buttons-container">
+						  <div className="post-write-cancel-button-container">
+						     <Link to="/dashboard"><button className="post-write-cancel-button">Cancel</button></Link>
+						  </div>
+						  <div className="post-write-submit-button-container">
+						    <button className="post-write-submit-button"type="submit">Submit</button>
+						  </div>
+						</div>
+					</form>
+				</div>
     );
   }
 });
@@ -80,14 +90,13 @@ var BlogEntry = React.createClass ({
 var mapStateToProps = function(state, props) {
     return {
     	title: state.title,
-        blog: state.blog,
+        content: state.content,
         category: state.category,
-        categories: state.categories,
-        success: state.success
+        categories: state.categories
     };
 };
 
-var Container = connect(mapStateToProps)(BlogEntry);
+var Container = connect(mapStateToProps)(PostContent);
 
 module.exports = Container;
 

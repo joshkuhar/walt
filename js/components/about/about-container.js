@@ -26,7 +26,6 @@ var AboutContainer = React.createClass({
 var mapStateToProps = function(state, props) {
     return {
     	about: state.about,
-    	success: state.sucess
     };
 };
 

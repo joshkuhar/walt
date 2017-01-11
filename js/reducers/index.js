@@ -15,7 +15,7 @@ var initialState = {
 	landingPost: {_id: "111", title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"},
 	dashboardPosts: [{_id: "111", title: "foo", month: "Jan", date: "1", year: "2016"}],
 	posts: [{_id: "111", title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"}],
-	photo: {}
+	loginMessage: ""
 };
 
 var blogReducer = function(state, action) {
@@ -143,6 +143,11 @@ var blogReducer = function(state, action) {
 	}
 	else if(action.type === actions.UPDATE_ABOUT_SUCCESS) {
 		return state
+	}
+	else if(action.type === actions.LOGIN_SUCCESS) {
+		return Object.assign({}, state, {
+			loginMessage: action.loginMessage
+		})
 	}
 
 	return state;

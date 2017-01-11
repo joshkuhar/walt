@@ -473,3 +473,27 @@ var updateAbout = function(aboutId, about){
     }
 };
 exports.updateAbout = updateAbout;
+
+var LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+var loginSuccess = function(message){
+    return {
+        type: LOGIN_SUCCESS,
+        loginMessage: message.message
+    }
+}
+exports.LOGIN_SUCCESS = LOGIN_SUCCESS;
+exports.loginSuccess = loginSuccess;
+
+var loginMessage = function(){    
+    return function(dispatch) {
+        var url = 'http://localhost:8080/user';
+        return fetch(url).then(function(res) {
+        return res.json()
+    }).then(function(data) {
+        return dispatch(loginSuccess(data))
+    }).catch(function(error) {
+        console.log(error);
+        });
+    }
+};
+exports.loginMessage = loginMessage;

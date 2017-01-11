@@ -6,7 +6,7 @@ CategoryRouter.post('/categories', function(req, res) {
 	console.log('categories endpoint hit');
 	Category.create(req.body.categories, function(err, categories) {
 		if (err) {
-			console.log(err);
+			//console.log(err);
 			return res.status(500).json({
 				message: 'Internal Server Error'
 				});
@@ -17,7 +17,18 @@ CategoryRouter.post('/categories', function(req, res) {
 
 CategoryRouter.get('/categories', function(req, res){
 	Category.find(function(err, categories) {
-		console.log(categories);
+		if (err) {
+			console.log(err);
+			return res.status(500).json({
+				message: 'Internal Server Error'
+				});
+			}
+			res.status(200).json(categories);
+		});
+	});
+//'5871120d181e9c119ecdd2f8'
+CategoryRouter.get('/cat/:categoryId', function(req, res){
+	Category.findById(req.params.categoryId, function(err, categories) {
 		if (err) {
 			console.log(err);
 			return res.status(500).json({
@@ -29,9 +40,9 @@ CategoryRouter.get('/categories', function(req, res){
 	});
 
 CategoryRouter.get('/categories/:categoryId', function(req, res){
-	Category.findOne({
-		_id: req.params.categoryId
-	})
+	Category.findById(
+		req.params.categoryId
+	)
 	.populate({
 		path: 'posts',
 		options: {

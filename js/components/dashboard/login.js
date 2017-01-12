@@ -10,9 +10,14 @@ var Login = React.createClass({
 	},
 	onClick: function(event){
 		event.preventDefault();
-		console.log("I was clicked");
-		console.log(this.refs.username.value, this.refs.password.value);
-		//this.props.dispatch(actions.loginMessage());
+		var username = this.refs.username.value;
+		var password = this.refs.password.value;
+		this.props.dispatch(actions.getUser(username, password));
+	},
+	jwtClick: function(event){
+		event.preventDefault();
+		console.log(this.props.token);
+		this.props.dispatch(actions.getAllUsers(this.props.token));
 	},
 	render: function(){
 		return(
@@ -23,8 +28,9 @@ var Login = React.createClass({
 					<input type="text" placeholder="username" ref="username"/>
 					<input type="text" placeholder="password" ref="password"/>
 					<button onClick={this.onClick}>submit</button>
+					<button onClick={this.jwtClick}>submit</button>
 					<div className="login-message">
-						<div>{this.props.loginMessage}</div>
+						
 					</div>
 
 				</div>
@@ -35,7 +41,7 @@ var Login = React.createClass({
 
 var mapStateToProps = function(state, props){
 	return {
-		loginMessage: state.loginMessage
+		token: state.token
 	}
 };
 

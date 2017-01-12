@@ -474,26 +474,96 @@ var updateAbout = function(aboutId, about){
 };
 exports.updateAbout = updateAbout;
 
-var LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-var loginSuccess = function(message){
-    return {
-        type: LOGIN_SUCCESS,
-        loginMessage: message.message
-    }
-}
-exports.LOGIN_SUCCESS = LOGIN_SUCCESS;
-exports.loginSuccess = loginSuccess;
 
-var loginMessage = function(){    
+
+var createUser = function(username, password){    
     return function(dispatch) {
-        var url = 'http://localhost:8080/user';
-        return fetch(url).then(function(res) {
+        var url = 'http://localhost:8080/login';
+        return fetch(url, {
+            method: "POST",
+            body: JSON.stringify({
+                username: username,
+                password: password
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(function(res) {
         return res.json()
     }).then(function(data) {
+        console.log(data);
         return dispatch(loginSuccess(data))
     }).catch(function(error) {
         console.log(error);
         });
     }
 };
-exports.loginMessage = loginMessage;
+exports.createUser = createUser;
+
+var LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+var loginSuccess = function(message){
+    return {
+        type: LOGIN_SUCCESS,
+        loginMessage: message.message,
+        success: message.success,
+        token: message.token
+    }
+}
+exports.LOGIN_SUCCESS = LOGIN_SUCCESS;
+exports.loginSuccess = loginSuccess;
+
+var getUser = function(username, password){    
+    return function(dispatch) {
+        console.log(username, password);
+        var url = 'http://localhost:8080/login';
+        return fetch(url, {
+            method: "POST",
+            body: JSON.stringify({
+                username: username,
+                password: password
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        .then(function(res) {
+        return res.json()
+    }).then(function(data) {
+        console.log(data);
+        return dispatch(loginSuccess(data))
+    }).catch(function(error) {
+        console.log(error);
+        });
+    }
+};
+exports.getUser = getUser;
+
+var GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
+var getUsersSuccess = function(data){
+    return {
+        type: GET_USERS_SUCCESS,
+        data: data
+    }
+}
+var getAllUsers= function(token){    
+    console.log(token);
+    return function(dispatch) {
+        var url = 'http://localhost:8080/profiles';
+        return fetch(url, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "JWT"+token
+            }
+        })
+        .then(function(res) {
+        return res.json()
+    }).then(function(data) {
+        console.log(data);
+        return dispatch(getUsersSuccess(data))
+    }).catch(function(error) {
+        console.log(error);
+        });
+    }
+};
+exports.getAllUsers = getAllUsers;

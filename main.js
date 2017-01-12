@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 var mongoose = require('mongoose');
 var config = require('./server/config/config');
+var passport = require('passport');
 
 var path = require('path');
 var app = express();
@@ -39,7 +40,6 @@ if (require.main === module) {
 exports.app = app;
 exports.runServer = runServer;
 
-
 // Serves static file from /.build
 app.use(express.static(path.join(__dirname, './build')));
 
@@ -48,13 +48,11 @@ app.get('/r', function (req, res) {
 		welcome: 'Welcome Home!'
 	});
 });
-
 // Endpoints
 app.use('/', BlogPost);
 app.use('/', Category);
 app.use('/', About);
 app.use('/', User);
-
 
 app.get("*", function(req, res) {	
 	res.sendFile(path.join(__dirname, './build/index.html'));

@@ -1,24 +1,145 @@
-var UserRouter = require('express').Router();
+var userRouter = require('express').Router();
 var User = require('./userModel');
+var passport = require('passport');
+var bcrypt = require('bcryptjs');
 
-UserRouter.post('/users', function(req, res) {
-	User.create({
-		username: req.body.username,
-		password: req.body.password
-	}, 
-	function(err){
-		if(err){
-			return res.json({
-				message: 'Internal Server Error'
-			});
-		}
-		return res.status(201).json({message: "created"});
-	});
+var JwtStrategy = require('passport-jwt').Strategy;
+var ExtractJwt = require('passport-jwt').ExtractJwt;
+var jwt = require('jsonwebtoken');
+
+userRouter.post('/users', function(req, res) {
+	if (!req.body) {
+	    return res.status(400).json({
+	        message: "No request body"
+	    });
+    }
+    if (!('username' in req.body)) {
+        return res.status(422).json({
+            message: 'Missing field: username'
+        });
+    }
+    var username = req.body.username;
+
+    if (typeof username !== 'string') {
+        return res.status(422).json({
+            message: 'Incorrect field type: username'
+        });
+    }
+    username = username.trim();
+    if (username === '') {
+        return res.status(422).json({
+            message: 'Incorrect field length: username'
+        });
+    }
+    if (!('password' in req.body)) {
+        return res.status(422).json({
+            message: 'Missing field: password'
+        });
+    }
+    var password = req.body.password;
+    if (typeof password !== 'string') {
+        return res.status(422).json({
+            message: 'Incorrect field type: password'
+        });
+    }
+    password = password.trim();
+    if (password === '') {
+        return res.status(422).json({
+            message: 'Incorrect field length: password'
+        });
+    }
+    bcrypt.genSalt(10, function(err, salt) {
+	    if (err) {
+	        return res.status(500).json({
+	            message: 'Internal server error'
+	        });
+	    }
+        bcrypt.hash(password, salt, function(err, hash) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal server error'
+                });
+            }
+            var user = new User({
+                username: username,
+                password: hash
+            });
+            user.save(function(err) {
+                if (err) {
+                    return res.status(500).json({
+                        message: 'Internal server error'
+                    });
+                }
+                return res.status(201).json({});
+            });
+        });
+    });
 });
 
-UserRouter.get('/user', function(req, res){
-	res.json({message: "i worked"});
+var opts = {}
+opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
+opts.secretOrKey = 'nothingrhymeswithorange';
+// opts.audience = "http://localhost:8080";
+passport.use(new JwtStrategy(opts, function(payload, done) {
+	console.log("payload received", payload);
+    User.findOne({_id: payload.id}, function(err, user) {
+        if (err) {
+            return done(err, false);
+        }
+        if (user) {
+            done(null, user);
+        } else {
+            done(null, false);
+        }
+    });
+}));
+
+userRouter.post('/login', function(req, res){
+	 User.findOne({
+        username: req.body.username
+    }, function (err, user) {
+    	console.log(user, "fuck this shit");
+        if (err) {
+            callback(err);
+            return;
+        }
+        if (!user) {
+            return res.status(500).json({
+                message: 'Incorrect username.'
+            });
+        }
+        user.validatePassword(req.body.password, function(err, isValid) {
+            if (err) {
+                return res(500).json({
+                	message: 'Internal Error'
+                });
+            }
+            if (!isValid) {
+                return res.status(401).json({
+                    message: 'Incorrect password.'
+                });
+            }
+
+            var token = jwt.sign({id: user._id}, opts.secretOrKey, {
+            	expiresIn: 60*60
+            });
+            res.status(200).json({success: true,
+								  message: "Great",
+								  token: token
+            });
+        });
+    });
 });
 
+userRouter.get('/secret', passport.authenticate('jwt', { session: false}),
+    function(req, res) {
+    	res.send("want dang you got it!");
+    	});
 
-module.exports = UserRouter;
+module.exports = userRouter;
+
+
+
+
+
+

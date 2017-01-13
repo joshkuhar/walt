@@ -24,7 +24,7 @@ PostRouter.post('/posts/:categoryId', function(req, res) {
                         $addToSet: {
                             posts: post._id
                         }
-                    },
+                    },  
                     function(err2, category) {
                         if (err2) {
                             console.log(err);

@@ -2,11 +2,29 @@ var userRouter = require('express').Router();
 var User = require('./userModel');
 var passport = require('passport');
 var bcrypt = require('bcryptjs');
-
 var JwtStrategy = require('passport-jwt').Strategy;
 var ExtractJwt = require('passport-jwt').ExtractJwt;
 var jwt = require('jsonwebtoken');
 
+var options = {}
+options.jwtFromRequest = ExtractJwt.fromAuthHeader();
+options.secretOrKey = 'nothingrhymeswithorange';
+// opts.audience = "http://localhost:8080";
+passport.use(new JwtStrategy(options, function(payload, done) {
+	console.log("payload received", payload);
+    User.findOne({_id: payload.id}, function(err, user) {
+        if (err) {
+            return done(err, false);
+        }
+        if (user) {
+            done(null, user);
+        } else {
+            done(null, false);
+        }
+    });
+}));
+
+//create user
 userRouter.post('/users', function(req, res) {
 	if (!req.body) {
 	    return res.status(400).json({
@@ -64,41 +82,22 @@ userRouter.post('/users', function(req, res) {
                 username: username,
                 password: hash
             });
-            user.save(function(err) {
+            user.save(function(err, newUser) {
                 if (err) {
                     return res.status(500).json({
                         message: 'Internal server error'
                     });
                 }
-                return res.status(201).json({});
+                return res.status(201).json({username: newUser.username});
             });
         });
     });
 });
-
-var opts = {}
-opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
-opts.secretOrKey = 'nothingrhymeswithorange';
-// opts.audience = "http://localhost:8080";
-passport.use(new JwtStrategy(opts, function(payload, done) {
-	console.log("payload received", payload);
-    User.findOne({_id: payload.id}, function(err, user) {
-        if (err) {
-            return done(err, false);
-        }
-        if (user) {
-            done(null, user);
-        } else {
-            done(null, false);
-        }
-    });
-}));
-
+//user login
 userRouter.post('/login', function(req, res){
 	 User.findOne({
         username: req.body.username
     }, function (err, user) {
-    	console.log(user, "fuck this shit");
         if (err) {
             callback(err);
             return;
@@ -119,12 +118,11 @@ userRouter.post('/login', function(req, res){
                     message: 'Incorrect password.'
                 });
             }
-
-            var token = jwt.sign({id: user._id}, opts.secretOrKey, {
+            var token = jwt.sign({id: user._id}, options.secretOrKey, {
             	expiresIn: 60*60
             });
             res.status(200).json({success: true,
-								  message: "Great",
+								  username: user.username,
 								  token: token
             });
         });

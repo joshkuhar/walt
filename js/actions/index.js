@@ -474,11 +474,19 @@ var updateAbout = function(aboutId, about){
 };
 exports.updateAbout = updateAbout;
 
+var CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS';
+var createUserSuccess = function(username){
+    return {
+        type: CREATE_USER_SUCCESS,
+        username: username
+    }
+}
+exports.CREATE_USER_SUCCESS = CREATE_USER_SUCCESS;
+exports.createUserSuccess = createUserSuccess;
 
-
-var createUser = function(username, password){    
+var createUser = function(username, password){
     return function(dispatch) {
-        var url = 'http://localhost:8080/login';
+        var url = 'http://localhost:8080/users';
         return fetch(url, {
             method: "POST",
             body: JSON.stringify({
@@ -492,8 +500,8 @@ var createUser = function(username, password){
         .then(function(res) {
         return res.json()
     }).then(function(data) {
-        console.log(data);
-        return dispatch(loginSuccess(data))
+        var username=data.username;
+        return dispatch(createUserSuccess(username))
     }).catch(function(error) {
         console.log(error);
         });
@@ -502,12 +510,11 @@ var createUser = function(username, password){
 exports.createUser = createUser;
 
 var LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-var loginSuccess = function(message){
+var loginSuccess = function(username, token){
     return {
         type: LOGIN_SUCCESS,
-        loginMessage: message.message,
-        success: message.success,
-        token: message.token
+        username: username,
+        token: token
     }
 }
 exports.LOGIN_SUCCESS = LOGIN_SUCCESS;
@@ -530,40 +537,12 @@ var getUser = function(username, password){
         .then(function(res) {
         return res.json()
     }).then(function(data) {
-        console.log(data);
-        return dispatch(loginSuccess(data))
+        var username=data.username;
+        var token=data.token
+        return dispatch(loginSuccess(username, token))
     }).catch(function(error) {
         console.log(error);
         });
     }
 };
 exports.getUser = getUser;
-
-var GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
-var getUsersSuccess = function(data){
-    return {
-        type: GET_USERS_SUCCESS,
-        data: data
-    }
-}
-var getAllUsers= function(token){    
-    console.log(token);
-    return function(dispatch) {
-        var url = 'http://localhost:8080/profiles';
-        return fetch(url, {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "JWT"+token
-            }
-        })
-        .then(function(res) {
-        return res.json()
-    }).then(function(data) {
-        console.log(data);
-        return dispatch(getUsersSuccess(data))
-    }).catch(function(error) {
-        console.log(error);
-        });
-    }
-};
-exports.getAllUsers = getAllUsers;

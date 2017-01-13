@@ -12,17 +12,23 @@ var Login = React.createClass({
 		event.preventDefault();
 		var username = this.refs.username.value;
 		var password = this.refs.password.value;
-		this.props.dispatch(actions.getUser(username, password));
+		this.props.dispatch(actions.createUser(username, password));
+	},
+	jwtClick: function(event){
+		event.preventDefault();
+		console.log(this.props.token);
+		// this.props.dispatch(actions.getAllUsers(this.props.token));
 	},
 	render: function(){
 		return(
 			<div className="login-container">
 				<button onClick={this.onState}>store</button>
-				<h2>Login</h2>
+				<h2>Create User</h2>
 				<div className="login">
 					<input type="text" placeholder="username" ref="username"/>
 					<input type="text" placeholder="password" ref="password"/>
-					<button onClick={this.onClick}>submit</button>
+					<button onClick={this.onClick}>create user</button>
+					<button onClick={this.jwtClick}>submit</button>
 					<div className="login-message">
 						{this.props.username}
 					</div>

@@ -35,10 +35,10 @@ var PostContent = React.createClass ({
   				alert("Please select a category. Currently, the selector bar is set to 'All'");
   				return
   			}
-  			hashHistory.push('/dashboard/create/success');
+  			//hashHistory.push('/dashboard/create/success');
   			
   			
-	    // this.props.dispatch(actions.postContent(this.props.title, this.props.category, this.props.content, date.month, date.date, date.year));
+	    this.props.dispatch(actions.postContent(this.props.title, this.props.category, this.props.content, date.month, date.date, date.year, this.props.token));
 
 	},
 	render: function() {
@@ -92,7 +92,8 @@ var mapStateToProps = function(state, props) {
     	title: state.title,
         content: state.content,
         category: state.category,
-        categories: state.categories
+        categories: state.categories,
+        token: state.token
     };
 };
 

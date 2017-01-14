@@ -19,7 +19,7 @@ var AboutEdit = React.createClass ({
   	handleSubmit: function(event) {
     	event.preventDefault();
 		var id = "58711570ac7bfb11c9da3659";
-    	this.props.dispatch(actions.updateAbout(id, this.props.about));
+    	this.props.dispatch(actions.updateAbout(id, this.props.about, this.props.token));
 	},
   	onClick: function(){
   		console.log(store.getState());
@@ -46,7 +46,8 @@ var AboutEdit = React.createClass ({
 
 var mapStateToProps = function(state, props) {
     return {
-    	about: state.about
+    	about: state.about,
+    	token: state.token
     };
 };
 

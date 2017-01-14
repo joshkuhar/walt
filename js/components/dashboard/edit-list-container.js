@@ -10,7 +10,7 @@ var PostToEditList = require('./edit-list');
 
 var EditList = React.createClass({
 	componentDidMount: function(){
-		this.props.dispatch(actions.getDashboardPosts());
+		this.props.dispatch(actions.getDashboardPosts(this.props.token));
 	},
 	render: function(){
 	var amountToDisplay = this.props.posts.length>10 ? 20 : this.props.posts.length;
@@ -24,7 +24,8 @@ var EditList = React.createClass({
 
 var mapStateToProps = function(state, props){
 	return {
-		posts: state.dashboardPosts
+		posts: state.dashboardPosts,
+		token: state.token
 	}
 };
 

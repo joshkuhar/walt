@@ -11,7 +11,7 @@ var hashHistory = router.hashHistory;
 var DeletePost = React.createClass({
 	handleDeleteClick: function(event){
 		event.preventDefault();
-		this.props.dispatch(actions.deletePost(this.props.params.postId));
+		this.props.dispatch(actions.deletePost(this.props.params.postId, this.props.token));
 		hashHistory.push('/dashboard/edit');
 	},
 	render: function(){
@@ -33,7 +33,8 @@ var mapStateToProps = function(state, props) {
         post: state.post,
         category: state.category,
         categories: state.categories,
-        posts: state.blogs
+        posts: state.blogs,
+        token: state.token
     };
 };
 

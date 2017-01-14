@@ -8,7 +8,7 @@ var Link = router.Link;
 
 var PostToEdit = React.createClass ({
 	componentDidMount: function(){
-		this.props.dispatch(actions.getDashboardPost(this.props.params.postId));
+		this.props.dispatch(actions.getDashboardPost(this.props.params.postId, this.props.token));
 	},
 	handleTitleChange: function(event) {
 		event.preventDefault();
@@ -20,7 +20,7 @@ var PostToEdit = React.createClass ({
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
-		this.props.dispatch(actions.updatePost(this.props.title, this.props.content, this.props.params.postId));
+		this.props.dispatch(actions.updatePost(this.props.title, this.props.content, this.props.params.postId, this.props.token));
     },
     handleDeleteClick: function(event) {
     	event.preventDefault();
@@ -69,7 +69,8 @@ var mapStateToProps = function(state, props) {
         post: state.post,
         category: state.category,
         categories: state.categories,
-        posts: state.blogs
+        posts: state.blogs,
+        token: state.token
     };
 };
 

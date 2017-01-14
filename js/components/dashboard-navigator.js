@@ -2,15 +2,33 @@ var React = require('react');
 var router = require('react-router');
 var Link = router.Link;
 var store = require('../store');
+var actions = require('../actions/index');
 var connect = require('react-redux').connect;
 var Button = require('../store-button');
+var router = require('react-router');
+var hashHistory = router.hashHistory;
 
 var DashboardNavBar  = React.createClass({
+	// componentDidMount: function(){
+	// 	if(this.props.success === false){
+	// 		hashHistory.push('/login');
+	// 	}
+	// },
+	handleSignOut: function(event){
+		event.preventDefault();
+		// this.props.dispatch(actions.logOut());
+		hashHistory.push('/login');
+	},
+	onStore: function(event){
+		event.preventDefault();
+		console.log(store.getState());
+	},
 	render: function(){
 		return (
 			<div>
-				<Button /><Link to="/">Home Page</Link>
-				<Link to="/login" ><div className="sign-out">Sign Out</div></Link>
+				<Link to="/">Home Page</Link>
+				<button onClick={this.onStore}>store</button>
+				<div onClick={this.handleSignOut}className="sign-out">Sign Out</div>
 				<h2 className="dashboard-header">Dashboard</h2>
 				<div className="dashboard-nav-bar">
 					<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/edit"><div className="dashboard-nav-bar-item">Blog List</div></Link></div>
@@ -24,7 +42,12 @@ var DashboardNavBar  = React.createClass({
 	}
 });	
 
-var Container = connect()(DashboardNavBar);
+var mapStateToProps = function(state, props) {
+	return {
+		success: state.success
+	}
+}
+
+var Container = connect(mapStateToProps)(DashboardNavBar);
 
 module.exports= Container;
-

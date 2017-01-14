@@ -1,8 +1,32 @@
 var AboutRouter = require('express').Router();
 var About = require('./aboutModel');
+var passport = require('passport');
+var JwtStrategy = require('passport-jwt').Strategy;
+var ExtractJwt = require('passport-jwt').ExtractJwt;
+var jwt = require('jsonwebtoken');
+var config = require('../../../config/config');
+
+var options = {}
+options.jwtFromRequest = ExtractJwt.fromAuthHeader();
+options.secretOrKey = config.secret;
+// opts.audience = "http://localhost:8080";
+passport.use(new JwtStrategy(options, function(payload, done) {
+    console.log("payload received", payload);
+    User.findOne({_id: payload.id}, function(err, user) {
+        if (err) {
+            return done(err, false);
+        }
+        if (user) {
+            done(null, user);
+        } else {
+            done(null, false);
+        }
+    });
+}));
 
 
-AboutRouter.post('/about', function(req, res) {
+AboutRouter.post('/about', passport.authenticate('jwt', {session: false}),
+	function(req, res) {
 	console.log(req.body);
 	About.create({about: req.body.about}, function(err, about) {
 		if (err) {
@@ -26,7 +50,8 @@ AboutRouter.get('/about/:id', function(req, res){
 			res.status(200).json(about);
 		});
 	});
-AboutRouter.put('/about/:id', function(req, res){
+AboutRouter.put('/about/:id', passport.authenticate('jwt', {session: false}),
+	function(req, res){
 	About.findByIdAndUpdate(req.params.id, 
 							{$set: {about: req.body.about}}, 
 		function(err, about){
@@ -40,7 +65,8 @@ AboutRouter.put('/about/:id', function(req, res){
 		});
 });
 
-AboutRouter.delete('/about/:id', function(req, res){
+AboutRouter.delete('/about/:id', passport.authenticate('jwt', {session: false}),
+	function(req, res){
 	About.findByIdAndRemove(
 		req.params.id, function(err){
 			if(err){

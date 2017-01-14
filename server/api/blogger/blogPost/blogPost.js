@@ -2,7 +2,32 @@ var PostRouter = require('express').Router();
 var Post = require('./blogPostModel');
 var Category = require('../category/categoryModel');
 
-PostRouter.post('/posts/:categoryId', function(req, res) {
+var passport = require('passport');
+var JwtStrategy = require('passport-jwt').Strategy;
+var ExtractJwt = require('passport-jwt').ExtractJwt;
+var jwt = require('jsonwebtoken');
+var config = require('../../../config/config');
+
+var options = {}
+options.jwtFromRequest = ExtractJwt.fromAuthHeader();
+options.secretOrKey = config.secret;
+// opts.audience = "http://localhost:8080";
+passport.use(new JwtStrategy(options, function(payload, done) {
+    console.log("payload received", payload);
+    User.findOne({_id: payload.id}, function(err, user) {
+        if (err) {
+            return done(err, false);
+        }
+        if (user) {
+            done(null, user);
+        } else {
+            done(null, false);
+        }
+    });
+}));
+
+PostRouter.post('/dashboard/content/:categoryId', passport.authenticate('jwt', {session: false}), 
+    function(req, res) {
     Post.create({
                 title: req.body.title,
                 content: req.body.content,
@@ -93,7 +118,8 @@ PostRouter.get('/posts', function(req, res) {
     });
 });
 
-PostRouter.get('/dashboard/posts', function(req, res) {
+PostRouter.get('/dashboard/posts', passport.authenticate('jwt', {session: false}),
+    function(req, res) {
     Post.find({}, 'title date year month')
     .limit(20)
     .sort({ _id: -1 })
@@ -111,7 +137,8 @@ PostRouter.get('/dashboard/posts', function(req, res) {
 //Post.find({}).sort({date: -1}).exec(function
 // { $orderby: { "created_at": -1 } }, 
 
-PostRouter.get('/dashboard/post/:postId', function(req, res) {
+PostRouter.get('/dashboard/post/:postId', passport.authenticate('jwt', {session: false}),
+    function(req, res) {
     Post.findById(req.params.postId)
     .exec( function(err, post) {
         if (err) {
@@ -125,7 +152,8 @@ PostRouter.get('/dashboard/post/:postId', function(req, res) {
 });
 
 
-PostRouter.put('/dashboard/post/:postId', function(req, res) {
+PostRouter.put('/dashboard/post/:postId', passport.authenticate('jwt', {session: false}),
+    function(req, res) {
     Post.findByIdAndUpdate(req.params.postId, {
             $set: {
                 "title": req.body.title,
@@ -143,7 +171,8 @@ PostRouter.put('/dashboard/post/:postId', function(req, res) {
         });
 });
 
-PostRouter.delete('/dashboard/post/:postId', function(req, res){
+PostRouter.delete('/dashboard/post/:postId', passport.authenticate('jwt', {session: false}),
+    function(req, res){
     Post.findByIdAndRemove(
         req.params.postId, function(err){
             if(err){
@@ -153,7 +182,8 @@ PostRouter.delete('/dashboard/post/:postId', function(req, res){
         });
 });
 // count array 
-PostRouter.get('/posts/count', function(req, res) {
+PostRouter.get('/posts/count', passport.authenticate('jwt', {session: false}),
+    function(req, res) {
     Post.count(function(err, posts) {
         if(err) {
             console.log(err);
@@ -178,7 +208,6 @@ PostRouter.get('/posts/section/:number', function(req, res) {
                 message: 'Internal Server Error'
             });
         }
-        console.log(posts);
         res.status(200).json(posts);
     });
 });

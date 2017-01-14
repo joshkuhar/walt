@@ -4,4 +4,4 @@ exports.DATABASE_URL = process.env.DATABASE_URL ||
                             'mongodb://localhost/blog' :
                             'mongodb://localhost/blog-dev');
 exports.PORT = process.env.PORT || 8080;
-exports.secret = 'yellowgrapes';
+exports.secret = 'nothingrhymeswithorange';

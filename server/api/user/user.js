@@ -1,14 +1,16 @@
 var userRouter = require('express').Router();
 var User = require('./userModel');
-var passport = require('passport');
 var bcrypt = require('bcryptjs');
+var passport = require('passport');
 var JwtStrategy = require('passport-jwt').Strategy;
 var ExtractJwt = require('passport-jwt').ExtractJwt;
 var jwt = require('jsonwebtoken');
+var config = require('../../config/config');
+
 
 var options = {}
 options.jwtFromRequest = ExtractJwt.fromAuthHeader();
-options.secretOrKey = 'nothingrhymeswithorange';
+options.secretOrKey = config.secret;
 // opts.audience = "http://localhost:8080";
 passport.use(new JwtStrategy(options, function(payload, done) {
 	console.log("payload received", payload);
@@ -129,15 +131,7 @@ userRouter.post('/login', function(req, res){
     });
 });
 
-userRouter.get('/secret', passport.authenticate('jwt', { session: false}),
-    function(req, res) {
-    	res.send("want dang you got it!");
-    	});
 
 module.exports = userRouter;
-
-
-
-
 
 

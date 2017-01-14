@@ -16,7 +16,8 @@ var initialState = {
 	dashboardPosts: [{_id: "111", title: "foo", month: "Jan", date: "1", year: "2016"}],
 	posts: [{_id: "111", title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"}],
 	token: "",
-	username: ""
+	username: "",
+	success: false
 };
 
 var blogReducer = function(state, action) {
@@ -148,12 +149,24 @@ var blogReducer = function(state, action) {
 	else if(action.type === actions.LOGIN_SUCCESS) {
 		return Object.assign({}, state, {
 			username: action.username,
-			token: action.token
+			token: action.token,
+			success: action.success
 		})
 	}
 	else if(action.type === actions.CREATE_USER_SUCCESS) {
 		return Object.assign({}, state, {
 			username: action.username
+		})
+	}
+	else if(action.type === actions.RESET_SUCCESS) {
+		return Object.assign({}, state, {
+			success: false
+		})
+	}
+	else if(action.type === actions.LOG_OUT) {
+		return Object.assign({}, state, {
+			success: false,
+			token: ""
 		})
 	}
 

@@ -183,10 +183,15 @@ var getDashboardPostsSuccess = function(posts) {
 exports.GET_DASHBOARD_POSTS_SUCCESS = GET_DASHBOARD_POSTS_SUCCESS;
 exports.getDashboardPostsSuccess = getDashboardPostsSuccess;
 
-var getDashboardPosts = function() {
+var getDashboardPosts = function(token) {
     return function(dispatch) {
         var url = 'http://localhost:8080/dashboard/posts';
-        return fetch(url).then(function(res) {
+        return fetch(url,{
+            headers: {
+                Authorization: 'JWT '+token
+            }
+        })
+        .then(function(res) {
         return res.json()
     }).then(function(data) {
         return dispatch(getDashboardPostsSuccess(data))
@@ -207,10 +212,15 @@ var getDashboardPostSuccess = function(post) {
 exports.GET_DASHBOARD_post_SUCCESS = GET_DASHBOARD_post_SUCCESS;
 exports.getDashboardPostSuccess = getDashboardPostSuccess;
 
-var getDashboardPost = function(postId) {
+var getDashboardPost = function(postId, token) {
     return function(dispatch) {
         var url = 'http://localhost:8080/dashboard/post/'+postId;
-        return fetch(url).then(function(res) {
+        return fetch(url, {
+            headers: {
+                Authorization: 'JWT '+token
+            }
+        })
+        .then(function(res) {
         return res.json()
     }).then(function(data) {
         return dispatch(getDashboardPostSuccess(data))
@@ -231,9 +241,9 @@ var postContentSuccess = function(post) {
 exports.POST_CONTENT_SUCCESS = POST_CONTENT_SUCCESS;
 exports.postContentSuccess = postContentSuccess;
 
-var postContent = function(title, categoryId, content, month, date, year) {
+var postContent = function(title, categoryId, content, month, date, year, token) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/posts/'+categoryId;
+        var url = 'http://localhost:8080/dashboard/content/'+categoryId;
         return fetch(url, {
         method: "POST",
         body: JSON.stringify({
@@ -244,7 +254,8 @@ var postContent = function(title, categoryId, content, month, date, year) {
             year: year
         }),
         headers: {  
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization" : "JWT "+token
         }
     }).then(function(res) {
         return res.json()
@@ -266,7 +277,7 @@ var updatePostSuccess = function() {
 exports.UPDATE_POST_SUCCESS = UPDATE_POST_SUCCESS;
 exports.updatePostSuccess = updatePostSuccess;
 
-var updatePost = function(title, post, postId) {
+var updatePost = function(title, post, postId, token) {
     return function(dispatch) {
         var url = 'http://localhost:8080/dashboard/post/'+postId;
         return fetch(url, {
@@ -276,7 +287,8 @@ var updatePost = function(title, post, postId) {
             content: post
         }),
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": "JWT "+token
         }
     }).then(function(res) {
         return res.status
@@ -299,12 +311,14 @@ var deletePostSuccess = function() {
 exports.DELETE_POST_SUCCESS = DELETE_POST_SUCCESS;
 exports.deletePostSuccess = deletePostSuccess;
 
-var deletePost = function(postId) {
-    console.log(postId, "Hit");
+var deletePost = function(postId, token) {
     return function(dispatch) {
         var url = 'http://localhost:8080/dashboard/post/'+postId;
         return fetch(url, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                Authorization: 'JWT '+token
+            }
         }).then(function(res) {
             return res
         }).then(function() {
@@ -437,11 +451,11 @@ var getCategorySection = function(category, section) {
 };
 exports.getCategorySection = getCategorySection;
 
-
 var getAbout = function(aboutId) {
     return function(dispatch) {
         var url = 'http://localhost:8080/about/'+aboutId;
-        return fetch(url).then(function(res) {
+        return fetch(url)
+        .then(function(res) {
         return res.json()
     }).then(function(data) {
         return dispatch(getAboutSuccess(data))
@@ -452,7 +466,7 @@ var getAbout = function(aboutId) {
 };
 exports.getAbout = getAbout;
 
-var updateAbout = function(aboutId, about){
+var updateAbout = function(aboutId, about, token){
     return function(dispatch) {
         var url = 'http://localhost:8080/about/'+aboutId;
         return fetch(url, {
@@ -461,7 +475,8 @@ var updateAbout = function(aboutId, about){
             about : about, 
         }),
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": "JWT "+token
         }
     }).then(function(res) {
         return res.status
@@ -510,11 +525,12 @@ var createUser = function(username, password){
 exports.createUser = createUser;
 
 var LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-var loginSuccess = function(username, token){
+var loginSuccess = function(username, token, success){
     return {
         type: LOGIN_SUCCESS,
         username: username,
-        token: token
+        token: token,
+        success: success
     }
 }
 exports.LOGIN_SUCCESS = LOGIN_SUCCESS;
@@ -538,11 +554,31 @@ var getUser = function(username, password){
         return res.json()
     }).then(function(data) {
         var username=data.username;
-        var token=data.token
-        return dispatch(loginSuccess(username, token))
+        var token=data.token;
+        var success=data.success;
+        console.log(data);
+        return dispatch(loginSuccess(username, token, success))
     }).catch(function(error) {
         console.log(error);
         });
     }
 };
 exports.getUser = getUser;
+
+var RESET_SUCCESS = 'RESET_SUCCESS';
+var resetSuccess = function(){
+    return {
+        type: RESET_SUCCESS
+    }
+}
+exports.RESET_SUCCESS = RESET_SUCCESS;
+exports.resetSuccess = resetSuccess;
+
+var LOG_OUT = 'LOG_OUT';
+var logOut = function() {
+    return {
+        type: LOG_OUT
+    }
+}
+exports.LOG_OUT = LOG_OUT;
+exports.logOut = logOut;

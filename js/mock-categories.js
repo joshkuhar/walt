@@ -35,11 +35,6 @@ var categoriesForLoading = [
 	}
 ];
 
-
-
-
-
-
 exports.categoriesForLoading = categoriesForLoading;
 
 /*

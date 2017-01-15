@@ -20,16 +20,6 @@ var blogLoadSuccess = function(blogs){
 exports.BLOG_LOAD_SUCCESS = BLOG_LOAD_SUCCESS;
 exports.blogLoadSuccess = blogLoadSuccess;
 
-var GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS';
-var getCategoriesSuccess = function(categories){
-    return {
-        type: GET_CATEGORIES_SUCCESS,
-        categories: categories
-    }
-}
-exports.GET_CATEGORIES_SUCCESS = GET_CATEGORIES_SUCCESS;
-exports.getCategoriesSuccess = getCategoriesSuccess;
-
 var CHANGE_CONTENT = 'CHANGE_CONTENT';
 var changeContent = function(content){
 	return {
@@ -138,9 +128,14 @@ var getPosts = function() {
         var url = 'http://localhost:8080/posts';
         return fetch(url).then(function(res) {
         return res.json()
-    }).then(function(data) {
+    })
+    .then(function(data) {
         return dispatch(getPostsSuccess(data))
-    }).catch(function(error) {
+    })
+    // .then(function(){
+    //     return dispatch(getCategories())
+    // })
+    .catch(function(error) {
         console.log(error);
         });
     }
@@ -374,6 +369,16 @@ var loadBlogs = function(posts){
     }
 };
 exports.loadBlogs = loadBlogs;
+
+var GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS';
+var getCategoriesSuccess = function(categories){
+    return {
+        type: GET_CATEGORIES_SUCCESS,
+        categories: categories
+    }
+}
+exports.GET_CATEGORIES_SUCCESS = GET_CATEGORIES_SUCCESS;
+exports.getCategoriesSuccess = getCategoriesSuccess;
 
 var getCategories = function() {
     return function(dispatch) {

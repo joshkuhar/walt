@@ -1,6 +1,7 @@
 var actions = require('../actions/index');
 var Categories = require('../mock-categories');
 var DummyBlogs = require('../mock-data-loader');
+var MockPosts = require('../mock-posts');
 
 var initialState = {
 	about: "",
@@ -10,11 +11,12 @@ var initialState = {
 	sectionNumber: 3,
 	category: "111",
 	categoriesForLoading: Categories.categoriesForLoading,
-	categories: Categories.categories,
+	categories: [{"_id": "111", "category": "all"}],
 	dummyBlogs: DummyBlogs,
+	mockPosts: MockPosts,
 	landingPost: {_id: "111", title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"},
 	dashboardPosts: [{_id: "111", title: "foo", month: "Jan", date: "1", year: "2016"}],
-	posts: [{_id: "111", title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"}],
+	posts: [{_id: "111", title: "foo", month: "Jan", date: "1", year: "2016", content: "", categoryId: "z"}],
 	token: "",
 	username: "",
 	success: false
@@ -38,8 +40,9 @@ var blogReducer = function(state, action) {
 		})
 	}
 	else if (action.type === actions.GET_CATEGORIES_SUCCESS){
+		var categoriesAdded = state.categories.concat(action.categories);
 		return Object.assign({}, state, {
-			categories: action.categories
+			categories: categoriesAdded
 		})
 	}
 	else if (action.type === actions.SEARCH_CATEGORIES_SUCCESS) {

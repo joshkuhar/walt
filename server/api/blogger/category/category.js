@@ -16,7 +16,7 @@ CategoryRouter.post('/categories', function(req, res) {
     });
 
 CategoryRouter.get('/categories', function(req, res){
-	Category.find(function(err, categories) {
+	Category.find({}, '_id category', function(err, categories) {
 		if (err) {
 			console.log(err);
 			return res.status(500).json({
@@ -38,7 +38,7 @@ CategoryRouter.get('/cat/:categoryId', function(req, res){
 			res.status(200).json(categories);
 		});
 	});
-
+//find({}, 'title date year month')
 CategoryRouter.get('/categories/:categoryId', function(req, res){
 	Category.findById(
 		req.params.categoryId

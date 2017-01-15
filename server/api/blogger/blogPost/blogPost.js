@@ -64,7 +64,7 @@ PostRouter.post('/dashboard/content/:categoryId', passport.authenticate('jwt', {
         });  
 });
 
-// loads test data into mongo
+// Development loader, loads test data into mongo
 PostRouter.post('/dashboard/posts', function(req, res) {
     for (var index in req.body.posts) {
         Post.create({

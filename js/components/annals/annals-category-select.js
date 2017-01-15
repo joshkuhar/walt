@@ -9,6 +9,11 @@ var Link = router.Link;
 var AnnalsList = require('./annals-list-container');
 
 var AnnalsSelect = React.createClass({
+	componentDidMount: function(){
+		if(this.props.categories.length == 1){
+			this.props.dispatch(actions.getCategories())
+		}
+	},
 	handleCategoryChange: function(event){
 		event.preventDefault();
 		this.props.dispatch(actions.selectCategory(event.target.value));

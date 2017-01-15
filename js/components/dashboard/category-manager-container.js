@@ -8,12 +8,29 @@ var Link = router.Link;
 var CategoryManager = require('./category-manager');
 
 var Category = React.createClass({
-	
 	loadCategories: function(){
-		this.props.dispatch(actions.loadCategories(this.props.categories));
+		//this.props.dispatch(actions.getCategories());
+		// this.props.dispatch(actions.loadCategories(this.props.categories));
 	},
 	loadBlogs: function(){
-		this.props.dispatch(actions.loadBlogs(this.props.blogs));
+		var categories = [];
+		for (var index = 1; index<this.props.categories.length; index++){
+			categories.push(this.props.categories[index]._id);
+		}
+		var blogArray = [];
+		var p = this.props.mockPosts;
+		for (var index = 0; index < p.months.length*2; index++) {
+			var year = index < p.months.length ? 0 : 1;
+			blogArray.push({
+				title: p.titles[index%p.titles.length],
+				content: p.content[index%p.content.length],
+				month: p.months[index%p.months.length],
+				date: p.dates[index%p.dates.length],
+				year: p.years[year],
+				categoryId: categories[index%categories.length]
+			})
+		}
+		//this.props.dispatch(actions.loadBlogs(this.props.blogs));
 	},
 	render: function(){
 		return (
@@ -24,8 +41,8 @@ var Category = React.createClass({
 
 var mapStateToProps = function(state, props) {
     return {
-    	categories: state.categoriesForLoading,
-    	blogs: state.dummyBlogs
+    	categories: state.categories,
+    	mockPosts: state.mockPosts
 
     };
 };

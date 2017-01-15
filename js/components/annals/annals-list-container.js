@@ -9,6 +9,11 @@ var Link = router.Link;
 var AnnalsList = require('./annals-list');
 
 var AnnalsListContainer = React.createClass({
+	componentDidMount: function(){
+		if(this.props.posts[0]._id == "111"){
+			this.props.dispatch(actions.getPosts())
+		}
+	},
 	componentDidUpdate: function(){
 		//scroll(0, 810);
 	},
@@ -34,9 +39,9 @@ var AnnalsListContainer = React.createClass({
 var mapStateToProps = function(state, props) {
     return {
 		posts: state.posts,
+		sectionNumber: state.sectionNumber,
 		categories: state.categories,
-		category: state.category,
-		sectionNumber: state.sectionNumber
+		category: state.category
     };
 };
 

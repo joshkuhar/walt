@@ -14,7 +14,10 @@ var date = DateStamp();
 
 var PostContent = React.createClass ({
 	componentDidMount: function() {
-		this.props.dispatch(actions.setPostForm());
+		console.log("I mounted", this.props.categories.length);
+		if(this.props.categories.length == 1){
+			this.props.dispatch(actions.getCategories());
+		}
 	},
 	handleTitleChange: function(event) {
 		event.preventDefault();
@@ -40,6 +43,9 @@ var PostContent = React.createClass ({
   			
 	    this.props.dispatch(actions.postContent(this.props.title, this.props.category, this.props.content, date.month, date.date, date.year, this.props.token));
 
+	},
+	componentWillUnmount: function(){
+		this.props.dispatch(actions.setPostForm());
 	},
 	render: function() {
 		var categories = [];

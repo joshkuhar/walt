@@ -132,9 +132,6 @@ var getPosts = function() {
     .then(function(data) {
         return dispatch(getPostsSuccess(data))
     })
-    // .then(function(){
-    //     return dispatch(getCategories())
-    // })
     .catch(function(error) {
         console.log(error);
         });

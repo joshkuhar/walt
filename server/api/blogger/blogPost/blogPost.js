@@ -13,7 +13,6 @@ options.jwtFromRequest = ExtractJwt.fromAuthHeader();
 options.secretOrKey = config.secret;
 // opts.audience = "http://localhost:8080";
 passport.use(new JwtStrategy(options, function(payload, done) {
-    console.log("payload received", payload);
     User.findOne({_id: payload.id}, function(err, user) {
         if (err) {
             return done(err, false);

@@ -4,7 +4,7 @@
   "description": "A React template",
   "main": "js/index.js",
   "scripts": {
-    "start": "build",
+    "start": "node server.js",
     "dev": "run-p watch",
     "test": "mocha --recursive --compilers js:babel-core/register",
     "build": "run-s build:*",

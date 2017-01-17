@@ -39,6 +39,7 @@ var mapStateToProps = function(state, props) {
     	landingPost: state.landingPost,
 		posts: state.posts,
 		categories: state.categories
+
     };
 };
 

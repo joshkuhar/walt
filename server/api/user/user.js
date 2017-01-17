@@ -7,7 +7,6 @@ var ExtractJwt = require('passport-jwt').ExtractJwt;
 var jwt = require('jsonwebtoken');
 var config = require('../../config/config');
 
-
 var options = {}
 options.jwtFromRequest = ExtractJwt.fromAuthHeader();
 options.secretOrKey = config.secret;

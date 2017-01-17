@@ -54,6 +54,12 @@ app.use('/', Category);
 app.use('/', About);
 app.use('/', User);
 
+app.use(function(err, req, res, next) {
+    if(401 == err.status) {
+        res.redirect('/login')
+    }
+  });
+
 app.get("*", function(req, res) {	
 	res.sendFile(path.join(__dirname, './build/index.html'));
 });

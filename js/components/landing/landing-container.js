@@ -8,8 +8,8 @@ var actions = require('../../actions/index');
 var store = require('../../store');
 var router = require('react-router');
 var Link = router.Link;
-
 var getCategory = require('../helpers').getCategory;
+
 var LandingContainer= React.createClass({
 	componentDidMount: function(){
 		if(this.props.posts[0]._id == "111"){
@@ -17,8 +17,13 @@ var LandingContainer= React.createClass({
 		}
 	},
 	render: function(){
+		console.log("I rendered");
 		var post = this.props.landingPost;
-		var category = getCategory(this.props.categories, post)
+		console.log(this.props.landingPost, post);
+		if (post._id !== "111") {
+			console.log("post doesnt match 111")
+			var category = getCategory(this.props.categories, post)
+		}
 		return (
 			<div className="main-parent-container">
 				<div className="landing-page-container">

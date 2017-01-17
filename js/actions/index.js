@@ -123,21 +123,44 @@ var getPostsSuccess = function(posts) {
 exports.GET_POSTS_SUCCESS = GET_POSTS_SUCCESS;
 exports.getPostsSuccess = getPostsSuccess;
 
+var GET_POSTS_ERROR = 'GET_POSTS_ERROR';
+var getPostsError = function(error) {
+    return {
+        type: GET_POSTS_ERROR
+    }
+}
+exports.GET_POSTS_ERROR = GET_POSTS_ERROR;
+exports.getPostsError = getPostsError;
+
 var getPosts = function() {
     return function(dispatch) {
         var url = 'http://localhost:8080/posts';
-        return fetch(url).then(function(res) {
-        return res.json()
+        return fetch(url)
+    .then(function(res) {
+        if(res.ok){
+            return res.json()
+        } else {
+            var error = new Error(res.statusText);
+            error.response = res;
+            throw error;
+        }
     })
     .then(function(data) {
-        return dispatch(getPostsSuccess(data))
+        // if(res.ok){
+            return dispatch(getPostsSuccess(data))
+        // } else {
+        //     var error = new Error(res.statusText);
+        //     error.response = res;
+        //     throw error;
+        // }
     })
     .catch(function(error) {
         console.log(error);
+        return dispatch(getPostsError(error))
         });
     }
 };
-exports.getPosts = getPosts;
+exports.getPosts = getPosts; 
 
 var GET_SECTION_SUCCESS = 'GET_SECTION_SUCCESS';
 var getSectionSuccess = function(section, sectionNumber) {

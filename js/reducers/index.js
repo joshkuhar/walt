@@ -29,6 +29,9 @@ var blogReducer = function(state, action) {
 			content: action.content
 		})
 	}
+	else if (action.type === actions.GET_POSTS_ERROR) {
+		return state
+	}
 	else if (action.type === actions.LOAD_SUCCESS) {
 		return Object.assign({}, state, {	
 			categories: action.categories

@@ -134,7 +134,7 @@ exports.getPostsError = getPostsError;
 
 var getPosts = function() {
     return function(dispatch) {
-        var url = 'http://localhost:8080/posts';
+        var url = '/posts';
         return fetch(url)
     .then(function(res) {
         if(res.ok){
@@ -175,7 +175,7 @@ exports.getSectionSuccess = getSectionSuccess;
 
 var getSection = function(sectionNumber) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/posts/section/'+sectionNumber;
+        var url = '/posts/section/'+sectionNumber;
         return fetch(url).then(function(res){
             return res.json()
         }).then(function(data) {
@@ -200,7 +200,7 @@ exports.getDashboardPostsSuccess = getDashboardPostsSuccess;
 
 var getDashboardPosts = function(token) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/dashboard/posts';
+        var url = '/dashboard/posts';
         return fetch(url,{
             headers: {
                 Authorization: 'JWT '+token
@@ -229,7 +229,7 @@ exports.getDashboardPostSuccess = getDashboardPostSuccess;
 
 var getDashboardPost = function(postId, token) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/dashboard/post/'+postId;
+        var url = '/dashboard/post/'+postId;
         return fetch(url, {
             headers: {
                 Authorization: 'JWT '+token
@@ -258,7 +258,7 @@ exports.postContentSuccess = postContentSuccess;
 
 var postContent = function(title, categoryId, content, month, date, year, token) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/dashboard/content/'+categoryId;
+        var url = '/dashboard/content/'+categoryId;
         return fetch(url, {
         method: "POST",
         body: JSON.stringify({
@@ -294,7 +294,7 @@ exports.updatePostSuccess = updatePostSuccess;
 
 var updatePost = function(title, post, postId, token) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/dashboard/post/'+postId;
+        var url = '/dashboard/post/'+postId;
         return fetch(url, {
         method: "PUT",
         body: JSON.stringify({
@@ -328,7 +328,7 @@ exports.deletePostSuccess = deletePostSuccess;
 
 var deletePost = function(postId, token) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/dashboard/post/'+postId;
+        var url = '/dashboard/post/'+postId;
         return fetch(url, {
             method: "DELETE",
             headers: {
@@ -348,7 +348,7 @@ exports.deletePost = deletePost;
 var loadCategories = function(categories){
     console.log("loadCategories was called");
     return function(dispatch) {
-        var url = 'http://localhost:8080/categories';
+        var url = '/categories';
         return fetch(url, {
         method: "POST",
         body: JSON.stringify({
@@ -370,7 +370,7 @@ exports.loadCategories = loadCategories;
 
 var loadBlogs = function(posts){
     return function(dispatch) {
-        var url = 'http://localhost:8080/dashboard/posts';
+        var url = '/dashboard/posts';
         return fetch(url, {
         method: "POST",
         body: JSON.stringify({
@@ -402,7 +402,7 @@ exports.getCategoriesSuccess = getCategoriesSuccess;
 
 var getCategories = function() {
     return function(dispatch) {
-        var url = 'http://localhost:8080/categories';
+        var url = '/categories';
         return fetch(url).then(function(res) {
         return res.json()
     }).then(function(data) {
@@ -426,7 +426,7 @@ exports.searchCategoriesSuccess = searchCategoriesSuccess;
 
 var searchCategories = function(category) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/categories/'+category;
+        var url = '/categories/'+category;
         return fetch(url).then(function(res) {
             return res.json()
         }).then(function(data) {
@@ -460,7 +460,7 @@ exports.categorySectionEnd = categorySectionEnd;
 
 var getCategorySection = function(category, section) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/categories/'+category+'/'+section;
+        var url = '/categories/'+category+'/'+section;
         return fetch(url).then(function(res) {
             return res.json()
         }).then(function(data){
@@ -475,10 +475,9 @@ var getCategorySection = function(category, section) {
     }
 };
 exports.getCategorySection = getCategorySection;
-
 var getAbout = function(aboutId) {
     return function(dispatch) {
-        var url = 'http://localhost:8080/about/'+aboutId;
+        var url = '/about/'+aboutId;
         return fetch(url)
         .then(function(res) {
         return res.json()
@@ -493,7 +492,7 @@ exports.getAbout = getAbout;
 
 var updateAbout = function(aboutId, about, token){
     return function(dispatch) {
-        var url = 'http://localhost:8080/about/'+aboutId;
+        var url = '/about/'+aboutId;
         return fetch(url, {
         method: "PUT",
         body: JSON.stringify({
@@ -526,7 +525,7 @@ exports.createUserSuccess = createUserSuccess;
 
 var createUser = function(username, password){
     return function(dispatch) {
-        var url = 'http://localhost:8080/users';
+        var url = '/users';
         return fetch(url, {
             method: "POST",
             body: JSON.stringify({
@@ -564,7 +563,7 @@ exports.loginSuccess = loginSuccess;
 var getUser = function(username, password){    
     return function(dispatch) {
         console.log(username, password);
-        var url = 'http://localhost:8080/login';
+        var url = '/login';
         return fetch(url, {
             method: "POST",
             body: JSON.stringify({

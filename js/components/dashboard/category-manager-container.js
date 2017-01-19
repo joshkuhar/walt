@@ -9,8 +9,8 @@ var CategoryManager = require('./category-manager');
 
 var Category = React.createClass({
 	loadAbout: function(){
-		// console.log(this.props.about);
 		this.props.dispatch(actions.loadAbout(this.props.about, this.props.token));
+		alert("Make sure you comment out the loadAbout action to prevent additional abouts.");
 	},
 	loadCategories: function(){
 		//this.props.dispatch(actions.getCategories());

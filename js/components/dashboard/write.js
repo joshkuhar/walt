@@ -18,6 +18,7 @@ var PostContent = React.createClass ({
 		if(this.props.categories.length == 1){
 			this.props.dispatch(actions.getCategories());
 		}
+		this.props.dispatch(actions.setPostForm());
 	},
 	handleTitleChange: function(event) {
 		event.preventDefault();

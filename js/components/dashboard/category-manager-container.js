@@ -14,7 +14,7 @@ var Category = React.createClass({
 	},
 	loadCategories: function(){
 		//this.props.dispatch(actions.getCategories());
-		// this.props.dispatch(actions.loadCategories(this.props.categories));
+		this.props.dispatch(actions.loadCategories(this.props.categories));
 	},
 	loadBlogs: function(){
 		var categories = [];

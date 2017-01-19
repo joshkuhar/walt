@@ -362,6 +362,7 @@ var loadCategories = function(categories){
 exports.loadCategories = loadCategories;
 
 var loadBlogs = function(posts){
+    console.log(posts);
     return function(dispatch) {
         var url = '/dashboard/posts';
         return fetch(url, {

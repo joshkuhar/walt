@@ -9,12 +9,16 @@ var CategoryManager = require('./category-manager');
 
 var Category = React.createClass({
 	loadAbout: function(){
-		this.props.dispatch(actions.loadAbout(this.props.about, this.props.token));
+		// this.props.dispatch(actions.loadAbout(this.props.about, this.props.token));
 		alert("Make sure you comment out the loadAbout action to prevent additional abouts.");
 	},
 	loadCategories: function(){
 		//this.props.dispatch(actions.getCategories());
 		this.props.dispatch(actions.loadCategories(this.props.categories));
+	},
+	getCategories: function(){
+		console.log(this.props.categories);
+		// this.props.dispatch(actions.getCategories());
 	},
 	loadBlogs: function(){
 		var categories = [];
@@ -38,7 +42,7 @@ var Category = React.createClass({
 	},
 	render: function(){
 		return (
-			<CategoryManager loadCategories={this.loadCategories} loadBlogs={this.loadBlogs} loadAbout={this.loadAbout}/>
+			<CategoryManager loadCategories={this.loadCategories} loadBlogs={this.loadBlogs} loadAbout={this.loadAbout} getCategories={this.getCategories}/>
 			)
 	}
 });

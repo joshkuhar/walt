@@ -1,0 +1,403 @@
+img{
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+.photo-wrapper {
+  text-align: center;
+}
+h1 {
+	width: 20em;
+	margin: auto;
+	text-align: center;
+}
+textarea{
+  resize: none;
+}
+.output{
+	white-space: pre-line;
+}
+
+.login-message{
+  margin: 3em;
+}
+
+
+
+
+
+
+
+
+.home-nav-bar{
+	 margin: 0 auto;
+    width: 45em;
+    text-align: center;
+}
+.nav-bar-item-container{
+    display: inline-block;
+    width: 7.5em;
+}
+.nav-bar-item {
+    display: inline-block;
+    border: .02em solid red;
+    border-radius: 4px;
+    width: 7.5em;
+    text-align: center;
+}
+
+.about{
+    width: 30em;
+    margin: 0 auto;
+    text-align: justify;
+    white-space: pre-line;
+}
+.about-container{
+    text-align: center; 
+}
+.main-parent-container{}
+.child-sidebar{
+	float: right;
+    width: 20em;
+    padding: 1em;
+}
+.landing-page-container{}
+.landing-page {
+  width: 35em;
+  margin: 0 auto;
+}
+.landing-post{    
+  text-align: justify;
+  white-space: pre-line;
+}
+.landing-title{}
+.landing-date{}
+.landing-category{}
+.landing-body{}
+
+.post-list{}
+
+.post{
+	width: 35em;
+  margin: 0 auto;
+}
+.post-title{
+}
+.post-category{}
+.post-date{}
+.post-body{
+	text-align: justify;
+  white-space: pre-line;
+}
+.annals-container{
+ width: 35em;
+ margin: 0 auto;
+}
+.annals-form{
+  width: 8em;
+  margin: 0 auto;
+}
+.annals-selector{}
+.annals-selector-button{}
+.annals{}
+.annals-next-navigator{
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 3em;
+}
+.annals-next-navigator:hover{
+  cursor: pointer;
+}
+.annals-list-container{}
+.annals-list{}
+.annals-post{}
+.annals-post-title{}
+.annals-post-date{}
+.annals-post-category{}
+.annals-post-body{}
+.login{
+	text-align: center;
+}
+.dashboard-nav-bar{
+	margin: 0 auto;
+  width: 45em;
+  text-align: center;
+}
+.dashboard-nav-bar-item-wrapper{
+    display: inline-block;
+    width: 7.5em;
+}
+.dashboard-nav-bar-item{
+    display: inline-block;
+    border: .02em solid red;
+    border-radius: 4px;
+    width: 7.5em;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+.post-edit-container{
+  width: 40em;
+  margin: 0 auto;
+}
+.post-edit-form{}
+.post-edit-inner-container{}
+.post-edit-title-header{
+  text-align: center;
+}
+.post-edit-title-container{
+  margin-bottom: 1em;
+  margin: 0 auto;
+  text-align: center;
+}
+.post-edit-title-input-container{
+  margin-bottom: 2em;
+}
+.post-edit-title-input{
+  width: 40em;
+  margin: 0 auto;
+  font-size: 1em;
+}
+.post-edit-buttons-container{
+  text-align: left;
+  margin-top: .5em;
+}
+.post-edit-cancel-button-container{
+  display: inline-block;
+}
+.post-edit-cancel-button{
+  display: inline-block;
+}
+.post-edit-submit-button-container{
+  display: inline-block;
+}
+.post-edit-submit-button{
+  display: inline-block;
+}
+.post-edit-delete-button-container{
+  margin-left: 30em;
+  display: inline-block;
+}
+.post-edit-delete-button{
+  display: inline-block;
+}
+.post-edit-textarea-container{}
+.post-edit-textarea{
+  width: 40em;
+  height: 30em;
+  margin: 0 auto;
+  font-size: 1em;
+}
+.delete-post-container {
+  width: 30em;
+  margin: 0 auto;
+  text-align: center;
+}
+.delete-post-wrapper {
+  margin: 4em;
+}
+
+
+
+
+
+
+
+
+
+.post-to-edit-navigator{
+  text-align: center;
+}
+.post-edit-list-container{}
+.post-to-edit-list-container > h3{
+  text-align: center;
+}
+.post-to-edit-list{
+  list-style: none;
+  width: 20em;
+  margin: 0 auto;
+}
+.post-edit{
+    width: 20em;
+    margin: 0 auto .8em;
+}
+.post-edit-title{
+    margin-left: 20%;
+}
+.post-edit-date{
+    margin-left: 20%;
+    font-size: .7em;
+    font-family: sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.post-write-container{
+  width: 40em;
+  margin: 0 auto;
+}
+.post-write-form {
+    text-align: center;
+}
+.post-write-header-container{}
+
+.post-write-inside-container{
+	width: 40em;
+	margin: 0 auto;
+}
+.post-write-title-header{
+	margin: 0 auto;
+	font-size: 1em;
+}
+.post-write-title-container{
+  margin: 0 auto;
+  text-align: center;
+}
+.post-write-title-input-container{
+}
+.post-write-title-input{
+  width: 40em;
+  margin: 0 auto;
+  font-size: 1em;
+  margin-bottom: 2em;
+}
+
+
+.post-write-selector-container{
+  margin-top: .5em;
+  text-align: left;
+  margin-bottom: .5em;
+}
+.post-write-category-selector{
+    display: inline;
+    margin-left: 1em;
+}
+.post-write-buttons-container{
+  text-align: left;
+  margin-bottom: 1em;
+}
+.post-write-cancel-button-container{
+  display: inline;
+}
+.post-write-cancel-button{
+  display: inline;
+}
+.post-write-submit-button-container{
+  display: inline;
+}
+.post-write-submit-button{
+	display: inline;
+}
+.post-write-textarea-container{}
+.post-write-textarea{
+  width: 40em;
+  height: 30em;
+  margin: 0 auto;
+  font-size: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+.delete-button-blog{
+  display:inline;
+  margin-right: 25em;
+}
+
+
+.post-body-header{
+	margin-top: 1em;
+	margin-bottom: .5em;
+}
+.post-content-header{
+	width: 37em;
+  margin: 0 auto;
+  height: 25em;
+  display: block;
+  font-size: 1em;
+}
+.textareax {
+	width: 30em;
+    margin: 0 auto;
+    height: 15em;
+    font-size: 1em;
+}
+
+
+.login-container {
+	width: 20em;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.about-form-outside-container{
+    width: 45em;
+    margin: 3em auto;
+    text-align: center;
+}
+.about-form-container{
+  text-align: center;
+}
+.about-header-container{
+    margin: 0 auto 1em;
+    width: 30em;
+}
+.about-title{}
+.about-button-wrapper{
+  text-align: right;
+}
+.about-button{}
+.about-textarea{
+    width: 30em;
+    height: 20em;
+    font-size: 1em;
+    resize: none
+}
+
+.dashboard-header{
+    text-align: center;
+    margin: 0 auto;
+}
+.category-manager > h3 {
+  text-align: center;
+}
+.category-manager {
+    width: 30em;
+    margin: 0 auto;
+}
+.category-manager-instructions-container{}
+.category-manager-instructions{}
+.add-categories-button{}
+.category-manager-container{}
+.sign-out{
+	display: inline-block;
+	margin-left: 90%;
+}
+
+
+

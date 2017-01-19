@@ -8,18 +8,14 @@ var Link = router.Link;
 
 var AboutEdit = React.createClass ({
 	componentDidMount: function(){
-		// This is the id for the about page. To prevent multiple abouts, 
-		// only GET, PUT, and DELETE are utilized through this component.
-		var id = "58711570ac7bfb11c9da3659"; 
-		this.props.dispatch(actions.getAbout(id));
+		this.props.dispatch(actions.getAbout());
 	},
 	handleAboutChange: function(event) {
     	this.props.dispatch(actions.changeAbout(event.target.value));
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
-		var id = "58711570ac7bfb11c9da3659";
-    	this.props.dispatch(actions.updateAbout(id, this.props.about, this.props.token));
+    	this.props.dispatch(actions.updateAbout(this.props.aboutId, this.props.about, this.props.token));
 	},
   	onClick: function(){
   		console.log(store.getState());
@@ -47,6 +43,7 @@ var AboutEdit = React.createClass ({
 var mapStateToProps = function(state, props) {
     return {
     	about: state.about,
+    	aboutId: state.aboutId,
     	token: state.token
     };
 };

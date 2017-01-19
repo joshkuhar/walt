@@ -4,7 +4,8 @@ var DummyBlogs = require('../mock-data-loader');
 var MockPosts = require('../mock-posts');
 
 var initialState = {
-	about: "",
+	about: "This is me ...",
+	aboutId: "222",
 	title: "",
 	post: "",
 	content: "",
@@ -139,9 +140,15 @@ var blogReducer = function(state, action) {
 			posts: categoryAdded
 		})
 	}
+	else if (action.type === actions.LOAD_ABOUT_SUCCESS) {
+		return Object.assign({}, state, {
+			about: action.intro
+		})
+	}
 	else if(action.type === actions.GET_ABOUT_SUCCESS) {
 		return Object.assign({}, state, {
-			about: action.about
+			about: action.about,
+			aboutId: action.aboutId
 		})
 	}
 	else if(action.type === actions.CHANGE_ABOUT) {

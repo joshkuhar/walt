@@ -23,6 +23,7 @@ var CategoryManager = function(props){
 			</div>
 			<button className="add-categories-button" onClick={props.loadCategories}>Load Categories</button>
 			<button className="add-categories-button" onClick={props.loadBlogs}>Load Blogs</button>
+			<button className="add-categories-button" onClick={props.loadAbout}>Load About</button>
 		</div>
 		)
 };

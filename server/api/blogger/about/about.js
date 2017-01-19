@@ -24,7 +24,6 @@ passport.use(new JwtStrategy(options, function(payload, done) {
     });
 }));
 
-
 AboutRouter.post('/about', passport.authenticate('jwt', {session: false}),
 	function(req, res) {
 	console.log(req.body);
@@ -39,8 +38,8 @@ AboutRouter.post('/about', passport.authenticate('jwt', {session: false}),
 		});   
     });
 
-AboutRouter.get('/about/:id', function(req, res){
-	About.findById(req.params.id, function(err, about) {
+AboutRouter.get('/about', function(req, res){
+	About.findOne(function(err, about) {
 		if (err) {
 			console.log(err);
 			return res.status(500).json({

@@ -83,15 +83,7 @@ var getBlogToEdit = function(blog){
 exports.GET_BLOG_TO_EDIT = GET_BLOG_TO_EDIT;
 exports.getBlogToEdit = getBlogToEdit;
 
-var GET_ABOUT_SUCCESS = 'GET_ABOUT_SUCCESS';
-var getAboutSuccess = function(about) {
-    return {
-        type: GET_ABOUT_SUCCESS,
-        about: about.about
-    }
-};
-exports.GET_ABOUT_SUCCESS = GET_ABOUT_SUCCESS;
-exports.getAboutSuccess = getAboutSuccess;
+
 
 
 var UPDATE_ABOUT_SUCCESS = 'UPDATE_ABOUT_SUCCESS';
@@ -475,9 +467,55 @@ var getCategorySection = function(category, section) {
     }
 };
 exports.getCategorySection = getCategorySection;
-var getAbout = function(aboutId) {
+
+var LOAD_ABOUT_SUCCESS = 'LOAD_ABOUT_SUCCESS';
+var loadAboutSuccess = function(intro){
+    return {
+        type: LOAD_ABOUT_SUCCESS,
+        intro: intro
+    }
+};
+
+var loadAbout = function(intro, token){
     return function(dispatch) {
-        var url = '/about/'+aboutId;
+        var url = '/about';
+        return fetch(url, {
+            method: "POST",
+            body: JSON.stringify({
+                about: intro
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "JWT "+token
+            }
+        })
+        .then(function(res){
+            return res.json()
+        })
+        .then(function(data) {
+            return dispatch(loadAboutSuccess(data))
+        })
+        .catch(function(error) {
+            console.log(error);
+        })
+    }
+};
+exports.loadAbout = loadAbout;
+
+var GET_ABOUT_SUCCESS = 'GET_ABOUT_SUCCESS';
+var getAboutSuccess = function(about) {
+    return {
+        type: GET_ABOUT_SUCCESS,
+        about: about.about,
+        aboutId: about._id
+    }
+};
+exports.GET_ABOUT_SUCCESS = GET_ABOUT_SUCCESS;
+exports.getAboutSuccess = getAboutSuccess;
+
+var getAbout = function() {
+    return function(dispatch) {
+        var url = '/about';
         return fetch(url)
         .then(function(res) {
         return res.json()

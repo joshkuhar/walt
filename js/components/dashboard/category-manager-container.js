@@ -8,6 +8,10 @@ var Link = router.Link;
 var CategoryManager = require('./category-manager');
 
 var Category = React.createClass({
+	loadAbout: function(){
+		// console.log(this.props.about);
+		this.props.dispatch(actions.loadAbout(this.props.about, this.props.token));
+	},
 	loadCategories: function(){
 		//this.props.dispatch(actions.getCategories());
 		// this.props.dispatch(actions.loadCategories(this.props.categories));
@@ -34,7 +38,7 @@ var Category = React.createClass({
 	},
 	render: function(){
 		return (
-			<CategoryManager loadCategories={this.loadCategories} loadBlogs={this.loadBlogs}/>
+			<CategoryManager loadCategories={this.loadCategories} loadBlogs={this.loadBlogs} loadAbout={this.loadAbout}/>
 			)
 	}
 });
@@ -42,7 +46,9 @@ var Category = React.createClass({
 var mapStateToProps = function(state, props) {
     return {
     	categories: state.categories,
-    	mockPosts: state.mockPosts
+    	mockPosts: state.mockPosts,
+    	token: state.token,
+    	about: state.about
 
     };
 };

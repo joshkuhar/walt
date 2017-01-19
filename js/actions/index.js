@@ -339,6 +339,7 @@ exports.deletePost = deletePost;
 
 var loadCategories = function(categories){
     console.log("loadCategories was called");
+    console.log(categories);
     return function(dispatch) {
         var url = '/categories';
         return fetch(url, {

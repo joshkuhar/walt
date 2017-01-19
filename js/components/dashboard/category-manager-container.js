@@ -14,7 +14,7 @@ var Category = React.createClass({
 	},
 	loadCategories: function(){
 		//this.props.dispatch(actions.getCategories());
-		this.props.dispatch(actions.loadCategories(this.props.categories));
+		this.props.dispatch(actions.loadCategories(this.props.categoriesForLoading));
 	},
 	getCategories: function(){
 		console.log(this.props.categories);
@@ -52,6 +52,7 @@ var mapStateToProps = function(state, props) {
     	categories: state.categories,
     	mockPosts: state.mockPosts,
     	token: state.token,
+    	categoriesForLoading: state.categoriesForLoading,
     	about: state.about
 
     };

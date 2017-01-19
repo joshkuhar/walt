@@ -17,8 +17,7 @@ var Category = React.createClass({
 		this.props.dispatch(actions.loadCategories(this.props.categoriesForLoading));
 	},
 	getCategories: function(){
-		console.log(this.props.categories);
-		// this.props.dispatch(actions.getCategories());
+		this.props.dispatch(actions.getCategories());
 	},
 	loadBlogs: function(){
 		var categories = [];
@@ -38,7 +37,7 @@ var Category = React.createClass({
 				categoryId: categories[index%categories.length]
 			})
 		}
-		//this.props.dispatch(actions.loadBlogs(this.props.blogs));
+		this.props.dispatch(actions.loadBlogs(this.props.blogs));
 	},
 	render: function(){
 		return (

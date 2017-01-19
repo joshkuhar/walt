@@ -37,7 +37,6 @@ var Category = React.createClass({
 				categoryId: categories[index%categories.length]
 			})
 		}
-		// console.log(blogArray);
 		this.props.dispatch(actions.loadBlogs(blogArray));
 	},
 	render: function(){

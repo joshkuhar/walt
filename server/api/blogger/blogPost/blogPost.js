@@ -106,25 +106,19 @@ PostRouter.post('/dashboard/posts', function(req, res) {
 });
 
 PostRouter.get('/posts', function(req, res) {
-    res.status(500).json({
-        message: 'Internal Server Foo'
+    Post.find({})
+    .limit(3)
+    .sort({ _id: -1 })
+    .exec( function(err, posts) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(posts);    
     });
 });
-
-// PostRouter.get('/posts', function(req, res) {
-//     Post.find({})
-//     .limit(3)
-//     .sort({ _id: -1 })
-//     .exec( function(err, posts) {
-//         if (err) {
-//             console.log(err);
-//             return res.status(500).json({
-//                 message: 'Internal Server Error'
-//             });
-//         }
-//         res.status(200).json(posts);    
-//     });
-// });
 
 PostRouter.get('/dashboard/posts', passport.authenticate('jwt', {session: false}),
     function(req, res) {

@@ -11,24 +11,24 @@ var Link = router.Link;
 var getCategory = require('../helpers').getCategory;
 
 var LandingContainer= React.createClass({
-	// componentDidMount: function(){
-	// 	if(this.props.posts[0]._id == "111"){
-	// 		this.props.dispatch(actions.getPosts())
-	// 	}
-	// },
+	componentDidMount: function(){
+		if(this.props.posts[0]._id == "111"){
+			this.props.dispatch(actions.getPosts())
+		}
+	},
 	render: function(){
-		// var post = this.props.landingPost;
-		// if (post._id !== "111") {
-		// 	var category = getCategory(this.props.categories, post)
-		// }
+		var post = this.props.landingPost;
+		if (post._id !== "111") {
+			var category = getCategory(this.props.categories, post)
+		}
 		return (
 			<div className="main-parent-container">
 				<div className="landing-page-container">
 					<Landing 
-						title={"post.title"}
-						category={"category"}
-						date={'post.month+" "+post.date'}
-						content={'post.content'}
+						title={post.title}
+						category={category}
+						date={post.month+" "+post.date}
+						content={post.content}
 					/>
 				</div>
 			</div>

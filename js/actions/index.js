@@ -83,9 +83,6 @@ var getBlogToEdit = function(blog){
 exports.GET_BLOG_TO_EDIT = GET_BLOG_TO_EDIT;
 exports.getBlogToEdit = getBlogToEdit;
 
-
-
-
 var UPDATE_ABOUT_SUCCESS = 'UPDATE_ABOUT_SUCCESS';
 var updateAboutSuccess = function(){
     return {
@@ -138,13 +135,7 @@ var getPosts = function() {
         }
     })
     .then(function(data) {
-        // if(res.ok){
             return dispatch(getPostsSuccess(data))
-        // } else {
-        //     var error = new Error(res.statusText);
-        //     error.response = res;
-        //     throw error;
-        // }
     })
     .catch(function(error) {
         console.log(error);
@@ -480,7 +471,7 @@ var loadAboutSuccess = function(intro){
 
 var loadAbout = function(intro, token){
     return function(dispatch) {
-        var url = '/about';
+        var url = '/dash/about';
         return fetch(url, {
             method: "POST",
             body: JSON.stringify({
@@ -532,7 +523,7 @@ exports.getAbout = getAbout;
 
 var updateAbout = function(aboutId, about, token){
     return function(dispatch) {
-        var url = '/about/'+aboutId;
+        var url = '/dash/about/'+aboutId;
         return fetch(url, {
         method: "PUT",
         body: JSON.stringify({

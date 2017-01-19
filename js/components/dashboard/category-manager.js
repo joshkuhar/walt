@@ -13,18 +13,18 @@ var CategoryManager = function(props){
 			<h3>Add Categories</h3>
 			<div className="category-manager-instructions-container">
 				<div className="category-manager-instructions">
-					<p>If you dropped(deleted) the database you have to load the categories by clicking the Load Categories button below. This will load the categoriesForLoading array into the database from the file mock-categories.</p> 
-					<p>The file mock-categories is located in blog-app --> js --> mock-categories.</p>
-					<p>If you want to change the mock-categories, you can do this from the mock-categories file</p>
-					<p>After you load the categories, go to database and copy the category ids. Once you have the category ids, you need to add them to the categories array in the file mock-categories</p>
-					<p>After you added the category ids to the category array, you have to add the category ids into the array of category ids in the mock-data-loader file. The mock-data-loader file is next to the mock-categories file.</p>
-					<p>After you added the category ids, you must load the mock blogs by clicking the Load Blogs button. After you loaded the blogs, go to the home page to make sure they loaded. This should load 24 mock blogs spanning two years. One blog for each month in the year</p>
+					<p>***ADMIN INSTRUCTIONS****</p> 
+					<p>1. Click Load Categories</p>
+					<p>2. Click Load Blogs.</p>
+					<p>3. Click Load About</p>
+					<p>If something went wrong and you had to log back in after before Load Blogs, click load Categories.</p>
+					<p>When the blog is set up for the user, make sure that you clear the blogs and manually load the first first post.</p>
 				</div>
 			</div>
-			<button className="add-categories-button" onClick={props.loadCategories}>Load Categories</button>
+			<button className="add-categories-button" onClick={props.loadCategories}>1. Load Categories</button>
+			<button className="add-categories-button" onClick={props.loadBlogs}>2. Load Blogs</button>
+			<button className="add-categories-button" onClick={props.loadAbout}>3. Load About</button>
 			<button className="add-categories-button" onClick={props.getCategories}>Get Categories</button>
-			<button className="add-categories-button" onClick={props.loadBlogs}>Load Blogs</button>
-			<button className="add-categories-button" onClick={props.loadAbout}>Load About</button>
 		</div>
 		)
 };

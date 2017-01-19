@@ -38,7 +38,7 @@ var Category = React.createClass({
 			})
 		}
 		// console.log(blogArray);
-		this.props.dispatch(actions.loadBlogs(this.props.blogs));
+		this.props.dispatch(actions.loadBlogs(blogArray));
 	},
 	render: function(){
 		return (

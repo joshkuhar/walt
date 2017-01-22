@@ -27,7 +27,7 @@ var LandingContainer= React.createClass({
 					<Landing 
 						title={post.title}
 						category={category}
-						date={post.month+" "+post.date}
+						date={post.month+" "+post.date+", "+post.year}
 						content={post.content}
 					/>
 				</div>

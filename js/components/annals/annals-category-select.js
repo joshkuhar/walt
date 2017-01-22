@@ -11,7 +11,7 @@ var AnnalsList = require('./annals-list-container');
 var AnnalsSelect = React.createClass({
 	componentDidMount: function(){
 		if(this.props.categories.length == 1){
-			this.props.dispatch(actions.getCategories())
+			this.props.dispatch(actions.getPosts())
 		}
 	},
 	handleCategoryChange: function(event){
@@ -21,7 +21,7 @@ var AnnalsSelect = React.createClass({
 	handleSubmit: function(event){
 		event.preventDefault();
 		if (this.props.category === "111") {
-			this.props.dispatch(actions.getPosts())
+			this.props.dispatch(actions.getPostsAgain())
 			return
 		}
 		this.props.dispatch(actions.searchCategories(this.props.category));

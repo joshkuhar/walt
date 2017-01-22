@@ -10,15 +10,14 @@ var About = require('./about');
 
 var AboutContainer = React.createClass({
 	componentDidMount: function() {
-		var id = "58711570ac7bfb11c9da3659";
-		this.props.dispatch(actions.getAbout(id));
+		this.props.dispatch(actions.getAbout());
 	},
 	render: function() {
 		return (
-			<div className="about-container">	
-				<h3>About Me</h3>
-				<About about={this.props.about} />
-			</div>
+				<div className="about-container">	
+					<h3>About Me</h3>
+					<About about={this.props.about} />
+				</div>
 			)
 	}
 });
@@ -26,6 +25,7 @@ var AboutContainer = React.createClass({
 var mapStateToProps = function(state, props) {
     return {
     	about: state.about,
+    	aboutId: state.aboutId
     };
 };
 

@@ -14,7 +14,7 @@ var AnnalsList = function(props){
 		var snippet = post.content.substring(0, 350);
 		postList.push(
 			<div key={index}>
-				<Annals postId={post._id} title={post.title} category={category} date={post.month+" "+post.date} content={snippet} 
+				<Annals postId={post._id} title={post.title} category={category} date={post.month+" "+post.date+", "+post.year} content={snippet} 
 				/>
 			</div>
 		)

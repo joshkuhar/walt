@@ -12,7 +12,7 @@ var Post = function(props){
 	var category = getCategory(props.categories, post)
 	return (
 		<div className="post">
-			<Link to="/annals">Go Back</Link>
+			<Link to="/annals"><div className="post-back-link">Back</div></Link>
 			<div className="post-title">{post.title}</div>
 			<div className="post-date">{post.month +" "+post.date+", "+post.year}</div>
 			<div className="post-category">{category}</div>

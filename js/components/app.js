@@ -31,13 +31,16 @@ var App = React.createClass({
 						<div className="nav-bar-item-container"><Link to={"/about"}><div className="nav-bar-item">About</div></Link></div>
 					</div>
 				 </div>
-				 <div className="icon-bar"></div>
+				 <div className="icon-bar-wrapper">
+				 <div className="icon-bar">
 					<ul className="icon-list">
 						<ReactCSSTransitionGroup transitionName="display" transitionEnterTimeout={500} transitionLeaveTimeout={10}><li key={this.props.fa} className="icon-name">{this.props.fa}</li></ReactCSSTransitionGroup>
 						<a href=""><li className="icon"><FontAwesome className="fa fa-facebook" id="facebook" name="facebook"aria-hidden="true" onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
 						<a href=""><li className="icon"><FontAwesome className="fa fa-twitter" id="twitter"name="twitter"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
 						<li className="icon"><FontAwesome className="fa fa-instagram" id="instagram"name="instagram"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li>
 					</ul>
+				</div>
+				</div>
 				</div>
 				
 				<div>

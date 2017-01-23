@@ -1,12 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800');
 body {
   background-color: white;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 100%;
   height: auto;
   margin: 0 auto;
   color: #04597F;
 }
+
+/*
+#286dab
+#cd5360
+#b37d4e
+#438496
+*/
 
 img{
   text-align: center;
@@ -31,16 +39,23 @@ textarea{
 .app{
   font-size: 1.5em;
 }
-
+/*
+#286dab
+#cd5360
+#b37d4e
+#438496
+*/
 .top-navigation{
-    background-color: cyan;
-    height: 2.5em;
+    background-color: white;
+    height: 3.5em;
     width: 100%;
     position: fixed;
 }
 .top-navigation-wrapper{
   width: 40em;
   margin: 0 auto;
+  height: 2em;
+  padding-top: .9em;
 }
 .top-navigation-picture{
   height: 1em;
@@ -49,8 +64,8 @@ textarea{
 .home-nav-bar{
     display: inline;
     float: right;
-    margin-top: .9em;
-    font-size: .9em;
+    margin-top: .2em;
+    font-size: .77em;
 }
 .nav-bar-item-container{
     display: inline-block;
@@ -76,9 +91,10 @@ textarea{
   cursor: pointer;
 }
 h1 {
-  text-align: left;
-  display: inline;
-  margin-left: .5em;
+    text-align: left;
+    display: inline;
+    margin-left: 1em;
+    font-size: 1em;
 }
 
 .about{
@@ -106,29 +122,24 @@ h1 {
     box-shadow: 1px 3px 10px 1px black;
 }
 .main-parent-container{
-    width: 30em;
+    width: 24.8em;
     margin: 0 auto;
-    padding-top: 4em;
+    padding-top: 7em;
 }
 /* #00B2B2  */
 
 .icon-list{
-    margin-top: .3em;
-    margin-bottom: .29em;
-    width: 40em;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: right;
-    padding-left: 0;
-    padding-right: 2.5em;
+  margin: 0 auto;
+  text-align: right;
 }
 .icon{
   display: inline-block;
-  margin-left: .62em;
+  margin-left: .8em;
+  padding-top: .15em;
 }
 .icon-name {
   display: inline-block;
-  color: #00B2B2;
+  color: white;
   font-size: .8em;
   /*margin-right: .5em;*/
 }
@@ -148,19 +159,24 @@ h1 {
   opacity: 0.01;
   transition: opacity 10ms ;
 }
-
+.icon-bar-wrapper{
+    width: 100%;
+    background-color: #00B2B2;
+}
 .icon-bar{
-  background-color: #00B2B2;
-  height: .1em;
+    height: 2em;
+    width: 40em;
+    margin: 0 auto;
+    padding-right: 3.4em;
 }
 .fa {
-  color: #04597F;
-  border: .15em solid white;
+  color: white;
+  border: .1em solid white;
   border-radius: 25px;
-  height: 1.4em;
-  width: 1.9em;
+  height: 1.6em;
+  width: 2.3em;
   text-align: center;
-  padding-top: .4em;
+  padding-top: .6em;
   font-size: .65em;
   -webkit-transition: color .63s;
   -moz-transition: color .63s;

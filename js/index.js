@@ -17,7 +17,7 @@ var Landing = require('./components/landing/landing-container');
 var About = require('./components/about/about-container');
 
 var Login = require('./components/dashboard/login');
-var CreateUser = require('./components/dashboard/create-user');
+// var CreateUser = require('./components/dashboard/create-user');
 var DashboardNavigator = require('./components/dashboard-navigator');
 var WriteBlog = require('./components/dashboard/write-container');
 var WriteSuccess = require('./components/dashboard/write-success');
@@ -44,7 +44,7 @@ var Routes = (
 				<Route path="about" component={About} />
 			</Route>
 			<Route path="/login" component={Login} />
-			<Route path="/users" component={CreateUser} />
+			
 			<Route path="/dashboard" component={DashboardNavigator}>
 				<Route path="about" component={EditAbout}/>	
 				<Route path="edit" component={EditBlogNav} >
@@ -64,4 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
     ReactDOM.render(Routes, document.getElementById('app'));
 });
 
-/*<Route path="posh/:postId" component={AnnalsList} />*/
+/*<Route path="posh/:postId" component={AnnalsList} />
+
+<Route path="/users" component={CreateUser} />
+
+*/

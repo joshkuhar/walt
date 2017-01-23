@@ -23,7 +23,7 @@ var App = React.createClass({
 			<div className="app">
 				<div className="top-navigation">
 				 <div className="top-navigation-wrapper">
-					<h1>Linda's Patio</h1>
+					<h1>Blogger</h1>
 					
 					<div className="home-nav-bar">
 						<div className="nav-bar-item-container"><Link to={"/"}><div className="nav-bar-item">Home</div></Link></div>
@@ -34,8 +34,8 @@ var App = React.createClass({
 				 <div className="icon-bar"></div>
 					<ul className="icon-list">
 						<ReactCSSTransitionGroup transitionName="display" transitionEnterTimeout={500} transitionLeaveTimeout={10}><li key={this.props.fa} className="icon-name">{this.props.fa}</li></ReactCSSTransitionGroup>
-						<a href="https://www.facebook.com/linda.kuhar.3 "><li className="icon"><FontAwesome className="fa fa-facebook" id="facebook" name="facebook"aria-hidden="true" onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
-						<a href="https://twitter.com/retrofungirl"><li className="icon"><FontAwesome className="fa fa-twitter" id="twitter"name="twitter"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
+						<a href=""><li className="icon"><FontAwesome className="fa fa-facebook" id="facebook" name="facebook"aria-hidden="true" onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
+						<a href=""><li className="icon"><FontAwesome className="fa fa-twitter" id="twitter"name="twitter"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
 						<li className="icon"><FontAwesome className="fa fa-instagram" id="instagram"name="instagram"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li>
 					</ul>
 				</div>

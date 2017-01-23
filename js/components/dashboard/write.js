@@ -14,7 +14,6 @@ var date = DateStamp();
 
 var PostContent = React.createClass ({
 	componentDidMount: function() {
-		console.log("I mounted", this.props.categories.length);
 		if(this.props.categories.length == 1){
 			this.props.dispatch(actions.getCategories());
 		}
@@ -27,7 +26,6 @@ var PostContent = React.createClass ({
 	handleCategoryChange: function(event) {
 		event.preventDefault();
 		this.props.dispatch(actions.selectCategory(event.target.value));
-		console.log(this.props.category);
 	},
 	handleContentChange: function(event) {
 		event.preventDefault();

@@ -15,12 +15,13 @@ var initialState = {
 	categories: [{"_id": "111", "category": "all"}],
 	dummyBlogs: DummyBlogs,
 	mockPosts: MockPosts,
-	landingPost: {_id: "111", title: "foo", month: "Jan", date: "1", year: "2016", categoryId: "z"},
-	dashboardPosts: [{_id: "111", title: "foo", month: "Jan", date: "1", year: "2016"}],
-	posts: [{_id: "111", title: "foo", month: "Jan", date: "1", year: "2016", content: "", categoryId: "z"}],
+	landingPost: {_id: "111", title: "", month: "", date: "", year: "", categoryId: "z"},
+	dashboardPosts: [{_id: "111", title: "", month: "", date: "", year: ""}],
+	posts: [{_id: "111", title: "", month: "", date: "", year: "", content: "", categoryId: "z"}],
 	token: "",
 	username: "",
-	success: false
+	success: false,
+	fa: ""
 };
 
 var blogReducer = function(state, action) {
@@ -28,6 +29,11 @@ var blogReducer = function(state, action) {
 	if (action.type === actions.CHANGE_CONTENT) {
 		return 	Object.assign({}, state, {
 			content: action.content
+		})
+	}
+	else if (action.type === actions.DISPLAY_FA) {
+		return Object.assign({}, state, {
+			fa: action.fa
 		})
 	}
 	else if (action.type === actions.GET_POSTS_ERROR) {

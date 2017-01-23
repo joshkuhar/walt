@@ -20,6 +20,16 @@ var blogLoadSuccess = function(blogs){
 exports.BLOG_LOAD_SUCCESS = BLOG_LOAD_SUCCESS;
 exports.blogLoadSuccess = blogLoadSuccess;
 
+var DISPLAY_FA = 'DISPLAY_FA';
+var displayFa = function(fa){
+    return {
+        type: DISPLAY_FA,
+        fa: fa
+    }
+}
+exports.DISPLAY_FA = DISPLAY_FA;
+exports.displayFa = displayFa;
+
 var CHANGE_CONTENT = 'CHANGE_CONTENT';
 var changeContent = function(content){
 	return {
@@ -137,6 +147,9 @@ var getPosts = function() {
     .then(function(data) {
             return dispatch(getPostsSuccess(data))
     })
+    .then(function() {
+        return dispatch(getCategories())
+    })
     .catch(function(error) {
         console.log(error);
         return dispatch(getPostsError(error))
@@ -144,6 +157,30 @@ var getPosts = function() {
     }
 };
 exports.getPosts = getPosts; 
+
+var getPostsAgain = function() {
+    return function(dispatch) {
+        var url = '/posts';
+        return fetch(url)
+    .then(function(res) {
+        if(res.ok){
+            return res.json()
+        } else {
+            var error = new Error(res.statusText);
+            error.response = res;
+            throw error;
+        }
+    })
+    .then(function(data) {
+            return dispatch(getPostsSuccess(data))
+    })
+    .catch(function(error) {
+        console.log(error);
+        return dispatch(getPostsError(error))
+        });
+    }
+};
+exports.getPostsAgain = getPostsAgain; 
 
 var GET_SECTION_SUCCESS = 'GET_SECTION_SUCCESS';
 var getSectionSuccess = function(section, sectionNumber) {
@@ -593,7 +630,6 @@ exports.loginSuccess = loginSuccess;
 
 var getUser = function(username, password){    
     return function(dispatch) {
-        console.log(username, password);
         var url = '/login';
         return fetch(url, {
             method: "POST",
@@ -611,7 +647,6 @@ var getUser = function(username, password){
         var username=data.username;
         var token=data.token;
         var success=data.success;
-        console.log(data);
         return dispatch(loginSuccess(username, token, success))
     }).catch(function(error) {
         console.log(error);

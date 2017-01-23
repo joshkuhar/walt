@@ -14,6 +14,7 @@ var CategoryManager = function(props){
 			<div className="category-manager-instructions-container">
 				<div className="category-manager-instructions">
 					<p>***ADMIN INSTRUCTIONS****</p> 
+					<p>Create User by uncommenting CreateUser component. Then log in as user.</p>
 					<p>1. Click Load Categories</p>
 					<p>2. Click Load Blogs.</p>
 					<p>3. Click Load About</p>

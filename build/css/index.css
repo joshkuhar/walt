@@ -352,40 +352,94 @@ h1 {
   text-align: center;
 }
 
+/*
+#286dab
+#cd5360
+#b37d4e
+#438496
+#00B2B2
+*/
+.sign-out{
+  text-align: right;
+  cursor: pointer;
+  margin: 0 auto;
+  font-size: .5em;
+  width: 82em;
+}
+.dashboard{
+  font-size: 1.5em;
+}
 
 .dashboard-top-navigator {
-  
+  width: 31em;
+  margin: 0 auto;
+  margin: .38em auto;
+  margin-bottom: .62em;
+}
+.dashboard-header{
+  display: inline;
+  font-size: 1em;
 }
 .dashboard-nav-bar{
-  margin: 0 auto;
-  width: 45em;
-  text-align: center;
+  display: inline;
+  float: right;
 }
 .dashboard-nav-bar-item-wrapper{
     display: inline-block;
-    width: 7.5em;
 }
 .dashboard-nav-bar-item{
     display: inline-block;
-    border: .02em solid red;
-    border-radius: 4px;
-    width: 7.5em;
+    width: 8em;
     text-align: center;
+    font-size: .7em;
+}
+.dashboard-display-bar{
+  background-color: #00B2B2;
+  height: 1.38em;
 }
 
 
 
-
-
-
-
-
-
-
+.edit-list-instructions{
+  font-size: .62em;
+  width: 36em;
+  margin: 0 auto;
+  margin-top: .38em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+.edit-list-heading{
+  text-align: center;
+}
+.post-edit-list-container{
+  font-size: .82em;
+}
 .post-edit-container{
   width: 40em;
   margin: 0 auto;
 }
+.post-to-edit-list{
+  list-style: none;
+  width: 20em;
+  margin: 0 auto;
+}
+.post-edit{
+    width: 20em;
+    margin: 0 auto .8em;
+}
+.post-edit-title{
+    margin-left: 20%;
+}
+.post-edit-date{
+    margin-left: 20%;
+    font-size: .7em;
+    font-family: sans-serif;
+}
+
+
+
+
+
 .post-edit-form{}
 .post-edit-inner-container{}
 .post-edit-title-header{
@@ -447,34 +501,6 @@ h1 {
 
 
 
-
-
-
-
-.post-to-edit-navigator{
-  text-align: center;
-}
-.post-edit-list-container{}
-.post-to-edit-list-container > h3{
-  text-align: center;
-}
-.post-to-edit-list{
-  list-style: none;
-  width: 20em;
-  margin: 0 auto;
-}
-.post-edit{
-    width: 20em;
-    margin: 0 auto .8em;
-}
-.post-edit-title{
-    margin-left: 20%;
-}
-.post-edit-date{
-    margin-left: 20%;
-    font-size: .7em;
-    font-family: sans-serif;
-}
 
 
 
@@ -617,10 +643,7 @@ h1 {
     resize: none
 }
 
-.dashboard-header{
-    text-align: center;
-    margin: 0 auto;
-}
+
 .category-manager > h3 {
   text-align: center;
 }
@@ -632,11 +655,7 @@ h1 {
 .category-manager-instructions{}
 .add-categories-button{}
 .category-manager-container{}
-.sign-out{
-  display: inline-block;
-  margin-left: 90%;
-  cursor: pointer;
-}
+
 
 
 

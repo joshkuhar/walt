@@ -8,9 +8,10 @@ var EditPostNav  = React.createClass({
 	render: function(){
 		return (
 			<div>
-				<div className="post-to-edit-navigator">
-					<h3>Edit</h3>
+				<div className="edit-list-instructions">
+					Click on the the title of the blog post you would like to edit.
 				</div>
+				<h3 className="edit-list-heading">Blog Posts</h3>
 				<div>
 					{this.props.children}
 				</div>

@@ -24,7 +24,7 @@ passport.use(new JwtStrategy(options, function(payload, done) {
     });
 }));
 
-AboutRouter.post('/dash/about', passport.authenticate('jwt', {session: false}),
+AboutRouter.post('/dash/about', //passport.authenticate('jwt', {session: false}),
 	function(req, res) {
 	console.log(req.body);
 	About.create({about: req.body.about}, function(err, about) {
@@ -49,7 +49,7 @@ AboutRouter.get('/about', function(req, res){
 			res.status(200).json(about);
 		});
 	});
-AboutRouter.put('/dash/about/:id', passport.authenticate('jwt', {session: false}),
+AboutRouter.put('/dash/about/:id', //passport.authenticate('jwt', {session: false}),
 	function(req, res){
 	About.findByIdAndUpdate(req.params.id, 
 							{$set: {about: req.body.about}}, 
@@ -64,7 +64,7 @@ AboutRouter.put('/dash/about/:id', passport.authenticate('jwt', {session: false}
 		});
 });
 //Admin only, not available to user
-AboutRouter.delete('/about/:id', passport.authenticate('jwt', {session: false}),
+AboutRouter.delete('/about/:id', //passport.authenticate('jwt', {session: false}),
 	function(req, res){
 	About.findByIdAndRemove(
 		req.params.id, function(err){

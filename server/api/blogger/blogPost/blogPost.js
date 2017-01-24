@@ -25,7 +25,7 @@ passport.use(new JwtStrategy(options, function(payload, done) {
     });
 }));
 
-PostRouter.post('/dashboard/content/:categoryId', passport.authenticate('jwt', {session: false}), 
+PostRouter.post('/dashboard/content/:categoryId', //passport.authenticate('jwt', {session: false}), 
     function(req, res) {
     Post.create({
                 title: req.body.title,
@@ -120,7 +120,7 @@ PostRouter.get('/posts', function(req, res) {
     });
 });
 
-PostRouter.get('/dashboard/posts', passport.authenticate('jwt', {session: false}),
+PostRouter.get('/dashboard/posts', //passport.authenticate('jwt', {session: false}),
     function(req, res) {
     Post.find({}, 'title date year month')
     .limit(20)
@@ -139,7 +139,7 @@ PostRouter.get('/dashboard/posts', passport.authenticate('jwt', {session: false}
 //Post.find({}).sort({date: -1}).exec(function
 // { $orderby: { "created_at": -1 } }, 
 
-PostRouter.get('/dashboard/post/:postId', passport.authenticate('jwt', {session: false}),
+PostRouter.get('/dashboard/post/:postId', //passport.authenticate('jwt', {session: false}),
     function(req, res) {
     Post.findById(req.params.postId)
     .exec( function(err, post) {
@@ -154,7 +154,7 @@ PostRouter.get('/dashboard/post/:postId', passport.authenticate('jwt', {session:
 });
 
 
-PostRouter.put('/dashboard/post/:postId', passport.authenticate('jwt', {session: false}),
+PostRouter.put('/dashboard/post/:postId', //passport.authenticate('jwt', {session: false}),
     function(req, res) {
     Post.findByIdAndUpdate(req.params.postId, {
             $set: {
@@ -173,7 +173,7 @@ PostRouter.put('/dashboard/post/:postId', passport.authenticate('jwt', {session:
         });
 });
 
-PostRouter.delete('/dashboard/post/:postId', passport.authenticate('jwt', {session: false}),
+PostRouter.delete('/dashboard/post/:postId', //passport.authenticate('jwt', {session: false}),
     function(req, res){
     Post.findByIdAndRemove(
         req.params.postId, function(err){
@@ -184,7 +184,7 @@ PostRouter.delete('/dashboard/post/:postId', passport.authenticate('jwt', {sessi
         });
 });
 // count array 
-PostRouter.get('/posts/count', passport.authenticate('jwt', {session: false}),
+PostRouter.get('/posts/count', //passport.authenticate('jwt', {session: false}),
     function(req, res) {
     Post.count(function(err, posts) {
         if(err) {

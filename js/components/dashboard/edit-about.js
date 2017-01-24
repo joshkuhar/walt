@@ -17,8 +17,11 @@ var AboutEdit = React.createClass ({
     	event.preventDefault();
     	this.props.dispatch(actions.updateAbout(this.props.aboutId, this.props.about, this.props.token));
 	},
-  	onClick: function(){
-  		console.log(store.getState());
+  	onClick: function(event){
+  		event.preventDefault();
+  		//console.log(store.getState());
+  		// this.props.dispatch(actions.kindWords("success"));
+		// setTimeout(function(){ store.dispatch({type: 'KIND_WORDS', word: ""}) }, 1000);
 	},
 	render: function() {
 	    return (
@@ -51,3 +54,5 @@ var mapStateToProps = function(state, props) {
 var Container = connect(mapStateToProps)(AboutEdit);
 
 module.exports = Container;
+
+/**/

@@ -1,5 +1,16 @@
 require('isomorphic-fetch');
 
+var KIND_WORDS = 'KIND_WORDS';
+var kindWords = function(word) {
+    return {
+        type: KIND_WORDS,
+        word: word
+    }
+}
+exports.KIND_WORDS = KIND_WORDS
+exports.kindWords = kindWords;
+
+
 var LOAD_SUCCESS = 'LOAD_SUCCESS';
 var loadSuccess = function(categories){
     return {

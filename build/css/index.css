@@ -45,6 +45,41 @@ textarea{
 #b37d4e
 #438496
 */
+.kind-words{
+  font-size: .83em;
+  color: #00EBEB;
+  margin-right: 8em;
+}
+
+
+.kindWords-enter {
+  opacity: 0.01;
+}
+.kindWords-enter.kindWords-enter-active{
+  opacity: 1;
+  transition: opacity 500ms ;
+}
+
+.kindWords-leave {
+  opacity: 1;
+}
+
+.kindWords-leave.kindWords-leave-active {
+  opacity: 0.01;
+  transition: opacity 500ms ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .top-navigation{
   background-color: white;
   height: 2.9em;
@@ -401,12 +436,11 @@ h1 {
 .dashboard-display-bar{
   background-color: #00B2B2;
   height: 1.38em;
+  text-align: right;
 }
 .dashboard-main{
   padding-top: 4.4em;
 }
-
-
 .edit-blog-heading {
   width: 25em;
   margin: .38em auto;

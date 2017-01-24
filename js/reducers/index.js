@@ -21,7 +21,9 @@ var initialState = {
 	token: "",
 	username: "",
 	success: false,
-	fa: ""
+	fa: "",
+	kindWords: "",
+	key: 1
 };
 
 var blogReducer = function(state, action) {
@@ -29,6 +31,11 @@ var blogReducer = function(state, action) {
 	if (action.type === actions.CHANGE_CONTENT) {
 		return 	Object.assign({}, state, {
 			content: action.content
+		})
+	}
+	else if(action.type === actions.KIND_WORDS) {
+		return Object.assign({}, state, {
+			kindWords: action.word
 		})
 	}
 	else if (action.type === actions.DISPLAY_FA) {

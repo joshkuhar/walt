@@ -3,6 +3,7 @@ var router = require('react-router');
 var Link = router.Link;
 var store = require('../store');
 var actions = require('../actions/index');
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var connect = require('react-redux').connect;
 var Button = require('../store-button');
 var router = require('react-router');
@@ -23,6 +24,9 @@ var DashboardNavBar  = React.createClass({
 		event.preventDefault();
 		console.log(store.getState());
 	},
+	componentDidLeave: function() {
+		//this.props.dispatch(actions.kindWords(""));
+	},
 	render: function(){
 		return (
 			<div>
@@ -40,7 +44,9 @@ var DashboardNavBar  = React.createClass({
 							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/category"><div className="dashboard-nav-bar-item">Categories</div></Link></div>
 						</div>
 					</div>
-					<div className="dashboard-display-bar"></div>
+					<div className="dashboard-display-bar">
+					<ReactCSSTransitionGroup transitionName="kindWords" transitionEnterTimeout={500} transitionLeaveTimeout={500}><div key={this.props.kindWords} className="kind-words">{this.props.kindWords}</div></ReactCSSTransitionGroup>
+					</div>
 				</div>
 				<div className="dashboard-main">
 				{this.props.children}
@@ -53,7 +59,9 @@ var DashboardNavBar  = React.createClass({
 
 var mapStateToProps = function(state, props) {
 	return {
-		success: state.success
+		success: state.success,
+		kindWords: state.kindWords,
+		key: state.key
 	}
 }
 

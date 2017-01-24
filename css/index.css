@@ -372,7 +372,7 @@ h1 {
 .dashboard-wrapper{
   position: fixed;
   width: 100%;
-  height: 7em;
+  height: 4.4em;
   background-color: white;
 }
 .dashboard-top-navigator {
@@ -505,53 +505,23 @@ h1 {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .post-write-container{
-  width: 40em;
+  width: 25em;
   margin: 0 auto;
 }
 .post-write-form {
     text-align: center;
 }
-.post-write-header-container{}
-
-.post-write-inside-container{
-  width: 40em;
-  margin: 0 auto;
-}
 .post-write-title-header{
   margin: 0 auto;
   font-size: 1em;
 }
-.post-write-title-container{
-  margin: 0 auto;
-  text-align: center;
-}
-.post-write-title-input-container{
-}
 .post-write-title-input{
-  width: 40em;
+  width: 100%;
   margin: 0 auto;
   font-size: 1em;
   margin-bottom: 2em;
 }
-
-
 .post-write-selector-container{
   margin-top: .5em;
   text-align: left;
@@ -560,6 +530,9 @@ h1 {
 .post-write-category-selector{
     display: inline;
     margin-left: 1em;
+}
+.write-category-selector{
+  font-size: .62em;
 }
 .post-write-buttons-container{
   text-align: left;
@@ -577,10 +550,9 @@ h1 {
 .post-write-submit-button{
   display: inline;
 }
-.post-write-textarea-container{}
 .post-write-textarea{
-  width: 40em;
-  height: 30em;
+  width: 100%;
+  height: 20em;
   margin: 0 auto;
   font-size: 1em;
 }

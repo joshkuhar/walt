@@ -29,18 +29,22 @@ var DashboardNavBar  = React.createClass({
 				<Link to="/">Home Page</Link>
 				<button onClick={this.onStore}>store</button>
 				<div className="dashboard">
-				<div onClick={this.handleSignOut}className="sign-out">Sign Out</div>
-				<div className="dashboard-top-navigator">
-					<h2 className="dashboard-header">Dashboard</h2>
-					<div className="dashboard-nav-bar">
-						<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/edit"><div className="dashboard-nav-bar-item">Blog List</div></Link></div>
-						<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/create"><div className="dashboard-nav-bar-item">Write New Blog</div></Link></div>
-						<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/about"><div className="dashboard-nav-bar-item">Edit About</div></Link></div>
-						<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/category"><div className="dashboard-nav-bar-item">Categories</div></Link></div>
+				<div className="dashboard-wrapper">
+					<div onClick={this.handleSignOut}className="sign-out">Sign Out</div>
+					<div className="dashboard-top-navigator">
+						<h2 className="dashboard-header">Dashboard</h2>
+						<div className="dashboard-nav-bar">
+							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/edit"><div className="dashboard-nav-bar-item">Blog List</div></Link></div>
+							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/create"><div className="dashboard-nav-bar-item">Write New Blog</div></Link></div>
+							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/about"><div className="dashboard-nav-bar-item">Edit About</div></Link></div>
+							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/category"><div className="dashboard-nav-bar-item">Categories</div></Link></div>
+						</div>
 					</div>
+					<div className="dashboard-display-bar"></div>
 				</div>
-				<div className="dashboard-display-bar"></div>
+				<div className="dashboard-main">
 				{this.props.children}
+				</div>
 				</div>
 			</div>
 			)

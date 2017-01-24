@@ -15,8 +15,13 @@ var EditList = React.createClass({
 	render: function(){
 	var amountToDisplay = this.props.posts.length>10 ? 20 : this.props.posts.length;
 	return (
-		<div className="post-edit-list-container">
-			<PostToEditList postsToEdit={this.props.posts} numberOfPostsToDisplay={amountToDisplay}/>
+		<div>
+			<div className="edit-list-instructions">
+				Click on the the title of the blog post you would like to edit.
+			</div>
+			<div className="post-edit-list-container">
+				<PostToEditList postsToEdit={this.props.posts} numberOfPostsToDisplay={amountToDisplay}/>
+			</div>
 		</div>							
 		)
 	}

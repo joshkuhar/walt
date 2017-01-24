@@ -30,18 +30,17 @@ var PostToEdit = React.createClass ({
 		return (
 		    <div className="post-edit-container">
 		      <form className="post-edit-form" onSubmit={this.handleSubmit}>
-		        <div className="post-edit-inner-container">
+	
 			        <div className="post-edit-title-header">Title</div>
-			        <div className="post-edit-title-container">
 			        	<div className="post-edit-title-input-container">
 							<input className="post-edit-title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
 			        	</div>
-			        </div>
+			    
 
-			        <div className="post-edit-textarea-container">
+			
 			        	<textarea className="post-edit-textarea" value={this.props.content} placeholder="type away..." onChange={this.handlePostChange} />
-			        </div>
-		        </div>
+			  
+		      
 		        	<div className="post-edit-buttons-container">
 			       		<div className="post-edit-cancel-button-container">
 			        		<Link to="/dashboard/edit"><button className="post-edit-cancel-button">Cancel</button></Link>

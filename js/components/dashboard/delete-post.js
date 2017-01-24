@@ -14,12 +14,17 @@ var DeletePost = React.createClass({
 		this.props.dispatch(actions.deletePost(this.props.params.postId, this.props.token));
 		hashHistory.push('/dashboard/edit');
 	},
+	handleCancelClick: function(event){
+		event.preventDefault();
+		hashHistory.push('/dashboard/edit/'+this.props.params.postId);
+	},
 	render: function(){
 		return(
 			<div className="delete-post-container">
 				<div className="delete-post-wrapper">
 				  <div>To delete this post, click the delete button.</div>
-				  <button onClick={this.handleDeleteClick}>Delete Post</button>
+				  <button className="post-edit-cancel-button" onClick={this.handleCancelClick}>Cancel</button>
+				  <button className="post-edit-delete-button" onClick={this.handleDeleteClick}>Delete</button>
 				</div>
 			</div>
 			)

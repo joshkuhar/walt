@@ -24,27 +24,23 @@ var App = React.createClass({
 				<div className="top-navigation">
 				 <div className="top-navigation-wrapper">
 					<h1>Blogger</h1>
-					
 					<div className="home-nav-bar">
 						<div className="nav-bar-item-container"><Link to={"/"}><div className="nav-bar-item">Home</div></Link></div>
 						<div className="nav-bar-item-container"><Link to={"/annals"}><div className="nav-bar-item">Ponderings</div></Link></div>
 						<div className="nav-bar-item-container"><Link to={"/about"}><div className="nav-bar-item">About</div></Link></div>
+						<button className="hg-top">Learn More</button>
 					</div>
 				 </div>
-				 <div className="icon-bar-wrapper">
-				 <div className="icon-bar">
-					<ul className="icon-list">
-						<ReactCSSTransitionGroup transitionName="display" transitionEnterTimeout={500} transitionLeaveTimeout={10}><li key={this.props.fa} className="icon-name">{this.props.fa}</li></ReactCSSTransitionGroup>
-						<a href=""><li className="icon"><FontAwesome className="fa fa-facebook" id="facebook" name="facebook"aria-hidden="true" onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
-						<a href=""><li className="icon"><FontAwesome className="fa fa-twitter" id="twitter"name="twitter"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
-						<li className="icon"><FontAwesome className="fa fa-instagram" id="instagram"name="instagram"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li>
-					</ul>
 				</div>
-				</div>
-				</div>
-				
 				<div>
 					{this.props.children}
+				</div>
+				<div className="footer">
+				 <ul className="footer-icons">
+					<a href=""><li className="icon"><FontAwesome className="fa fa-facebook" id="facebook" name="facebook"aria-hidden="true" onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
+					<a href=""><li className="icon"><FontAwesome className="fa fa-twitter" id="twitter"name="twitter"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
+					<li className="icon"><FontAwesome className="fa fa-instagram" id="instagram"name="instagram"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li>
+				 </ul>
 				</div>
 			</div>
 			)
@@ -68,6 +64,19 @@ module.exports= Container;
 <div className="nav-bar-item-container"><div className="nav-bar-item">Contact Me</div></div>
 <button onClick={this.getStore}>store</button>
 <img src="../assets/on-phone.jpg" alt="on-phone" className="top-navigation-picture"/>
+
+
+		<div className="icon-bar-wrapper">
+		 <div className="icon-bar">
+			<ul className="icon-list">
+				<ReactCSSTransitionGroup transitionName="display" transitionEnterTimeout={500} transitionLeaveTimeout={10}><li key={this.props.fa} className="icon-name">{this.props.fa}</li></ReactCSSTransitionGroup>
+				<a href=""><li className="icon"><FontAwesome className="fa fa-facebook" id="facebook" name="facebook"aria-hidden="true" onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
+				<a href=""><li className="icon"><FontAwesome className="fa fa-twitter" id="twitter"name="twitter"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
+				<li className="icon"><FontAwesome className="fa fa-instagram" id="instagram"name="instagram"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li>
+			</ul>
+		 </div>
+		</div>
+
 */
 
 

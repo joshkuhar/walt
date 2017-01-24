@@ -22,8 +22,7 @@ var initialState = {
 	username: "",
 	success: false,
 	fa: "",
-	kindWords: "",
-	key: 1
+	kindWords: ""
 };
 
 var blogReducer = function(state, action) {

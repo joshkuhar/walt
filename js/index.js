@@ -10,6 +10,7 @@ var hashHistory = router.hashHistory;
 
 
 var App = require('./components/app');
+var Home = require('./components/home/home');
 var AnnalsSelect = require('./components/annals/annals-category-select');
 var AnnalsList = require('./components/annals/annals-list-container');
 var PostContainer = require('./components/post/post-container');
@@ -36,7 +37,8 @@ var Routes = (
 	<Provider store={store} >
 		<Router history={hashHistory}>
 			<Route path="/" component={App}>
-				<IndexRoute component={Landing} />
+				<IndexRoute component={Home} />
+				<Route path="main" component={Landing} />
 				<Route path="annals" component={AnnalsSelect} >
 					<IndexRoute component={AnnalsList} />
 				</Route>

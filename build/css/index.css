@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300);
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800');
+@import url('https://fonts.googleapis.com/css?family=Marcellus+SC');
 body {
   background-color: white;
   font-family: 'Open Sans', sans-serif;
@@ -14,6 +15,10 @@ body {
 #cd5360
 #b37d4e
 #438496
+
+font-family: 'Marcellus SC', serif;
+
+
 */
 
 img{
@@ -37,7 +42,6 @@ textarea{
 }
 
 .app{
-  font-size: 1.5em;
 }
 /*
 #286dab
@@ -87,10 +91,10 @@ textarea{
   position: fixed;
 }
 .top-navigation-wrapper{
-  width: 40em;
+  width: 100%;
   margin: 0 auto;
   height: 2em;
-  padding-top: .9em;
+  margin-top: .5em;
 }
 .top-navigation-picture{
   height: 1em;
@@ -99,8 +103,9 @@ textarea{
 .home-nav-bar{
   display: inline;
   float: right;
-  margin-top: .62em;
-  font-size: .62em;
+  font-size: 1em;
+  font-weight: 300;
+  margin-right: 1em;
 }
 .nav-bar-item-container{
     display: inline-block;
@@ -131,6 +136,108 @@ h1 {
     margin-left: 1em;
     font-size: 1em;
 }
+.hg-top {
+    height: 2.25em;
+    line-height: 2.25em;
+    margin-bottom: 0;
+    padding: 0 1em;
+    position: relative;
+    top: -0.075em;
+    vertical-align: middle;
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: white;
+    border-radius: 6px;
+    border: .1em solid #038F96;
+    color: #038F96;
+    cursor: pointer;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
+    font-size: 0.8em;
+
+}
+
+.home {
+  padding-top: 4em;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.picture{
+}
+.article-section{
+  max-width: 59em;
+  margin: 0 auto;
+}
+.second-header{}
+.art-header{
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+  margin: 0 0 0.96em 0;
+  text-transform: uppercase;
+}
+.section-a{
+  width: 50%;
+  float: left;
+}
+.section-b{
+  margin-left: 50%;
+}
+.section-inside{
+    padding-left: 4em;
+    padding-right: 4em;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0 0 2.4em 0;
+    font-weight: 300;
+    font-size: .9em;
+    line-height: 2em;
+}
+.section-button{
+  width: 10em;
+    height: 2.25em;
+    line-height: 2.25em;
+    margin-bottom: 0;
+    padding: 0 1em;
+    position: relative;
+    top: -0.075em;
+    vertical-align: middle;
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: white;
+    border-radius: 4px;
+    border: .1em solid #038F96;
+    color: #038F96;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
+    font-size: 0.8em;
+} 
+
+
+
+
+
+
+
+
+
+
 .about-container{
     text-align: center;
     padding-top: 3.7em;
@@ -192,22 +299,17 @@ h1 {
   opacity: 0.01;
   transition: opacity 10ms ;
 }
-.icon-bar-wrapper{
-    width: 100%;
-    background-color: #00B2B2;
-    height: 1.38em;
+.footer-icons{
+
 }
-.icon-bar{
-    width: 40em;
-    margin: 0 auto;
-    padding-right: 3.4em;
-    height: 1.38em;
-}
+
 .fa {
-  color: white;
-  border: .1em solid white;
+  color: #04597F;
+  border: .1em solid #04597F;
+} 
+  /*
   border-radius: 25px;
-  height: 1em;
+  height: 1em;  
   width: 2.1em;
   text-align: center;
   padding-top: .5em;
@@ -232,7 +334,7 @@ h1 {
   transition: color .4s;
   cursor: pointer;
 }
-
+*/
 
 
 .landing-page-container{}
@@ -244,6 +346,9 @@ h1 {
 }
 .landing-title{
   font-size: 1.5em;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
 }
 .landing-date{
   display: inline;
@@ -289,6 +394,7 @@ h1 {
 }
 .post-title{
   font-size: 1.5em;
+  font-family: 'Marcellus SC', serif;
 }
 .post-category{
   display: inline;
@@ -367,6 +473,7 @@ h1 {
   margin-bottom: .5em;
 }
 .annals-post-title{
+  font-family: 'Marcellus SC', serif;
   font-size: 1em;
 }
 .annals-post-date{

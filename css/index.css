@@ -137,7 +137,7 @@ h1 {
 }
 .icon-name {
   display: inline-block;
-  color: white;
+  color: #00EBEB;
   font-size: .8em;
   /*margin-right: .5em;*/
 }
@@ -442,7 +442,6 @@ h1 {
     font-size: .7em;
     font-family: sans-serif;
 }
-
 
 .post-edit-title-header{
   text-align: center;

@@ -21,11 +21,7 @@ font-family: 'Marcellus SC', serif;
 
 */
 
-img{
-  text-align: center;
-  height: 100%;
-  width: 100%;
-}
+
 .photo-wrapper {
   text-align: center;
 }
@@ -164,19 +160,29 @@ h1 {
 }
 
 .home {
-  padding-top: 4em;
+  padding-top: 2.9em;
   width: 100%;
   margin: 0 auto;
   text-align: center;
 }
 
-.picture{
+.picture-a{
+    background-image: url("../assets/woods-night.jpg"); 
+    margin: auto;
+    display: block;
+    margin: auto;
+    height: 21em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
 }
 .article-section{
   max-width: 59em;
-  margin: 0 auto;
+  margin: 4em auto;
 }
-.second-header{}
+.banner-icon{}
+.banner-header{}
+.banner-text{}
 .art-header{
   font-weight: 400;
   letter-spacing: 0.2em;

@@ -11,11 +11,15 @@ var Link = router.Link;
 var Home = function(props){
 	return (
 		<div className="home">
-		 <div className="picture">picture</div>
-		 <div className="second-header"></div>
+		 <div className="picture-a">
+		 	<div className="banner-icon">aleks</div>
+			<div className="banner-header">ipsum dolor sit</div>
+			<div className="banner-text"></div>
+		 </div>
+		 
 		  <article className="article-section">
 		  <div className="section-a">
-		   <h4 className="art-header">Desdemona</h4>
+		   <h4 className="art-header">Lysander</h4>
 			<div className="section-inside">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos temporibus veniam eveniet, optio, reprehenderit magnam incidunt consequuntur iste at assumenda est neque, accusantium aliquam animi unde ex deleniti magni repudiandae.</div>
 			<button className="section-button">button</button>
 		  </div>

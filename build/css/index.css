@@ -171,7 +171,7 @@ h1 {
     margin: auto;
     display: block;
     margin: auto;
-    height: 21em;
+    height: 18em;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -180,9 +180,33 @@ h1 {
   max-width: 59em;
   margin: 4em auto;
 }
-.banner-icon{}
-.banner-header{}
-.banner-text{}
+.banner-icon{
+  color: white;
+  padding-top: 1.7em;
+  font-size: 3em;
+  font-weight: 300;
+}
+.banner-header{
+  color: white;
+  color: white;
+  font-weight: 200;
+  letter-spacing: .125em;
+
+}
+.explain{
+  margin-top: 8em;
+}
+.explain-text{
+  color: #04597F;
+  font-weight: 300;
+  letter-spacing: .05em;
+  text-transform: capitalize;
+}
+.explain-footer{
+  width: 15em;
+  border-bottom: .05em solid #04597F;
+  margin: 8em auto 8em;
+}
 .art-header{
   font-weight: 400;
   letter-spacing: 0.2em;
@@ -236,7 +260,60 @@ h1 {
 } 
 
 
-
+.people{
+  width: 55em;
+  margin: 0 auto;
+  margin-top: 15em;
+}
+.person{
+  font-size: 2em;
+  height: 12em;
+}
+.image-wrapper{}
+.person-pic{
+  display: inline-block;
+  width: auto;
+  max-width: 9em;
+  height: 12em;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.person-name{
+  display: inline-block;
+  width: 5em;
+  padding-top: 2.25em;
+  margin: 0 auto;
+  font-size: .85em;
+  font-weight: 100;
+  float: left;
+  margin-left: 3.1em;
+  text-align: left;
+}
+.person-text{
+  display: inline-block;
+  font-weight: 300;
+  font-size: .46em;
+  word-spacing: .25em;
+  width: 25em;
+  /* margin: 0 auto; */
+  line-height: 2;
+  float: left;
+  margin-top: 1.5em;
+  margin-left: 5.9em;
+  text-align: left
+}
+.person-a{}
+.a-pic{
+  float: left;
+}
+.person-b{}
+.b-pic{
+  float: right;
+}
+.person-c{}
+.c-pic{
+  float: left;
+}
 
 
 

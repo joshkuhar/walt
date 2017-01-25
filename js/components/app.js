@@ -23,7 +23,7 @@ var App = React.createClass({
 			<div className="app">
 				<div className="top-navigation">
 				 <div className="top-navigation-wrapper">
-					<h1>Blogger</h1>
+					<h1>aleks</h1>
 					<div className="home-nav-bar">
 						<div className="nav-bar-item-container"><Link to={"/"}><div className="nav-bar-item">Home</div></Link></div>
 						<div className="nav-bar-item-container"><Link to={"/annals"}><div className="nav-bar-item">Ponderings</div></Link></div>

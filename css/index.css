@@ -268,6 +268,7 @@ h1 {
 .person{
   font-size: 2em;
   height: 12em;
+  color: white;
 }
 .image-wrapper{}
 .person-pic{
@@ -281,7 +282,7 @@ h1 {
 .person-name{
   display: inline-block;
   width: 5em;
-  padding-top: 2.25em;
+  padding-top: 2.1em;
   margin: 0 auto;
   font-size: .85em;
   font-weight: 100;
@@ -302,15 +303,31 @@ h1 {
   margin-left: 5.9em;
   text-align: left
 }
-.person-a{}
+.person-link{
+  display: inline-block;
+    /* width: auto; */
+  /* margin: 0 auto; */
+  float: left;
+  margin: left 3em;
+  font-size: 1.5em;
+  margin: 0em .0em .0em 1.7em;
+
+}
+.person-a{
+  background-color: #9FD4E0;
+}
 .a-pic{
   float: left;
 }
-.person-b{}
+.person-b{
+  background-color: #A1D490;
+}
 .b-pic{
   float: right;
 }
-.person-c{}
+.person-c{
+  background-color: #D4A190;
+}
 .c-pic{
   float: left;
 }
@@ -352,72 +369,7 @@ h1 {
 }
 /* #00B2B2  */
 
-.icon-list{
-  margin: 0 auto;
-  text-align: right;
-}
-.icon{
-  display: inline-block;
-  margin-left: .8em;
-}
-.icon-name {
-  display: inline-block;
-  color: #00EBEB;
-  font-size: .8em;
-  /*margin-right: .5em;*/
-}
-.display-enter {
-  opacity: 0.01;
-}
-.display-enter.display-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ;
-}
 
-.display-leave {
-  opacity: 1;
-}
-
-.display-leave.display-leave-active {
-  opacity: 0.01;
-  transition: opacity 10ms ;
-}
-.footer-icons{
-
-}
-
-.fa {
-  color: #04597F;
-  border: .1em solid #04597F;
-} 
-  /*
-  border-radius: 25px;
-  height: 1em;  
-  width: 2.1em;
-  text-align: center;
-  padding-top: .5em;
-  padding-bottom: .5em;
-  font-size: .5em;
-  margin-top: -.3em;
-  -webkit-transition: color .63s;
-  -moz-transition: color .63s;
-  -ms-transition: color .63s;
-  -o-transition: color .63s;
-  transition: color .63s;
-  vertical-align: middle;
-}
-.fa:hover{
-  color: #04597F;
-  border-color: #04597F;
-  background-color: white;
-  -webkit-transition: color .4s;
-  -moz-transition: color .4s;
-  -ms-transition: color .4s;
-  -o-transition: color .4s;
-  transition: color .4s;
-  cursor: pointer;
-}
-*/
 
 
 .landing-page-container{}
@@ -869,8 +821,124 @@ h1 {
   font-size: .83em;
   resize: none
 }
+.footer-section{
+  width: 9.5em;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: center;
+  font-size: .9em;
+}
+.footer{
+  margin: 12em auto;
+  /* padding-top: 10em; */
+  border-top: .05em solid;
+  width: 35em;
+  text-align: center;
+}
+.footer-brand{
+    margin: 1em auto;
+    width: 5em;
+    margin-bottom: 0em;
+    font-size: 3em;
+}
+.footer-brand-message{
+  font-weight: 100;
+  /* word-spacing: .125em; */
+  letter-spacing: .125em;
+  margin-bottom: 3em;
+}
+.footer-icons{
+  padding-left: .2em;
+}
 
+.icon-list{
+  margin: 0 auto;
+  text-align: right;
+}
+.icon{
+  display: inline-block;
+  margin-left: .8em;
+}
+.icon-name {
+  display: inline-block;
+  color: #00EBEB;
+  font-size: .8em;
+  /*margin-right: .5em;*/
+}
+.display-enter {
+  opacity: 0.01;
+}
+.display-enter.display-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ;
+}
 
+.display-leave {
+  opacity: 1;
+}
+
+.display-leave.display-leave-active {
+  opacity: 0.01;
+  transition: opacity 10ms ;
+}
+.fa {
+  color: #04597F;
+  border: .1em solid #04597F;
+  padding-top: .75em;
+  padding-bottom: .75em;
+  width: 2.6em;
+  font-size: .75em;
+  border-radius: 25px;
+} 
+  /*
+  border-radius: 25px;
+  height: 1em;  
+  width: 2.1em;
+  text-align: center;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  font-size: .5em;
+  margin-top: -.3em;
+  -webkit-transition: color .63s;
+  -moz-transition: color .63s;
+  -ms-transition: color .63s;
+  -o-transition: color .63s;
+  transition: color .63s;
+  vertical-align: middle;
+}
+.fa:hover{
+  color: #04597F;
+  border-color: #04597F;
+  background-color: white;
+  -webkit-transition: color .4s;
+  -moz-transition: color .4s;
+  -ms-transition: color .4s;
+  -o-transition: color .4s;
+  transition: color .4s;
+  cursor: pointer;
+}
+*/
+.footer-content{
+    font-size: .9em;
+    word-spacing: .25em;
+    font-weight: 300;
+    padding-top: 1em;
+}
+.footer-attributes{
+  border-left: .05em solid;
+  height: 3em;
+}
+.contact-info{
+   border-left: .05em solid;
+   height: 3em;
+}
+.legal{
+  margin: 3em auto;
+  font-size: .8em;
+  width: 33em;
+  font-weight: 100;
+  word-spacing: .125em;
+}
 
 
 

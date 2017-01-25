@@ -37,23 +37,25 @@ var Home = function(props){
 		  	 <img src="../assets/man-white-beard.jpg" alt="bearded-man" className="person-pic a-pic"/>
 		  	</div>
 		  	<div className="person-name">Lorem</div>
-		  	<div className="person-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet atque odit nemo quisquam voluptatem ullam repellat totam impedit aut autem necessitatibus.</div>	
+		  	<div className="person-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet atque odit nemo quisquam voluptatem ullam repellat totam impedit aut autem necessitatibus.</div>
+		  	<div className="person-link">Lorem</div>	
 		   </div>
 		   <div className="person-b person">
 		   <div className="image-wrapper">
 		  	<img src="../assets/woman-smiling.jpg" alt="woman-smiling" className="person-pic b-pic"/>
 		   </div>
 		  	<div className="person-name">Lorm</div>
-		  	<div className="person-text">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae corporis consequuntur ea dolore numquam esse natus nisi suscipit architecto perspiciatis? Incidunt voluptatibus ab suscipit fuga laborum quas magni eveniet minus.
+		  	<div className="person-text">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae corporis consequuntur ea dolore numquam esse natus nisi suscipit architecto perspiciatis? Incidunt voluptatibus ab suscipit.
 		  	</div>
+		  	<div className="person-link">Lorem</div>
 		   </div>
 		   <div className="person-c person">
 		   <div className="image-wrapper">
 		  	<img src="../assets/man-confetti.jpg" alt="man-confetti" className="person-pic c-pic"/>
 		   </div>
 		  	<div className="person-name">Ipsum</div>
-		  	<div className="person-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore obcaecati natus cumque tenetur placeat sapiente in voluptate molestias soluta maiores. Perferendis laudantium unde deleniti expedita illum aliquid, ea quia officiis.
-		  		Reprehenderit explicabo quis id voluptatum quisquam, incidunt numquam deleniti? Libero doloremque aliquid.</div>
+		  	<div className="person-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore obcaecati natus cumque tenetur placeat sapiente in voluptate molestias soluta maiores.</div>
+		  	<div className="person-link">Lorem</div>
 		   </div>
 		  </section>
 		</div>

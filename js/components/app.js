@@ -35,13 +35,23 @@ var App = React.createClass({
 				<div>
 					{this.props.children}
 				</div>
-				<div className="footer">
-				 <ul className="footer-icons">
-					<a href=""><li className="icon"><FontAwesome className="fa fa-facebook" id="facebook" name="facebook"aria-hidden="true" onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
-					<a href=""><li className="icon"><FontAwesome className="fa fa-twitter" id="twitter"name="twitter"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
-					<li className="icon"><FontAwesome className="fa fa-instagram" id="instagram"name="instagram"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li>
-				 </ul>
-				</div>
+				<footer className="footer">
+					<div className="footer-brand">aleks</div>
+					<div className="footer-brand-message">content management</div>
+					 <ul className="footer-icons footer-section">
+						<a href=""><li className="icon"><FontAwesome className="fa fa-facebook" id="facebook" name="facebook"aria-hidden="true" onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
+						<a href=""><li className="icon"><FontAwesome className="fa fa-twitter" id="twitter"name="twitter"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>
+						<li className="icon"><FontAwesome className="fa fa-instagram" id="instagram"name="instagram"aria-hidden="true"onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li>
+					 </ul>
+					<div className="footer-attributes footer-section">
+						<div className="footer-content">Images via Unsplash</div>
+					</div>
+					<div className="contact-info footer-section">
+						<div className="footer-content">Phone 555-867-5309</div>
+					</div>
+					<div className="legal">Disclaimer: Lorem ipsum dolor sit amet, consectetur adipisicing elit animi voluptas amet, similique soluta iure illo fugit omnis dicta nam non.</div>
+				
+				</footer>
 			</div>
 			)
 	}

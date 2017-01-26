@@ -38,7 +38,7 @@ var Routes = (
 		<Router history={hashHistory}>
 			<Route path="/" component={App}>
 				<IndexRoute component={Home} />
-				<Route path="main" component={Landing} />
+				<Route path="today" component={Landing} />
 				<Route path="annals" component={AnnalsSelect} >
 					<IndexRoute component={AnnalsList} />
 				</Route>

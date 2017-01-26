@@ -85,6 +85,7 @@ textarea{
   height: 2.9em;
   width: 100%;
   position: fixed;
+  border-bottom: .02em solid #04597F;
 }
 .top-navigation-wrapper{
   width: 100%;
@@ -108,7 +109,7 @@ textarea{
 }
 .nav-bar-item {
   display: inline-block;
-  width: 5em;
+  width: 5.4em;
   text-align: center;
   color: #04597F;
   -webkit-transition: color .63s;
@@ -363,7 +364,7 @@ h1 {
     box-shadow: 1px 3px 10px 1px black;
 }
 .main-parent-container{
-    width: 24.8em;
+    width: 35em;
     margin: 0 auto;
     padding-top: 7em;
 }
@@ -378,9 +379,10 @@ h1 {
 .landing-post{    
   text-align: justify;
   white-space: pre-line;
+  font-size: 1.2em;
 }
 .landing-title{
-  font-size: 1.5em;
+  font-size: 2.1em;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.125em;
@@ -448,36 +450,101 @@ h1 {
   font-weight: 200;
   color: black;
 }
-.annals-container{
- width: 35em;
- margin: 0 auto;
-}
+
 .annals-form{
-  width: 13em;
+  background-image: url(../assets/couple-lake.jpg);
+  margin: auto;
+  display: block;
+  margin: auto;
+  height: 0em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
   margin: 0 auto;
-  padding-top: 5.2em;
+  padding-top: 24em;
+  margin-bottom: 22em;
 }
+.annals{
+    width: 40em;
+    margin: 1em auto;
+    padding-top: 5em;
+    color: black;
+}
+
 .selector-wrapper {
-  background-color: white;
-  margin-top: -.2em;
-  padding-bottom: .1em;
+    background-color: white;
+    width: 21.2em;
+    margin: 5em auto;
+    background-color: transparent;
 }
 .annals-selector{
-  font-size: .68em;
+  font-size: 1em;
+}
+.annals-image-text{
+      /* margin-bottom: 3em; */
+    margin-top: -5em;
+    padding-bottom: 9em;
+    font-size: 2.5em;
+    color: white;
+    font-weight: 100;
+    text-align: center;
+    text-shadow: black;
+    text-shadow: -1px 2px 3px black;
+    word-spacing: .15em;
+    text-transform: uppercase;
+}
+.annals-image-small-text{
+    margin-top: -17.5em;
+    text-align: center;
+    color: white;
+    padding-bottom: 18em;
+    font-size: 1.1em;
+    font-weight: 100;
+    text-shadow: -2px 2px 4px black;
+}
+.annals-image-lower-text{
+    margin-top: -4em;
+    text-align: center;
+    color: black;
+    font-size: 2em;
+    font-weight: 100;
+    word-spacing: .3em;
+    padding-bottom: .5em;
 }
 .annals-selector-button{
-  font-size: .63em;
-  border-radius: 5px;
-  border: .08em solid #04597F;
-  background-color: white;
-  margin-left: .38em;
-  color: #04597F;
-  width: 4.62em;
-  -webkit-transition: color .4s;
-  -moz-transition: color .4s;
-  -ms-transition: color .4s;
-  -o-transition: color .4s;
-  transition: color .4s;
+    font-size: 1em;
+    border-radius: 5px;
+    border: .08em solid #04597F;
+    background-color: white;
+    margin-left: .38em; 
+    color: #04597F;
+    width: 7em;
+    -webkit-transition: color .4s;
+    -moz-transition: color .4s;
+    -ms-transition: color .4s;
+    -o-transition: color .4s;
+    transition: color .4s;
+    height: 1.9em;
+    padding: 0 1em;
+    position: relative;
+    top: -0.075em;
+    vertical-align: middle;
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: white;
+    border-radius: 6px;
+    border: .1em solid #038F96;
+    color: #038F96;
+    cursor: pointer;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
+    font-size: 0.8em;
 }
 .annals-selector-button:hover{
   color: white;
@@ -489,11 +556,7 @@ h1 {
   transition: color .4s;
   cursor: pointer;
 }
-.annals{
-    width: 24em;
-    margin: 0 auto;
-    padding-top: 1em;
-}
+
 .annals-next-navigator{
   text-align: center;
   font-size: 1.2em;
@@ -502,28 +565,37 @@ h1 {
 .annals-next-navigator:hover{
   cursor: pointer;
 }
-.annals-list-container{}
-.annals-list{}
+
 .annals-post{
-  margin-bottom: .5em;
+  margin-bottom: 10em;
 }
+.title-rider{}
 .annals-post-title{
   font-family: 'Marcellus SC', serif;
-  font-size: 1em;
+  font-size: 2.2em;
+  display: inline-block;
+  word-spacing: .05em;
+  margin-bottom: -1em;
+  color: black;
 }
 .annals-post-date{
-  font-size: .62em;
+  font-size: .66em;
   display: inline;
+  font-weight: 100;
 }
 .annals-post-category{
-  font-size: .62em;
+  font-size: .85em;
   display: inline;
-  margin-left: .5em;
-  font-weight: 600;
+  margin-left: 1em;
+  font-weight: 500;
 }
 .annals-post-body{
-  font-size: .8em;
+  font-size: 1em;
   font-weight: 300;
+  word-spacing: .125em;
+  line-height: 2;
+  margin-top: 2em;
+  width: 40em;
 }
 .login{
   text-align: center;
@@ -834,6 +906,7 @@ h1 {
   border-top: .05em solid;
   width: 35em;
   text-align: center;
+  margin-bottom: 0em;
 }
 .footer-brand{
     margin: 1em auto;

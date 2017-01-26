@@ -20,8 +20,8 @@ var AnnalsList = function(props){
 		)
 	}
 	return (
-		<div className="annals-list-container">
-			<div className="annals-list">{postList}</div>
+		<div >
+			<div>{postList}</div>
 		</div>
 
 		)

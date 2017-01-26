@@ -26,6 +26,7 @@ var App = React.createClass({
 					<h1>aleks</h1>
 					<div className="home-nav-bar">
 						<div className="nav-bar-item-container"><Link to={"/"}><div className="nav-bar-item">Home</div></Link></div>
+						<div className="nav-bar-item-container"><Link to={"/today"}><div className="nav-bar-item">Today</div></Link></div>
 						<div className="nav-bar-item-container"><Link to={"/annals"}><div className="nav-bar-item">Ponderings</div></Link></div>
 						<div className="nav-bar-item-container"><Link to={"/about"}><div className="nav-bar-item">About</div></Link></div>
 						<button className="hg-top">Learn More</button>

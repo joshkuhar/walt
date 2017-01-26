@@ -13,7 +13,7 @@ var Post = function(props){
 	return (
 		<div className="post">
 			<Link to="/annals"><div className="post-back-link">Back</div></Link>
-			<div className="post-title">{post.title}</div>
+			<div className="post-title"><span className="title-rider">posted under</span>{post.title}</div>
 			<div className="post-date">{post.month +" "+post.date+", "+post.year}</div>
 			<div className="post-category">{category}</div>
 			<div className="post-body">{post.content}</div>

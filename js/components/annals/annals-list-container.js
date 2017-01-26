@@ -22,7 +22,7 @@ var AnnalsListContainer = React.createClass({
 	},
 	render: function(){
 		return (
-			<div className="annals-container">
+			<div >
 				<div className="annals">
 					<AnnalsList postList={this.props.posts} categories={this.props.categories}/>
 					<div className="annals-next-navigator" onClick={this.onClick}>Next</div>

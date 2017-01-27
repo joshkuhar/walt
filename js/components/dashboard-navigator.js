@@ -20,18 +20,16 @@ var DashboardNavBar  = React.createClass({
 		// this.props.dispatch(actions.logOut());
 		hashHistory.push('/login');
 	},
-	onStore: function(event){
-		event.preventDefault();
-		console.log(store.getState());
-	},
+	// onStore: function(event){
+	// 	event.preventDefault();
+	// 	console.log(store.getState());
+	// },
 	componentDidLeave: function() {
 		//this.props.dispatch(actions.kindWords(""));
 	},
 	render: function(){
 		return (
 			<div>
-				<Link to="/">Home Page</Link>
-				<button onClick={this.onStore}>store</button>
 				<div className="dashboard">
 				<div className="dashboard-wrapper">
 					<div onClick={this.handleSignOut}className="sign-out">Sign Out</div>
@@ -43,9 +41,6 @@ var DashboardNavBar  = React.createClass({
 							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/about"><div className="dashboard-nav-bar-item">Edit About</div></Link></div>
 							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/category"><div className="dashboard-nav-bar-item">Categories</div></Link></div>
 						</div>
-					</div>
-					<div className="dashboard-display-bar">
-					<ReactCSSTransitionGroup transitionName="kindWords" transitionEnterTimeout={500} transitionLeaveTimeout={500}><div key={this.props.kindWords} className="kind-words">{this.props.kindWords}</div></ReactCSSTransitionGroup>
 					</div>
 				</div>
 				<div className="dashboard-main">
@@ -68,3 +63,18 @@ var mapStateToProps = function(state, props) {
 var Container = connect(mapStateToProps)(DashboardNavBar);
 
 module.exports= Container;
+
+
+/*
+
+
+<Link to="/">Home Page</Link>
+<button onClick={this.onStore}>store</button>
+
+<div className="dashboard-display-bar">
+<ReactCSSTransitionGroup transitionName="kindWords" transitionEnterTimeout={500} transitionLeaveTimeout={500}><div key={this.props.kindWords} className="kind-words">{this.props.kindWords}</div></ReactCSSTransitionGroup>
+</div>
+
+
+
+*/

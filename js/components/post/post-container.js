@@ -11,7 +11,9 @@ var Post = require('./post');
 var PostContainer = React.createClass({
 	render: function(){
 		return (
-			<Post posts={this.props.posts} categories={this.props.categories} postId={this.props.params.postId}/>
+			<div className="post-wrapper">
+				<Post posts={this.props.posts} categories={this.props.categories} postId={this.props.params.postId}/>
+			</div>
 			)
 	}
 });

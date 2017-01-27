@@ -14,9 +14,14 @@ var AboutContainer = React.createClass({
 	},
 	render: function() {
 		return (
-				<div className="about-container">	
-					<h3>About Me</h3>
-					<About about={this.props.about} />
+				<div className="about-container">
+				<div className="about-background"></div>	
+					<div className="about-box a-text">
+					  <About about={this.props.about} />
+					</div>
+					<div className="about-box about-image">
+					  <img src="../assets/man-smoking.jpg" alt="picture" className="a-image"/>
+					</div>
 				</div>
 			)
 	}

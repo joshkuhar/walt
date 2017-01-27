@@ -13,7 +13,7 @@ var Home = function(props){
 		<div className="home">
 		 <div className="picture-a">
 		 	<div className="banner-icon">aleks</div>
-			<div className="banner-header">content management</div>
+			<div className="banner-header"><span className="shallow">shallow </span>content management</div>
 		 </div>
 		 <section className="explain">
 		  <div className="explain-text">mongodb mongoose express react react-router redux nodejs passport-jwt</div>

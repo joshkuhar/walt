@@ -192,8 +192,8 @@ h1 {
   color: white;
   font-weight: 200;
   letter-spacing: .125em;
-
 }
+.shallow{}
 .explain{
   margin-top: 8em;
 }
@@ -342,26 +342,59 @@ h1 {
 .about-container{
     text-align: center;
     padding-top: 3.7em;
-    width: 24.8em;
+    max-width: 50em;
     margin: 0 auto;
-}
-.about{
-    width: 24.8em;
-    margin: 0 auto;
-    text-align: justify;
     white-space: pre-line;
     font-weight: 300;
+
+}
+.about{
+    font-size: .8em;
+    width: 80%;
+    margin: 5em auto;
+    word-spacing: .1em;
+    line-height: 1.5;
+    text-align: left;
+    color: white;
 }
 .about-wrapper{}
+.about-box{
+  width: 49%;
+  height: 37em;
+  /* margin: 0 auto; */
+  display: inline-block;
+  border: .02em solid black;
+  vertical-align: bottom;
+  margin-top: 5em;
+  background-color: #32383F;
+}
+.about-name{
+  font-size: 2.8em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.about-line{
+  border-bottom: .02em solid white;
+  width: 4.5em;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+.about-title{
+  font-size: 2em;
+}
+.about-text{
+  margin-top: 1.5em;
+}
+.a-text{
+
+}
 .about-image{
-    display: inline;
-    height: 9em;
-    width: auto;
-    float: left;
-    margin-right: 1em;
-    margin-bottom: .3em;
-    border-radius: 10px;
-    box-shadow: 1px 3px 10px 1px black;
+
+}
+.a-image{
+ object-fit: cover;
+ height: 100%;
+ width: 100%;
 }
 .main-parent-container{
     width: 35em;
@@ -385,7 +418,8 @@ h1 {
   font-size: 2.1em;
   font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 0.125em;
+  letter-spacing: 0.025em;
+  margin-bottom: -.2em;
 }
 .landing-date{
   display: inline;
@@ -398,10 +432,15 @@ h1 {
   margin-left: 1em;
 }
 .landing-body{
-  margin: 0 auto;
+  margin: 2em auto;
   font-weight: 200;
   color: black;
+
 }
+
+
+
+
 
 .post-list{}
 .post-back-link{
@@ -424,14 +463,24 @@ h1 {
   cursor: pointer;
 
 }
-.post{
-  width: 24.8em;
+.post-wrapper{
+  max-width: 35em;
   margin: 0 auto;
   padding-top: 5em;
 }
+.post{
+  text-align: justify;
+  white-space: pre-line;
+  font-size: 1.2em;
+  color: black;
+
+}
 .post-title{
-  font-size: 1.5em;
-  font-family: 'Marcellus SC', serif;
+  font-size: 2.1em;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin-bottom: -.2em;
 }
 .post-category{
   display: inline;
@@ -444,9 +493,7 @@ h1 {
   font-weight: 200;
 }
 .post-body{
-  text-align: justify;
-  white-space: pre-line;
-  margin: 0 auto;
+  margin: 2em auto;
   font-weight: 200;
   color: black;
 }
@@ -463,6 +510,7 @@ h1 {
   margin: 0 auto;
   padding-top: 24em;
   margin-bottom: 22em;
+  max-width: 80em;
 }
 .annals{
     width: 40em;
@@ -856,6 +904,23 @@ h1 {
   margin: 0 auto;
   text-align: center;
 }
+
+.about-background{
+  background-image: url(../assets/about-background.jpg);
+  margin: auto;
+  display: block;
+  margin: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  height: 90em;
+  filter: opacity(75%) blur(5px);
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  margin-top: -5em;
+}
 .about-form-outside-container{
     width: 25em;
     margin: 1em auto;
@@ -901,12 +966,12 @@ h1 {
   font-size: .9em;
 }
 .footer{
-  margin: 12em auto;
-  /* padding-top: 10em; */
-  border-top: .05em solid;
-  width: 35em;
-  text-align: center;
-  margin-bottom: 0em;
+    margin: 12em auto;
+    border-top: .05em solid;
+    text-align: center;
+    margin-bottom: 0em;
+    background-color: lightgray;
+    color: white;
 }
 .footer-brand{
     margin: 1em auto;
@@ -992,10 +1057,10 @@ h1 {
 }
 */
 .footer-content{
-    font-size: .9em;
-    word-spacing: .25em;
-    font-weight: 300;
-    padding-top: 1em;
+    text-align: center;
+    margin-bottom: 0em;
+    background-color: lightgray;
+    color: white;
 }
 .footer-attributes{
   border-left: .05em solid;
@@ -1011,6 +1076,9 @@ h1 {
   width: 33em;
   font-weight: 100;
   word-spacing: .125em;
+  margin-bottom: 0;
+  /* height: 30em; */
+  padding-bottom: 2em;
 }
 
 

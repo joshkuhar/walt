@@ -30,29 +30,20 @@ var PostToEdit = React.createClass ({
 		return (
 		    <div className="post-edit-container">
 		      <form className="post-edit-form" onSubmit={this.handleSubmit}>
-	
-			        <div className="post-edit-title-header">Title</div>
-			        	<div className="post-edit-title-input-container">
-							<input className="post-edit-title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
-			        	</div>
-			        	<textarea className="post-edit-textarea" value={this.props.content} placeholder="type away..." onChange={this.handlePostChange} />
+			       	<div className="title-header">Title</div> 
+					<input className="title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
+			      	<div className="textarea-title">Blog Post</div>
+			       	<textarea className="textarea" value={this.props.content} placeholder="type away..." onChange={this.handlePostChange} />
 		        	<div className="post-edit-buttons-container">
-			       		<div className="post-edit-cancel-button-container">
-			        		<Link to="/dashboard/edit"><button className="post-edit-cancel-button">Cancel</button></Link>
-			        	</div>
-			        	<div className="post-edit-submit-button-container">
-							<button className="post-edit-submit-button" type="submit" value="Submit">Submit</button>
-			        	</div>
-			        	<div className="post-edit-delete-button-container">
-							<Link to={"/dashboard/remove/post/"+this.props.params.postId}>
-							  <button className="post-edit-delete-button">Delete</button>
-							</Link>
-			        	</div>
-			        </div>
+		        	 <Link to="/dashboard/edit"><button className="cancel-button">Cancel</button></Link>
+					   <button className="submit-button" type="submit" value="Submit">Submit</button>
+				     <Link to={"/dashboard/remove/post/"+this.props.params.postId}>
+					   <button className="delete-button">Delete</button>
+					 </Link>
+			    	</div>
 		      </form>
 		     </div>
     );
-
   }
 });
 

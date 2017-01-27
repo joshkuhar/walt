@@ -22,9 +22,9 @@ var DeletePost = React.createClass({
 		return(
 			<div className="delete-post-container">
 				<div className="delete-post-wrapper">
-				  <div>To delete this post, click the delete button.</div>
-				  <button className="post-edit-cancel-button" onClick={this.handleCancelClick}>Cancel</button>
-				  <button className="post-edit-delete-button" onClick={this.handleDeleteClick}>Delete</button>
+				  <div className="confirm-delete">To delete this post, click the delete button.</div>
+				  <button className="cancel-button" onClick={this.handleCancelClick}>Cancel</button>
+				  <button className="delete-button-confirm" onClick={this.handleDeleteClick}>Delete</button>
 				</div>
 			</div>
 			)

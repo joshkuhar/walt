@@ -29,12 +29,12 @@ var AboutEdit = React.createClass ({
 		      <form onSubmit={this.handleSubmit}>
 			        <div className="about-form-container">
 			        	<div className="about-header-container">
-			        		<div className="about-title">Edit About</div>
+			        		<div className="textarea-title">Edit About</div>
 			        	</div>
-					<textarea className="about-textarea" value={this.props.about} placeholder="tell the world about yourself..." onChange={this.handleAboutChange} />
+					<textarea className="textarea" value={this.props.about} placeholder="tell the world about yourself..." onChange={this.handleAboutChange} />
 						<div className="about-button-wrapper"> 
-		        			<Link to="/dashboard"><button className="about-cancel-button">Cancel</button></Link>
-							<input className="about-submit-button"type="submit" value="Submit" />
+		        			<Link to="/dashboard"><button className="cancel-button">Cancel</button></Link>
+							<input className="submit-button"type="submit" value="Submit" />
 						</div>
 				    </div>
 		      </form>

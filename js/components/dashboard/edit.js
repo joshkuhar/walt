@@ -5,12 +5,14 @@ var Link = router.Link;
 
 var PostToEdit = function(props){
 	return (
-		<div className="post-edit">
-
-			<Link to={"/dashboard/edit/"+props.postId}>
-				<div className="post-edit-title">{props.postToEditTitle}</div>
-			</Link>
-			<div className="post-edit-date">{props.postDate}</div>
+		<div className="edit-list-item">
+			<div className="item-box b-title">
+			<div className="edit-title">{props.postToEditTitle}</div>
+			<div className="edit-date">{props.postDate}</div>
+			</div>
+			<div className="item-box b-button">
+			<Link to={"/dashboard/edit/"+props.postId}><button className="edit-list-button">edit post</button></Link>
+			</div>
 		</div>
 		)
 };

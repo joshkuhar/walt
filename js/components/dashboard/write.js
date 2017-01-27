@@ -39,7 +39,6 @@ var PostContent = React.createClass ({
   			}
   			//hashHistory.push('/dashboard/create/success');
   			
-  			
 	    this.props.dispatch(actions.postContent(this.props.title, this.props.category, this.props.content, date.month, date.date, date.year, this.props.token));
 
 	},
@@ -64,17 +63,14 @@ var PostContent = React.createClass ({
 						  	  </select>
 						    </div>
 						  </div>
-						    <div className="post-write-title-header">Title</div>
-							  <input className="post-write-title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
-						    <textarea className="post-write-textarea" value={this.props.content} placeholder="type away..." onChange={this.handleContentChange} />
-						<div className="post-write-buttons-container">
-						  <div className="post-write-cancel-button-container">
-						     <Link to="/dashboard"><button className="post-write-cancel-button">Cancel</button></Link>
-						  </div>
-						  <div className="post-write-submit-button-container">
-						    <button className="post-write-submit-button"type="submit">Submit</button>
-						  </div>
-						</div>
+						    <div className="title-header">Title</div>
+							<input className="title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
+							<div className="textarea-title">Blog Post</div>
+						    <textarea className="textarea" value={this.props.content} placeholder="type away..." onChange={this.handleContentChange} />
+						    <div className="post-write-buttons-container">
+						      <Link to="/dashboard"><button className="cancel-button">Cancel</button></Link>
+						      <button className="submit-button"type="submit">Submit</button>
+						    </div>
 					</form>
 				</div>
     );

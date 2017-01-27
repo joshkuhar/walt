@@ -24,23 +24,28 @@ var Home = function(props){
 		    <div className="image-wrapper">
 		  	 <img src="../assets/old-text.jpg" alt="old-manuscript" className="person-pic a-pic"/>
 		  	</div>
-		  	<div className="person-name">ink and pen</div>
-		  	<div className="person-text">personal, decorative, optimized for single viewer</div>
+		  	  <div className="side-wrapper">
+		  	    <div className="person-name">ink and pen</div>
+		  	    <div className="person-text">personal, decorative, optimized for single viewer</div>
+		  	  </div>
 		   </div>
 		   <div className="person-b person">
 		   <div className="image-wrapper">
 		  	<img src="../assets/typewriter.jpg" alt="typewriter" className="person-pic b-pic"/>
 		   </div>
-		  	<div className="person-name">keys and ribbon</div>
-		  	<div className="person-text">reliable, efficient, can be used almost anywhere
-		  	</div>
+		     <div className="side-wrapper">
+		  	  <div className="person-name">keys and ribbon</div>
+		  	  <div className="person-text">reliable, efficient, can be used almost anywhere</div>
+		     </div>
 		   </div>
 		   <div className="person-c person">
 		   <div className="image-wrapper">
 		  	<img src="../assets/laptop.jpg" alt="laptop-computer" className="person-pic c-pic"/>
 		   </div>
-		  	<div className="person-name">bits and bytes</div>
-		  	<div className="person-text">versitile, portable, the world can hear you</div>
+		     <div className="side-wrapper">
+		  	  <div className="person-name">bits and bytes</div>
+		  	  <div className="person-text">versitile, portable, the world can hear you</div>
+		     </div>
 		   </div>
 		  </section>
 		  <article className="article-section">

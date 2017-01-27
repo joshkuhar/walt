@@ -212,7 +212,7 @@ h1 {
   text-transform: capitalize;
   padding-top: 8em;
   border-top: .02em solid;
-  width: 40em;
+  max-width: 30em;
   margin: 0 auto;
 }
 .explain-footer{
@@ -293,6 +293,7 @@ h1 {
   object-fit: cover;
   border-radius: 1px;
 }
+.side-wrapper{}
 .person-name{
   display: inline-block;
   width: 5em;
@@ -1086,11 +1087,12 @@ h1 {
   resize: none
 }
 .footer-section{
-  width: 9.5em;
-  margin: 0 auto;
-  display: inline-block;
-  text-align: center;
-  font-size: .9em;
+    width: 13em;
+    padding-top: 1em;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: center;
+    font-size: .9em;
 }
 .footer{
     margin: 12em auto;
@@ -1214,98 +1216,96 @@ h1 {
 
 @media only screen and (max-width: 1000px) {
     .app {
-      font-size: 1.4em;
+      font-size: .9em;
     }
 }
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 900px) {
     .app {
-      font-size: 1.3em;
-    }
-    .icon-list {
-      width: 35em;
-    }
-    .top-navigation-wrapper {
-      width: 35em;
+      font-size: .8em;
     }
 }
-@media only screen and (max-width: 850px) {
+
+@media only screen and (max-width: 740px) {
     .app {
-      font-size: 1.3em;
+      
     }
-    .icon-list {
-      width: 35em;
+    .people {
+      width: 22em;
+      margin: 0 auto;
     }
-    .top-navigation-wrapper {
-      width: 35em;
+    .person-pic{
+      max-width: 22em;
+      height: inherit;
+      width: inherit;
     }
-}
-@media only screen and (max-width: 800px) {
-    .app {
-      font-size: 1.2em;
-    }
-    .icon-list {
-      width: 35em;
-    }
-    .top-navigation-wrapper {
-      width: 35em;
-    }
-      .annals-container {
-      font-size: 1.1em;
-      width: 20em;
-    }
-}
-@media only screen and (max-width: 700px) {
-    .app {
+    .person{
+      height: 44em;
       font-size: 1em;
     }
-    .icon-list {
-      width: 30em;
+    .person-name{
+      width: auto;
+      margin: 2em auto;
+      display: block;
+      font-size: 1.6em;
+      padding: 0;
+      float: none;
+      text-align: center;
+      border: none;
     }
-    .top-navigation-wrapper {
-      width: 30em;
+    .person-text{
+      font-size: .9em;
+      max-width: 13em;
+      margin: 0 auto;
+      float: none;
+      line-height: normal;
+      text-align: center;
     }
-    .annals-container {
-      font-size: 1.2em;
-      width: 20em;
+    .image-wrapper{
+      width: 22em;
+      height: 22em;
     }
+    .footer{
+      width: auto;
+    }
+
 }
 @media only screen and (max-width: 600px) {
     .app {
-      font-size: 1em;
+     
     }
-    .icon-list {
-      width: 25em;
-    }
-    .top-navigation-wrapper {
-      width: 25em;
-    }
-    .main-parent-container {
-      width: 25em;
-    }
-    .annals-container {
-      font-size: 1.3em;
-      width: 20em;
-    }
+
 }
 @media only screen and (max-width: 500px) {
     .app {
-      font-size: 1em;
+     
     }
-    h1{
-      font-size: 1em;
+    .top-navigation{
+      font-size: .8em;
     }
-    .icon-list {
-      width: 20em;
+    .footer{
+      font-size: .8em;
     }
-    .top-navigation-wrapper {
-      width: 20em;
+    .footer-section{
+      display: block;
     }
-    .main-parent-container {
-      width: 20em;
+    .contact-info{
+      border: none;
     }
-    .annals-container {
-      font-size: 1.3em;
-      width: 15em;
+    .footer-attributes{
+      border: none;
+    }
+
+ 
+}
+@media only screen and (max-width: 400px) {
+    .app {
+
+    }
+ 
+}
+@media only screen and (max-width: 300px) {
+    .app {
+
     }
 }
 

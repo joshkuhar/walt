@@ -12,52 +12,48 @@ var Home = function(props){
 	return (
 		<div className="home">
 		 <div className="picture-a">
-		 	<div className="banner-icon">aleks</div>
-			<div className="banner-header"><span className="shallow">shallow </span>content management</div>
+		 	<div className="banner-icon">walt</div>
+			<div className="banner-header"><span className="shallow">text </span>content management</div>
 		 </div>
 		 <section className="explain">
-		  <div className="explain-text">mongodb mongoose express react react-router redux nodejs passport-jwt</div>
-		  <div className="explain-footer"></div>
+
+		  <div className="quote"><p>A word is dead</p><p>When it is said,</p><p>Some say.</p><p>I say it just begins</p><p>to live that day</p><p>– Emily Dickinson</p></div>
 		 </section>
-		  <article className="article-section">
-		  <div className="section-a">
-		   <h4 className="art-header">Lysander</h4>
-			<div className="section-inside">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos temporibus veniam eveniet, optio, reprehenderit magnam incidunt consequuntur iste at assumenda est neque, accusantium aliquam animi unde ex deleniti magni repudiandae.</div>
-			<button className="section-button">button</button>
-		  </div>
-		  <div className="section-b">
-		   <h4 className="art-header">Cleopatra</h4>
-		 	<div className="section-inside">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt ullam dolorem voluptate accusamus enim voluptatibus! Possimus ipsum vero, qui, illo hic, praesentium distinctio quam voluptas aliquam facere sequi, magni voluptate!</div>
-		 	<button className="section-button">button</button>
-		  </div>
-		  </article>
 		  <section className="people">
 		   <div className="person-a person">
 		    <div className="image-wrapper">
-		  	 <img src="../assets/man-white-beard.jpg" alt="bearded-man" className="person-pic a-pic"/>
+		  	 <img src="../assets/old-text.jpg" alt="old-manuscript" className="person-pic a-pic"/>
 		  	</div>
-		  	<div className="person-name">Lorem</div>
-		  	<div className="person-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet atque odit nemo quisquam voluptatem ullam repellat totam impedit aut autem necessitatibus.</div>
-		  	<div className="person-link">Lorem</div>	
+		  	<div className="person-name">ink and pen</div>
+		  	<div className="person-text">personal, decorative, optimized for single viewer</div>
 		   </div>
 		   <div className="person-b person">
 		   <div className="image-wrapper">
-		  	<img src="../assets/woman-smiling.jpg" alt="woman-smiling" className="person-pic b-pic"/>
+		  	<img src="../assets/typewriter.jpg" alt="typewriter" className="person-pic b-pic"/>
 		   </div>
-		  	<div className="person-name">Lorm</div>
-		  	<div className="person-text">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae corporis consequuntur ea dolore numquam esse natus nisi suscipit architecto perspiciatis? Incidunt voluptatibus ab suscipit.
+		  	<div className="person-name">keys and ribbon</div>
+		  	<div className="person-text">reliable, efficient, can be used almost anywhere
 		  	</div>
-		  	<div className="person-link">Lorem</div>
 		   </div>
 		   <div className="person-c person">
 		   <div className="image-wrapper">
-		  	<img src="../assets/man-confetti.jpg" alt="man-confetti" className="person-pic c-pic"/>
+		  	<img src="../assets/laptop.jpg" alt="laptop-computer" className="person-pic c-pic"/>
 		   </div>
-		  	<div className="person-name">Ipsum</div>
-		  	<div className="person-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore obcaecati natus cumque tenetur placeat sapiente in voluptate molestias soluta maiores.</div>
-		  	<div className="person-link">Lorem</div>
+		  	<div className="person-name">bits and bytes</div>
+		  	<div className="person-text">versitile, portable, the world can hear you</div>
 		   </div>
 		  </section>
+		  <article className="article-section">
+		  <div className="section-a">
+		   <h4 className="art-header">Be Heard</h4>
+			<div className="section-inside">State your opinions, write a funny story, share your best recipes, complain about the weather, this app will let you reach the world.</div>
+		  </div>
+		  <div className="section-b">
+		   <h4 className="art-header">Write Words</h4>
+		 	<div className="section-inside"><span className="walt">walt</span> is a blogging platform that let's you write, publish, and manage your own blogs. It uses MongoDB, Express, React, and Node.js</div>
+		  </div>
+		   <div className="explain-text">I sound my barbaric yawp over the rooftops of the world - Walt Whitman</div>
+		  </article>
 		</div>
 		)
 }

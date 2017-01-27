@@ -37,8 +37,7 @@ var AnnalsSelect = React.createClass({
 		return (
 			<div className="annals-container">
 					<form className="annals-form">
-						<div className="annals-image-text">in their own words</div>
-						<div className="annals-image-small-text">search by category for previous posts</div>
+						<div className="annals-image-text">in your own words</div>
 						<div className="annals-image-lower-text">click on the title to read the article</div>
 						<div className="selector-wrapper">
 

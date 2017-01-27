@@ -23,13 +23,12 @@ var App = React.createClass({
 			<div className="app">
 				<div className="top-navigation">
 				 <div className="top-navigation-wrapper">
-					<h1>aleks</h1>
+					<h1>walt</h1>
 					<div className="home-nav-bar">
 						<div className="nav-bar-item-container"><Link to={"/"}><div className="nav-bar-item">Home</div></Link></div>
-						<div className="nav-bar-item-container"><Link to={"/today"}><div className="nav-bar-item">Today</div></Link></div>
-						<div className="nav-bar-item-container"><Link to={"/annals"}><div className="nav-bar-item">Ponderings</div></Link></div>
+						<div className="nav-bar-item-container"><Link to={"/today"}><div className="nav-bar-item">Recent</div></Link></div>
+						<div className="nav-bar-item-container"><Link to={"/annals"}><div className="nav-bar-item">Writings</div></Link></div>
 						<div className="nav-bar-item-container"><Link to={"/about"}><div className="nav-bar-item">About</div></Link></div>
-						<button className="hg-top">Learn More</button>
 					</div>
 				 </div>
 				</div>
@@ -37,7 +36,7 @@ var App = React.createClass({
 					{this.props.children}
 				</div>
 				<footer className="footer">
-					<div className="footer-brand">aleks</div>
+					<div className="footer-brand">walt</div>
 					<div className="footer-brand-message">content management</div>
 					 <ul className="footer-icons footer-section">
 						<a href=""><li className="icon"><FontAwesome className="fa fa-facebook" id="facebook" name="facebook"aria-hidden="true" onMouseEnter={this.didEnter}onMouseLeave={this.didLeave}/></li></a>

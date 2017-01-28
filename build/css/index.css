@@ -457,7 +457,7 @@ h1 {
   margin: 2em auto;
   font-weight: 200;
   color: black;
-
+  line-height: 2em;
 }
 
 
@@ -489,6 +489,7 @@ h1 {
   max-width: 35em;
   margin: 0 auto;
   padding-top: 5em;
+  line-height: 2em;
 }
 .post{
   text-align: justify;
@@ -503,6 +504,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.025em;
   margin-bottom: -.2em;
+  line-height: 1.3em;
 }
 .post-category{
   display: inline;
@@ -1102,7 +1104,7 @@ h1 {
     background-color: lightgray;
     color: white;
     font-size: .9em;
-    width: 70em;
+    width: auto;
 }
 .footer-brand{
     margin: 1em auto;
@@ -1267,14 +1269,37 @@ h1 {
     .footer{
       width: auto;
     }
+    .about-box{
+      margin: 0 auto;
+      display: block;
+      height: 42em;
+      width: 80%;
+      text-align: center;
+    }
+    .about-line{
+      border: 0;
+    }
 
 }
 @media only screen and (max-width: 600px) {
     .app {
      
     }
+    .main-parent-container {
+      width: 25em;
+    }
+    .annals-post-body{
+      width: 25em;
+    }
+    .annals{
+      margin-left: 1.5em;
+    }
+    .post-wrapper{
+      max-width: 25em;
+    }
 
 }
+
 @media only screen and (max-width: 500px) {
     .app {
      
@@ -1294,12 +1319,28 @@ h1 {
     .footer-attributes{
       border: none;
     }
+    .annals-post {
+      width: 25em;
+      margin: 0 auto;
+      margin-left: 1.5em;
+      margin-bottom: 10em;
+    }
 
  
 }
 @media only screen and (max-width: 400px) {
     .app {
 
+    }
+    .main-parent-container{
+      width: 20em;
+    }
+
+    .annals-post-body{
+      width: 20em;
+    }
+    .post-wrapper{
+      max-width: 20em;
     }
  
 }

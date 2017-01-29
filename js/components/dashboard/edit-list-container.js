@@ -13,7 +13,11 @@ var EditList = React.createClass({
 		this.props.dispatch(actions.getDashboardPosts(this.props.token));
 	},
 	render: function(){
+<<<<<<< HEAD
 	var amountToDisplay =  this.props.posts.length > 10 ? 20 : this.props.posts.length;
+=======
+	var amountToDisplay = this.props.posts.length > 20 ? 20 : this.props.posts.length;
+>>>>>>> master
 	return (
 		<div>
 			<div className="post-edit-list-container">

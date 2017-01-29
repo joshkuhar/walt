@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300);
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800');
 @import url('https://fonts.googleapis.com/css?family=Marcellus+SC');
+@import url('https://fonts.googleapis.com/css?family=Caveat');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 body {
   background-color: white;
   font-family: 'Open Sans', sans-serif;
@@ -203,18 +205,29 @@ h1 {
   letter-spacing: .125em;
 }
 .shallow{}
-.explain{
-  margin-top: 13em;
-}
 .explain-text{
-  color: #04597F;
-  font-weight: 300;
-  letter-spacing: .05em;
-  text-transform: capitalize;
-  padding-top: 8em;
-  border-top: .02em solid;
-  max-width: 30em;
-  margin: 0 auto;
+    font-weight: 300;
+    letter-spacing: .1em;
+    padding-top: 4em;
+    font-size: 2.1em;
+    color: slategrey;
+    max-width: 30em;
+    margin: 0 auto;
+    font-family: 'Caveat', cursive;
+    width: 10em;
+    padding-bottom: 2.5em;
+    border-bottom: .1em solid slategrey;
+}
+.wit{
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 3em;
+    font-size: 2em;
+}
+.whit{
+  font-size: .8em;
+  word-spacing: .3em;
+  font-weight: 100;
+  letter-spacing: .1em;
 }
 .explain-footer{
   width: 15em;
@@ -331,7 +344,7 @@ h1 {
 
 }
 .person-a{
-  background-color: #9FD4E0;
+  background-color: #5eadbb;
 }
 .a-pic{
   float: left;
@@ -365,6 +378,7 @@ h1 {
     margin: 0 auto;
     white-space: pre-line;
     font-weight: 300;
+    margin-bottom: 25em;
 
 }
 .about{
@@ -375,6 +389,7 @@ h1 {
     line-height: 1.5;
     text-align: left;
     color: white;
+
 }
 .about-wrapper{}
 .about-box{
@@ -690,7 +705,7 @@ h1 {
   font-size: 1em;
 }
 .dashboard-wrapper{
-  background-color: #425AAB;
+  background-color: teal;
   width: 100%;
   position: fixed;
 }
@@ -857,7 +872,7 @@ h1 {
   border-radius: 5px;
   outline: 0;
   text-decoration: none;
-  border: solid .01em;
+  border: none;
   padding: 0 1em;
   margin: 1em auto 2em;
 }
@@ -878,7 +893,6 @@ h1 {
   -webkit-appearance: none;
   background-color: indianred;
   border-radius: 3px;
-  border: .1em solid #04597F;
   color: white;
   cursor: pointer;
   font-weight: 100;
@@ -887,6 +901,7 @@ h1 {
   font-size: 1em;
   float: right;
   margin-right: -2em;
+  border: none;
 }
 .delete-button:hover {
   cursor: pointer;
@@ -906,7 +921,7 @@ h1 {
   -webkit-appearance: none;
   background-color: indianred;
   border-radius: 3px;
-  border: .1em solid #04597F;
+  border: none;
   color: white;
   cursor: pointer;
   font-weight: 100;
@@ -926,7 +941,9 @@ h1 {
 }
 .textarea-title {
   text-align: left;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  font-weight: 100;
+  letter-spacing: .07em;
 }
 .textarea{
   width: 100%;
@@ -935,6 +952,7 @@ h1 {
   font-size: 1em;
   border-radius: 5px;
   padding: .75em 1em;
+  border: none;
 }
 .delete-post-container {
   width: 40em;
@@ -958,6 +976,8 @@ h1 {
   margin: 0 auto;
   font-size: 1em;
   text-align: left;
+  font-weight: 100;
+  letter-spacing: .08em;
 }
 .post-write-title-input{
   width: 100%;
@@ -969,6 +989,8 @@ h1 {
   margin-top: 3.5em;
   text-align: left;
   margin-bottom: 2em;
+  font-weight: 100;
+  letter-spacing: .07em;
 }
 .post-write-category-selector{
     display: inline;
@@ -997,7 +1019,7 @@ h1 {
   -webkit-appearance: none;
   background-color: slategray;
   border-radius: 3px;
-  border: .1em solid #038F96;
+  border: none;
   color: black;
   cursor: pointer;
   font-weight: 100;
@@ -1024,7 +1046,7 @@ h1 {
     -webkit-appearance: none;
     background-color: white;
     border-radius: 3px;
-    border: .1em solid #04597F;
+    border: none;
     color: #04597F;
     cursor: pointer;
     font-weight: 100;
@@ -1114,17 +1136,17 @@ h1 {
     font-size: .9em;
 }
 .footer{
-    margin: 12em auto;
-    border-top: .05em solid;
+    margin: 0em auto;
+    border-top: em solid;
     text-align: center;
     margin-bottom: 0em;
-    background-color: lightgray;
+    background-color: #5eadbb;
     color: white;
     font-size: .9em;
     width: auto;
 }
 .footer-brand{
-    margin: 1em auto;
+    margin: 0 auto;
     width: 5em;
     margin-bottom: 0em;
     font-size: 3em;
@@ -1209,7 +1231,7 @@ h1 {
 .footer-content{
     text-align: center;
     margin-bottom: 0em;
-    background-color: lightgray;
+    background-color: #5eadbb;
     color: white;
 }
 .footer-attributes{

@@ -6,6 +6,7 @@ var actions = require('../actions/index');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var connect = require('react-redux').connect;
 var Button = require('../store-button');
+var Footer = require('./footer');
 var router = require('react-router');
 var hashHistory = router.hashHistory;
 
@@ -48,6 +49,7 @@ var DashboardNavBar  = React.createClass({
 				   {this.props.children}
 				  </div>
 				</div>
+				<Footer />
 				</div>
 			</div>
 			)

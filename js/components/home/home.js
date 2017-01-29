@@ -16,8 +16,8 @@ var Home = function(props){
 			<div className="banner-header"><span className="shallow">text </span>content management</div>
 		 </div>
 		 <section className="explain">
-
-		  <div className="quote"><p>A word is dead</p><p>When it is said,</p><p>Some say.</p><p>I say it just begins</p><p>to live that day</p><p>– Emily Dickinson</p></div>
+		  <div className="explain-text">I sound my barbaric yawp over the rooftops of the world</div>
+		  <div className="wit">Walt Whitman,<span className="whit"> yawper</span></div>
 		 </section>
 		  <section className="people">
 		   <div className="person-a person">
@@ -57,7 +57,7 @@ var Home = function(props){
 		   <h4 className="art-header">Write Words</h4>
 		 	<div className="section-inside"><span className="walt">walt</span> is a blogging platform that let's you write, publish, and manage your own blogs. It uses MongoDB, Express, React, and Node.js</div>
 		  </div>
-		   <div className="explain-text">I sound my barbaric yawp over the rooftops of the world - Walt Whitman</div>
+		   
 		  </article>
 		</div>
 		)

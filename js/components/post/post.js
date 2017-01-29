@@ -9,10 +9,11 @@ var Post = function(props){
 			var post = props.posts[index];
 		}
 	}
-	var category = getCategory(props.categories, post)
+	var category = getCategory(props.categories, post);
+	var link = props.link;
 	return (
 		<div className="post">
-			<Link to="/annals"><div className="post-back-link">Back</div></Link>
+			<Link to={"/"+ link}><div className="post-back-link">{props.linkName}</div></Link>
 			<div className="post-title">{post.title}</div>
 			<div className="post-date">{post.month +" "+post.date+", "+post.year}</div>
 			<div className="post-category">{category}</div>

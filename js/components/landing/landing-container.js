@@ -23,14 +23,12 @@ var LandingContainer= React.createClass({
 		}
 		return (
 			<div className="main-parent-container">
-				<div className="landing-page-container">
 					<Landing 
 						title={post.title}
 						category={category}
 						date={post.month+" "+post.date+", "+post.year}
 						content={post.content}
 					/>
-				</div>
 			</div>
 			)
 	}

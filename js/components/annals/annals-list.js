@@ -20,9 +20,10 @@ var AnnalsList = function(props){
 		)
 	}
 	return (
-		<div >
-			<div>{postList}</div>
-		</div>
+			<div>
+			  {postList}
+			</div>
+
 
 		)
 };

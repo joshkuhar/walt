@@ -40,7 +40,6 @@ var AnnalsSelect = React.createClass({
 						<div className="annals-image-text">in your own words</div>
 						<div className="annals-image-lower-text">click on the title to read the article</div>
 						<div className="selector-wrapper">
-
 						 <select className="annals-selector" value={this.props.category} onChange={this.handleCategoryChange}>{categories}</select>
 						 <button className="annals-selector-button" onClick={this.handleSubmit}>search</button>
 						</div>

@@ -1308,16 +1308,20 @@ h1 {
     .annals{
       width: auto;
     }
+    .selector-wrapper {
+      width: 8em;
+    }
     .annals-post {
       margin: 0 auto;
       margin-bottom: 10em;
     }
-    .main-parent-container{
-      width: 22em;
-    }
     .annals-post-body{
       width: 20em;
     }
+    .main-parent-container{
+      width: 22em;
+    }
+
     .post-wrapper{
       max-width: 20em;
     }

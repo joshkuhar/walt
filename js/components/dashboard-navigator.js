@@ -34,17 +34,19 @@ var DashboardNavBar  = React.createClass({
 				<div className="dashboard-wrapper">
 					<div onClick={this.handleSignOut}className="sign-out">Sign Out</div>
 					<div className="dashboard-top-navigator">
-						<h2 className="dashboard-header">Dashboard</h2>
+						<Link to="/dashboard"><h2 className="dashboard-header">Dashboard</h2></Link>
 						<div className="dashboard-nav-bar">
-							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/edit"><div className="dashboard-nav-bar-item">Blog List</div></Link></div>
-							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/create"><div className="dashboard-nav-bar-item">Write New Blog</div></Link></div>
-							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/about"><div className="dashboard-nav-bar-item">Edit About</div></Link></div>
+							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/edit"><div className="dashboard-nav-bar-item">Blogs</div></Link></div>
+							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/create"><div className="dashboard-nav-bar-item">Write New</div></Link></div>
+							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/about"><div className="dashboard-nav-bar-item">About</div></Link></div>
 							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/category"><div className="dashboard-nav-bar-item">Categories</div></Link></div>
 						</div>
 					</div>
 				</div>
-				<div className="dashboard-main">
-				{this.props.children}
+				<div className="edit-container">
+				  <div className="dashboard-main">
+				   {this.props.children}
+				  </div>
 				</div>
 				</div>
 			</div>
@@ -75,6 +77,8 @@ module.exports= Container;
 <ReactCSSTransitionGroup transitionName="kindWords" transitionEnterTimeout={500} transitionLeaveTimeout={500}><div key={this.props.kindWords} className="kind-words">{this.props.kindWords}</div></ReactCSSTransitionGroup>
 </div>
 
-
+				<div className="dashboard-main">
+				{this.props.children}
+				</div>
 
 */

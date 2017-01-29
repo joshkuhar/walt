@@ -34,7 +34,7 @@ var PostToEdit = React.createClass ({
 					<input className="title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
 			      	<div className="textarea-title">Blog Post</div>
 			       	<textarea className="textarea" value={this.props.content} placeholder="type away..." onChange={this.handlePostChange} />
-		        	<div className="post-edit-buttons-container">
+		        	<div className="buttons-container">
 		        	 <Link to="/dashboard/edit"><button className="cancel-button">Cancel</button></Link>
 					   <button className="submit-button" type="submit" value="Submit">Submit</button>
 				     <Link to={"/dashboard/remove/post/"+this.props.params.postId}>

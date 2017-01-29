@@ -16,7 +16,8 @@ var EditList = React.createClass({
 	var amountToDisplay = this.props.posts.length > 20 ? 20 : this.props.posts.length;
 
 	return (
-		<div>
+		<div >
+			<div className="edit-instructions">To edit or delete a post, click on the EDIT POST button.</div>
 			<div className="post-edit-list-container">
 				<PostToEditList postsToEdit={this.props.posts} numberOfPostsToDisplay={amountToDisplay}/>
 			</div>

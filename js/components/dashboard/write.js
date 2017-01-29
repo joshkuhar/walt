@@ -67,7 +67,7 @@ var PostContent = React.createClass ({
 							<input className="title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
 							<div className="textarea-title">Blog Post</div>
 						    <textarea className="textarea" value={this.props.content} placeholder="type away..." onChange={this.handleContentChange} />
-						    <div className="post-write-buttons-container">
+						    <div className="buttons-container">
 						      <Link to="/dashboard"><button className="cancel-button">Cancel</button></Link>
 						      <button className="submit-button"type="submit">Submit</button>
 						    </div>

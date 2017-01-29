@@ -32,7 +32,7 @@ var AboutEdit = React.createClass ({
 			        		<div className="textarea-title">Edit About</div>
 			        	</div>
 					<textarea className="textarea" value={this.props.about} placeholder="tell the world about yourself..." onChange={this.handleAboutChange} />
-						<div className="about-button-wrapper"> 
+						<div className="buttons-container"> 
 		        			<Link to="/dashboard"><button className="cancel-button">Cancel</button></Link>
 							<input className="submit-button"type="submit" value="Submit" />
 						</div>

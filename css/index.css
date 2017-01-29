@@ -684,12 +684,13 @@ h1 {
     margin-top: 1em;
     font-size: .9em;
     padding-right: 1.7em;
+    color: white;
 }
 .dashboard{
   font-size: 1em;
 }
 .dashboard-wrapper{
-  background-color: white;
+  background-color: #425AAB;
   width: 100%;
   position: fixed;
 }
@@ -701,9 +702,10 @@ h1 {
 .dashboard-header{
   display: inline-block;
   padding-left: .75em;
-  font-weight: 600;
+  font-weight: 200;
   margin-top: 0;
   margin-bottom: 0;
+  color: white;
 }
 .dashboard-nav-bar{
   display: inline;
@@ -719,6 +721,7 @@ h1 {
   width: 8em;
   text-align: center;
   font-size: 1em;
+  color: white;
 }
 .dashboard-display-bar{
   background-color: white;
@@ -740,7 +743,7 @@ h1 {
   letter-spacing: .05em;
 }
 .edit-container {
-  background-color: #5eadbb;
+  background-color: #A4C5D0;
   margin: 0 auto;
   padding-bottom: 3em;
   min-height: 60em;
@@ -824,7 +827,7 @@ h1 {
 }
 .edit-list-item{
   margin-bottom: 3em;
-  background-color: #A4C5D0;
+  background-color: #5eadbb;
   border-radius: 7px;
   min-height: 7em;
   color: white;

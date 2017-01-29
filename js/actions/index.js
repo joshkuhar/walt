@@ -230,7 +230,6 @@ exports.GET_DASHBOARD_POSTS_SUCCESS = GET_DASHBOARD_POSTS_SUCCESS;
 exports.getDashboardPostsSuccess = getDashboardPostsSuccess;
 
 var getDashboardPosts = function(token) {
-    console.log("i ditto");
     return function(dispatch) {
         var url = '/dashboard/posts';
         return fetch(url,{

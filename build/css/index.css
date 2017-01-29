@@ -628,7 +628,6 @@ h1 {
 }
 
 .annals-next-navigator{
-  text-align: center;
   font-size: 1.2em;
   margin-bottom: 3em;
 }
@@ -1306,28 +1305,37 @@ h1 {
     .footer-attributes{
       border: none;
     }
+    .annals{
+      width: auto;
+    }
     .annals-post {
-      width: 25em;
       margin: 0 auto;
-      margin-left: 1.5em;
       margin-bottom: 10em;
+    }
+    .main-parent-container{
+      width: 22em;
+    }
+    .annals-post-body{
+      width: 20em;
+    }
+    .post-wrapper{
+      max-width: 20em;
     }
 
  
 }
 @media only screen and (max-width: 400px) {
     .app {
-
+      font-size: .9em;
+    }
+    .nav-bar-item{
+      width: 4.2em;
     }
     .main-parent-container{
       width: 20em;
     }
-
-    .annals-post-body{
-      width: 20em;
-    }
-    .post-wrapper{
-      max-width: 20em;
+    .explain-text{
+      margin: 4em auto;
     }
  
 }

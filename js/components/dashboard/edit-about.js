@@ -42,9 +42,9 @@ var AboutEdit = React.createClass ({
 			    </div>
 		      </form>
 		     </div>
-    );
-  }
-});
+	    );
+	  }
+	});
 
 var mapStateToProps = function(state, props) {
     return {

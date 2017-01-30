@@ -54,25 +54,25 @@ var PostContent = React.createClass ({
 				)
 		}
 	    return (
-				<div className="post-write-container">
+				  <div className="post-write-container">
 					<form className="post-write-form"onSubmit={this.handleSubmit}>
-						  <div className="post-write-selector-container"> Category
-						    <div className="post-write-category-selector">
-							  <select className="write-category-selector" value={this.props.category} onChange={this.handleCategoryChange}>
-									{categories}
-						  	  </select>
-						    </div>
-						  </div>
-						    <div className="title-header">Title</div>
-							<input className="title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
-							<div className="textarea-title">Blog Post</div>
-						    <textarea className="textarea" value={this.props.content} placeholder="type away..." onChange={this.handleContentChange} />
-						    <div className="buttons-container">
-						      <Link to="/dashboard"><button className="cancel-button">Cancel</button></Link>
-						      <button className="submit-button"type="submit">Submit</button>
-						    </div>
+					  <div className="post-write-selector-container"> Category
+					    <div className="post-write-category-selector">
+						  <select className="write-category-selector" value={this.props.category} onChange={this.handleCategoryChange}>
+								{categories}
+					  	  </select>
+					    </div>
+					  </div>
+					    <div className="title-header">Title</div>
+						<input className="title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
+						<div className="textarea-title">Blog Post</div>
+					    <textarea className="textarea" value={this.props.content} placeholder="type away..." onChange={this.handleContentChange} />
+					    <div className="buttons-container">
+					      <Link to="/dashboard"><button className="cancel-button">Cancel</button></Link>
+					      <button className="submit-button"type="submit">Submit</button>
+					    </div>
 					</form>
-				</div>
+				  </div>
     );
   }
 });

@@ -6,6 +6,7 @@ var store = require('../../store');
 var router = require('react-router');
 var Link = router.Link;
 var hashHistory = router.hashHistory;
+var Footer = require('../footer');
 
 var Login = React.createClass({
 	onState: function(event){
@@ -33,17 +34,16 @@ var Login = React.createClass({
 	render: function(){
 		return(
 			<div className="login-container">
-				<button onClick={this.onState}>store</button>
-				<h2>Login</h2>
-				<div className="login">
-					<input type="text" placeholder="username" ref="username"/>
-					<input type="text" placeholder="password" ref="password"/>
-					<button onClick={this.onClick}>submit</button>
-					<div className="login-message">
-						{this.props.username}
-					</div>
-
-				</div>
+			  <h2>Login</h2>
+			  <div className="login">
+			    <input className="login-field" type="text" placeholder="username" ref="username"/>
+			    <input className="login-field" type="text" placeholder="password" ref="password"/>
+			    <button className="submit-button" onClick={this.onClick}>submit</button>
+			    <div className="login-message">
+				  {this.props.username}
+			    </div>
+			  </div>
+			  <Footer />
 			</div>
 			)
 	}

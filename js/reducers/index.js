@@ -173,7 +173,9 @@ var blogReducer = function(state, action) {
 		})
 	}
 	else if(action.type === actions.UPDATE_ABOUT_SUCCESS) {
-		return state
+		return Object.assign({}, state, {
+			actionName: action.actionName
+		})
 	}
 	else if(action.type === actions.LOGIN_SUCCESS) {
 		return Object.assign({}, state, {

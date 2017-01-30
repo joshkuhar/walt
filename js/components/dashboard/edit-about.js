@@ -4,6 +4,7 @@ var connect = require('react-redux').connect;
 var actions = require('../../actions/index');
 var store = require('../../store');
 var router = require('react-router');
+var hashHistory = router.hashHistory;
 var Link = router.Link;
 
 var AboutEdit = React.createClass ({
@@ -15,7 +16,9 @@ var AboutEdit = React.createClass ({
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
-    	this.props.dispatch(actions.updateAbout(this.props.aboutId, this.props.about, this.props.token));
+    	var actionName = "update about";
+    	this.props.dispatch(actions.updateAbout(this.props.aboutId, this.props.about, this.props.token, actionName));
+    	hashHistory.push('/dashboard/action/success');
 	},
   	onClick: function(event){
   		event.preventDefault();
@@ -27,16 +30,16 @@ var AboutEdit = React.createClass ({
 	    return (
 		    <div className="about-form-outside-container">
 		      <form onSubmit={this.handleSubmit}>
-			        <div className="about-form-container">
-			        	<div className="about-header-container">
-			        		<div className="textarea-title">Edit About</div>
-			        	</div>
-					<textarea className="textarea" value={this.props.about} placeholder="tell the world about yourself..." onChange={this.handleAboutChange} />
-						<div className="buttons-container"> 
-		        			<Link to="/dashboard"><button className="cancel-button">Cancel</button></Link>
-							<input className="submit-button"type="submit" value="Submit" />
-						</div>
-				    </div>
+		        <div className="about-form-container">
+	        	  <div className="about-header-container">
+        		    <div className="textarea-title">Edit About</div>
+	        	  </div>
+				  <textarea className="textarea" value={this.props.about} placeholder="tell the world about yourself..." onChange={this.handleAboutChange} />
+				  <div className="buttons-container"> 
+    			    <Link to="/dashboard"><button className="cancel-button">Cancel</button></Link>
+				    <input className="submit-button"type="submit" value="Submit" />
+				  </div>
+			    </div>
 		      </form>
 		     </div>
     );

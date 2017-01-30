@@ -104,15 +104,6 @@ var getBlogToEdit = function(blog){
 exports.GET_BLOG_TO_EDIT = GET_BLOG_TO_EDIT;
 exports.getBlogToEdit = getBlogToEdit;
 
-var UPDATE_ABOUT_SUCCESS = 'UPDATE_ABOUT_SUCCESS';
-var updateAboutSuccess = function(){
-    return {
-        type: UPDATE_ABOUT_SUCCESS
-    }
-}
-exports.UPDATE_ABOUT_SUCCESS = UPDATE_ABOUT_SUCCESS;
-exports.updateAboutSuccess = updateAboutSuccess;
-
 var CHANGE_ABOUT = 'CHANGE_ABOUT';
 var changeAbout = function(about) {
     return {
@@ -572,7 +563,17 @@ var getAbout = function() {
 };
 exports.getAbout = getAbout;
 
-var updateAbout = function(aboutId, about, token){
+var UPDATE_ABOUT_SUCCESS = 'UPDATE_ABOUT_SUCCESS';
+var updateAboutSuccess = function(actionName){
+    return {
+        type: UPDATE_ABOUT_SUCCESS,
+        actionName: actionName
+    }
+}
+exports.UPDATE_ABOUT_SUCCESS = UPDATE_ABOUT_SUCCESS;
+exports.updateAboutSuccess = updateAboutSuccess;
+
+var updateAbout = function(aboutId, about, token, actionName){
     return function(dispatch) {
         var url = '/dash/about/'+aboutId;
         return fetch(url, {
@@ -587,7 +588,7 @@ var updateAbout = function(aboutId, about, token){
     }).then(function(res) {
         return res.status
     }).then(function() {
-        return dispatch(updateAboutSuccess())
+        return dispatch(updateAboutSuccess(actionName))
     }).catch(function(error) {
         console.log(error);
         });

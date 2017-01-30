@@ -124,7 +124,9 @@ var blogReducer = function(state, action) {
 		})
 	}
 	else if(action.type === actions.UPDATE_POST_SUCCESS) {
-		return state
+		return Object.assign({}, state, {
+			actionName: action.actionName
+		})
 	}
 	else if(action.type === actions.DELETE_POST_SUCCESS) {
 		console.log("Delete Success");

@@ -4,6 +4,7 @@ var connect = require('react-redux').connect;
 var actions = require('../../actions/index');
 var store = require('../../store');
 var router = require('react-router');
+var hashHistory = router.hashHistory;
 var Link = router.Link;
 
 var PostToEdit = React.createClass ({
@@ -21,7 +22,7 @@ var PostToEdit = React.createClass ({
   	handleSubmit: function(event) {
     	event.preventDefault();
     	var actionName = "yawp update";
-		this.props.dispatch(actions.updatePost(this.props.title, this.props.content, this.props.params.postId, this.props.token, actionName));
+		this.props.dispatch(actions.updatePost(this.props.title, this.props.content, this.props.params.postId, this.props.token, actionName));	
 		hashHistory.push('/dashboard/action/success');
     },
     handleDeleteClick: function(event) {

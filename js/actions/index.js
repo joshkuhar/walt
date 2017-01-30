@@ -318,15 +318,16 @@ var postContent = function(title, categoryId, content, month, date, year, token,
 exports.postContent = postContent;
 
 var UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS'
-var updatePostSuccess = function() {
+var updatePostSuccess = function(actionName) {
     return {
-        type: UPDATE_POST_SUCCESS
+        type: UPDATE_POST_SUCCESS,
+        actionName: actionName
     }
 }
 exports.UPDATE_POST_SUCCESS = UPDATE_POST_SUCCESS;
 exports.updatePostSuccess = updatePostSuccess;
 
-var updatePost = function(title, post, postId, token) {
+var updatePost = function(title, post, postId, token, actionName) {
     return function(dispatch) {
         var url = '/dashboard/post/'+postId;
         return fetch(url, {
@@ -342,8 +343,7 @@ var updatePost = function(title, post, postId, token) {
     }).then(function(res) {
         return res.status
     }).then(function(data) {
-        console.log(data);
-        return dispatch(updatePostSuccess())
+        return dispatch(updatePostSuccess(actionName))
     }).catch(function(error) {
         console.log(error);
         });

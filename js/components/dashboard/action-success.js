@@ -8,13 +8,20 @@ var Link = router.Link;
 
 var Written = React.createClass({
 	render: function(){
-		return (<div>{this.props.content}</div>)
+		return (
+			<div className="confirmation-wrapper">
+			    <div className="write-confirmation">
+			      Congratulations, {this.props.actionName} successfull.
+			    </div>
+			  <Link to="/dashboard"><div className="link-to-dashboard">Go To Dashboard</div></Link>
+			</div>
+		 )
 	}
 });
 
 var mapStateToProps = function(state, props) {
     return {
-    	content: state.content,
+    	actionName: state.actionName
     };
 };
 

@@ -22,7 +22,8 @@ var initialState = {
 	username: "",
 	success: false,
 	fa: "",
-	kindWords: ""
+	kindWords: "",
+	actionName: ""
 };
 
 var blogReducer = function(state, action) {
@@ -100,7 +101,8 @@ var blogReducer = function(state, action) {
 	}
 	else if (action.type === actions.POST_CONTENT_SUCCESS) {
 		return Object.assign({}, state, {
-			post: action.data
+			post: action.data,
+			actionName: action.actionName
 		})
 	}
 	else if (action.type === actions.GET_DASHBOARD_POSTS_SUCCESS) {

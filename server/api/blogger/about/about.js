@@ -34,7 +34,7 @@ AboutRouter.post('/dash/about', //passport.authenticate('jwt', {session: false})
 				message: 'Internal Server Error'
 				});
 			} 
-			res.status(200).json(about);
+			res.status(201).json(about);
 		});   
     });
 

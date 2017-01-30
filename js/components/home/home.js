@@ -17,7 +17,8 @@ var Home = function(props){
 		 </div>
 		 <section className="explain">
 		  <div className="explain-text">I sound my barbaric yawp over the rooftops of the world</div>
-		  <div className="wit">Walt Whitman,<span className="whit"> yawper</span></div>
+		  <div className="explain-line"></div>
+		  <div className="wit">- 	Walt Whitman,<span className="whit"> yawper</span></div>
 		 </section>
 		  <section className="people">
 		   <div className="person-a person">

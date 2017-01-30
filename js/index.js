@@ -21,12 +21,12 @@ var Login = require('./components/dashboard/login');
 // var CreateUser = require('./components/dashboard/create-user');
 var DashboardNavigator = require('./components/dashboard-navigator');
 var WriteBlog = require('./components/dashboard/write-container');
-var WriteSuccess = require('./components/dashboard/write-success');
 var Category = require('./components/dashboard/category-manager-container');
 var EditAbout = require('./components/dashboard/edit-about');
 var EditList = require('./components/dashboard/edit-list-container');
 var EditBlog = require('./components/dashboard/edit-blog');
 var DeletePost = require('./components/dashboard/delete-post');
+var ActionSuccess = require('./components/dashboard/action-success');
 
 
 var Provider = require('react-redux').Provider;
@@ -47,13 +47,12 @@ var Routes = (
 			<Route path="/login" component={Login} />
 			
 			<Route path="/dashboard" component={DashboardNavigator}>	
-				<Route path="fuckyou" component={EditAbout} />
 				<Route path="edit"component={EditList} />
 				<Route path="edit/:postId" component={EditBlog} />
 				<Route path="remove/post/:postId" component={DeletePost} />
 				<Route path="create" component={WriteBlog} />
-				<Route path="create/success" component={WriteSuccess} />
 				<Route path="about" component={EditAbout}/>	
+				<Route path="action/success" component={ActionSuccess} />
 				<Route path="category" component={Category} />
 			</Route>
 		</Router>

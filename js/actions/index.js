@@ -278,16 +278,18 @@ var getDashboardPost = function(postId, token) {
 exports.getDashboardPost = getDashboardPost;
 
 var POST_CONTENT_SUCCESS = 'POST_CONTENT_SUCCESS'
-var postContentSuccess = function(post) {
+var postContentSuccess = function(post, actionName) {
     return {
         type: POST_CONTENT_SUCCESS,
-        post: post
+        post: post,
+        actionName: actionName
     }
 }
 exports.POST_CONTENT_SUCCESS = POST_CONTENT_SUCCESS;
 exports.postContentSuccess = postContentSuccess;
 
-var postContent = function(title, categoryId, content, month, date, year, token) {
+var postContent = function(title, categoryId, content, month, date, year, token, actionName) {
+    console.log('i was callsed');
     return function(dispatch) {
         var url = '/dashboard/content/'+categoryId;
         return fetch(url, {
@@ -306,7 +308,8 @@ var postContent = function(title, categoryId, content, month, date, year, token)
     }).then(function(res) {
         return res.json()
     }).then(function(data) {
-        return dispatch(postContentSuccess(data))
+        console.log(data);
+        return dispatch(postContentSuccess(data, actionName))
     }).catch(function(error) {
         console.log(error);
         });

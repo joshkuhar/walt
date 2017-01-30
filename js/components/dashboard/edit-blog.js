@@ -20,7 +20,9 @@ var PostToEdit = React.createClass ({
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
-		this.props.dispatch(actions.updatePost(this.props.title, this.props.content, this.props.params.postId, this.props.token));
+    	var actionName = "yawp update";
+		this.props.dispatch(actions.updatePost(this.props.title, this.props.content, this.props.params.postId, this.props.token, actionName));
+		hashHistory.push('/dashboard/action/success');
     },
     handleDeleteClick: function(event) {
     	event.preventDefault();
@@ -30,17 +32,19 @@ var PostToEdit = React.createClass ({
 		return (
 		    <div className="post-edit-container">
 		      <form className="post-edit-form" onSubmit={this.handleSubmit}>
-			       	<div className="title-header">Title</div> 
-					<input className="title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
-			      	<div className="textarea-title">Blog Post</div>
-			       	<textarea className="textarea" value={this.props.content} placeholder="type away..." onChange={this.handlePostChange} />
-		        	<div className="buttons-container">
-		        	 <Link to="/dashboard/edit"><button className="cancel-button">Cancel</button></Link>
-					   <button className="submit-button" type="submit" value="Submit">Submit</button>
-				     <Link to={"/dashboard/remove/post/"+this.props.params.postId}>
-					   <button className="delete-button">Delete</button>
-					 </Link>
-			    	</div>
+			    <div className="title-header">Title</div> 
+				  <input className="title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
+			      <div className="textarea-title">Blog Post</div>
+			      <textarea className="textarea" value={this.props.content} placeholder="type away..." onChange={this.handlePostChange} />
+		          <div className="buttons-container">
+		          <Link to="/dashboard/edit">
+		        	<button className="cancel-button">Cancel</button>
+		          </Link>
+					<button className="submit-button" type="submit" value="Submit">Submit</button>
+				  <Link to={"/dashboard/remove/post/"+this.props.params.postId}>
+					<button className="delete-button">Delete</button>
+				  </Link>
+			    </div>
 		      </form>
 		     </div>
     );

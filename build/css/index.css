@@ -216,18 +216,24 @@ h1 {
     font-family: 'Caveat', cursive;
     width: 10em;
     padding-bottom: 2.5em;
-    border-bottom: .1em solid slategrey;
+}
+.explain-line{
+    border-bottom: .02em solid slategrey;
+    width: 6em;
+    margin: 0 auto;
 }
 .wit{
     font-family: 'Open Sans', sans-serif;
     margin-top: 3em;
     font-size: 2em;
+    color: slategrey;
 }
 .whit{
   font-size: .8em;
   word-spacing: .3em;
   font-weight: 100;
   letter-spacing: .1em;
+  color: slategrey;
 }
 .explain-footer{
   width: 15em;
@@ -1003,6 +1009,24 @@ h1 {
   text-align: left;
   margin-bottom: 1em;
 }
+.confirmation-wrapper{
+  margin: 5em auto;
+  text-align: center;
+
+}
+.write-confirmation{
+  font-size: 1.5em;
+  font-weight: 100;
+  letter-spacing: .05em;
+}
+.link-to-dashboard{
+  display: inline-block;
+  display: inline-block;
+  font-weight: 100;
+  color: white;
+  margin: 3em auto;
+}
+
 
 .cancel-button{
   width: 7em;

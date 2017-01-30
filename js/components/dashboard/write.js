@@ -6,7 +6,6 @@ var store = require('../../store');
 var router = require('react-router');
 var Link = router.Link;
 var hashHistory = router.hashHistory;
-var WriteSuccess = require('./write-success');
 
 // Object containing current month, date, time
 var DateStamp = require('./write-date-stamp');
@@ -32,15 +31,16 @@ var PostContent = React.createClass ({
     	this.props.dispatch(actions.changeContent(event.target.value));
 	},
   	handleSubmit: function(event) {
+  		console.log("what the hell?")
   		event.preventDefault();
   			if (this.props.category === "111"){
   				alert("Please select a category. Currently, the selector bar is set to 'All'");
   				return
   			}
   			//hashHistory.push('/dashboard/create/success');
-  			
-	    this.props.dispatch(actions.postContent(this.props.title, this.props.category, this.props.content, date.month, date.date, date.year, this.props.token));
-
+  		var actionName = "yawp";
+	    this.props.dispatch(actions.postContent(this.props.title, this.props.category, this.props.content, date.month, date.date, date.year, this.props.token, actionName));
+	    hashHistory.push('/dashboard/action/success');
 	},
 	componentWillUnmount: function(){
 		this.props.dispatch(actions.setPostForm());

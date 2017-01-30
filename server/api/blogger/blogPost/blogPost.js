@@ -56,7 +56,7 @@ PostRouter.post('/dashboard/content/:categoryId', //passport.authenticate('jwt',
                                 message: 'Internal Server Error'
                             });
                         }
-                        res.status(200).json(post);
+                        res.status(201).json(post);
                     }
                 );
             }
@@ -100,7 +100,7 @@ PostRouter.post('/dashboard/posts', function(req, res) {
                 }
             });
     }
-    res.status(200).json({
+    res.status(201).json({
         response: "check database to confirm all loaded"
     });
 });
@@ -169,7 +169,7 @@ PostRouter.put('/dashboard/post/:postId', //passport.authenticate('jwt', {sessio
                     message: 'Internal Server Error'
                 });
             }
-            res.status(201).end();
+            res.status(204).end();
         });
 });
 

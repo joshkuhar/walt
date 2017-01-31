@@ -232,25 +232,21 @@ h1 {
 .explain-text{
     font-weight: 300;
     letter-spacing: .1em;
-    padding-top: 4em;
+    padding-top: 3.5em;
     font-size: 2.1em;
     color: slategrey;
     max-width: 30em;
     margin: 0 auto;
     font-family: 'Caveat', cursive;
     width: 10em;
-    padding-bottom: 2.5em;
 }
-.explain-line{
-    border-bottom: .02em solid slategrey;
-    width: 6em;
-    margin: 0 auto;
+.explain-line{  
 }
 .wit{
     font-family: 'Open Sans', sans-serif;
-    margin-top: 3em;
-    font-size: 2em;
+    font-size: .9em;
     color: slategrey;
+    margin-top: 1em;
 }
 .whit{
   font-size: .8em;
@@ -321,18 +317,18 @@ h1 {
 .people{
   max-width: 70em;
   margin: 0 auto;
-  margin-top: 11em;
+  margin-top: 8em;
 }
 .person{
   font-size: 2em;
-  height: 13em;
+  height: 10em;
   color: white;
 }
 .image-wrapper{}
 .person-pic{
   display: inline-block;
   width: 50%;
-  height: 13em;
+  height: 10em;
   object-fit: cover;
   border-radius: 1px;
 }
@@ -340,12 +336,12 @@ h1 {
 .person-name{
   display: inline-block;
   width: 5em;
-  padding-top: 2.1em;
+  padding-top: 1.2em;
   margin: 0 auto;
   font-size: 1.1em;
   font-weight: 100;
   float: left;
-  margin-left: 2.1em;
+  margin-left: 2.7em;
   text-align: left;
   border-bottom: .05em solid white;
   padding-bottom: .5em;
@@ -357,8 +353,8 @@ h1 {
   word-spacing: .25em;
   line-height: 2;
   float: left;
-  margin-top: 1em;
-  margin-left: 5em;
+  margin-top: .25em;
+  margin-left: 6.3em;
   text-align: left;
   width: 20em;
   letter-spacing: .1em;
@@ -1331,6 +1327,12 @@ h1 {
   .edit-instructions {
     width: 25em;
   }
+  .person-text{
+    margin-left: 5em;
+  }
+  .person-name{
+    margin-left: 2.1em;
+  }
 }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  { 
   .edit-container{
@@ -1419,6 +1421,12 @@ h1 {
     .edit-list-item {
       font-size: .75em;
     }
+    .person-name{
+      margin-left: 1.7em;
+    }
+    .person-text {
+      margin-left: 4em;
+    }
 
 }
 
@@ -1459,6 +1467,32 @@ h1 {
       float: none;
       line-height: normal;
       text-align: center;
+    }
+    .article-section{
+      margin: 4em auto;
+    }
+    .section-a{
+      width: 20em;
+      margin: 0 auto;
+      border-bottom: .02em solid;
+      margin-bottom: 2.5em;
+      border-right: none;
+      float: none;
+    }
+    .section-b{
+      width: 20em;
+      margin: 0 auto;
+      float: none;
+    }
+    .section-inside {
+      border: 0;
+      font: inherit;
+      vertical-align: baseline;
+      margin: 0 0 2.5em 0;
+      font-weight: 300;
+      font-size: .9em;
+      line-height: 2em;
+      padding: 0;
     }
     .footer{
       font-size: .8em;
@@ -1560,7 +1594,11 @@ h1 {
       width: 20em;
     }
     .explain-text{
-      margin: 4em auto;
+      margin: 2.9em auto 0em;
+      padding-top: 0;
+    }
+    .wit {
+      margin: 1em auto 6em;
     }
     .dashboard-main {
       width: 13em;

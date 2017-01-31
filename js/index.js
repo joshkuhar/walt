@@ -21,7 +21,7 @@ var Login = require('./components/dashboard/login');
 // var CreateUser = require('./components/dashboard/create-user');
 var DashboardNavigator = require('./components/dashboard-navigator');
 var WriteBlog = require('./components/dashboard/write-container');
-var Category = require('./components/dashboard/category-manager-container');
+//var Category = require('./components/dashboard/category-manager-container');
 var EditAbout = require('./components/dashboard/edit-about');
 var EditList = require('./components/dashboard/edit-list-container');
 var EditBlog = require('./components/dashboard/edit-blog');
@@ -45,7 +45,6 @@ var Routes = (
 				<Route path="about" component={About} />
 			</Route>
 			<Route path="/login" component={Login} />
-			
 			<Route path="/dashboard" component={DashboardNavigator}>	
 				<Route path="edit"component={EditList} />
 				<Route path="edit/:postId" component={EditBlog} />
@@ -53,7 +52,7 @@ var Routes = (
 				<Route path="create" component={WriteBlog} />
 				<Route path="about" component={EditAbout}/>	
 				<Route path="action/success" component={ActionSuccess} />
-				<Route path="category" component={Category} />
+
 			</Route>
 		</Router>
 	</Provider>
@@ -64,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /*<Route path="posh/:postId" component={AnnalsList} />
-
+<Route path="category" component={Category} />
 <Route path="/users" component={CreateUser} />
 <Route path="edit" component={EditBlogNav} >
 */

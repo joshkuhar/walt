@@ -12,11 +12,11 @@ var Login = React.createClass({
 	onState: function(event){
 		console.log(store.getState());
 	},
-	// componentDidMount(){
-	// 	if(this.props.success === true){
-	// 		hashHistory.push('/dashboard');
-	// 	}
-	// },
+	componentDidMount(){
+		if(this.props.success === true){
+			hashHistory.push('/dashboard');
+		}
+	},
 	onClick: function(event){
 		event.preventDefault();
 		var username = this.refs.username.value;
@@ -40,7 +40,7 @@ var Login = React.createClass({
 			    <input className="login-field" type="text" placeholder="password" ref="password"/>
 			    <button className="submit-button" onClick={this.onClick}>submit</button>
 			    <div className="login-message">
-				  {this.props.username}
+				  
 			    </div>
 			  </div>
 			  <Footer />
@@ -60,3 +60,8 @@ var mapStateToProps = function(state, props){
 var Container = connect(mapStateToProps)(Login);
 
 module.exports = Container;
+
+
+/*
+	{this.props.username}
+*/

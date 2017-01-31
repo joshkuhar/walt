@@ -12,14 +12,14 @@ var hashHistory = router.hashHistory;
 
 var DashboardNavBar  = React.createClass({
 	componentDidMount: function(){
-	// 	if(this.props.success === false){
-	// 		hashHistory.push('/login');
-	// 	}
+		if(this.props.success === false){
+			hashHistory.push('/login');
+		}
 		scroll(0,1);
 	},
 	handleSignOut: function(event){
 		event.preventDefault();
-		// this.props.dispatch(actions.logOut());
+		this.props.dispatch(actions.logOut());
 		hashHistory.push('/login');
 	},
 	// onStore: function(event){
@@ -38,10 +38,9 @@ var DashboardNavBar  = React.createClass({
 					<div className="dashboard-top-navigator">
 						<Link to="/dashboard"><h2 className="dashboard-header">Dashboard</h2></Link>
 						<div className="dashboard-nav-bar">
-							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/edit"><div className="dashboard-nav-bar-item">Blogs</div></Link></div>
+							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/edit"><div className="dashboard-nav-bar-item">Yawps</div></Link></div>
 							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/create"><div className="dashboard-nav-bar-item">Write New</div></Link></div>
 							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/about"><div className="dashboard-nav-bar-item">About</div></Link></div>
-							<div className="dashboard-nav-bar-item-wrapper"><Link to="/dashboard/category"><div className="dashboard-nav-bar-item">Categories</div></Link></div>
 						</div>
 					</div>
 				</div>

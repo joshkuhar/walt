@@ -22,6 +22,14 @@ var PostToEdit = React.createClass ({
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
+  			if (this.props.title === "") {
+  				alert("Please enter a title for your yawp. It's currently empty");
+  				return
+  			}
+  			if (this.props.content === "") {
+  				alert("Please enter something into the yawp field. It's currently empty");
+  				return
+  			}
     	var actionName = "yawp update";
 		this.props.dispatch(actions.updatePost(this.props.title, this.props.content, this.props.params.postId, this.props.token, actionName));	
 		hashHistory.push('/dashboard/action/success');
@@ -36,7 +44,7 @@ var PostToEdit = React.createClass ({
 		      <form className="post-edit-form" onSubmit={this.handleSubmit}>
 			    <div className="title-header">Title</div> 
 				  <input className="title-input" value={this.props.title} placeholder="title" type="text" onChange={this.handleTitleChange} />
-			      <div className="textarea-title">Blog Post</div>
+			      <div className="textarea-title">Yawp</div>
 			      <textarea className="textarea" value={this.props.content} placeholder="type away..." onChange={this.handlePostChange} />
 		          <div className="buttons-container">
 		          <Link to="/dashboard/edit">

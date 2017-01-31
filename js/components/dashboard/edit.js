@@ -11,7 +11,7 @@ var PostToEdit = function(props){
 			  <div className="edit-date">{props.postDate}</div>
 			</div>
 			<div className="item-box b-button">
-			  <Link to={"/dashboard/edit/"+props.postId}><button className="edit-list-button">edit post</button></Link>
+			  <Link to={"/dashboard/edit/"+props.postId}><button className="edit-list-button">edit yawp</button></Link>
 			</div>
 		</div>
 		)

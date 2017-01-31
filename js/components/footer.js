@@ -9,7 +9,7 @@ var Footer = function(props){
 	return (
 			<footer className="footer">
 			  <div className="footer-brand">walt</div>
-			  <div className="footer-brand-message">content management</div>
+			  <div className="footer-brand-message">yawping platform</div>
 				 <ul className="footer-icons footer-section">
 				  <a href=""><li className="icon"><FontAwesome className="fa fa-facebook" id="facebook" name="facebook"aria-hidden="true" onMouseEnter={props.didEnter}onMouseLeave={props.didLeave}/></li></a>
 				  <a href=""><li className="icon"><FontAwesome className="fa fa-twitter" id="twitter"name="twitter"aria-hidden="true"onMouseEnter={props.didEnter}onMouseLeave={props.didLeave}/></li></a>

@@ -1,7 +1,7 @@
 var actions = require('../actions/index');
-var Categories = require('../mock-categories');
-var DummyBlogs = require('../mock-data-loader');
-var MockPosts = require('../mock-posts');
+// var Categories = require('../mock-categories');
+// var DummyBlogs = require('../mock-data-loader');
+// var MockPosts = require('../mock-posts');
 
 var initialState = {
 	about: "This is me ...",
@@ -11,10 +11,8 @@ var initialState = {
 	content: "",
 	sectionNumber: 3,
 	category: "111",
-	categoriesForLoading: Categories.categoriesForLoading,
+	// categoriesForLoading: Categories.categoriesForLoading,
 	categories: [{"_id": "111", "category": "all"}],
-	dummyBlogs: DummyBlogs,
-	mockPosts: MockPosts,
 	landingPost: {_id: "111", title: "", month: "", date: "", year: "", categoryId: "z"},
 	dashboardPosts: [{_id: "111", title: "", month: "", date: "", year: ""}],
 	posts: [{_id: "111", title: "", month: "", date: "", year: "", content: "", categoryId: "z"}],

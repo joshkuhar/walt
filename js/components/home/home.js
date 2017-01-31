@@ -17,7 +17,7 @@ var Home = React.createClass({
 			<div className="home">
 			 <div className="picture-a">
 			 	<div className="banner-icon">walt</div>
-				<div className="banner-header"><span className="shallow">text </span>content management</div>
+				<div className="banner-header"><span className="shallow">text </span>yawping platform</div>
 			 </div>
 			 <section className="explain">
 			  <div className="explain-text">"I sound my barbaric yawp over the rooftops of the world"</div>
@@ -49,7 +49,7 @@ var Home = React.createClass({
 			   </div>
 			     <div className="side-wrapper">
 			  	  <div className="person-name">bits and bytes</div>
-			  	  <div className="person-text">versitile, portable, the world can hear you</div>
+			  	  <div className="person-text">versatile, portable, the world can hear you</div>
 			     </div>
 			   </div>
 			  </section>

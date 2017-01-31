@@ -726,7 +726,7 @@ h1 {
     margin-bottom: 1em;
     margin-top: 1em;
     font-size: .9em;
-    padding-right: 1.7em;
+    padding-right: 2.4em;
     color: white;
 }
 .dashboard{
@@ -755,6 +755,7 @@ h1 {
   float: right;
   font-weight: 100;
   padding-top: .55em;
+  padding-right: .5em;
 }
 .dashboard-nav-bar-item-wrapper{
     display: inline-block;
@@ -789,7 +790,7 @@ h1 {
   background-color: #A4C5D0;
   margin: 0 auto;
   padding-bottom: 3em;
-  min-height: 60em;
+  min-height: 37em;
   color: white;
 }
 .edit-list-heading{
@@ -1287,12 +1288,9 @@ h1 {
 .legal{
   margin: 3em auto;
   font-size: .8em;
-  width: 33em;
   font-weight: 100;
-  word-spacing: .125em;
-  margin-bottom: 0;
-  /* height: 30em; */
   padding-bottom: 2em;
+  margin: 0 auto;
 }
 
 
@@ -1325,6 +1323,13 @@ h1 {
     width: 25em;
   }
 }
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  { 
+  .edit-container{
+    min-height: 44em;
+  }
+}
+
+
 @media only screen and (max-width: 740px) {
     .app {}
     .footer{
@@ -1350,14 +1355,14 @@ h1 {
       width: 6em;
     }
     .sign-out {
-      padding-right: .65em;
+      padding-right: 1.3em;
       font-size: .8em;
     }
     .post-edit-list-container {
     width: 30em;
     }
     .edit-instructions {
-      width: 25em;
+      width: 20em;
     }
     .edit-titel{
       margin: 1em auto .5em;
@@ -1394,7 +1399,7 @@ h1 {
     width: 25em;
     }
     .edit-instructions {
-      width: 20em;
+      font-size: .9em;
     }
     .edit-list-item {
       font-size: .75em;
@@ -1474,7 +1479,6 @@ h1 {
     }
     .dashboard-main {
       width: 20em;
-      margin-left: 3.3em;
     }
     .buttons-container {
       font-size: .9em;
@@ -1483,13 +1487,14 @@ h1 {
       width: 5em;
     }
     .sign-out {
-      padding-right: 1em;
+      padding-right: .8em;
       font-size: .7em;
     }
     .post-edit-list-container {
       width: auto;
     }
     .edit-instructions {
+      font-size: .8em;
       width: 15em;
     }
     .edit-list-item{
@@ -1551,6 +1556,9 @@ h1 {
     }
     .dashboard-top-navigator{
       font-size: .8em;
+    }
+    .sign-out{
+      padding-right: .5em;
     }
     .dashboard-nav-bar-item{
       width: auto;

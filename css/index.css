@@ -54,7 +54,7 @@ h2{
 }
 .login{
   text-align: center;
-  margin-bottom: 26em;
+  min-height: 40em;
 }
 .login-container {
   margin: 0 auto;
@@ -403,12 +403,12 @@ h1 {
 
 .about-container{
     text-align: center;
-    padding-top: 3.7em;
+    padding-top: 6em;
     max-width: 50em;
     margin: 0 auto;
     white-space: pre-line;
     font-weight: 300;
-    margin-bottom: 25em;
+    margin-bottom: 8em;
 
 }
 .about{
@@ -460,10 +460,14 @@ h1 {
  height: 100%;
  width: 100%;
 }
+.app-children {
+
+}
 .main-parent-container{
-    width: 35em;
+    width: 40em;
     margin: 0 auto;
-    padding-top: 7em;
+    padding-top: 5em;
+    padding-bottom: 2em;
 }
 /* #00B2B2  */
 
@@ -472,6 +476,9 @@ h1 {
 
 .landing-page-container{}
 .landing-page {
+  background-color: white;
+  padding: 1em;
+  border-radius: 10px;
 }
 .landing-post{    
   text-align: justify;
@@ -497,9 +504,11 @@ h1 {
 }
 .landing-body{
   margin: 2em auto;
-  font-weight: 200;
+  font-weight: 100;
   color: black;
-  line-height: 2em;
+  line-height: 1.6em;
+  font-size: .85em;
+  letter-spacing: -.01em;
 }
 
 
@@ -569,7 +578,7 @@ h1 {
     margin: auto;
     display: block;
     margin: auto;
-    height: 6em;
+    height: 1em;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -581,23 +590,20 @@ h1 {
 .annals{
     width: 40em;
     margin: 1em auto;
-    padding-top: 5em;
     color: black;
 }
 
 .selector-wrapper {
     background-color: white;
     width: 21.2em;
-    margin: 5em auto;
+    margin: 3em auto;
     background-color: transparent;
 }
 .annals-selector{
   font-size: 1em;
 }
 .annals-image-text{
-      /* margin-bottom: 3em; */
-    /* margin-bottom: 3em; */
-    margin-top: -5em;
+    margin-top: -7em;
     padding-bottom: 11em;
     font-size: 2.5em;
     color: white;
@@ -674,14 +680,14 @@ h1 {
 
 .annals-next-navigator{
   font-size: 1.2em;
-  margin-bottom: 3em;
+  padding-bottom: 3em;
 }
 .annals-next-navigator:hover{
   cursor: pointer;
 }
 
 .annals-post{
-  margin-bottom: 10em;
+  margin-bottom: 7em;
 }
 .title-rider{}
 .annals-post-title{
@@ -790,7 +796,7 @@ h1 {
   background-color: #A4C5D0;
   margin: 0 auto;
   padding-bottom: 3em;
-  min-height: 37em;
+  min-height: 44em;
   color: white;
 }
 .edit-list-heading{
@@ -1172,11 +1178,11 @@ h1 {
 }
 .footer-section{
     width: 13em;
-    padding-top: 1em;
+    padding-top: .5em;
     margin: 0 auto;
     display: inline-block;
     text-align: center;
-    font-size: .9em;
+    font-size: .8em;
 }
 .footer{
     margin: 0em auto;
@@ -1189,16 +1195,18 @@ h1 {
     width: auto;
 }
 .footer-brand{
-    margin: 0 auto;
-    width: 5em;
-    margin-bottom: 0em;
-    font-size: 3em;
+  margin: 0 auto;
+  width: 5em;
+  margin-bottom: 0em;
+  font-size: 2.8em;
+  padding-top: .25em;
+  font-weight: 100;
 }
 .footer-brand-message{
   font-weight: 100;
-  /* word-spacing: .125em; */
   letter-spacing: .125em;
-  margin-bottom: 3em;
+  margin-bottom: .5em;
+  font-size: .8em;
 }
 .footer-icons{
   padding-left: .2em;
@@ -1239,7 +1247,7 @@ h1 {
   border: .1em solid white;
   padding-top: .75em;
   padding-bottom: .75em;
-  width: 2.6em;
+  width: 2.5em;
   font-size: .75em;
   border-radius: 25px;
 } 
@@ -1276,21 +1284,22 @@ h1 {
     margin-bottom: 0em;
     background-color: #5eadbb;
     color: white;
+    font-weight: 100;
 }
 .footer-attributes{
   border-left: .05em solid;
-  height: 3em;
+  height: 1.7em;
 }
 .contact-info{
    border-left: .05em solid;
-   height: 3em;
+   height: 1.7em;
 }
 .legal{
-  margin: 3em auto;
-  font-size: .8em;
+  font-size: .7em;
   font-weight: 100;
   padding-bottom: 2em;
-  margin: 0 auto;
+  margin: 1em auto;
+  margin-bottom: 0em;
 }
 
 
@@ -1325,7 +1334,10 @@ h1 {
 }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  { 
   .edit-container{
-    min-height: 44em;
+    min-height: 51em;
+  }
+  .login{
+    min-height: 43.9em;
   }
 }
 
@@ -1366,6 +1378,9 @@ h1 {
     }
     .edit-titel{
       margin: 1em auto .5em;
+    }
+    .main-parent-container {
+      width: 35em;
     }
 
 }
@@ -1450,6 +1465,13 @@ h1 {
     }
     .footer-section{
       display: block;
+    }
+    .footer-icons {
+      padding-left: 0;
+      margin-bottom: .25em;
+    }
+    .icon {
+      margin: 0em .4em 0em .4em;
     }
     .contact-info{
       border: none;

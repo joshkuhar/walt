@@ -36,7 +36,7 @@ var App = React.createClass({
 					</div>
 				 </div>
 				</div>
-				<div>
+				<div className="app-children">
 					{this.props.children}
 				</div>
 				<Footer />

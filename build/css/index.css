@@ -9,7 +9,7 @@ body {
   font-size: 100%;
   height: auto;
   margin: 0 auto;
-  color: #04597F;
+  color: #303A3B;
 }
 
 /*
@@ -108,17 +108,16 @@ h2{
 
 
 .top-navigation{
-  background-color: white;
+  background-color: #447E88;
   height: 2.9em;
   width: 100%;
   position: fixed;
-  border-bottom: .02em solid #04597F;
 }
 .top-navigation-wrapper{
   width: 100%;
   margin: 0 auto;
   height: 2em;
-  margin-top: .5em;
+  margin-top: .75em;
 }
 .top-navigation-picture{
   height: 1em;
@@ -138,7 +137,7 @@ h2{
   display: inline-block;
   width: 5.4em;
   text-align: center;
-  color: #04597F;
+  color: white;
   -webkit-transition: color .63s;
   -moz-transition: color .63s;
   -ms-transition: color .63s;
@@ -159,6 +158,8 @@ h1 {
     display: inline;
     margin-left: 1em;
     font-size: 1em;
+    color: white;
+    font-weight: 100 ;
 }
 .quote{
     font-size: .9em;
@@ -201,6 +202,8 @@ h1 {
   margin: 0 auto;
   text-align: center;
 }
+
+
 
 .picture-a{
     background-image: url("../assets/woods-night.jpg"); 
@@ -564,51 +567,54 @@ h1 {
   font-weight: 200;
 }
 .post-body{
-  margin: 2em auto;
-  font-weight: 200;
-  color: black;
+    margin: 2em auto;
+    font-weight: 100;
+    color: black;
+    line-height: 1.6em;
+    font-size: .85em;
+    letter-spacing: -.01em;
 }
-
+.annals-container {
+  /*background: linear-gradient(to left, #9AF0FF ,white);*/
+}
 .annals-form{
-    background-image: url(../assets/thinking-man.jpg);
-    margin: auto;
     display: block;
     margin: auto;
-    height: 1em;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center bottom;
+    /* height: 1em; */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-position: center bottom; */
     margin: 0 auto;
-    padding-top: 24em;
-    margin-bottom: 21em;
+    padding-top: 3.5em;
+    /* margin-bottom: 21em; */
     max-width: 80em;
+    width: 85%;
+    background: linear-gradient(to left, #5eadbb , #447E88);
+    border-radius: 5px;
 }
 .annals{
-    width: 40em;
-    margin: 1em auto;
-    color: black;
+
 }
 
 .selector-wrapper {
-    background-color: white;
     width: 21.2em;
-    margin: 3em auto;
+    margin: 1.5em auto 0;
     background-color: transparent;
+    padding-bottom: 2em;
 }
 .annals-selector{
   font-size: 1em;
 }
 .annals-image-text{
-    margin-top: -7em;
-    padding-bottom: 11em;
-    font-size: 2.5em;
+    /* padding-bottom: 11em; */
+    font-size: 3em;
     color: white;
     font-weight: 100;
     text-align: center;
     text-shadow: black;
-    text-shadow: -1px 2px 3px black;
+    /* text-shadow: -1px 2px 3px black; */
     word-spacing: .15em;
-    text-transform: uppercase;
+    text-transform: lowercase;
 }
 .annals-image-small-text{
     margin-top: -17.5em;
@@ -620,13 +626,7 @@ h1 {
     text-shadow: -1px 1px 1px black;
 }
 .annals-image-lower-text{
-    margin-top: -4em;
-    text-align: center;
-    color: black;
-    font-size: 2em;
-    font-weight: 100;
-    word-spacing: .3em;
-    padding-bottom: .5em;
+
 }
 .annals-selector-button{
     font-size: 1em;
@@ -673,17 +673,23 @@ h1 {
   transition: color .4s;
   cursor: pointer;
 }
+.annals{
+  padding-top: 5em;
+}
 
 .annals-next-navigator{
   font-size: 1.2em;
   padding-bottom: 3em;
+  width: 3em;
+  margin: 0 auto;
 }
 .annals-next-navigator:hover{
   cursor: pointer;
 }
 
 .annals-post{
-  margin-bottom: 7em;
+  width: 62%;
+  margin: 0 auto 7em;
 }
 .title-rider{}
 .annals-post-title{
@@ -711,7 +717,7 @@ h1 {
   word-spacing: .125em;
   line-height: 2;
   margin-top: 2em;
-  width: 40em;
+  background-color: ghostwhite;
 }
 
 
@@ -1382,6 +1388,9 @@ h1 {
       margin: 1em auto .5em;
     }
     .main-parent-container {
+      width: 40em;
+    }
+    .annals-post {
       width: 35em;
     }
 
@@ -1394,11 +1403,15 @@ h1 {
     .people{
       font-size: .9em;
     }
-    .annals-post-body{
-      width: 25em;
+    .annals-form {
+      font-size: .9em;
     }
-    .annals{
-      margin-left: 1.5em;
+    .annals-post-body{
+
+    }
+    .annals-post{
+      width: 25em;
+
     }
     .post-wrapper{
       max-width: 25em;
@@ -1438,6 +1451,16 @@ h1 {
     }
     .nav-bar-item {
       width: 4.5em;
+    }
+    .picture-a{
+      height: 17.5em;
+    }
+    .explain-text{
+      margin: 2em auto 0;
+      padding-top: 0;
+    }
+    .wit{
+      margin: 0 auto 5em;
     }
     .people {
       margin: 0 auto;
@@ -1513,18 +1536,15 @@ h1 {
     .footer-attributes{
       border: none;
     }
-    .annals{
-      width: auto;
-    }
-    .selector-wrapper {
-      width: 8em;
+    .annals-form{
+      width: 100%;
     }
     .annals-post {
-      margin: 0 auto;
-      margin-bottom: 10em;
+      margin: 0 auto 6em;
+      width: 20em;
     }
     .annals-post-body{
-      width: 20em;
+
     }
     .main-parent-container{
       width: 22em;
@@ -1592,13 +1612,6 @@ h1 {
     }
     .main-parent-container{
       width: 20em;
-    }
-    .explain-text{
-      margin: 2.9em auto 0em;
-      padding-top: 0;
-    }
-    .wit {
-      margin: 1em auto 6em;
     }
     .dashboard-main {
       width: 13em;

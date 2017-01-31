@@ -37,11 +37,11 @@ var AnnalsSelect = React.createClass({
 		return (
 			<div className="annals-container">
 					<form className="annals-form">
-						<div className="annals-image-text">in your own words</div>
-						<div className="annals-image-lower-text">click on the title to read the article</div>
+						<div className="annals-image-text">your writings</div>
+						<div className="annals-image-lower-text"></div>
 						<div className="selector-wrapper">
 						 <select className="annals-selector" value={this.props.category} onChange={this.handleCategoryChange}>{categories}</select>
-						 <button className="annals-selector-button" onClick={this.handleSubmit}>search</button>
+						 <button className="annals-selector-button" onClick={this.handleSubmit}>filter</button>
 						</div>
 					</form>
 					<AnnalsList />

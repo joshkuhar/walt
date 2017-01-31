@@ -10,6 +10,7 @@ var Link = router.Link;
 var PostToEdit = React.createClass ({
 	componentDidMount: function(){
 		this.props.dispatch(actions.getDashboardPost(this.props.params.postId, this.props.token));
+		scroll(0, 1);
 	},
 	handleTitleChange: function(event) {
 		event.preventDefault();

@@ -9,6 +9,9 @@ var Link = router.Link;
 var Post = require('./post');
 
 var PostContainer = React.createClass({
+	componentDidMount: function(){
+		scroll(0, 1);
+	},
 	render: function(){
 		return (
 			<div className="post-wrapper">

@@ -9,6 +9,9 @@ var Link = router.Link;
 var AnnalsList = require('./annals-list');
 
 var AnnalsListContainer = React.createClass({
+	componentDidMount: function() {
+		scroll(0,1);
+	},
 	componentDidUpdate: function(){
 		//scroll(0, 810);
 	},

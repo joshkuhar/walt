@@ -10,6 +10,7 @@ var Link = router.Link;
 var AboutEdit = React.createClass ({
 	componentDidMount: function(){
 		this.props.dispatch(actions.getAbout());
+		scroll(0,1);
 	},
 	handleAboutChange: function(event) {
     	this.props.dispatch(actions.changeAbout(event.target.value));

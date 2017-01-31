@@ -11,6 +11,7 @@ var PostToEditList = require('./edit-list');
 var EditList = React.createClass({
 	componentDidMount: function(){
 		this.props.dispatch(actions.getDashboardPosts(this.props.token));
+		scroll(0,1);
 	},
 	render: function(){
 	var amountToDisplay = this.props.posts.length > 20 ? 20 : this.props.posts.length;

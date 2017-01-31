@@ -15,6 +15,7 @@ var LandingContainer= React.createClass({
 		if(this.props.posts[0]._id == "111"){
 			this.props.dispatch(actions.getPosts())
 		}
+		scroll(0,1);
 	},
 	render: function(){
 		var post = this.props.landingPost;

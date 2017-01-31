@@ -11,6 +11,7 @@ var About = require('./about');
 var AboutContainer = React.createClass({
 	componentDidMount: function() {
 		this.props.dispatch(actions.getAbout());
+		scroll(0,1);
 	},
 	render: function() {
 		return (

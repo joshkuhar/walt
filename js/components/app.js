@@ -12,6 +12,9 @@ var App = React.createClass({
 	// getStore: function(){
 	// 	console.log(store.getState());
 	// },
+	componentDidMount: function() {
+		scroll(0, 1);
+	},
 	didEnter: function(event) {
 		event.preventDefault();
 		this.props.dispatch(actions.displayFa(event.target.id));

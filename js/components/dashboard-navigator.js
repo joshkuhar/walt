@@ -11,11 +11,12 @@ var router = require('react-router');
 var hashHistory = router.hashHistory;
 
 var DashboardNavBar  = React.createClass({
-	// componentDidMount: function(){
+	componentDidMount: function(){
 	// 	if(this.props.success === false){
 	// 		hashHistory.push('/login');
 	// 	}
-	// },
+		scroll(0,1);
+	},
 	handleSignOut: function(event){
 		event.preventDefault();
 		// this.props.dispatch(actions.logOut());

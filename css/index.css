@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Marcellus+SC');
 @import url('https://fonts.googleapis.com/css?family=Caveat');
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+English');
 body {
   background-color: white;
   font-family: 'Open Sans', sans-serif;
@@ -158,9 +159,11 @@ h1 {
     text-align: left;
     display: inline;
     margin-left: 1em;
-    font-size: 1em;
+    font-size: 1.5em;
     color: white;
     font-weight: 100 ;
+    font-family: 'IM Fell English', serif;
+    letter-spacing: .03em;
 }
 .quote{
     font-size: .9em;
@@ -223,8 +226,9 @@ h1 {
 .banner-icon{
   color: white;
   padding-top: 1.7em;
-  font-size: 3em;
+  font-size: 3.8em;
   font-weight: 300;
+  font-family: 'IM Fell English', serif;
 }
 .banner-header{
   color: white;
@@ -247,10 +251,11 @@ h1 {
 .explain-line{  
 }
 .wit{
-    font-family: 'Open Sans', sans-serif;
-    font-size: .9em;
-    color: slategrey;
-    margin-top: 1em;
+  font-size: 1.1em;
+  color: slategrey;
+  margin-top: 1em;
+  font-family: 'IM Fell English', serif;
+  letter-spacing: .03em;
 }
 .whit{
   font-size: .8em;
@@ -395,8 +400,10 @@ h1 {
 
 
 .walt{
-  text-transform: uppercase;
-  font-weight: 500;
+    text-transform: lowercase;
+    font-size: 1.4em;
+    margin-top: 1em;
+    font-family: 'IM Fell English', serif;
 }
 
 
@@ -1237,6 +1244,8 @@ h1 {
   font-size: 2.8em;
   padding-top: .25em;
   font-weight: 100;
+  font-family: 'IM Fell English', serif;
+  letter-spacing: .03em
 }
 .footer-brand-message{
   font-weight: 100;

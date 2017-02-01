@@ -14,6 +14,7 @@ var DashboardNavBar  = React.createClass({
 	componentDidMount: function(){
 		if(this.props.success === false){
 			hashHistory.push('/login');
+			return
 		}
 		scroll(0,1);
 	},

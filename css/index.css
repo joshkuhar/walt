@@ -590,6 +590,8 @@ h1 {
     /* margin-bottom: 21em; */
     max-width: 80em;
     width: 85%;
+    background: #447E88; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #5eadbb , #447E88); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #5eadbb , #447E88);
     border-radius: 5px;
 }
@@ -739,6 +741,7 @@ h1 {
     font-size: .9em;
     padding-right: 3.5em;
     color: white;
+    font-weight: 100;
 }
 .dashboard{
   font-size: 1em;
@@ -784,6 +787,34 @@ h1 {
   text-align: right;
   border-bottom: .02em solid #04597F;
 }
+
+.dashboard-landing{
+  padding-top: 2em;
+  font-size: 2em;
+  font-weight: 100;
+
+}
+.dashboard-greeting {
+
+}
+.yawp-definition {
+  margin-top: 1em;
+  font-weight: 800;
+  font-size: .6em;
+}
+.yawp-defined {
+  font-size: .9em;
+  font-weight: 100;
+}
+.yawp-count {
+  margin-top: 1em;
+  font-size: .6em;
+}
+.yawp-number{
+  font-size: 2em;
+  color: lightgreen;
+  font-weight: 600;
+}
 .dashboard-main{
   padding-top: 4.4em;
   width: 45em;
@@ -791,7 +822,7 @@ h1 {
 }
 .edit-blog-heading {
   width: 25em;
-  margin: 2em auto 2em
+  margin: 2em auto 2em;
   text-align: center;
   font-size: 1.5em;
   font-weight: 100;
@@ -1590,6 +1621,9 @@ h1 {
     }
     .edit-title{
       padding-left: .25em;
+    }
+    .dashboard-greeting{
+      font-size: .75em;
     }
 
 

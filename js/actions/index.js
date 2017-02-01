@@ -220,6 +220,33 @@ var getDashboardPostsSuccess = function(posts) {
 exports.GET_DASHBOARD_POSTS_SUCCESS = GET_DASHBOARD_POSTS_SUCCESS;
 exports.getDashboardPostsSuccess = getDashboardPostsSuccess;
 
+
+var GET_YAWP_COUNT_SUCCESS = 'GET_YAWP_COUNT_SUCCESS';
+var getYawpCountSuccess = function(count){
+    return {
+        type: GET_YAWP_COUNT_SUCCESS,
+        yawpCount: count
+    }
+}
+
+exports.GET_YAWP_COUNT_SUCCESS = GET_YAWP_COUNT_SUCCESS;
+exports.getYawpCountSuccess = getYawpCountSuccess;
+
+var getYawpCount = function(){
+    return function(dispatch) {
+        var url = '/posts/count';
+        return fetch(url).then(function(res){
+            return res.json()
+        }).then(function(data) {
+            return dispatch(getYawpCountSuccess(data))
+        }).catch(function(error) {
+            console.log(error);
+        });
+     }
+    }
+
+exports.getYawpCount = getYawpCount;
+
 var getDashboardPosts = function(token) {
     return function(dispatch) {
         var url = '/dashboard/posts';

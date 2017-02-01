@@ -21,7 +21,8 @@ var initialState = {
 	success: false,
 	fa: "",
 	kindWords: "",
-	actionName: ""
+	actionName: "",
+	yawpCount: ""
 };
 
 var blogReducer = function(state, action) {
@@ -133,6 +134,12 @@ var blogReducer = function(state, action) {
 	    	title: "",
 	        post: "",
 	        category: ""
+		})
+	}
+	else if(action.type === actions.GET_YAWP_COUNT_SUCCESS){
+		console.log(action.yawpCount);
+		return Object.assign({}, state, {
+			yawpCount: action.yawpCount
 		})
 	}
 	else if(action.type === actions.GET_POSTS_SUCCESS) {

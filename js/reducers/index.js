@@ -137,10 +137,15 @@ var blogReducer = function(state, action) {
 		})
 	}
 	else if(action.type === actions.GET_YAWP_COUNT_SUCCESS){
-		console.log(action.yawpCount);
 		return Object.assign({}, state, {
 			yawpCount: action.yawpCount
 		})
+	}
+	else if(action.type === actions.GET_MORE_DASHBOARD_POSTS_SUCCCESS){
+		var getMorePosts = state.dashboardPosts.concat(action.section);
+		return Object.assign({}, state, {
+			dashboardPosts: getMorePosts
+		})	
 	}
 	else if(action.type === actions.GET_POSTS_SUCCESS) {
 		return Object.assign({}, state, {

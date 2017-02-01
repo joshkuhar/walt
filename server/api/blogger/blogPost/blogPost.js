@@ -214,5 +214,38 @@ PostRouter.get('/posts/section/:number', function(req, res) {
     });
 });
 
+PostRouter.get('/dashboard/posts/:number', function(req, res) {
+    Post.find({}, 'title date year month')
+    .skip(parseInt(req.params.number))
+    .limit(1)
+    .sort({_id: -1})
+    .exec( function(err, posts) {
+        if (err) {
+            conosole.log(err);
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(posts);
+    });
+});
+
 
 module.exports = PostRouter;
+
+
+// PostRouter.get('/dashboard/posts', //passport.authenticate('jwt', {session: false}),
+//     function(req, res) {
+//     Post.find({}, 'title date year month')
+//     .limit(10)
+//     .sort({ _id: -1 })
+//     .exec( function(err, posts) {
+//         if (err) {
+//             console.log(err);
+//             return res.status(500).json({
+//                 message: 'Internal Server Error'
+//             });
+//         }
+//         res.status(200).json(posts);    
+//     });
+// });

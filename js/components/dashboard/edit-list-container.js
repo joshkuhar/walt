@@ -13,15 +13,18 @@ var EditList = React.createClass({
 		this.props.dispatch(actions.getDashboardPosts(this.props.token));
 		scroll(0,1);
 	},
+	onClick: function(event){
+		this.props.dispatch(actions.getMoreDashboardPosts(this.props.posts.length));
+	},
 	render: function(){
 	var amountToDisplay = this.props.posts.length > 20 ? 20 : this.props.posts.length;
-
 	return (
 		<div >
 			<div className="edit-instructions">To edit or delete a yawp, click on the EDIT YAWP button.</div>
 			<div className="post-edit-list-container">
 			  <PostToEditList postsToEdit={this.props.posts} numberOfPostsToDisplay={amountToDisplay}/>
 			</div>
+			<div className="annals-next-navigator edit-list-navigator" onClick={this.onClick}>more</div>
 		</div>							
 		)
 	}

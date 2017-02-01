@@ -266,6 +266,45 @@ var getDashboardPosts = function(token) {
 };
 exports.getDashboardPosts = getDashboardPosts;
 
+var DASHBOARD_POSTS_END = 'DASHBOARD_POSTS_END';
+var dashboardPostsEnd = function(){
+    return {
+        type: DASHBOARD_POSTS_END
+    }
+}
+exports.DASHBOARD_POSTS_END = DASHBOARD_POSTS_END;
+exports.dashboardPostsEnd = dashboardPostsEnd;
+
+
+var GET_MORE_DASHBOARD_POSTS_SUCCCESS = 'GET_MORE_DASHBOARD_POSTS_SUCCCESS';
+var getMoreDashboardPostsSuccess = function(section) {
+    return {
+        type: GET_MORE_DASHBOARD_POSTS_SUCCCESS,
+        section: section
+    }
+}
+exports.GET_MORE_DASHBOARD_POSTS_SUCCCESS = GET_MORE_DASHBOARD_POSTS_SUCCCESS;
+exports.getMoreDashboardPostsSuccess = getMoreDashboardPostsSuccess;
+
+var getMoreDashboardPosts = function(section) {
+    return function(dispatch) {
+        var url = '/dashboard/posts/'+section;
+        return fetch(url).then(function(res) {
+            return res.json()
+        }).then(function(data){
+            console.log(data);
+            if (data.length < 1) {
+                console.log("category empty");
+                return dispatch(dashboardPostsEnd())
+            }
+            return dispatch(getMoreDashboardPostsSuccess(data))
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+};
+exports.getMoreDashboardPosts = getMoreDashboardPosts;
+
 var GET_DASHBOARD_post_SUCCESS = 'GET_DASHBOARD_post_SUCCESS'
 var getDashboardPostSuccess = function(post) {
     return {

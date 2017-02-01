@@ -146,7 +146,7 @@ h2{
   transition: color .63s;
 }
 .nav-bar-item:hover {
-  color: #D48BA5;
+  color: lightgrey;
   -webkit-transition: color .2s;
   -moz-transition: color .2s;
   -ms-transition: color .2s;
@@ -472,8 +472,6 @@ h1 {
 /* #00B2B2  */
 
 
-
-
 .landing-page-container{}
 .landing-page {
   background-color: white;
@@ -491,6 +489,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.025em;
   margin-bottom: -.2em;
+  font-family: 'Marcellus SC', serif;
 }
 .landing-date{
   display: inline;
@@ -516,6 +515,9 @@ h1 {
 
 
 .post-list{}
+.fa-angel-left{
+  color: blue;
+}
 .post-back-link{
   display: inline-block;
   margin-bottom: .64em;
@@ -556,6 +558,7 @@ h1 {
   letter-spacing: 0.025em;
   margin-bottom: -.2em;
   line-height: 1.3em;
+  font-family: 'Marcellus SC', serif;
 }
 .post-category{
   display: inline;
@@ -581,19 +584,14 @@ h1 {
 .annals-form{
     display: block;
     margin: auto;
-    /* height: 1em; */
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
-    /* background-position: center bottom; */
     margin: 0 auto;
     padding-top: 3.5em;
     /* margin-bottom: 21em; */
     max-width: 80em;
-    width: 85%;
-    background: #447E88; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #5eadbb , #447E88); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #5eadbb , #447E88);
-    border-radius: 5px;
+    /* width: 85%; */
+    background: #447E88;
+    background: -webkit-linear-gradient(to left, #5eadbb , #447E88);
+    background-color: lightgray;
 }
 .annals{
 
@@ -722,7 +720,7 @@ h1 {
   word-spacing: .125em;
   line-height: 2;
   margin-top: 2em;
-  background-color: ghostwhite;
+
 }
 
 

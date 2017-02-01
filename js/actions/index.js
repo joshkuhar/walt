@@ -1,4 +1,4 @@
-require('isomorphic-fetch');
+        require('isomorphic-fetch');
 
 var KIND_WORDS = 'KIND_WORDS';
 var kindWords = function(word) {

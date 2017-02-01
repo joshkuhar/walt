@@ -2,6 +2,7 @@ var React = require('react');
 var router = require('react-router');
 var Link = router.Link;
 var getCategory = require('../helpers').getCategory;
+var Fontawesome = require('react-fontawesome');
 
 var Post = function(props){
 	for (var index in props.posts){
@@ -23,3 +24,6 @@ var Post = function(props){
 };
 
 module.exports = Post;
+/*
+			<Fontawesome class="fa fa-angle-left" aria-hidden="true" />	
+*/

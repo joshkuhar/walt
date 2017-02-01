@@ -15,7 +15,7 @@ var PostContainer = React.createClass({
 	render: function(){
 		return (
 			<div className="post-wrapper">
-				<Post posts={this.props.posts} categories={this.props.categories} postId={this.props.params.postId} link="annals" linkName="back"/>
+				<Post posts={this.props.posts} categories={this.props.categories} postId={this.props.params.postId} link="annals" linkName="Back"/>
 			</div>
 			)
 	}

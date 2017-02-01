@@ -56,11 +56,11 @@ var Home = React.createClass({
 			  <article className="article-section">
 			  <div className="section-a">
 			   <h4 className="art-header">Be Heard</h4>
-				<div className="section-inside">State your opinions, write a funny story, share your best recipes, complain about the weather, this app will let you reach the world.</div>
+				<div className="section-inside">State your opinions, write a funny story, share your best recipes, complain about the weather, this app will let you reach the world. Yawp.</div>
 			  </div>
 			  <div className="section-b">
 			   <h4 className="art-header">Write Words</h4>
-			 	<div className="section-inside"><span className="walt">walt</span> is a blogging platform that let's you write, publish, and manage your own blogs. It uses MongoDB, Express, React, and Node.js</div>
+			 	<div className="section-inside"><span className="walt">walt</span> is a blogging platform that let's you write, publish, and manage your own blogs or Yawps. It uses MongoDB, Express, React, and Node.js</div>
 			  </div>
 			  </article>
 			</div>

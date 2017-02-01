@@ -747,7 +747,7 @@ h1 {
   font-size: 1em;
 }
 .dashboard-wrapper{
-  background-color: teal;
+  background-color: teal; 
   width: 100%;
   position: fixed;
 }

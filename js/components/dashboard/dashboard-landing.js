@@ -11,7 +11,7 @@ var DashboardLanding = React.createClass({
 		return (
 			  <div className="dashboard-landing">
 			    <div className="dashboard-greeting">
-			      Welcome to Yawp
+			      Welcome to Walt, a yawping platform.
 			      <div className="yawp-definition">
 			        yawp: <span className="yawp-defined">a raucous complaint, often longwinded, sometimes humourous, sometimes self-indulgent, mostly harmless</span>
 			      </div>

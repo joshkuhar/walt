@@ -804,12 +804,13 @@ h1 {
 }
 .yawp-definition {
   margin-top: 1em;
-  font-weight: 800;
-  font-size: .6em;
+  font-size: .8em;
+  font-weight: 500;
 }
 .yawp-defined {
-  font-size: .9em;
+  font-size: .7em;
   font-weight: 100;
+  color: ghostwhite;
 }
 .yawp-count {
   margin-top: 1em;

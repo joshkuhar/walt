@@ -21,18 +21,18 @@ var PostToEdit = React.createClass ({
     	this.props.dispatch(actions.changeContent(event.target.value));
 	},
   	handleSubmit: function(event) {
-    	event.preventDefault();
-  			if (this.props.title === "") {
-  				alert("Please enter a title for your yawp. It's currently empty");
-  				return
-  			}
-  			if (this.props.content === "") {
-  				alert("Please enter something into the yawp field. It's currently empty");
-  				return
-  			}
-    	var actionName = "yawp update";
-		this.props.dispatch(actions.updatePost(this.props.title, this.props.content, this.props.params.postId, this.props.token, actionName));	
-		hashHistory.push('/dashboard/action/success');
+    	event.preventDefault();	
+  // 			if (this.props.title === "") {
+  // 				alert("Please enter a title for your yawp. It's currently empty");
+  // 				return
+  // 			}
+  // 			if (this.props.content === "") {
+  // 				alert("Please enter something into the yawp field. It's currently empty");
+  // 				return
+  // 			}
+  //   	var actionName = "yawp update";
+		// this.props.dispatch(actions.updatePost(this.props.title, this.props.content, this.props.params.postId, this.props.token, actionName));	
+		// hashHistory.push('/dashboard/action/success');
     },
     handleDeleteClick: function(event) {
     	event.preventDefault();

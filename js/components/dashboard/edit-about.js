@@ -17,9 +17,9 @@ var AboutEdit = React.createClass ({
 	},
   	handleSubmit: function(event) {
     	event.preventDefault();
-    	var actionName = "update about you";
-    	this.props.dispatch(actions.updateAbout(this.props.aboutId, this.props.about, this.props.token, actionName));
-    	hashHistory.push('/dashboard/action/success');
+    	// var actionName = "update about you";
+    	// this.props.dispatch(actions.updateAbout(this.props.aboutId, this.props.about, this.props.token, actionName));
+    	// hashHistory.push('/dashboard/action/success');
 	},
   	onClick: function(event){
   		event.preventDefault();

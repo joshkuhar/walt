@@ -11,8 +11,8 @@ var hashHistory = router.hashHistory;
 var DeletePost = React.createClass({
 	handleDeleteClick: function(event){
 		event.preventDefault();
-		this.props.dispatch(actions.deletePost(this.props.params.postId, this.props.token));
-		hashHistory.push('/dashboard/edit');
+		// this.props.dispatch(actions.deletePost(this.props.params.postId, this.props.token));
+		// hashHistory.push('/dashboard/edit');
 	},
 	handleCancelClick: function(event){
 		event.preventDefault();

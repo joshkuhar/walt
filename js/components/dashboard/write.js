@@ -33,23 +33,23 @@ var PostContent = React.createClass ({
 	},
   	handleSubmit: function(event) {
   		event.preventDefault();
-  			if (this.props.category === "111"){
-  				alert("Please select a category. Currently, the selector bar is set to 'All'");
-  				return
-  			}
-  			if (this.props.title === "") {
-  				alert("Please enter a title for your yawp. It's currently empty");
-  				return
-  			}
-  			if (this.props.content === "") {
-  				alert("Please enter something into the yawp field. It's currently empty");
-  				return
-  			}
+ //  			if (this.props.category === "111"){
+ //  				alert("Please select a category. Currently, the selector bar is set to 'All'");
+ //  				return
+ //  			}
+ //  			if (this.props.title === "") {
+ //  				alert("Please enter a title for your yawp. It's currently empty");
+ //  				return
+ //  			}
+ //  			if (this.props.content === "") {
+ //  				alert("Please enter something into the yawp field. It's currently empty");
+ //  				return
+ //  			}
 
-  			//hashHistory.push('/dashboard/create/success');
-  		var actionName = "yawp";
-	    this.props.dispatch(actions.postContent(this.props.title, this.props.category, this.props.content, date.month, date.date, date.year, this.props.token, actionName));
-	    hashHistory.push('/dashboard/action/success');
+ //  			//hashHistory.push('/dashboard/create/success');
+ //  		var actionName = "yawp";
+	//     this.props.dispatch(actions.postContent(this.props.title, this.props.category, this.props.content, date.month, date.date, date.year, this.props.token, actionName));
+	//     hashHistory.push('/dashboard/action/success');
 	},
 	componentWillUnmount: function(){
 		this.props.dispatch(actions.setPostForm());

@@ -978,7 +978,6 @@ h1 {
   letter-spacing: 0.125em;
   font-size: 1em;
   float: right;
-  margin-right: -2em;
   border: none;
 }
 .delete-button:hover {
@@ -1633,6 +1632,9 @@ h1 {
     .dashboard-greeting{
       font-size: .75em;
     }
+    .delete-button {
+      width: 6.7em;
+    }
 
 
  
@@ -1643,7 +1645,7 @@ h1 {
     }
     .buttons-container {
       font-size: .8em;
-      width: 21.9em;
+      width: 21.1em;
     }
     .submit-button, .delete-button, .cancel-button {
       height: 2.5em;
@@ -1668,7 +1670,7 @@ h1 {
     }
     .buttons-container{
       font-size: .6em;
-      width: 23.2em;
+      width: 28.2em;
     }
     .submit-button, .delete-button, .cancel-button {
       height: 2.5em;

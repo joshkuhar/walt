@@ -5,7 +5,7 @@ var actions = require('../../actions/index');
 var store = require('../../store');
 var router = require('react-router');
 var hashHistory = router.hashHistory;
-var Link = router.Link;
+var Link = router.Link;``
 
 var PostToEdit = React.createClass ({
 	componentDidMount: function(){

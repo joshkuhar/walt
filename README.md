@@ -42,7 +42,7 @@ Front-End
 Back-End
 --------
 
-Currently, the create, edit, and delete buttons have been disabled. If you want to see the back end you can follow this link and log in with username = foo, and password = bar.
+Currently, the create, edit, and delete buttons have been disabled. To explore the back end follow this link <https://obscure-forest-12939.herokuapp.com/#/login> and log in with username = foo, and password = bar.
 
 Dashboard Landing
 -----------------

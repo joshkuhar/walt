@@ -46,19 +46,19 @@ Currently, the create, edit, and delete buttons have been disabled. If you want 
 
 Dashboard Landing
 -----------------
-### When the user logs in, they are directed to the landing page where they see how many "yawps" they posted.
+When the user logs in, they are directed to the landing page where they see how many "yawps" they posted.
 
 ![dashboard](/assets/d-landing.png "Dashboard Landing")
 
 Dashboard List of Yawps Displayed
 ---------------------------------
-### When the user clicks on "yawps" located in the navigation bar at the top, they are presented with a list of yawps. They can edit the yawp by clicking on the "edit yawp" button.
+When the user clicks on "yawps" located in the navigation bar at the top, they are presented with a list of yawps. They can edit the yawp by clicking on the "edit yawp" button.
 
 ![dashboard](/assets/d-list.png "Dashboard Yawp List")
 
 Dashboard Edit Yawp Page
 ------------------------
-### After the user clicks on the "edit yawp" button, they will be be taken to the "edit yawp" page.
+After the user clicks on the "edit yawp" button, they will be be taken to the "edit yawp" page.
 
 ![dashboard](/assets/d-edit.png "Dashboard Edit")
 

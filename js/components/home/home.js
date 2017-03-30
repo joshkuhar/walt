@@ -17,13 +17,21 @@ var Home = React.createClass({
 			<div className="home">
 			 <div className="picture-a">
 			 	<div className="banner-icon">walt</div>
-				<div className="banner-header"><span className="shallow"></span>yawping platform</div>
+				<div className="banner-header"><span className="shallow"></span>a yawping platform</div>
+				<div className="explain-text">"I sound my barbaric yawp over the rooftops of the world"</div>
+			  	<div className="explain-line"></div>
+			  	<div className="wit">- Walt Whitman<span className="whit"></span></div>
 			 </div>
-			 <section className="explain">
-			  <div className="explain-text">"I sound my barbaric yawp over the rooftops of the world"</div>
-			  <div className="explain-line"></div>
-			  <div className="wit">- Walt Whitman<span className="whit"></span></div>
-			 </section>
+			  <article className="article-section">
+			  <div className="section-a">
+			   <h4 className="art-header">Be Heard</h4>
+				<div className="section-inside">State your opinions, write a funny story, share your best recipes, complain about the weather, <span className="walt">walt</span> will let you reach the world.</div>
+			  </div>
+			  <div className="section-b">
+			   <h4 className="art-header">Write Words</h4>
+			 	<div className="section-inside"><span className="walt">walt</span> is a blogging platform that let's you write, publish, and manage your own blogs or Yawps. It uses MongoDB, Express, React, and Node.js</div>
+			  </div>
+			  </article>
 			  <section className="people">
 			   <div className="person-a person">
 			    <div className="image-wrapper">
@@ -53,16 +61,6 @@ var Home = React.createClass({
 			     </div>
 			   </div>
 			  </section>
-			  <article className="article-section">
-			  <div className="section-a">
-			   <h4 className="art-header">Be Heard</h4>
-				<div className="section-inside">State your opinions, write a funny story, share your best recipes, complain about the weather, this app will let you reach the world. Yawp.</div>
-			  </div>
-			  <div className="section-b">
-			   <h4 className="art-header">Write Words</h4>
-			 	<div className="section-inside"><span className="walt">walt</span> is a blogging platform that let's you write, publish, and manage your own blogs or Yawps. It uses MongoDB, Express, React, and Node.js</div>
-			  </div>
-			  </article>
 			</div>
 			)
 	}

@@ -207,14 +207,12 @@ h1 {
   text-align: center;
 }
 
-
-
 .picture-a{
     background-image: url("../assets/woods-night.jpg"); 
     margin: auto;
     display: block;
     margin: auto;
-    height: 20em;
+    height: 40em;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -225,14 +223,16 @@ h1 {
 }
 .banner-icon{
   color: white;
-  padding-top: 1.7em;
-  font-size: 3.8em;
+  padding-top: .8em;
+  font-size: 10em;
+  margin-bottom: -.25em;
   font-weight: 300;
   font-family: 'IM Fell English', serif;
 }
 .banner-header{
   color: white;
   color: white;
+  font-size: .9em;
   font-weight: 200;
   letter-spacing: .125em;
 }
@@ -240,19 +240,19 @@ h1 {
 .explain-text{
     font-weight: 300;
     letter-spacing: .1em;
-    padding-top: 3.5em;
-    font-size: 2.1em;
-    color: slategrey;
+    color: white;
+    padding-top: 5em;
+    font-size: 1.5em;
     max-width: 30em;
     margin: 0 auto;
     font-family: 'Caveat', cursive;
-    width: 10em;
+    width: 15em;
 }
 .explain-line{  
 }
 .wit{
   font-size: 1.1em;
-  color: slategrey;
+  color: white;
   margin-top: 1em;
   font-family: 'IM Fell English', serif;
   letter-spacing: .03em;

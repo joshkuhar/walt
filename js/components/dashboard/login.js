@@ -19,6 +19,14 @@ var Login = React.createClass({
 	},
 	onClick: function(event){
 		event.preventDefault();
+		if (this.refs.username.value == "") {
+			alert("Please enter a username");
+			return
+		}
+		if (this.refs.password.value == "") {
+			alert("Please enter a password");
+			return
+		}
 		var username = this.refs.username.value;
 		var password = this.refs.password.value;
 		this.props.dispatch(actions.getUser(username, password));
@@ -35,14 +43,16 @@ var Login = React.createClass({
 		return(
 			<div className="login-container">
 			  <h2>Login</h2>
-			  <div className="login">
-			    <input className="login-field" type="text" placeholder="username" ref="username"/>
-			    <input className="login-field" type="text" placeholder="password" ref="password"/>
-			    <button className="submit-button" onClick={this.onClick}>submit</button>
-			    <div className="login-message">
-				  
-			    </div>
-			  </div>
+			  	<form id="login-form">
+				  <div className="login">
+				    <input className="login-field" type="text" placeholder="username" ref="username"/>
+				    <input className="login-field" type="password" placeholder="password" ref="password"/>
+				    <button className="submit-button" form="login-form"onClick={this.onClick}>submit</button>
+				    <div className="temp-login-instructions">To login, use "foo" for the username and "bar" for the password.</div>
+				    <div className="login-message">
+				    </div>
+				  </div>
+				 </form> 
 			  <Footer />
 			</div>
 			)

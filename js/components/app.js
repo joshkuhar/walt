@@ -30,9 +30,9 @@ var App = React.createClass({
 					<h1>walt</h1>
 					<div className="home-nav-bar">
 						<div className="nav-bar-item-container"><Link to={"/"}><div className="nav-bar-item">Home</div></Link></div>
-						<div className="nav-bar-item-container"><Link to={"/today"}><div className="nav-bar-item">Latest</div></Link></div>
 						<div className="nav-bar-item-container"><Link to={"/annals"}><div className="nav-bar-item">Writings</div></Link></div>
 						<div className="nav-bar-item-container"><Link to={"/about"}><div className="nav-bar-item">About</div></Link></div>
+						<div className="nav-bar-item-container"><Link to={"/login"}><div className="nav-bar-item">Login</div></Link></div>
 					</div>
 				 </div>
 				</div>
@@ -56,6 +56,8 @@ module.exports= Container;
 
 
 /*
+
+<div className="nav-bar-item-container"><Link to={"/today"}><div className="nav-bar-item">Latest</div></Link></div>
 
 <img src="../abc/xyz/img/myimage.png" />
  

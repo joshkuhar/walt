@@ -64,7 +64,11 @@ h2{
   text-align: center;
   background-color: #A4C5D0;
 }
-
+.temp-login-instructions {
+    color: white;
+    margin: 1em auto;
+    width: 80%;
+}
 .app{
 
 }
@@ -119,7 +123,6 @@ h2{
   width: 100%;
   margin: 0 auto;
   height: 2em;
-  margin-top: .75em;
 }
 .top-navigation-picture{
   height: 1em;
@@ -130,6 +133,7 @@ h2{
   float: right;
   font-size: 1em;
   font-weight: 300;
+  margin-top: .75em;
   margin-right: 1em;
 }
 .nav-bar-item-container{
@@ -157,7 +161,8 @@ h2{
 }
 h1 {
     text-align: left;
-    display: inline;
+    display: inline-block;
+    margin-top: .325em;
     margin-left: 1em;
     font-size: 1.5em;
     color: white;
@@ -1496,7 +1501,10 @@ h1 {
       width: 4.5em;
     }
     .picture-a{
-      height: 17.5em;
+      height: 30em;
+    }
+    .banner-icon {
+      padding-top: .4em;
     }
     .explain-text{
       margin: 2em auto 0;

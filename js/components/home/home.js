@@ -17,7 +17,7 @@ var Home = React.createClass({
 			<div className="home">
 			 <div className="picture-a">
 			 	<div className="banner-icon">walt</div>
-				<div className="banner-header"><span className="shallow"></span>a yawping platform</div>
+				<div className="banner-header"><span className="shallow"></span>a  yawping platform</div>
 				<div className="explain-text">"I sound my barbaric yawp over the rooftops of the world"</div>
 			  	<div className="explain-line"></div>
 			  	<div className="wit">- Walt Whitman<span className="whit"></span></div>

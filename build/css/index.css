@@ -857,12 +857,20 @@ h1 {
 .edit-list-heading{
   text-align: center;
 }
-.edit-instructions{
+.welcome-header {
   font-size: 1.3em;
   text-align: center;
   font-weight: 100;
   letter-spacing: .05em;
   padding-top: 4em;
+  color: white;
+}
+.edit-instructions{
+  font-size: 1.3em;
+  text-align: center;
+  font-weight: 100;
+  letter-spacing: .05em;
+  padding-top: 1em;
   margin: 0 auto;
   margin-bottom: 3em;
   color: white;
@@ -1647,6 +1655,10 @@ h1 {
     }
     .dashboard-greeting{
       font-size: .75em;
+    }
+    .welcome-header {
+      font-size: 1em;
+      padding-top: 2em;
     }
     .delete-button {
       width: 6.7em;

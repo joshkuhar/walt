@@ -35,7 +35,10 @@ var DashboardNavBar  = React.createClass({
 			<div>
 				<div className="dashboard">
 				<div className="dashboard-wrapper">
-					<div onClick={this.handleSignOut}className="sign-out">Sign Out</div>
+				    <div className="username-signout">
+					  <div className="dashboard-username">{this.props.username}</div>	
+					  <div onClick={this.handleSignOut}className="sign-out">Sign Out</div>
+				    </div>
 					<div className="dashboard-top-navigator">
 						<Link to="/dashboard"><h2 className="dashboard-header">Dashboard</h2></Link>
 						<div className="dashboard-nav-bar">
@@ -61,7 +64,8 @@ var mapStateToProps = function(state, props) {
 	return {
 		success: state.success,
 		kindWords: state.kindWords,
-		key: state.key
+		key: state.key,
+		username: state.username
 	}
 }
 

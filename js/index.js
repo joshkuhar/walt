@@ -20,7 +20,7 @@ var About = require('./components/about/about-container');
 var Login = require('./components/dashboard/login');
 // var CreateUser = require('./components/dashboard/create-user');
 var DashboardNavigator = require('./components/dashboard-navigator');
-var DashboardLanding = require('./components/dashboard/dashboard-landing');
+// var DashboardLanding = require('./components/dashboard/dashboard-landing');
 var WriteBlog = require('./components/dashboard/write-container');
 //var Category = require('./components/dashboard/category-manager-container');
 var EditAbout = require('./components/dashboard/edit-about');
@@ -47,7 +47,8 @@ var Routes = (
 			</Route>
 			<Route path="/login" component={Login} />
 			<Route path="/dashboard" component={DashboardNavigator}>
-				<IndexRoute component={DashboardLanding} />	
+				{/*<IndexRoute component={DashboardLanding} />	*/}
+				<IndexRoute component={EditList} />
 				<Route path="edit"component={EditList} />
 				<Route path="edit/:postId" component={EditBlog} />
 				<Route path="remove/post/:postId" component={DeletePost} />

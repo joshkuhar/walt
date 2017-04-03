@@ -743,8 +743,17 @@ h1 {
 #438496
 #00B2B2
 */
+.username-signout {
+  text-align: right;
+}
+.dashboard-username {
+    display: inline-block;
+    color: white;
+    font-weight: 100;
+    margin-right: 1em;
+    font-size: 1.3em;
+}
 .sign-out{
-    text-align: right;
     cursor: pointer;
     margin-bottom: 1em;
     margin-top: 1em;
@@ -752,6 +761,7 @@ h1 {
     padding-right: 3.5em;
     color: white;
     font-weight: 100;
+    display: inline-block;
 }
 .dashboard{
   font-size: 1em;
@@ -804,9 +814,7 @@ h1 {
   font-weight: 100;
 
 }
-.dashboard-greeting {
 
-}
 .yawp-definition {
   margin-top: 1em;
   font-size: .8em;
